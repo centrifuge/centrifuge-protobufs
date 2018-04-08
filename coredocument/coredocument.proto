@@ -29,6 +29,7 @@ message CoreDocument {
     // Root
     bytes previous_root = 2;
     bytes data_merkle_root = 5;
+
     bytes document_root = 7;
 
     // Signatures
@@ -44,8 +45,8 @@ message CoreDocument {
     repeated CoreDocument previous_versions = 8;
 
     // Document a serialized document
-    google.protobuf.Any embedded_document = 13;
-    google.protobuf.Any embedded_document_salt = 14;
+    google.protobuf.Any embedded_data = 13;
+    google.protobuf.Any embedded_data_salts = 14;
 }
 
 // Signature contains the entity ID, public key used and signature)

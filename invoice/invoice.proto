@@ -22,7 +22,22 @@ message InvoiceData {
     google.protobuf.Timestamp date_created = 11;
 }
 
+message InvoiceDataSalts {
+    bytes country = 2;
+    bytes currency = 3;
+    bytes amount = 4;
+
+    bytes recipient = 5;
+    bytes sender = 6;
+    bytes payee = 7;
+
+    bytes comment = 8;
+    bytes due_date = 9;
+    bytes date_created = 11;
+}
+
 message InvoiceDocument {
     coredocument.CoreDocument core_document = 1;
     InvoiceData data = 2;
+    InvoiceDataSalts salts = 3;
 }
