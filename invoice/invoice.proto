@@ -1,0 +1,28 @@
+syntax = "proto3";
+package invoice;
+
+import "google/protobuf/timestamp.proto";
+import "centrifuge-protobufs/coredocument/coredocument.proto";
+
+option go_package = "github.com/CentrifugeInc/centrifuge-protobufs/invoice";
+
+
+// InvoiceData is the default invoice schema
+message InvoiceData {
+    string country = 2;
+    string currency = 3;
+    int64 amount = 4;
+
+    bytes recipient = 5;
+    bytes sender = 6;
+    bytes payee = 7;
+
+    string comment = 8;
+    google.protobuf.Timestamp due_date = 9;
+    google.protobuf.Timestamp date_created = 11;
+}
+
+message InvoiceDocument {
+    coredocument.CoreDocument core_document = 1;
+    InvoiceData data = 2;
+}
