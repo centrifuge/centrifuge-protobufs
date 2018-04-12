@@ -1,4 +1,4 @@
-package invoice
+package invoicepb
 
 const (
 	InvoiceDocumentTypeUrl = "http://github.com/centrifuge/centrifuge-protobufs/invoice/#invoice.InvoiceDocument"
