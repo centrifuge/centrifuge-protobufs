@@ -1,0 +1,16 @@
+language: go
+go:
+  - 1.9.x
+
+cache:
+    directories:
+      - ~/bin/
+      - ~/.cache/prototool/Linux/x86_64/protobuf/
+
+install:
+  - mkdir -p ~/bin
+  - curl -sSL https://github.com/uber/prototool/releases/download/v0.1.0/prototool-$(uname -s)-$(uname -m) > ~/bin/prototool && chmod +x ~/bin/prototool && ~/bin/prototool -h
+
+script:
+  - ~/bin/prototool lint
+  - ~/bin/prototool gen && git diff-index --quiet --cached HEAD --
