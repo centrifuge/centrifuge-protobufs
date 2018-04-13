@@ -14,6 +14,6 @@ install:
   - ./scripts/install_prototool.sh
 
 script:
-  - ~/bin/prototool lint
-  - ~/bin/prototool gen
+  - ~/bin/$PROTOTOOL_VERSION/prototool lint
+  - ~/bin/$PROTOTOOL_VERSION/prototool gen
   - echo "Checking that `prototool gen` doesn't result in a modified git tree" && git diff --exit-code
