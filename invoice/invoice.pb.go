@@ -18,7 +18,7 @@ import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import google_protobuf "github.com/golang/protobuf/ptypes/timestamp"
-import coredocument "github.com/CentrifugeInc/centrifuge-protopbufs/coredocument"
+import coredocument "github.com/CentrifugeInc/centrifuge-protobufs/coredocument"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal

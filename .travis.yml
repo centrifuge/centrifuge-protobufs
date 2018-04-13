@@ -14,4 +14,4 @@ install:
 
 script:
   - ~/bin/prototool lint
-  - echo "Checking that `prototool gen` doesn't result in a modified git tree" && ~/bin/prototool gen && git diff-index --quiet --cached HEAD --
+  - echo "Checking that `prototool gen` doesn't result in a modified git tree" && ~/bin/prototool gen && git diff --exit-code
