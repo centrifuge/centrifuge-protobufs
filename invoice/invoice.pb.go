@@ -13,7 +13,7 @@ It has these top-level messages:
 	InvoiceDocument
 */
 package invoicepb
-
+// XXXXX
 import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"

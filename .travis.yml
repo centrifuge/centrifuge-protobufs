@@ -15,4 +15,4 @@ install:
 script:
   - ~/bin/prototool lint
   - ~/bin/prototool gen
-  - git diff --exit-code
+  - echo "Checking that `prototool gen` doesn't result in a modified git tree" && git diff --exit-code
