@@ -1,0 +1,19 @@
+language: go
+go:
+  - 1.9.x
+env:
+  - PROTOTOOL_VERSION=0.1.0
+cache:
+    directories:
+      - ~/bin/
+      - ~/.cache/prototool/Linux/x86_64/protobuf/
+
+install:
+  - mkdir -p ~/bin
+  - go get -u github.com/golang/protobuf/protoc-gen-go
+  - PROTOTOOL_VERSION=$PROTOTOOL_VERSION ./scripts/install_prototool.sh
+
+script:
+  - ~/bin/$PROTOTOOL_VERSION/prototool lint
+  - ~/bin/$PROTOTOOL_VERSION/prototool gen
+  - echo "Checking that `prototool gen` doesn't result in a modified git tree" && git diff --exit-code
