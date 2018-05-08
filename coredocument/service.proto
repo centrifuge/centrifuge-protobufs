@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+import "coredocument/coredocument.proto";
+
+package coredocument;
+
+option go_package = "coredocumentpb";
+
+// P2PMessage wraps a single CoreDocument to be transferred to another noed
+message P2PMessage {
+  CoreDocument document = 1;
+}
+
+message P2PReply {
+  CoreDocument document = 1;
+}
+
+service P2PService {
+  rpc Post(P2PMessage) returns (P2PReply) {}
+}
