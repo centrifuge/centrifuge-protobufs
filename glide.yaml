@@ -9,7 +9,7 @@ import:
   - protoc-gen-go
 - package: github.com/grpc-ecosystem/grpc-gateway
   repo: git@github.com:grpc-ecosystem/grpc-gateway
-  version: master
+  version: a53af079f669b6375dd96cdf5e98e67f886a8b4d  
   subpackages:
   - protoc-gen-grpc-gateway
   - protoc-gen-swagger

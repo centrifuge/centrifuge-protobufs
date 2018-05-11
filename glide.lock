@@ -1,5 +1,5 @@
-hash: 67a96c9cd24703e9c6fbe0be055f7171ae1ffa4fa525d0a8fcd4c583b28832b2
-updated: 2018-05-11T10:11:26.20449-04:00
+hash: 8414d8baa22fd040ae75abe6e4d2d8ac414bf7665e527cdb236ca4051b633090
+updated: 2018-05-11T10:39:33.024467-04:00
 imports:
 - name: github.com/golang/glog
   version: 23def4e6c14b4da8ac2ed8007337bc5eb5007998
@@ -17,7 +17,8 @@ imports:
   - ptypes/struct
   - ptypes/timestamp
 - name: github.com/grpc-ecosystem/grpc-gateway
-  version: 07f5e79768022f9a3265235f0db4ac8c3f675fec
+  version: a53af079f669b6375dd96cdf5e98e67f886a8b4d
+  repo: git@github.com:grpc-ecosystem/grpc-gateway
   subpackages:
   - protoc-gen-grpc-gateway
   - protoc-gen-swagger
