@@ -7,9 +7,14 @@ cache:
     directories:
       - ~/bin/
       - ~/.cache/prototool/Linux/x86_64/protobuf/
-
+      # Cache the glide binary
+      - ~/glide/
+      # Glide's own cache
+      - ~/.glide
 install:
   - mkdir -p ~/bin
+  - scripts/install-dependencies.sh
+  - glide install
   - go get -u github.com/golang/protobuf/protoc-gen-go
   - PROTOTOOL_VERSION=$PROTOTOOL_VERSION ./scripts/install_prototool.sh
 
