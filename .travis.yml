@@ -15,7 +15,10 @@ install:
   - mkdir -p ~/bin
   - scripts/install_glide.sh
   - glide install
-  - go get -u github.com/golang/protobuf/protoc-gen-go
+  - go install github.com/CentrifugeInc/centrifuge-protobufs/vendor/github.com/roboll/go-vendorinstall
+  - go-vendorinstall  github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway
+  - go-vendorinstall github.com/golang/protobuf/protoc-gen-go
+  - go-vendorinstall github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger
   - PROTOTOOL_VERSION=$PROTOTOOL_VERSION ./scripts/install_prototool.sh
 
 script:
