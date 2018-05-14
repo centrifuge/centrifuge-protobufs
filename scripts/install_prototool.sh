@@ -1,6 +1,5 @@
 #!/usr/bin/env sh
 
-#PROTOTOOL_VERSION=0.1.0
 PROTOTOOL_BIN=~/bin/$PROTOTOOL_VERSION
 mkdir -p ~/bin/$PROTOTOOL_VERSION/
 
