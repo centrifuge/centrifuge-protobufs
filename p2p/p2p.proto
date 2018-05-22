@@ -9,7 +9,9 @@ option go_package = "p2ppb";
 // P2PMessage wraps a single CoreDocument to be transferred to another noed
 message P2PMessage {
   uint32 network_identifier = 1;
-  uint32 version = 2;
+  // cent_node_version is a 9-digit concatenated semver version of the node client. 
+  // MMMmmmppp -> MMM.mmm.ppp (Major.Minor.Patch)
+  uint32 cent_node_version = 2;
   // Open questions in the P2PMessage
   // - should we include the document schema so the client can refuse it right away?
   // - how do you determine if the node is the right recipient for the current
@@ -20,7 +22,7 @@ message P2PMessage {
 }
 
 message P2PReply {
-  uint32 version = 1;
+  uint32 cent_node_version = 1;
   coredocument.CoreDocument document = 3;
 }
 
