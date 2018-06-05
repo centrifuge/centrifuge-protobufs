@@ -29,6 +29,19 @@ var _ status.Status
 var _ = runtime.String
 var _ = utilities.NewDoubleArray
 
+func request_InvoiceDocumentService_AnchorInvoiceDocument_0(ctx context.Context, marshaler runtime.Marshaler, client InvoiceDocumentServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq AnchorInvoiceEnvelope
+	var metadata runtime.ServerMetadata
+
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+
+	msg, err := client.AnchorInvoiceDocument(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	return msg, metadata, err
+
+}
+
 func request_InvoiceDocumentService_SendInvoiceDocument_0(ctx context.Context, marshaler runtime.Marshaler, client InvoiceDocumentServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq SendInvoiceEnvelope
 	var metadata runtime.ServerMetadata
@@ -115,6 +128,35 @@ func RegisterInvoiceDocumentServiceHandler(ctx context.Context, mux *runtime.Ser
 // doesn't go through the normal gRPC flow (creating a gRPC client etc.) then it will be up to the passed in
 // "InvoiceDocumentServiceClient" to call the correct interceptors.
 func RegisterInvoiceDocumentServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux, client InvoiceDocumentServiceClient) error {
+
+	mux.Handle("POST", pattern_InvoiceDocumentService_AnchorInvoiceDocument_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		if cn, ok := w.(http.CloseNotifier); ok {
+			go func(done <-chan struct{}, closed <-chan bool) {
+				select {
+				case <-done:
+				case <-closed:
+					cancel()
+				}
+			}(ctx.Done(), cn.CloseNotify())
+		}
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		rctx, err := runtime.AnnotateContext(ctx, mux, req)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := request_InvoiceDocumentService_AnchorInvoiceDocument_0(rctx, inboundMarshaler, client, req, pathParams)
+		ctx = runtime.NewServerMetadataContext(ctx, md)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_InvoiceDocumentService_AnchorInvoiceDocument_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+
+	})
 
 	mux.Handle("POST", pattern_InvoiceDocumentService_SendInvoiceDocument_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
@@ -207,6 +249,8 @@ func RegisterInvoiceDocumentServiceHandlerClient(ctx context.Context, mux *runti
 }
 
 var (
+	pattern_InvoiceDocumentService_AnchorInvoiceDocument_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"invoice", "anchor"}, ""))
+
 	pattern_InvoiceDocumentService_SendInvoiceDocument_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"invoice", "send"}, ""))
 
 	pattern_InvoiceDocumentService_GetInvoiceDocument_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"invoice", "get", "document_identifier"}, ""))
@@ -215,6 +259,8 @@ var (
 )
 
 var (
+	forward_InvoiceDocumentService_AnchorInvoiceDocument_0 = runtime.ForwardResponseMessage
+
 	forward_InvoiceDocumentService_SendInvoiceDocument_0 = runtime.ForwardResponseMessage
 
 	forward_InvoiceDocumentService_GetInvoiceDocument_0 = runtime.ForwardResponseMessage

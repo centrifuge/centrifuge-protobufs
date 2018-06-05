@@ -11,6 +11,12 @@ package invoice;
 option go_package = "invoicepb";
 
 service InvoiceDocumentService {
+  rpc AnchorInvoiceDocument(AnchorInvoiceEnvelope) returns (InvoiceDocument) {
+    option (google.api.http) = {
+      post: "/invoice/anchor"
+      body: "*"
+    };
+  }
   rpc SendInvoiceDocument(SendInvoiceEnvelope) returns (InvoiceDocument) {
     option (google.api.http) = {
       post: "/invoice/send"
@@ -23,6 +29,10 @@ service InvoiceDocumentService {
   rpc GetReceivedInvoiceDocuments(google.protobuf.Empty) returns (ReceivedInvoices) {
     option (google.api.http) = { get: "/invoice/getReceived" };
   }
+}
+
+message AnchorInvoiceEnvelope {
+  InvoiceDocument document = 1;
 }
 
 message SendInvoiceEnvelope {
