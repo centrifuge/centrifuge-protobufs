@@ -10,13 +10,16 @@ package invoice;
 
 option go_package = "invoicepb";
 
+// InvoiceDocumentService contains all common interactions for invoice documents
 service InvoiceDocumentService {
+  // AnchorInvoiceDocument anchors an invoice without sending it to any peers
   rpc AnchorInvoiceDocument(AnchorInvoiceEnvelope) returns (InvoiceDocument) {
     option (google.api.http) = {
       post: "/invoice/anchor"
       body: "*"
     };
   }
+  // SendInvoiceDocument sends an invoice to a specified recipient
   rpc SendInvoiceDocument(SendInvoiceEnvelope) returns (InvoiceDocument) {
     option (google.api.http) = {
       post: "/invoice/send"
@@ -24,10 +27,14 @@ service InvoiceDocumentService {
     };
   }
   rpc GetInvoiceDocument(GetInvoiceDocumentEnvelope) returns (InvoiceDocument) {
-    option (google.api.http) = { get: "/invoice/get/{document_identifier}" };
+    option (google.api.http) = {
+      get: "/invoice/get/{document_identifier}"
+    };
   }
   rpc GetReceivedInvoiceDocuments(google.protobuf.Empty) returns (ReceivedInvoices) {
-    option (google.api.http) = { get: "/invoice/getReceived" };
+    option (google.api.http) = {
+      get: "/invoice/getReceived"
+    };
   }
 }
 

@@ -15,14 +15,15 @@ install:
   - mkdir -p ~/bin
   - scripts/install_glide.sh
   - glide install
-  - go get github.com/roboll/go-vendorinstall
   - go install github.com/CentrifugeInc/centrifuge-protobufs/vendor/github.com/roboll/go-vendorinstall
-  - go-vendorinstall  github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway
+  - go-vendorinstall github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway
   - go-vendorinstall github.com/golang/protobuf/protoc-gen-go
   - go-vendorinstall github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger
   - PROTOTOOL_VERSION=$PROTOTOOL_VERSION ./scripts/install_prototool.sh
+  - npm install
 
 script:
   - ~/bin/$PROTOTOOL_VERSION/prototool lint
   - ~/bin/$PROTOTOOL_VERSION/prototool gen
-  - echo "Checking that `prototool gen` doesn't result in a modified git tree" && git diff --exit-code
+  - npm run build_swagger
+  - echo "Checking that `prototool gen` doesn't result in a modified git tree" && git diff --exit-code gen/

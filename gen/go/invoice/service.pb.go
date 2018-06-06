@@ -7,7 +7,7 @@ import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import empty "github.com/golang/protobuf/ptypes/empty"
-import _ "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger/options"
+import _ "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger/options/annotations.proto"
 import _ "google.golang.org/genproto/googleapis/api/annotations"
 
 import (
@@ -37,7 +37,7 @@ func (m *AnchorInvoiceEnvelope) Reset()         { *m = AnchorInvoiceEnvelope{} }
 func (m *AnchorInvoiceEnvelope) String() string { return proto.CompactTextString(m) }
 func (*AnchorInvoiceEnvelope) ProtoMessage()    {}
 func (*AnchorInvoiceEnvelope) Descriptor() ([]byte, []int) {
-	return fileDescriptor_service_d42bb3353c81dc2c, []int{0}
+	return fileDescriptor_service_201f2b64cd230388, []int{0}
 }
 func (m *AnchorInvoiceEnvelope) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_AnchorInvoiceEnvelope.Unmarshal(m, b)
@@ -77,7 +77,7 @@ func (m *SendInvoiceEnvelope) Reset()         { *m = SendInvoiceEnvelope{} }
 func (m *SendInvoiceEnvelope) String() string { return proto.CompactTextString(m) }
 func (*SendInvoiceEnvelope) ProtoMessage()    {}
 func (*SendInvoiceEnvelope) Descriptor() ([]byte, []int) {
-	return fileDescriptor_service_d42bb3353c81dc2c, []int{1}
+	return fileDescriptor_service_201f2b64cd230388, []int{1}
 }
 func (m *SendInvoiceEnvelope) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_SendInvoiceEnvelope.Unmarshal(m, b)
@@ -122,7 +122,7 @@ func (m *GetInvoiceDocumentEnvelope) Reset()         { *m = GetInvoiceDocumentEn
 func (m *GetInvoiceDocumentEnvelope) String() string { return proto.CompactTextString(m) }
 func (*GetInvoiceDocumentEnvelope) ProtoMessage()    {}
 func (*GetInvoiceDocumentEnvelope) Descriptor() ([]byte, []int) {
-	return fileDescriptor_service_d42bb3353c81dc2c, []int{2}
+	return fileDescriptor_service_201f2b64cd230388, []int{2}
 }
 func (m *GetInvoiceDocumentEnvelope) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_GetInvoiceDocumentEnvelope.Unmarshal(m, b)
@@ -160,7 +160,7 @@ func (m *ReceivedInvoices) Reset()         { *m = ReceivedInvoices{} }
 func (m *ReceivedInvoices) String() string { return proto.CompactTextString(m) }
 func (*ReceivedInvoices) ProtoMessage()    {}
 func (*ReceivedInvoices) Descriptor() ([]byte, []int) {
-	return fileDescriptor_service_d42bb3353c81dc2c, []int{3}
+	return fileDescriptor_service_201f2b64cd230388, []int{3}
 }
 func (m *ReceivedInvoices) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ReceivedInvoices.Unmarshal(m, b)
@@ -205,7 +205,9 @@ const _ = grpc.SupportPackageIsVersion4
 // Client API for InvoiceDocumentService service
 
 type InvoiceDocumentServiceClient interface {
+	// AnchorInvoiceDocument anchors an invoice without sending it to any peers
 	AnchorInvoiceDocument(ctx context.Context, in *AnchorInvoiceEnvelope, opts ...grpc.CallOption) (*InvoiceDocument, error)
+	// SendInvoiceDocument sends an invoice to a specified recipient
 	SendInvoiceDocument(ctx context.Context, in *SendInvoiceEnvelope, opts ...grpc.CallOption) (*InvoiceDocument, error)
 	GetInvoiceDocument(ctx context.Context, in *GetInvoiceDocumentEnvelope, opts ...grpc.CallOption) (*InvoiceDocument, error)
 	GetReceivedInvoiceDocuments(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*ReceivedInvoices, error)
@@ -258,7 +260,9 @@ func (c *invoiceDocumentServiceClient) GetReceivedInvoiceDocuments(ctx context.C
 // Server API for InvoiceDocumentService service
 
 type InvoiceDocumentServiceServer interface {
+	// AnchorInvoiceDocument anchors an invoice without sending it to any peers
 	AnchorInvoiceDocument(context.Context, *AnchorInvoiceEnvelope) (*InvoiceDocument, error)
+	// SendInvoiceDocument sends an invoice to a specified recipient
 	SendInvoiceDocument(context.Context, *SendInvoiceEnvelope) (*InvoiceDocument, error)
 	GetInvoiceDocument(context.Context, *GetInvoiceDocumentEnvelope) (*InvoiceDocument, error)
 	GetReceivedInvoiceDocuments(context.Context, *empty.Empty) (*ReceivedInvoices, error)
@@ -365,9 +369,9 @@ var _InvoiceDocumentService_serviceDesc = grpc.ServiceDesc{
 	Metadata: "invoice/service.proto",
 }
 
-func init() { proto.RegisterFile("invoice/service.proto", fileDescriptor_service_d42bb3353c81dc2c) }
+func init() { proto.RegisterFile("invoice/service.proto", fileDescriptor_service_201f2b64cd230388) }
 
-var fileDescriptor_service_d42bb3353c81dc2c = []byte{
+var fileDescriptor_service_201f2b64cd230388 = []byte{
 	// 419 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x8c, 0x93, 0xcd, 0xaa, 0xd3, 0x40,
 	0x1c, 0xc5, 0x89, 0x05, 0x3f, 0xa6, 0x15, 0x65, 0xfa, 0x41, 0x4c, 0x4b, 0x29, 0xa3, 0x8b, 0x52,
