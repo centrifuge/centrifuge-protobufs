@@ -10,7 +10,6 @@ package invoice;
 
 option go_package = "invoicepb";
 option (grpc.gateway.protoc_gen_swagger.options.openapiv2_swagger) = {
-  host: "localhost:8082"
   info: {
     title: "Centrifuge OS Client API"
     version: "0.0.1"
