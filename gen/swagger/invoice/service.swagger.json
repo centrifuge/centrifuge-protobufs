@@ -1,15 +1,11 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Centrifuge OS Client API",
-    "version": "0.0.1",
-    "contact": {
-      "name": "Centrifuge",
-      "url": "https://github.com/CentrifugeInc",
-      "email": "hello@centrifuge.one"
-    }
+    "title": "invoice/service.proto",
+    "version": "version not set"
   },
   "schemes": [
+    "http",
     "https"
   ],
   "consumes": [
@@ -21,6 +17,7 @@
   "paths": {
     "/invoice/anchor": {
       "post": {
+        "summary": "AnchorInvoiceDocument anchors an invoice without sending it to any peers",
         "operationId": "AnchorInvoiceDocument",
         "responses": {
           "200": {
@@ -88,6 +85,7 @@
     },
     "/invoice/send": {
       "post": {
+        "summary": "SendInvoiceDocument sends an invoice to a specified recipient",
         "operationId": "SendInvoiceDocument",
         "responses": {
           "200": {

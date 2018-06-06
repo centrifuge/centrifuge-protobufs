@@ -7,15 +7,19 @@ const exec = util.promisify(require('child_process').exec);
 const swaggerFilesPath = path.resolve(__dirname, '../gen/swagger')
 const swaggerJsonPath = path.resolve(__dirname, '../gen/swagger.json')
 const swaggerHtmlPath = path.resolve(__dirname, '../gen/swagger/html')
-const info = {
-    version: "0.0.1",
-    title: "Centrifuge OS Node API",
-    description: "\n"
-}
-const schemes = ['https']
-const host = "localhost"
+const swaggerConfig = require(path.resolve(__dirname, '../swagger_config'));
 const pathPrefix = ""
+/* # build_swagger.js
+ *
+ * This script recursively searches the swaggerFilesPath for any file ending in .swagger.json
+ * loading all matching files and merging them into one for easier portability. In the second
+ * step it then creates an html version of the documentation using spectacles.
+ *
+ * The defaults are defined in ../swagger_config.js
+ */
 
+
+// Find matching swagger files in path
 // From: https://gist.github.com/kethinov/6658166
 var getSwaggerFiles = function(dir, filelist) {
     var files = fs.readdirSync(dir);
@@ -33,8 +37,9 @@ var getSwaggerFiles = function(dir, filelist) {
     return filelist;
 };
 
-var files = getSwaggerFiles(swaggerFilesPath);
-swaggerModules = []
+var files = getSwaggerFiles(swaggerFilesPath)
+// There is a default swagger definition in swaggerConfig.defaultSwagger which we add first
+swaggerModules = [swaggerConfig.defaultSwagger,]
 files.forEach(function (f) {
     swaggerModules.push(require(f))
 })
@@ -47,12 +52,12 @@ swaggermerge.on('err', function (msg) {
     process.exit(1)
 })
 
-var merged = swaggermerge.merge(swaggerModules, info, pathPrefix, host, schemes)
+var merged = swaggermerge.merge(swaggerModules, swaggerConfig.info, swaggerConfig.pathPrefix, swaggerConfig.host, swaggerConfig.schemes)
 var json = JSON.stringify(merged);
 console.log("Merged swagger.json, writing to:", swaggerJsonPath);
 fs.writeFileSync(swaggerJsonPath, json);
 
-var spectacles = exec('spectacle gen/swagger.json -t '+swaggerHtmlPath).then(function (msg) {
+var spectacles = exec('spectacle '+swaggerJsonPath+' -t '+swaggerHtmlPath).then(function (msg) {
     console.log(msg['stdout'])
     console.log("Wrote html files to: ", swaggerHtmlPath)
     process.exit(0)
