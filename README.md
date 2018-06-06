@@ -17,6 +17,8 @@ PATH=$PATH:$GOPATH/bin
 go-vendorinstall github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway
 go-vendorinstall github.com/golang/protobuf/protoc-gen-go
 go-vendorinstall github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger
+
+npm install
 ```
 
 
@@ -47,14 +49,9 @@ prototool compile
 
 # To build the go stubs:
 prototool gen
+
+# To build the swagger html docs
+npm run build_swagger
+
 ```
 
-### Swagger
-
-https://gist.github.com/cobyism/4730490
-```
-rm gen/swagger.json
-find -f gen/swagger | grep swagger.json |  sed 's/^\(.*\)$/swagger-merger -i \1 -o gen\/swagger\.json/' | xargs -0 bash -c
-cp gen/swagger.json swagger/
-spectacle gen/swagger.json -t gen/swagger/html/
-```
