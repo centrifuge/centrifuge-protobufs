@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/CentrifugeInc/centrifuge-protobufs#readme",
   "devDependencies": {
+    "spectacle-docs": "^1.0.3",
     "swagger-merge": "^0.3.3"
   }
 }
