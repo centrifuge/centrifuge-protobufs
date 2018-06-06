@@ -24,7 +24,7 @@
                 <a href="#path--invoice-anchor">/invoice/anchor</a>
                 <ul> -->
           <!-- <li> -->
-          <a href="#operation--invoice-anchor-post"> AnchorInvoiceDocument anchors an invoice without sending it to any peers </a>
+          <a href="#operation--invoice-anchor-post"> POST /invoice/anchor </a>
           <!-- </li> -->
           <!-- </ul>
               </section> -->
@@ -48,7 +48,7 @@
                 <a href="#path--invoice-send">/invoice/send</a>
                 <ul> -->
           <!-- <li> -->
-          <a href="#operation--invoice-send-post"> SendInvoiceDocument sends an invoice to a specified recipient </a>
+          <a href="#operation--invoice-send-post"> POST /invoice/send </a>
           <!-- </li> -->
           <!-- </ul>
               </section> -->
@@ -116,13 +116,15 @@
             <!-- </div> -->
             <!-- </section> -->
             <h2 class="operation-title">
-              <span class="operation-summary">AnchorInvoiceDocument anchors an invoice without sending it to any peers</span>
+              <span class="operation-name">
+                <span class="operation-name">POST</span>
+                <span class="operation-path">/invoice/anchor</span>
+              </span>
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
-                <section class="swagger-operation-path">
-                  <span class="operation-method">POST</span>
-                  <span class="operation-path">/invoice/anchor</span>
+                <section class="swagger-operation-description">
+                  <p>Anchor an invoice document</p>
                 </section>
               </div>
             </div>
@@ -777,13 +779,15 @@
             <!-- </div> -->
             <!-- </section> -->
             <h2 class="operation-title">
-              <span class="operation-summary">SendInvoiceDocument sends an invoice to a specified recipient</span>
+              <span class="operation-name">
+                <span class="operation-name">POST</span>
+                <span class="operation-path">/invoice/send</span>
+              </span>
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
-                <section class="swagger-operation-path">
-                  <span class="operation-method">POST</span>
-                  <span class="operation-path">/invoice/send</span>
+                <section class="swagger-operation-description">
+                  <p>Send an invoice document to the specified party</p>
                 </section>
               </div>
             </div>
@@ -1269,6 +1273,13 @@
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
+                <section class="json-schema-description">
+                  <ul>
+                    <li>Merkle Roots for the document data</li>
+                    <li>Signatures on document data</li>
+                    <li>Access Control</li>
+                  </ul>
+                </section>
                 <section class="json-schema-properties">
                   <dl>
                     <dt data-property-name="document_identifier" class="has-description">
@@ -1278,8 +1289,8 @@
                       <span class="json-property-range" title="Value limits"></span>
                     </dt>
                     <dd>
-                      <h2 id="identifier">Identifier</h2>
                       <p>This is for convenience: the first identifier that was ever used to refer to a document is kept here. Internally the centrifuge node indexes &amp; bundles documents by original identifier.</p>
+                      <p>32 byte value</p>
                     </dd>
                     <dt data-property-name="current_identifier" class="has-description">
                       <span class="json-property-name">current_identifier:</span>
@@ -1289,6 +1300,7 @@
                     </dt>
                     <dd>
                       <p>The current identifier is the location of the current anchor on chain and is used to refer to the current state.</p>
+                      <p>32 byte value</p>
                     </dd>
                     <dt data-property-name="next_identifier" class="has-description">
                       <span class="json-property-name">next_identifier:</span>
@@ -1589,12 +1601,15 @@
               <div class="doc-copy">
                 <section class="json-schema-properties">
                   <dl>
-                    <dt data-property-name="entity_id">
+                    <dt data-property-name="entity_id" class="has-description">
                       <span class="json-property-name">entity_id:</span>
                       <span class="json-property-type">string</span>
                       <span class="json-property-format">(byte)</span>
                       <span class="json-property-range" title="Value limits"></span>
                     </dt>
+                    <dd>
+                      <p><code>entity_id</code> is the CentrifugeID of the entity signing the document.</p>
+                    </dd>
                     <dt data-property-name="public_key">
                       <span class="json-property-name">public_key:</span>
                       <span class="json-property-type">string</span>

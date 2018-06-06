@@ -12,18 +12,22 @@ option go_package = "invoicepb";
 
 // InvoiceDocumentService contains all common interactions for invoice documents
 service InvoiceDocumentService {
-  // AnchorInvoiceDocument anchors an invoice without sending it to any peers
   rpc AnchorInvoiceDocument(AnchorInvoiceEnvelope) returns (InvoiceDocument) {
     option (google.api.http) = {
       post: "/invoice/anchor"
       body: "*"
     };
+    option (grpc.gateway.protoc_gen_swagger.options.openapiv2_operation) = {
+      description: "Anchor an invoice document"
+    };
   }
-  // SendInvoiceDocument sends an invoice to a specified recipient
   rpc SendInvoiceDocument(SendInvoiceEnvelope) returns (InvoiceDocument) {
     option (google.api.http) = {
       post: "/invoice/send"
       body: "*"
+    };
+    option (grpc.gateway.protoc_gen_swagger.options.openapiv2_operation) = {
+      description: "Send an invoice document to the specified party"
     };
   }
   rpc GetInvoiceDocument(GetInvoiceDocumentEnvelope) returns (InvoiceDocument) {

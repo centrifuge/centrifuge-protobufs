@@ -17,7 +17,7 @@
   "paths": {
     "/invoice/anchor": {
       "post": {
-        "summary": "AnchorInvoiceDocument anchors an invoice without sending it to any peers",
+        "description": "Anchor an invoice document",
         "operationId": "AnchorInvoiceDocument",
         "responses": {
           "200": {
@@ -85,7 +85,7 @@
     },
     "/invoice/send": {
       "post": {
-        "summary": "SendInvoiceDocument sends an invoice to a specified recipient",
+        "description": "Send an invoice document to the specified party",
         "operationId": "SendInvoiceDocument",
         "responses": {
           "200": {
@@ -171,12 +171,12 @@
         "document_identifier": {
           "type": "string",
           "format": "byte",
-          "description": "Identifier\n----------\nThis is for convenience: the first identifier that was ever used to refer to a \ndocument is kept here. Internally the centrifuge node indexes \u0026 bundles documents \nby original identifier."
+          "description": "This is for convenience: the first identifier that was ever used to refer to a \ndocument is kept here. Internally the centrifuge node indexes \u0026 bundles documents \nby original identifier.\n\n32 byte value"
         },
         "current_identifier": {
           "type": "string",
           "format": "byte",
-          "description": "The current identifier is the location of the current anchor on chain and is used to \nrefer to the current state."
+          "description": "The current identifier is the location of the current anchor on chain and is used to \nrefer to the current state.\n\n32 byte value"
         },
         "next_identifier": {
           "type": "string",
@@ -232,7 +232,8 @@
           "$ref": "#/definitions/protobufAny"
         }
       },
-      "title": "CoreDocument is a document that can be sent to different nodes and anchored on chain"
+      "description": "* Merkle Roots for the document data\n* Signatures on document data\n* Access Control",
+      "title": "`CoreDocument` is a document that can be sent to different nodes and anchored \non chain. It handles all the generic features native Centrifuge Documents support:"
     },
     "coredocumentFieldAccess": {
       "type": "object",
@@ -248,11 +249,13 @@
       "properties": {
         "entity_id": {
           "type": "string",
-          "format": "byte"
+          "format": "byte",
+          "description": "`entity_id` is the CentrifugeID of the entity signing the document."
         },
         "public_key": {
           "type": "string",
-          "format": "byte"
+          "format": "byte",
+          "title": "`public_key` is the public key of the `entity` used for signing the `CoreDocument`"
         },
         "signature": {
           "type": "string",

@@ -7,20 +7,23 @@ package coredocument;
 
 option go_package = "coredocumentpb";
 
-// CoreDocument
-// P2P Document(Core + Schema + Doc)
-// Centrifuge Document (Core + Schema + Doc)
-
-// CoreDocument is a document that can be sent to different nodes and anchored on chain
+// `CoreDocument` is a document that can be sent to different nodes and anchored 
+// on chain. It handles all the generic features native Centrifuge Documents support:
+// 
+// * Merkle Roots for the document data
+// * Signatures on document data
+// * Access Control
 message CoreDocument {
-  // Identifier
-  // ----------
   // This is for convenience: the first identifier that was ever used to refer to a 
   // document is kept here. Internally the centrifuge node indexes & bundles documents 
   // by original identifier.
+  // 
+  // 32 byte value
   bytes document_identifier = 9;
   // The current identifier is the location of the current anchor on chain and is used to 
   // refer to the current state.
+  // 
+  // 32 byte value
   bytes current_identifier = 3;
   // When creating the next version this should be used.
   bytes next_identifier = 4;
@@ -44,7 +47,9 @@ message CoreDocument {
 
 // Signature contains the entity ID, public key used and signature)
 message Signature {
+  // `entity_id` is the CentrifugeID of the entity signing the document.
   bytes entity_id = 1;
+  // `public_key` is the public key of the `entity` used for signing the `CoreDocument`
   bytes public_key = 2;
   bytes signature = 3;
 }

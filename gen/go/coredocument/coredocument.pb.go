@@ -20,16 +20,23 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
-// CoreDocument is a document that can be sent to different nodes and anchored on chain
+// `CoreDocument` is a document that can be sent to different nodes and anchored
+// on chain. It handles all the generic features native Centrifuge Documents support:
+//
+// * Merkle Roots for the document data
+// * Signatures on document data
+// * Access Control
 type CoreDocument struct {
-	// Identifier
-	// ----------
 	// This is for convenience: the first identifier that was ever used to refer to a
 	// document is kept here. Internally the centrifuge node indexes & bundles documents
 	// by original identifier.
+	//
+	// 32 byte value
 	DocumentIdentifier []byte `protobuf:"bytes,9,opt,name=document_identifier,json=documentIdentifier,proto3" json:"document_identifier,omitempty"`
 	// The current identifier is the location of the current anchor on chain and is used to
 	// refer to the current state.
+	//
+	// 32 byte value
 	CurrentIdentifier []byte `protobuf:"bytes,3,opt,name=current_identifier,json=currentIdentifier,proto3" json:"current_identifier,omitempty"`
 	// When creating the next version this should be used.
 	NextIdentifier []byte `protobuf:"bytes,4,opt,name=next_identifier,json=nextIdentifier,proto3" json:"next_identifier,omitempty"`
@@ -58,7 +65,7 @@ func (m *CoreDocument) Reset()         { *m = CoreDocument{} }
 func (m *CoreDocument) String() string { return proto.CompactTextString(m) }
 func (*CoreDocument) ProtoMessage()    {}
 func (*CoreDocument) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_c3cec1e9dd65ed72, []int{0}
+	return fileDescriptor_coredocument_a6b727616dd94728, []int{0}
 }
 func (m *CoreDocument) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_CoreDocument.Unmarshal(m, b)
@@ -164,7 +171,9 @@ func (m *CoreDocument) GetEmbeddedDataSalts() *any.Any {
 
 // Signature contains the entity ID, public key used and signature)
 type Signature struct {
-	EntityId             []byte   `protobuf:"bytes,1,opt,name=entity_id,json=entityId,proto3" json:"entity_id,omitempty"`
+	// `entity_id` is the CentrifugeID of the entity signing the document.
+	EntityId []byte `protobuf:"bytes,1,opt,name=entity_id,json=entityId,proto3" json:"entity_id,omitempty"`
+	// `public_key` is the public key of the `entity` used for signing the `CoreDocument`
 	PublicKey            []byte   `protobuf:"bytes,2,opt,name=public_key,json=publicKey,proto3" json:"public_key,omitempty"`
 	Signature            []byte   `protobuf:"bytes,3,opt,name=signature,proto3" json:"signature,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
@@ -176,7 +185,7 @@ func (m *Signature) Reset()         { *m = Signature{} }
 func (m *Signature) String() string { return proto.CompactTextString(m) }
 func (*Signature) ProtoMessage()    {}
 func (*Signature) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_c3cec1e9dd65ed72, []int{1}
+	return fileDescriptor_coredocument_a6b727616dd94728, []int{1}
 }
 func (m *Signature) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Signature.Unmarshal(m, b)
@@ -234,7 +243,7 @@ func (m *AccessControlEntry) Reset()         { *m = AccessControlEntry{} }
 func (m *AccessControlEntry) String() string { return proto.CompactTextString(m) }
 func (*AccessControlEntry) ProtoMessage()    {}
 func (*AccessControlEntry) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_c3cec1e9dd65ed72, []int{2}
+	return fileDescriptor_coredocument_a6b727616dd94728, []int{2}
 }
 func (m *AccessControlEntry) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_AccessControlEntry.Unmarshal(m, b)
@@ -293,7 +302,7 @@ func (m *AccessControlSchema) Reset()         { *m = AccessControlSchema{} }
 func (m *AccessControlSchema) String() string { return proto.CompactTextString(m) }
 func (*AccessControlSchema) ProtoMessage()    {}
 func (*AccessControlSchema) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_c3cec1e9dd65ed72, []int{3}
+	return fileDescriptor_coredocument_a6b727616dd94728, []int{3}
 }
 func (m *AccessControlSchema) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_AccessControlSchema.Unmarshal(m, b)
@@ -360,7 +369,7 @@ func (m *FieldAccess) Reset()         { *m = FieldAccess{} }
 func (m *FieldAccess) String() string { return proto.CompactTextString(m) }
 func (*FieldAccess) ProtoMessage()    {}
 func (*FieldAccess) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_c3cec1e9dd65ed72, []int{4}
+	return fileDescriptor_coredocument_a6b727616dd94728, []int{4}
 }
 func (m *FieldAccess) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_FieldAccess.Unmarshal(m, b)
@@ -396,10 +405,10 @@ func init() {
 }
 
 func init() {
-	proto.RegisterFile("coredocument/coredocument.proto", fileDescriptor_coredocument_c3cec1e9dd65ed72)
+	proto.RegisterFile("coredocument/coredocument.proto", fileDescriptor_coredocument_a6b727616dd94728)
 }
 
-var fileDescriptor_coredocument_c3cec1e9dd65ed72 = []byte{
+var fileDescriptor_coredocument_a6b727616dd94728 = []byte{
 	// 669 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x84, 0x94, 0x4f, 0x6f, 0xd3, 0x40,
 	0x10, 0xc5, 0x95, 0xa6, 0x2d, 0xf1, 0xd8, 0x29, 0xed, 0x86, 0x3f, 0x6e, 0x0a, 0x6a, 0x48, 0x41,
