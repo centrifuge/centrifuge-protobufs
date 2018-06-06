@@ -9,7 +9,6 @@
       "email": "hello@centrifuge.one"
     }
   },
-  "host": "localhost:8082",
   "schemes": [
     "https"
   ],
