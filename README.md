@@ -48,3 +48,13 @@ prototool compile
 # To build the go stubs:
 prototool gen
 ```
+
+### Swagger
+
+https://gist.github.com/cobyism/4730490
+```
+rm gen/swagger.json
+find -f gen/swagger | grep swagger.json |  sed 's/^\(.*\)$/swagger-merger -i \1 -o gen\/swagger\.json/' | xargs -0 bash -c
+cp gen/swagger.json swagger/
+spectacle gen/swagger.json -t gen/swagger/html/
+```

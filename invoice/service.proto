@@ -9,6 +9,21 @@ import "protoc-gen-swagger/options/annotations.proto";
 package invoice;
 
 option go_package = "invoicepb";
+option (grpc.gateway.protoc_gen_swagger.options.openapiv2_swagger) = {
+  host: "localhost:8082"
+  info: {
+    title: "Centrifuge OS Client API"
+    version: "0.0.1"
+    contact: {
+      name: "Centrifuge"
+      url: "https://github.com/CentrifugeInc"
+      email: "hello@centrifuge.one"
+    }
+  }
+  schemes: HTTPS
+  consumes: "application/json"
+  produces: "application/json"
+};
 
 service InvoiceDocumentService {
   rpc AnchorInvoiceDocument(AnchorInvoiceEnvelope) returns (InvoiceDocument) {
@@ -24,10 +39,14 @@ service InvoiceDocumentService {
     };
   }
   rpc GetInvoiceDocument(GetInvoiceDocumentEnvelope) returns (InvoiceDocument) {
-    option (google.api.http) = { get: "/invoice/get/{document_identifier}" };
+    option (google.api.http) = {
+      get: "/invoice/get/{document_identifier}"
+    };
   }
   rpc GetReceivedInvoiceDocuments(google.protobuf.Empty) returns (ReceivedInvoices) {
-    option (google.api.http) = { get: "/invoice/getReceived" };
+    option (google.api.http) = {
+      get: "/invoice/getReceived"
+    };
   }
 }
 
