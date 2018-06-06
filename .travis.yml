@@ -27,4 +27,4 @@ script:
   - ~/bin/$PROTOTOOL_VERSION/prototool lint
   - ~/bin/$PROTOTOOL_VERSION/prototool gen
   - npm run build_swagger
-  - echo "Checking that `prototool gen` doesn't result in a modified git tree" && git diff --exit-code
+  - echo "Checking that `prototool gen` doesn't result in a modified git tree" && git diff --exit-code gen/
