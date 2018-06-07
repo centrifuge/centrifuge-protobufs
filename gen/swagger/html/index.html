@@ -53,10 +53,7 @@
           <!-- </ul>
               </section> -->
           <h5>Schema Definitions</h5>
-          <a href="#definition-coredocumentAccessControlEntry"> coredocumentAccessControlEntry </a>
-          <a href="#definition-coredocumentAccessControlSchema"> coredocumentAccessControlSchema </a>
           <a href="#definition-coredocumentCoreDocument"> coredocumentCoreDocument </a>
-          <a href="#definition-coredocumentFieldAccess"> coredocumentFieldAccess </a>
           <a href="#definition-coredocumentSignature"> coredocumentSignature </a>
           <a href="#definition-invoiceAnchorInvoiceEnvelope"> invoiceAnchorInvoiceEnvelope </a>
           <a href="#definition-invoiceInvoiceData"> invoiceInvoiceData </a>
@@ -166,32 +163,6 @@
           <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
         }
       ],
-      <span class="hljs-attr">&quot;collaborators&quot;</span>: [
-        <span class="hljs-string">&quot;string (byte)&quot;</span>
-      ],
-      <span class="hljs-attr">&quot;acl&quot;</span>: [
-        {
-          <span class="hljs-attr">&quot;identity&quot;</span>: [
-            <span class="hljs-string">&quot;string (byte)&quot;</span>
-          ],
-          <span class="hljs-attr">&quot;acl_schema_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
-          <span class="hljs-attr">&quot;embedded_acl_schema&quot;</span>: {
-            <span class="hljs-attr">&quot;grant_past_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-            <span class="hljs-attr">&quot;grant_future_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-            <span class="hljs-attr">&quot;grant_access_to_future_versions_until&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
-            <span class="hljs-attr">&quot;read_fields&quot;</span>: [
-              {
-                <span class="hljs-attr">&quot;field_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-              }
-            ],
-            <span class="hljs-attr">&quot;write_fields&quot;</span>: [
-              {
-                <span class="hljs-attr">&quot;field_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-              }
-            ]
-          }
-        }
-      ],
       <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
         {
           <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
@@ -205,32 +176,6 @@
               <span class="hljs-attr">&quot;entity_id&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
               <span class="hljs-attr">&quot;public_key&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
               <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
-            }
-          ],
-          <span class="hljs-attr">&quot;collaborators&quot;</span>: [
-            <span class="hljs-string">&quot;string (byte)&quot;</span>
-          ],
-          <span class="hljs-attr">&quot;acl&quot;</span>: [
-            {
-              <span class="hljs-attr">&quot;identity&quot;</span>: [
-                <span class="hljs-string">&quot;string (byte)&quot;</span>
-              ],
-              <span class="hljs-attr">&quot;acl_schema_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
-              <span class="hljs-attr">&quot;embedded_acl_schema&quot;</span>: {
-                <span class="hljs-attr">&quot;grant_past_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-                <span class="hljs-attr">&quot;grant_future_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-                <span class="hljs-attr">&quot;grant_access_to_future_versions_until&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
-                <span class="hljs-attr">&quot;read_fields&quot;</span>: [
-                  {
-                    <span class="hljs-attr">&quot;field_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-                  }
-                ],
-                <span class="hljs-attr">&quot;write_fields&quot;</span>: [
-                  {
-                    <span class="hljs-attr">&quot;field_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-                  }
-                ]
-              }
             }
           ],
           <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
@@ -248,16 +193,63 @@
                   <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
                 }
               ],
-              <span class="hljs-attr">&quot;collaborators&quot;</span>: [
-                <span class="hljs-string">&quot;string (byte)&quot;</span>
-              ],
-              <span class="hljs-attr">&quot;acl&quot;</span>: [
+              <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
                 {
-                  <span class="hljs-attr">&quot;identity&quot;</span>: [
-                    <span class="hljs-string">&quot;string (byte)&quot;</span>
+                  <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                  <span class="hljs-attr">&quot;current_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                  <span class="hljs-attr">&quot;next_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                  <span class="hljs-attr">&quot;previous_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                  <span class="hljs-attr">&quot;data_merkle_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                  <span class="hljs-attr">&quot;document_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                  <span class="hljs-attr">&quot;signatures&quot;</span>: [
+                    {
+                      <span class="hljs-attr">&quot;entity_id&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                      <span class="hljs-attr">&quot;public_key&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                      <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
+                    }
                   ],
-                  <span class="hljs-attr">&quot;acl_schema_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
-                  <span class="hljs-attr">&quot;embedded_acl_schema&quot;</span>: {}
+                  <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
+                    {
+                      <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                      <span class="hljs-attr">&quot;current_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                      <span class="hljs-attr">&quot;next_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                      <span class="hljs-attr">&quot;previous_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                      <span class="hljs-attr">&quot;data_merkle_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                      <span class="hljs-attr">&quot;document_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                      <span class="hljs-attr">&quot;signatures&quot;</span>: [
+                        {
+                          <span class="hljs-attr">&quot;entity_id&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                          <span class="hljs-attr">&quot;public_key&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                          <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
+                        }
+                      ],
+                      <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
+                        {
+                          <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                          <span class="hljs-attr">&quot;current_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                          <span class="hljs-attr">&quot;next_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                          <span class="hljs-attr">&quot;previous_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                          <span class="hljs-attr">&quot;data_merkle_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                          <span class="hljs-attr">&quot;document_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                          <span class="hljs-attr">&quot;signatures&quot;</span>: [
+                            {
+                              <span class="hljs-attr">&quot;entity_id&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                              <span class="hljs-attr">&quot;public_key&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                              <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
+                            }
+                          ],
+                          <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
+                            {
+                              <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                              <span class="hljs-attr">&quot;current_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                              <span class="hljs-attr">&quot;next_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                              <span class="hljs-attr">&quot;previous_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
               ]
             }
@@ -309,32 +301,6 @@
         <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
       }
     ],
-    <span class="hljs-attr">&quot;collaborators&quot;</span>: [
-      <span class="hljs-string">&quot;string (byte)&quot;</span>
-    ],
-    <span class="hljs-attr">&quot;acl&quot;</span>: [
-      {
-        <span class="hljs-attr">&quot;identity&quot;</span>: [
-          <span class="hljs-string">&quot;string (byte)&quot;</span>
-        ],
-        <span class="hljs-attr">&quot;acl_schema_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
-        <span class="hljs-attr">&quot;embedded_acl_schema&quot;</span>: {
-          <span class="hljs-attr">&quot;grant_past_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-          <span class="hljs-attr">&quot;grant_future_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-          <span class="hljs-attr">&quot;grant_access_to_future_versions_until&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
-          <span class="hljs-attr">&quot;read_fields&quot;</span>: [
-            {
-              <span class="hljs-attr">&quot;field_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-            }
-          ],
-          <span class="hljs-attr">&quot;write_fields&quot;</span>: [
-            {
-              <span class="hljs-attr">&quot;field_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-            }
-          ]
-        }
-      }
-    ],
     <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
       {
         <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
@@ -348,32 +314,6 @@
             <span class="hljs-attr">&quot;entity_id&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
             <span class="hljs-attr">&quot;public_key&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
             <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
-          }
-        ],
-        <span class="hljs-attr">&quot;collaborators&quot;</span>: [
-          <span class="hljs-string">&quot;string (byte)&quot;</span>
-        ],
-        <span class="hljs-attr">&quot;acl&quot;</span>: [
-          {
-            <span class="hljs-attr">&quot;identity&quot;</span>: [
-              <span class="hljs-string">&quot;string (byte)&quot;</span>
-            ],
-            <span class="hljs-attr">&quot;acl_schema_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
-            <span class="hljs-attr">&quot;embedded_acl_schema&quot;</span>: {
-              <span class="hljs-attr">&quot;grant_past_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-              <span class="hljs-attr">&quot;grant_future_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-              <span class="hljs-attr">&quot;grant_access_to_future_versions_until&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
-              <span class="hljs-attr">&quot;read_fields&quot;</span>: [
-                {
-                  <span class="hljs-attr">&quot;field_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-                }
-              ],
-              <span class="hljs-attr">&quot;write_fields&quot;</span>: [
-                {
-                  <span class="hljs-attr">&quot;field_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-                }
-              ]
-            }
           }
         ],
         <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
@@ -391,19 +331,65 @@
                 <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
               }
             ],
-            <span class="hljs-attr">&quot;collaborators&quot;</span>: [
-              <span class="hljs-string">&quot;string (byte)&quot;</span>
-            ],
-            <span class="hljs-attr">&quot;acl&quot;</span>: [
+            <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
               {
-                <span class="hljs-attr">&quot;identity&quot;</span>: [
-                  <span class="hljs-string">&quot;string (byte)&quot;</span>
+                <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                <span class="hljs-attr">&quot;current_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                <span class="hljs-attr">&quot;next_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                <span class="hljs-attr">&quot;previous_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                <span class="hljs-attr">&quot;data_merkle_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                <span class="hljs-attr">&quot;document_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                <span class="hljs-attr">&quot;signatures&quot;</span>: [
+                  {
+                    <span class="hljs-attr">&quot;entity_id&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                    <span class="hljs-attr">&quot;public_key&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                    <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
+                  }
                 ],
-                <span class="hljs-attr">&quot;acl_schema_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
-                <span class="hljs-attr">&quot;embedded_acl_schema&quot;</span>: {
-                  <span class="hljs-attr">&quot;grant_past_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-                  <span class="hljs-attr">&quot;grant_future_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>
-                }
+                <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
+                  {
+                    <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                    <span class="hljs-attr">&quot;current_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                    <span class="hljs-attr">&quot;next_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                    <span class="hljs-attr">&quot;previous_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                    <span class="hljs-attr">&quot;data_merkle_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                    <span class="hljs-attr">&quot;document_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                    <span class="hljs-attr">&quot;signatures&quot;</span>: [
+                      {
+                        <span class="hljs-attr">&quot;entity_id&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;public_key&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
+                      }
+                    ],
+                    <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
+                      {
+                        <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;current_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;next_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;previous_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;data_merkle_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;document_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;signatures&quot;</span>: [
+                          {
+                            <span class="hljs-attr">&quot;entity_id&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                            <span class="hljs-attr">&quot;public_key&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                            <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
+                          }
+                        ],
+                        <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
+                          {
+                            <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                            <span class="hljs-attr">&quot;current_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                            <span class="hljs-attr">&quot;next_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                            <span class="hljs-attr">&quot;previous_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                            <span class="hljs-attr">&quot;data_merkle_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                            <span class="hljs-attr">&quot;document_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
               }
             ]
           }
@@ -493,32 +479,6 @@
         <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
       }
     ],
-    <span class="hljs-attr">&quot;collaborators&quot;</span>: [
-      <span class="hljs-string">&quot;string (byte)&quot;</span>
-    ],
-    <span class="hljs-attr">&quot;acl&quot;</span>: [
-      {
-        <span class="hljs-attr">&quot;identity&quot;</span>: [
-          <span class="hljs-string">&quot;string (byte)&quot;</span>
-        ],
-        <span class="hljs-attr">&quot;acl_schema_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
-        <span class="hljs-attr">&quot;embedded_acl_schema&quot;</span>: {
-          <span class="hljs-attr">&quot;grant_past_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-          <span class="hljs-attr">&quot;grant_future_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-          <span class="hljs-attr">&quot;grant_access_to_future_versions_until&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
-          <span class="hljs-attr">&quot;read_fields&quot;</span>: [
-            {
-              <span class="hljs-attr">&quot;field_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-            }
-          ],
-          <span class="hljs-attr">&quot;write_fields&quot;</span>: [
-            {
-              <span class="hljs-attr">&quot;field_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-            }
-          ]
-        }
-      }
-    ],
     <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
       {
         <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
@@ -532,32 +492,6 @@
             <span class="hljs-attr">&quot;entity_id&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
             <span class="hljs-attr">&quot;public_key&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
             <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
-          }
-        ],
-        <span class="hljs-attr">&quot;collaborators&quot;</span>: [
-          <span class="hljs-string">&quot;string (byte)&quot;</span>
-        ],
-        <span class="hljs-attr">&quot;acl&quot;</span>: [
-          {
-            <span class="hljs-attr">&quot;identity&quot;</span>: [
-              <span class="hljs-string">&quot;string (byte)&quot;</span>
-            ],
-            <span class="hljs-attr">&quot;acl_schema_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
-            <span class="hljs-attr">&quot;embedded_acl_schema&quot;</span>: {
-              <span class="hljs-attr">&quot;grant_past_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-              <span class="hljs-attr">&quot;grant_future_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-              <span class="hljs-attr">&quot;grant_access_to_future_versions_until&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
-              <span class="hljs-attr">&quot;read_fields&quot;</span>: [
-                {
-                  <span class="hljs-attr">&quot;field_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-                }
-              ],
-              <span class="hljs-attr">&quot;write_fields&quot;</span>: [
-                {
-                  <span class="hljs-attr">&quot;field_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-                }
-              ]
-            }
           }
         ],
         <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
@@ -575,19 +509,65 @@
                 <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
               }
             ],
-            <span class="hljs-attr">&quot;collaborators&quot;</span>: [
-              <span class="hljs-string">&quot;string (byte)&quot;</span>
-            ],
-            <span class="hljs-attr">&quot;acl&quot;</span>: [
+            <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
               {
-                <span class="hljs-attr">&quot;identity&quot;</span>: [
-                  <span class="hljs-string">&quot;string (byte)&quot;</span>
+                <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                <span class="hljs-attr">&quot;current_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                <span class="hljs-attr">&quot;next_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                <span class="hljs-attr">&quot;previous_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                <span class="hljs-attr">&quot;data_merkle_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                <span class="hljs-attr">&quot;document_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                <span class="hljs-attr">&quot;signatures&quot;</span>: [
+                  {
+                    <span class="hljs-attr">&quot;entity_id&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                    <span class="hljs-attr">&quot;public_key&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                    <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
+                  }
                 ],
-                <span class="hljs-attr">&quot;acl_schema_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
-                <span class="hljs-attr">&quot;embedded_acl_schema&quot;</span>: {
-                  <span class="hljs-attr">&quot;grant_past_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-                  <span class="hljs-attr">&quot;grant_future_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>
-                }
+                <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
+                  {
+                    <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                    <span class="hljs-attr">&quot;current_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                    <span class="hljs-attr">&quot;next_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                    <span class="hljs-attr">&quot;previous_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                    <span class="hljs-attr">&quot;data_merkle_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                    <span class="hljs-attr">&quot;document_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                    <span class="hljs-attr">&quot;signatures&quot;</span>: [
+                      {
+                        <span class="hljs-attr">&quot;entity_id&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;public_key&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
+                      }
+                    ],
+                    <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
+                      {
+                        <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;current_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;next_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;previous_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;data_merkle_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;document_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;signatures&quot;</span>: [
+                          {
+                            <span class="hljs-attr">&quot;entity_id&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                            <span class="hljs-attr">&quot;public_key&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                            <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
+                          }
+                        ],
+                        <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
+                          {
+                            <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                            <span class="hljs-attr">&quot;current_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                            <span class="hljs-attr">&quot;next_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                            <span class="hljs-attr">&quot;previous_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                            <span class="hljs-attr">&quot;data_merkle_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                            <span class="hljs-attr">&quot;document_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
               }
             ]
           }
@@ -661,32 +641,6 @@
             <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
           }
         ],
-        <span class="hljs-attr">&quot;collaborators&quot;</span>: [
-          <span class="hljs-string">&quot;string (byte)&quot;</span>
-        ],
-        <span class="hljs-attr">&quot;acl&quot;</span>: [
-          {
-            <span class="hljs-attr">&quot;identity&quot;</span>: [
-              <span class="hljs-string">&quot;string (byte)&quot;</span>
-            ],
-            <span class="hljs-attr">&quot;acl_schema_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
-            <span class="hljs-attr">&quot;embedded_acl_schema&quot;</span>: {
-              <span class="hljs-attr">&quot;grant_past_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-              <span class="hljs-attr">&quot;grant_future_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-              <span class="hljs-attr">&quot;grant_access_to_future_versions_until&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
-              <span class="hljs-attr">&quot;read_fields&quot;</span>: [
-                {
-                  <span class="hljs-attr">&quot;field_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-                }
-              ],
-              <span class="hljs-attr">&quot;write_fields&quot;</span>: [
-                {
-                  <span class="hljs-attr">&quot;field_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-                }
-              ]
-            }
-          }
-        ],
         <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
           {
             <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
@@ -700,32 +654,6 @@
                 <span class="hljs-attr">&quot;entity_id&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
                 <span class="hljs-attr">&quot;public_key&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
                 <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
-              }
-            ],
-            <span class="hljs-attr">&quot;collaborators&quot;</span>: [
-              <span class="hljs-string">&quot;string (byte)&quot;</span>
-            ],
-            <span class="hljs-attr">&quot;acl&quot;</span>: [
-              {
-                <span class="hljs-attr">&quot;identity&quot;</span>: [
-                  <span class="hljs-string">&quot;string (byte)&quot;</span>
-                ],
-                <span class="hljs-attr">&quot;acl_schema_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
-                <span class="hljs-attr">&quot;embedded_acl_schema&quot;</span>: {
-                  <span class="hljs-attr">&quot;grant_past_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-                  <span class="hljs-attr">&quot;grant_future_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-                  <span class="hljs-attr">&quot;grant_access_to_future_versions_until&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
-                  <span class="hljs-attr">&quot;read_fields&quot;</span>: [
-                    {
-                      <span class="hljs-attr">&quot;field_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-                    }
-                  ],
-                  <span class="hljs-attr">&quot;write_fields&quot;</span>: [
-                    {
-                      <span class="hljs-attr">&quot;field_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-                    }
-                  ]
-                }
               }
             ],
             <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
@@ -743,15 +671,62 @@
                     <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
                   }
                 ],
-                <span class="hljs-attr">&quot;collaborators&quot;</span>: [
-                  <span class="hljs-string">&quot;string (byte)&quot;</span>
-                ],
-                <span class="hljs-attr">&quot;acl&quot;</span>: [
+                <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
                   {
-                    <span class="hljs-attr">&quot;identity&quot;</span>: [
-                      <span class="hljs-string">&quot;string (byte)&quot;</span>
+                    <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                    <span class="hljs-attr">&quot;current_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                    <span class="hljs-attr">&quot;next_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                    <span class="hljs-attr">&quot;previous_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                    <span class="hljs-attr">&quot;data_merkle_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                    <span class="hljs-attr">&quot;document_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                    <span class="hljs-attr">&quot;signatures&quot;</span>: [
+                      {
+                        <span class="hljs-attr">&quot;entity_id&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;public_key&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
+                      }
                     ],
-                    <span class="hljs-attr">&quot;acl_schema_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
+                    <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
+                      {
+                        <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;current_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;next_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;previous_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;data_merkle_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;document_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;signatures&quot;</span>: [
+                          {
+                            <span class="hljs-attr">&quot;entity_id&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                            <span class="hljs-attr">&quot;public_key&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                            <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
+                          }
+                        ],
+                        <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
+                          {
+                            <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                            <span class="hljs-attr">&quot;current_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                            <span class="hljs-attr">&quot;next_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                            <span class="hljs-attr">&quot;previous_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                            <span class="hljs-attr">&quot;data_merkle_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                            <span class="hljs-attr">&quot;document_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                            <span class="hljs-attr">&quot;signatures&quot;</span>: [
+                              {
+                                <span class="hljs-attr">&quot;entity_id&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                                <span class="hljs-attr">&quot;public_key&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                                <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
+                              }
+                            ],
+                            <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
+                              {
+                                <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                                <span class="hljs-attr">&quot;current_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                                <span class="hljs-attr">&quot;next_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
                   }
                 ]
               }
@@ -832,32 +807,6 @@
           <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
         }
       ],
-      <span class="hljs-attr">&quot;collaborators&quot;</span>: [
-        <span class="hljs-string">&quot;string (byte)&quot;</span>
-      ],
-      <span class="hljs-attr">&quot;acl&quot;</span>: [
-        {
-          <span class="hljs-attr">&quot;identity&quot;</span>: [
-            <span class="hljs-string">&quot;string (byte)&quot;</span>
-          ],
-          <span class="hljs-attr">&quot;acl_schema_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
-          <span class="hljs-attr">&quot;embedded_acl_schema&quot;</span>: {
-            <span class="hljs-attr">&quot;grant_past_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-            <span class="hljs-attr">&quot;grant_future_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-            <span class="hljs-attr">&quot;grant_access_to_future_versions_until&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
-            <span class="hljs-attr">&quot;read_fields&quot;</span>: [
-              {
-                <span class="hljs-attr">&quot;field_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-              }
-            ],
-            <span class="hljs-attr">&quot;write_fields&quot;</span>: [
-              {
-                <span class="hljs-attr">&quot;field_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-              }
-            ]
-          }
-        }
-      ],
       <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
         {
           <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
@@ -871,32 +820,6 @@
               <span class="hljs-attr">&quot;entity_id&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
               <span class="hljs-attr">&quot;public_key&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
               <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
-            }
-          ],
-          <span class="hljs-attr">&quot;collaborators&quot;</span>: [
-            <span class="hljs-string">&quot;string (byte)&quot;</span>
-          ],
-          <span class="hljs-attr">&quot;acl&quot;</span>: [
-            {
-              <span class="hljs-attr">&quot;identity&quot;</span>: [
-                <span class="hljs-string">&quot;string (byte)&quot;</span>
-              ],
-              <span class="hljs-attr">&quot;acl_schema_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
-              <span class="hljs-attr">&quot;embedded_acl_schema&quot;</span>: {
-                <span class="hljs-attr">&quot;grant_past_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-                <span class="hljs-attr">&quot;grant_future_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-                <span class="hljs-attr">&quot;grant_access_to_future_versions_until&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
-                <span class="hljs-attr">&quot;read_fields&quot;</span>: [
-                  {
-                    <span class="hljs-attr">&quot;field_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-                  }
-                ],
-                <span class="hljs-attr">&quot;write_fields&quot;</span>: [
-                  {
-                    <span class="hljs-attr">&quot;field_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-                  }
-                ]
-              }
             }
           ],
           <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
@@ -914,15 +837,61 @@
                   <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
                 }
               ],
-              <span class="hljs-attr">&quot;collaborators&quot;</span>: [
-                <span class="hljs-string">&quot;string (byte)&quot;</span>
-              ],
-              <span class="hljs-attr">&quot;acl&quot;</span>: [
+              <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
                 {
-                  <span class="hljs-attr">&quot;identity&quot;</span>: [
-                    <span class="hljs-string">&quot;string (byte)&quot;</span>
+                  <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                  <span class="hljs-attr">&quot;current_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                  <span class="hljs-attr">&quot;next_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                  <span class="hljs-attr">&quot;previous_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                  <span class="hljs-attr">&quot;data_merkle_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                  <span class="hljs-attr">&quot;document_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                  <span class="hljs-attr">&quot;signatures&quot;</span>: [
+                    {
+                      <span class="hljs-attr">&quot;entity_id&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                      <span class="hljs-attr">&quot;public_key&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                      <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
+                    }
                   ],
-                  <span class="hljs-attr">&quot;acl_schema_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
+                  <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
+                    {
+                      <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                      <span class="hljs-attr">&quot;current_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                      <span class="hljs-attr">&quot;next_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                      <span class="hljs-attr">&quot;previous_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                      <span class="hljs-attr">&quot;data_merkle_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                      <span class="hljs-attr">&quot;document_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                      <span class="hljs-attr">&quot;signatures&quot;</span>: [
+                        {
+                          <span class="hljs-attr">&quot;entity_id&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                          <span class="hljs-attr">&quot;public_key&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                          <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
+                        }
+                      ],
+                      <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
+                        {
+                          <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                          <span class="hljs-attr">&quot;current_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                          <span class="hljs-attr">&quot;next_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                          <span class="hljs-attr">&quot;previous_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                          <span class="hljs-attr">&quot;data_merkle_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                          <span class="hljs-attr">&quot;document_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                          <span class="hljs-attr">&quot;signatures&quot;</span>: [
+                            {
+                              <span class="hljs-attr">&quot;entity_id&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                              <span class="hljs-attr">&quot;public_key&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                              <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
+                            }
+                          ],
+                          <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
+                            {
+                              <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                              <span class="hljs-attr">&quot;current_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
               ]
             }
@@ -974,32 +943,6 @@
         <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
       }
     ],
-    <span class="hljs-attr">&quot;collaborators&quot;</span>: [
-      <span class="hljs-string">&quot;string (byte)&quot;</span>
-    ],
-    <span class="hljs-attr">&quot;acl&quot;</span>: [
-      {
-        <span class="hljs-attr">&quot;identity&quot;</span>: [
-          <span class="hljs-string">&quot;string (byte)&quot;</span>
-        ],
-        <span class="hljs-attr">&quot;acl_schema_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
-        <span class="hljs-attr">&quot;embedded_acl_schema&quot;</span>: {
-          <span class="hljs-attr">&quot;grant_past_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-          <span class="hljs-attr">&quot;grant_future_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-          <span class="hljs-attr">&quot;grant_access_to_future_versions_until&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
-          <span class="hljs-attr">&quot;read_fields&quot;</span>: [
-            {
-              <span class="hljs-attr">&quot;field_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-            }
-          ],
-          <span class="hljs-attr">&quot;write_fields&quot;</span>: [
-            {
-              <span class="hljs-attr">&quot;field_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-            }
-          ]
-        }
-      }
-    ],
     <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
       {
         <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
@@ -1013,32 +956,6 @@
             <span class="hljs-attr">&quot;entity_id&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
             <span class="hljs-attr">&quot;public_key&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
             <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
-          }
-        ],
-        <span class="hljs-attr">&quot;collaborators&quot;</span>: [
-          <span class="hljs-string">&quot;string (byte)&quot;</span>
-        ],
-        <span class="hljs-attr">&quot;acl&quot;</span>: [
-          {
-            <span class="hljs-attr">&quot;identity&quot;</span>: [
-              <span class="hljs-string">&quot;string (byte)&quot;</span>
-            ],
-            <span class="hljs-attr">&quot;acl_schema_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
-            <span class="hljs-attr">&quot;embedded_acl_schema&quot;</span>: {
-              <span class="hljs-attr">&quot;grant_past_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-              <span class="hljs-attr">&quot;grant_future_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-              <span class="hljs-attr">&quot;grant_access_to_future_versions_until&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
-              <span class="hljs-attr">&quot;read_fields&quot;</span>: [
-                {
-                  <span class="hljs-attr">&quot;field_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-                }
-              ],
-              <span class="hljs-attr">&quot;write_fields&quot;</span>: [
-                {
-                  <span class="hljs-attr">&quot;field_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-                }
-              ]
-            }
           }
         ],
         <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
@@ -1056,19 +973,65 @@
                 <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
               }
             ],
-            <span class="hljs-attr">&quot;collaborators&quot;</span>: [
-              <span class="hljs-string">&quot;string (byte)&quot;</span>
-            ],
-            <span class="hljs-attr">&quot;acl&quot;</span>: [
+            <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
               {
-                <span class="hljs-attr">&quot;identity&quot;</span>: [
-                  <span class="hljs-string">&quot;string (byte)&quot;</span>
+                <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                <span class="hljs-attr">&quot;current_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                <span class="hljs-attr">&quot;next_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                <span class="hljs-attr">&quot;previous_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                <span class="hljs-attr">&quot;data_merkle_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                <span class="hljs-attr">&quot;document_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                <span class="hljs-attr">&quot;signatures&quot;</span>: [
+                  {
+                    <span class="hljs-attr">&quot;entity_id&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                    <span class="hljs-attr">&quot;public_key&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                    <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
+                  }
                 ],
-                <span class="hljs-attr">&quot;acl_schema_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
-                <span class="hljs-attr">&quot;embedded_acl_schema&quot;</span>: {
-                  <span class="hljs-attr">&quot;grant_past_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-                  <span class="hljs-attr">&quot;grant_future_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>
-                }
+                <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
+                  {
+                    <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                    <span class="hljs-attr">&quot;current_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                    <span class="hljs-attr">&quot;next_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                    <span class="hljs-attr">&quot;previous_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                    <span class="hljs-attr">&quot;data_merkle_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                    <span class="hljs-attr">&quot;document_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                    <span class="hljs-attr">&quot;signatures&quot;</span>: [
+                      {
+                        <span class="hljs-attr">&quot;entity_id&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;public_key&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
+                      }
+                    ],
+                    <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
+                      {
+                        <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;current_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;next_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;previous_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;data_merkle_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;document_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;signatures&quot;</span>: [
+                          {
+                            <span class="hljs-attr">&quot;entity_id&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                            <span class="hljs-attr">&quot;public_key&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                            <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
+                          }
+                        ],
+                        <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
+                          {
+                            <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                            <span class="hljs-attr">&quot;current_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                            <span class="hljs-attr">&quot;next_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                            <span class="hljs-attr">&quot;previous_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                            <span class="hljs-attr">&quot;data_merkle_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                            <span class="hljs-attr">&quot;document_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
               }
             ]
           }
@@ -1084,184 +1047,6 @@
             </div>
           </div>
           <h1>Schema Definitions</h1>
-          <div id="definition-coredocumentAccessControlEntry" class="definition panel" data-traverse-target="definition-coredocumentAccessControlEntry">
-            <h2 class="panel-title">
-              <a name="/definitions/coredocumentAccessControlEntry"></a>coredocumentAccessControlEntry: object
-              <!-- <span class="json-property-type"><span class="json-property-type">object</span>
-              <span class="json-property-range" title="Value limits"></span>
-              
-              
-              </span> -->
-            </h2>
-            <div class="doc-row">
-              <div class="doc-copy">
-                <section class="json-schema-properties">
-                  <dl>
-                    <dt data-property-name="identity">
-                      <span class="json-property-name">identity:</span>
-                      <span class="json-property-type">string[]</span>
-                      <span class="json-property-range" title="Value limits"></span>
-                    </dt>
-                    <dt class="json-inner-schema">
-                      <section class="json-schema-array-items">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-format">(byte)</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                        <div class="json-inner-schema"> </div>
-                      </section>
-                    </dt>
-                    <dt data-property-name="acl_schema_identifier" class="has-description">
-                      <span class="json-property-name">acl_schema_identifier:</span>
-                      <span class="json-property-type">string</span>
-                      <span class="json-property-format">(byte)</span>
-                      <span class="json-property-range" title="Value limits"></span>
-                    </dt>
-                    <dd>
-                      <p>There are two ways to describe the acl schema. One of the standard ACL schemas can be referenced by a unique identifier or a schema can be embedded.</p>
-                    </dd>
-                    <dt data-property-name="embedded_acl_schema">
-                      <span class="json-property-name">embedded_acl_schema:</span>
-                      <span class="json-property-type">
-                        <span class="">
-                          <a class="json-schema-ref" href="#/definitions/coredocumentAccessControlSchema">coredocumentAccessControlSchema</a>
-                        </span>
-                      </span>
-                      <span class="json-property-range" title="Value limits"></span>
-                    </dt>
-                  </dl>
-                </section>
-              </div>
-              <div class="doc-examples">
-                <section>
-                  <h5>Example</h5>
-                  <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
-  <span class="hljs-attr">&quot;identity&quot;</span>: [
-    <span class="hljs-string">&quot;string (byte)&quot;</span>
-  ],
-  <span class="hljs-attr">&quot;acl_schema_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
-  <span class="hljs-attr">&quot;embedded_acl_schema&quot;</span>: {
-    <span class="hljs-attr">&quot;grant_past_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-    <span class="hljs-attr">&quot;grant_future_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-    <span class="hljs-attr">&quot;grant_access_to_future_versions_until&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
-    <span class="hljs-attr">&quot;read_fields&quot;</span>: [
-      {
-        <span class="hljs-attr">&quot;field_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-      }
-    ],
-    <span class="hljs-attr">&quot;write_fields&quot;</span>: [
-      {
-        <span class="hljs-attr">&quot;field_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-      }
-    ]
-  }
-}
-</code></pre>
-                  <!-- </div> -->
-                </section>
-              </div>
-            </div>
-          </div>
-          <div id="definition-coredocumentAccessControlSchema" class="definition panel" data-traverse-target="definition-coredocumentAccessControlSchema">
-            <h2 class="panel-title">
-              <a name="/definitions/coredocumentAccessControlSchema"></a>coredocumentAccessControlSchema: object
-              <!-- <span class="json-property-type"><span class="json-property-type">object</span>
-              <span class="json-property-range" title="Value limits"></span>
-              
-              
-              </span> -->
-            </h2>
-            <div class="doc-row">
-              <div class="doc-copy">
-                <section class="json-schema-properties">
-                  <dl>
-                    <dt data-property-name="grant_past_version_access" class="has-description">
-                      <span class="json-property-name">grant_past_version_access:</span>
-                      <span class="json-property-type">boolean</span>
-                      <span class="json-property-format">(boolean)</span>
-                      <span class="json-property-range" title="Value limits"></span>
-                    </dt>
-                    <dd>
-                      <p>Set either to true to grant access to also look at past versions of the document and/or future updates to the document.</p>
-                    </dd>
-                    <dt data-property-name="grant_future_version_access">
-                      <span class="json-property-name">grant_future_version_access:</span>
-                      <span class="json-property-type">boolean</span>
-                      <span class="json-property-format">(boolean)</span>
-                      <span class="json-property-range" title="Value limits"></span>
-                    </dt>
-                    <dt data-property-name="grant_access_to_future_versions_until">
-                      <span class="json-property-name">grant_access_to_future_versions_until:</span>
-                      <span class="json-property-type">string</span>
-                      <span class="json-property-format">(date-time)</span>
-                      <span class="json-property-range" title="Value limits"></span>
-                    </dt>
-                    <dt data-property-name="read_fields">
-                      <span class="json-property-name">read_fields:</span>
-                      <span class="json-property-type">
-                        <span class="json-schema-ref-array">
-                          <a class="json-schema-ref" href="#/definitions/coredocumentFieldAccess">coredocumentFieldAccess</a>
-                        </span>
-                      </span>
-                      <span class="json-property-range" title="Value limits"></span>
-                    </dt>
-                    <dt class="json-inner-schema">
-                      <section class="json-schema-array-items">
-                        <span class="json-property-type">
-                          <span class="">
-                            <a class="json-schema-ref" href="#/definitions/coredocumentFieldAccess">coredocumentFieldAccess</a>
-                          </span>
-                        </span>
-                        <span class="json-property-range" title="Value limits"></span>
-                        <div class="json-inner-schema"> </div>
-                      </section>
-                    </dt>
-                    <dt data-property-name="write_fields">
-                      <span class="json-property-name">write_fields:</span>
-                      <span class="json-property-type">
-                        <span class="json-schema-ref-array">
-                          <a class="json-schema-ref" href="#/definitions/coredocumentFieldAccess">coredocumentFieldAccess</a>
-                        </span>
-                      </span>
-                      <span class="json-property-range" title="Value limits"></span>
-                    </dt>
-                    <dt class="json-inner-schema">
-                      <section class="json-schema-array-items">
-                        <span class="json-property-type">
-                          <span class="">
-                            <a class="json-schema-ref" href="#/definitions/coredocumentFieldAccess">coredocumentFieldAccess</a>
-                          </span>
-                        </span>
-                        <span class="json-property-range" title="Value limits"></span>
-                        <div class="json-inner-schema"> </div>
-                      </section>
-                    </dt>
-                  </dl>
-                </section>
-              </div>
-              <div class="doc-examples">
-                <section>
-                  <h5>Example</h5>
-                  <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
-  <span class="hljs-attr">&quot;grant_past_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-  <span class="hljs-attr">&quot;grant_future_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-  <span class="hljs-attr">&quot;grant_access_to_future_versions_until&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
-  <span class="hljs-attr">&quot;read_fields&quot;</span>: [
-    {
-      <span class="hljs-attr">&quot;field_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-    }
-  ],
-  <span class="hljs-attr">&quot;write_fields&quot;</span>: [
-    {
-      <span class="hljs-attr">&quot;field_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-    }
-  ]
-}
-</code></pre>
-                  <!-- </div> -->
-                </section>
-              </div>
-            </div>
-          </div>
           <div id="definition-coredocumentCoreDocument" class="definition panel" data-traverse-target="definition-coredocumentCoreDocument">
             <h2 class="panel-title">
               <a name="/definitions/coredocumentCoreDocument"></a>coredocumentCoreDocument: object
@@ -1349,43 +1134,7 @@
                         <div class="json-inner-schema"> </div>
                       </section>
                     </dt>
-                    <dt data-property-name="collaborators" class="has-description">
-                      <span class="json-property-name">collaborators:</span>
-                      <span class="json-property-type">string[]</span>
-                      <span class="json-property-range" title="Value limits"></span>
-                    </dt>
-                    <dd>
-                      <p>List of collaborators on this document. These Centrifuge Identities have access to the document and should receive new versions whenever a document is updated.</p>
-                    </dd>
-                    <dt class="json-inner-schema">
-                      <section class="json-schema-array-items">
-                        <span class="json-property-type">string</span>
-                        <span class="json-property-format">(byte)</span>
-                        <span class="json-property-range" title="Value limits"></span>
-                        <div class="json-inner-schema"> </div>
-                      </section>
-                    </dt>
-                    <dt data-property-name="acl">
-                      <span class="json-property-name">acl:</span>
-                      <span class="json-property-type">
-                        <span class="json-schema-ref-array">
-                          <a class="json-schema-ref" href="#/definitions/coredocumentAccessControlEntry">coredocumentAccessControlEntry</a>
-                        </span>
-                      </span>
-                      <span class="json-property-range" title="Value limits"></span>
-                    </dt>
-                    <dt class="json-inner-schema">
-                      <section class="json-schema-array-items">
-                        <span class="json-property-type">
-                          <span class="">
-                            <a class="json-schema-ref" href="#/definitions/coredocumentAccessControlEntry">coredocumentAccessControlEntry</a>
-                          </span>
-                        </span>
-                        <span class="json-property-range" title="Value limits"></span>
-                        <div class="json-inner-schema"> </div>
-                      </section>
-                    </dt>
-                    <dt data-property-name="previous_versions">
+                    <dt data-property-name="previous_versions" class="has-description">
                       <span class="json-property-name">previous_versions:</span>
                       <span class="json-property-type">
                         <span class="json-schema-ref-array">
@@ -1394,6 +1143,9 @@
                       </span>
                       <span class="json-property-range" title="Value limits"></span>
                     </dt>
+                    <dd>
+                      <p>This is a readonly field</p>
+                    </dd>
                     <dt class="json-inner-schema">
                       <section class="json-schema-array-items">
                         <span class="json-property-type">
@@ -1443,32 +1195,6 @@
       <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
     }
   ],
-  <span class="hljs-attr">&quot;collaborators&quot;</span>: [
-    <span class="hljs-string">&quot;string (byte)&quot;</span>
-  ],
-  <span class="hljs-attr">&quot;acl&quot;</span>: [
-    {
-      <span class="hljs-attr">&quot;identity&quot;</span>: [
-        <span class="hljs-string">&quot;string (byte)&quot;</span>
-      ],
-      <span class="hljs-attr">&quot;acl_schema_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
-      <span class="hljs-attr">&quot;embedded_acl_schema&quot;</span>: {
-        <span class="hljs-attr">&quot;grant_past_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-        <span class="hljs-attr">&quot;grant_future_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-        <span class="hljs-attr">&quot;grant_access_to_future_versions_until&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
-        <span class="hljs-attr">&quot;read_fields&quot;</span>: [
-          {
-            <span class="hljs-attr">&quot;field_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-          }
-        ],
-        <span class="hljs-attr">&quot;write_fields&quot;</span>: [
-          {
-            <span class="hljs-attr">&quot;field_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-          }
-        ]
-      }
-    }
-  ],
   <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
     {
       <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
@@ -1482,32 +1208,6 @@
           <span class="hljs-attr">&quot;entity_id&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
           <span class="hljs-attr">&quot;public_key&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
           <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
-        }
-      ],
-      <span class="hljs-attr">&quot;collaborators&quot;</span>: [
-        <span class="hljs-string">&quot;string (byte)&quot;</span>
-      ],
-      <span class="hljs-attr">&quot;acl&quot;</span>: [
-        {
-          <span class="hljs-attr">&quot;identity&quot;</span>: [
-            <span class="hljs-string">&quot;string (byte)&quot;</span>
-          ],
-          <span class="hljs-attr">&quot;acl_schema_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
-          <span class="hljs-attr">&quot;embedded_acl_schema&quot;</span>: {
-            <span class="hljs-attr">&quot;grant_past_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-            <span class="hljs-attr">&quot;grant_future_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-            <span class="hljs-attr">&quot;grant_access_to_future_versions_until&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
-            <span class="hljs-attr">&quot;read_fields&quot;</span>: [
-              {
-                <span class="hljs-attr">&quot;field_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-              }
-            ],
-            <span class="hljs-attr">&quot;write_fields&quot;</span>: [
-              {
-                <span class="hljs-attr">&quot;field_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-              }
-            ]
-          }
         }
       ],
       <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
@@ -1525,62 +1225,74 @@
               <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
             }
           ],
-          <span class="hljs-attr">&quot;collaborators&quot;</span>: [
-            <span class="hljs-string">&quot;string (byte)&quot;</span>
-          ],
-          <span class="hljs-attr">&quot;acl&quot;</span>: [
+          <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
             {
-              <span class="hljs-attr">&quot;identity&quot;</span>: [
-                <span class="hljs-string">&quot;string (byte)&quot;</span>
+              <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+              <span class="hljs-attr">&quot;current_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+              <span class="hljs-attr">&quot;next_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+              <span class="hljs-attr">&quot;previous_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+              <span class="hljs-attr">&quot;data_merkle_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+              <span class="hljs-attr">&quot;document_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+              <span class="hljs-attr">&quot;signatures&quot;</span>: [
+                {
+                  <span class="hljs-attr">&quot;entity_id&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                  <span class="hljs-attr">&quot;public_key&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                  <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
+                }
               ],
-              <span class="hljs-attr">&quot;acl_schema_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
-              <span class="hljs-attr">&quot;embedded_acl_schema&quot;</span>: {
-                <span class="hljs-attr">&quot;grant_past_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-                <span class="hljs-attr">&quot;grant_future_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-                <span class="hljs-attr">&quot;grant_access_to_future_versions_until&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
-                <span class="hljs-attr">&quot;read_fields&quot;</span>: [
-                  <span class="hljs-literal">null</span>
-                ]
-              }
+              <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
+                {
+                  <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                  <span class="hljs-attr">&quot;current_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                  <span class="hljs-attr">&quot;next_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                  <span class="hljs-attr">&quot;previous_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                  <span class="hljs-attr">&quot;data_merkle_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                  <span class="hljs-attr">&quot;document_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                  <span class="hljs-attr">&quot;signatures&quot;</span>: [
+                    {
+                      <span class="hljs-attr">&quot;entity_id&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                      <span class="hljs-attr">&quot;public_key&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                      <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
+                    }
+                  ],
+                  <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
+                    {
+                      <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                      <span class="hljs-attr">&quot;current_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                      <span class="hljs-attr">&quot;next_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                      <span class="hljs-attr">&quot;previous_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                      <span class="hljs-attr">&quot;data_merkle_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                      <span class="hljs-attr">&quot;document_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                      <span class="hljs-attr">&quot;signatures&quot;</span>: [
+                        {
+                          <span class="hljs-attr">&quot;entity_id&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                          <span class="hljs-attr">&quot;public_key&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                          <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
+                        }
+                      ],
+                      <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
+                        {
+                          <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                          <span class="hljs-attr">&quot;current_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                          <span class="hljs-attr">&quot;next_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                          <span class="hljs-attr">&quot;previous_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                          <span class="hljs-attr">&quot;data_merkle_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                          <span class="hljs-attr">&quot;document_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                          <span class="hljs-attr">&quot;signatures&quot;</span>: [
+                            {}
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
             }
           ]
         }
       ]
     }
   ]
-}
-</code></pre>
-                  <!-- </div> -->
-                </section>
-              </div>
-            </div>
-          </div>
-          <div id="definition-coredocumentFieldAccess" class="definition panel" data-traverse-target="definition-coredocumentFieldAccess">
-            <h2 class="panel-title">
-              <a name="/definitions/coredocumentFieldAccess"></a>coredocumentFieldAccess: object
-              <!-- <span class="json-property-type"><span class="json-property-type">object</span>
-              <span class="json-property-range" title="Value limits"></span>
-              
-              
-              </span> -->
-            </h2>
-            <div class="doc-row">
-              <div class="doc-copy">
-                <section class="json-schema-properties">
-                  <dl>
-                    <dt data-property-name="field_name">
-                      <span class="json-property-name">field_name:</span>
-                      <span class="json-property-type">string</span>
-                      <span class="json-property-range" title="Value limits"></span>
-                    </dt>
-                  </dl>
-                </section>
-              </div>
-              <div class="doc-examples">
-                <section>
-                  <h5>Example</h5>
-                  <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
-  <span class="hljs-attr">&quot;field_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
 }
 </code></pre>
                   <!-- </div> -->
@@ -1683,32 +1395,6 @@
           <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
         }
       ],
-      <span class="hljs-attr">&quot;collaborators&quot;</span>: [
-        <span class="hljs-string">&quot;string (byte)&quot;</span>
-      ],
-      <span class="hljs-attr">&quot;acl&quot;</span>: [
-        {
-          <span class="hljs-attr">&quot;identity&quot;</span>: [
-            <span class="hljs-string">&quot;string (byte)&quot;</span>
-          ],
-          <span class="hljs-attr">&quot;acl_schema_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
-          <span class="hljs-attr">&quot;embedded_acl_schema&quot;</span>: {
-            <span class="hljs-attr">&quot;grant_past_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-            <span class="hljs-attr">&quot;grant_future_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-            <span class="hljs-attr">&quot;grant_access_to_future_versions_until&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
-            <span class="hljs-attr">&quot;read_fields&quot;</span>: [
-              {
-                <span class="hljs-attr">&quot;field_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-              }
-            ],
-            <span class="hljs-attr">&quot;write_fields&quot;</span>: [
-              {
-                <span class="hljs-attr">&quot;field_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-              }
-            ]
-          }
-        }
-      ],
       <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
         {
           <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
@@ -1722,32 +1408,6 @@
               <span class="hljs-attr">&quot;entity_id&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
               <span class="hljs-attr">&quot;public_key&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
               <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
-            }
-          ],
-          <span class="hljs-attr">&quot;collaborators&quot;</span>: [
-            <span class="hljs-string">&quot;string (byte)&quot;</span>
-          ],
-          <span class="hljs-attr">&quot;acl&quot;</span>: [
-            {
-              <span class="hljs-attr">&quot;identity&quot;</span>: [
-                <span class="hljs-string">&quot;string (byte)&quot;</span>
-              ],
-              <span class="hljs-attr">&quot;acl_schema_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
-              <span class="hljs-attr">&quot;embedded_acl_schema&quot;</span>: {
-                <span class="hljs-attr">&quot;grant_past_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-                <span class="hljs-attr">&quot;grant_future_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-                <span class="hljs-attr">&quot;grant_access_to_future_versions_until&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
-                <span class="hljs-attr">&quot;read_fields&quot;</span>: [
-                  {
-                    <span class="hljs-attr">&quot;field_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-                  }
-                ],
-                <span class="hljs-attr">&quot;write_fields&quot;</span>: [
-                  {
-                    <span class="hljs-attr">&quot;field_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-                  }
-                ]
-              }
             }
           ],
           <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
@@ -1765,18 +1425,64 @@
                   <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
                 }
               ],
-              <span class="hljs-attr">&quot;collaborators&quot;</span>: [
-                <span class="hljs-string">&quot;string (byte)&quot;</span>
-              ],
-              <span class="hljs-attr">&quot;acl&quot;</span>: [
+              <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
                 {
-                  <span class="hljs-attr">&quot;identity&quot;</span>: [
-                    <span class="hljs-string">&quot;string (byte)&quot;</span>
+                  <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                  <span class="hljs-attr">&quot;current_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                  <span class="hljs-attr">&quot;next_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                  <span class="hljs-attr">&quot;previous_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                  <span class="hljs-attr">&quot;data_merkle_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                  <span class="hljs-attr">&quot;document_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                  <span class="hljs-attr">&quot;signatures&quot;</span>: [
+                    {
+                      <span class="hljs-attr">&quot;entity_id&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                      <span class="hljs-attr">&quot;public_key&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                      <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
+                    }
                   ],
-                  <span class="hljs-attr">&quot;acl_schema_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
-                  <span class="hljs-attr">&quot;embedded_acl_schema&quot;</span>: {
-                    <span class="hljs-attr">&quot;grant_past_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>
-                  }
+                  <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
+                    {
+                      <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                      <span class="hljs-attr">&quot;current_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                      <span class="hljs-attr">&quot;next_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                      <span class="hljs-attr">&quot;previous_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                      <span class="hljs-attr">&quot;data_merkle_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                      <span class="hljs-attr">&quot;document_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                      <span class="hljs-attr">&quot;signatures&quot;</span>: [
+                        {
+                          <span class="hljs-attr">&quot;entity_id&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                          <span class="hljs-attr">&quot;public_key&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                          <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
+                        }
+                      ],
+                      <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
+                        {
+                          <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                          <span class="hljs-attr">&quot;current_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                          <span class="hljs-attr">&quot;next_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                          <span class="hljs-attr">&quot;previous_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                          <span class="hljs-attr">&quot;data_merkle_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                          <span class="hljs-attr">&quot;document_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                          <span class="hljs-attr">&quot;signatures&quot;</span>: [
+                            {
+                              <span class="hljs-attr">&quot;entity_id&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                              <span class="hljs-attr">&quot;public_key&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                              <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
+                            }
+                          ],
+                          <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
+                            {
+                              <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                              <span class="hljs-attr">&quot;current_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                              <span class="hljs-attr">&quot;next_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                              <span class="hljs-attr">&quot;previous_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                              <span class="hljs-attr">&quot;data_merkle_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
               ]
             }
@@ -2030,32 +1736,6 @@
         <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
       }
     ],
-    <span class="hljs-attr">&quot;collaborators&quot;</span>: [
-      <span class="hljs-string">&quot;string (byte)&quot;</span>
-    ],
-    <span class="hljs-attr">&quot;acl&quot;</span>: [
-      {
-        <span class="hljs-attr">&quot;identity&quot;</span>: [
-          <span class="hljs-string">&quot;string (byte)&quot;</span>
-        ],
-        <span class="hljs-attr">&quot;acl_schema_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
-        <span class="hljs-attr">&quot;embedded_acl_schema&quot;</span>: {
-          <span class="hljs-attr">&quot;grant_past_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-          <span class="hljs-attr">&quot;grant_future_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-          <span class="hljs-attr">&quot;grant_access_to_future_versions_until&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
-          <span class="hljs-attr">&quot;read_fields&quot;</span>: [
-            {
-              <span class="hljs-attr">&quot;field_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-            }
-          ],
-          <span class="hljs-attr">&quot;write_fields&quot;</span>: [
-            {
-              <span class="hljs-attr">&quot;field_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-            }
-          ]
-        }
-      }
-    ],
     <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
       {
         <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
@@ -2069,32 +1749,6 @@
             <span class="hljs-attr">&quot;entity_id&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
             <span class="hljs-attr">&quot;public_key&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
             <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
-          }
-        ],
-        <span class="hljs-attr">&quot;collaborators&quot;</span>: [
-          <span class="hljs-string">&quot;string (byte)&quot;</span>
-        ],
-        <span class="hljs-attr">&quot;acl&quot;</span>: [
-          {
-            <span class="hljs-attr">&quot;identity&quot;</span>: [
-              <span class="hljs-string">&quot;string (byte)&quot;</span>
-            ],
-            <span class="hljs-attr">&quot;acl_schema_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
-            <span class="hljs-attr">&quot;embedded_acl_schema&quot;</span>: {
-              <span class="hljs-attr">&quot;grant_past_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-              <span class="hljs-attr">&quot;grant_future_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-              <span class="hljs-attr">&quot;grant_access_to_future_versions_until&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
-              <span class="hljs-attr">&quot;read_fields&quot;</span>: [
-                {
-                  <span class="hljs-attr">&quot;field_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-                }
-              ],
-              <span class="hljs-attr">&quot;write_fields&quot;</span>: [
-                {
-                  <span class="hljs-attr">&quot;field_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-                }
-              ]
-            }
           }
         ],
         <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
@@ -2112,20 +1766,68 @@
                 <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
               }
             ],
-            <span class="hljs-attr">&quot;collaborators&quot;</span>: [
-              <span class="hljs-string">&quot;string (byte)&quot;</span>
-            ],
-            <span class="hljs-attr">&quot;acl&quot;</span>: [
+            <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
               {
-                <span class="hljs-attr">&quot;identity&quot;</span>: [
-                  <span class="hljs-string">&quot;string (byte)&quot;</span>
+                <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                <span class="hljs-attr">&quot;current_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                <span class="hljs-attr">&quot;next_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                <span class="hljs-attr">&quot;previous_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                <span class="hljs-attr">&quot;data_merkle_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                <span class="hljs-attr">&quot;document_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                <span class="hljs-attr">&quot;signatures&quot;</span>: [
+                  {
+                    <span class="hljs-attr">&quot;entity_id&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                    <span class="hljs-attr">&quot;public_key&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                    <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
+                  }
                 ],
-                <span class="hljs-attr">&quot;acl_schema_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
-                <span class="hljs-attr">&quot;embedded_acl_schema&quot;</span>: {
-                  <span class="hljs-attr">&quot;grant_past_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-                  <span class="hljs-attr">&quot;grant_future_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-                  <span class="hljs-attr">&quot;grant_access_to_future_versions_until&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>
-                }
+                <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
+                  {
+                    <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                    <span class="hljs-attr">&quot;current_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                    <span class="hljs-attr">&quot;next_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                    <span class="hljs-attr">&quot;previous_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                    <span class="hljs-attr">&quot;data_merkle_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                    <span class="hljs-attr">&quot;document_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                    <span class="hljs-attr">&quot;signatures&quot;</span>: [
+                      {
+                        <span class="hljs-attr">&quot;entity_id&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;public_key&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
+                      }
+                    ],
+                    <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
+                      {
+                        <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;current_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;next_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;previous_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;data_merkle_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;document_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;signatures&quot;</span>: [
+                          {
+                            <span class="hljs-attr">&quot;entity_id&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                            <span class="hljs-attr">&quot;public_key&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                            <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
+                          }
+                        ],
+                        <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
+                          {
+                            <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                            <span class="hljs-attr">&quot;current_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                            <span class="hljs-attr">&quot;next_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                            <span class="hljs-attr">&quot;previous_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                            <span class="hljs-attr">&quot;data_merkle_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                            <span class="hljs-attr">&quot;document_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                            <span class="hljs-attr">&quot;signatures&quot;</span>: [
+                              <span class="hljs-literal">null</span>
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
               }
             ]
           }
@@ -2196,32 +1898,6 @@
             <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
           }
         ],
-        <span class="hljs-attr">&quot;collaborators&quot;</span>: [
-          <span class="hljs-string">&quot;string (byte)&quot;</span>
-        ],
-        <span class="hljs-attr">&quot;acl&quot;</span>: [
-          {
-            <span class="hljs-attr">&quot;identity&quot;</span>: [
-              <span class="hljs-string">&quot;string (byte)&quot;</span>
-            ],
-            <span class="hljs-attr">&quot;acl_schema_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
-            <span class="hljs-attr">&quot;embedded_acl_schema&quot;</span>: {
-              <span class="hljs-attr">&quot;grant_past_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-              <span class="hljs-attr">&quot;grant_future_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-              <span class="hljs-attr">&quot;grant_access_to_future_versions_until&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
-              <span class="hljs-attr">&quot;read_fields&quot;</span>: [
-                {
-                  <span class="hljs-attr">&quot;field_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-                }
-              ],
-              <span class="hljs-attr">&quot;write_fields&quot;</span>: [
-                {
-                  <span class="hljs-attr">&quot;field_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-                }
-              ]
-            }
-          }
-        ],
         <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
           {
             <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
@@ -2235,32 +1911,6 @@
                 <span class="hljs-attr">&quot;entity_id&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
                 <span class="hljs-attr">&quot;public_key&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
                 <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
-              }
-            ],
-            <span class="hljs-attr">&quot;collaborators&quot;</span>: [
-              <span class="hljs-string">&quot;string (byte)&quot;</span>
-            ],
-            <span class="hljs-attr">&quot;acl&quot;</span>: [
-              {
-                <span class="hljs-attr">&quot;identity&quot;</span>: [
-                  <span class="hljs-string">&quot;string (byte)&quot;</span>
-                ],
-                <span class="hljs-attr">&quot;acl_schema_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
-                <span class="hljs-attr">&quot;embedded_acl_schema&quot;</span>: {
-                  <span class="hljs-attr">&quot;grant_past_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-                  <span class="hljs-attr">&quot;grant_future_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-                  <span class="hljs-attr">&quot;grant_access_to_future_versions_until&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
-                  <span class="hljs-attr">&quot;read_fields&quot;</span>: [
-                    {
-                      <span class="hljs-attr">&quot;field_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-                    }
-                  ],
-                  <span class="hljs-attr">&quot;write_fields&quot;</span>: [
-                    {
-                      <span class="hljs-attr">&quot;field_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-                    }
-                  ]
-                }
               }
             ],
             <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
@@ -2278,16 +1928,63 @@
                     <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
                   }
                 ],
-                <span class="hljs-attr">&quot;collaborators&quot;</span>: [
-                  <span class="hljs-string">&quot;string (byte)&quot;</span>
-                ],
-                <span class="hljs-attr">&quot;acl&quot;</span>: [
+                <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
                   {
-                    <span class="hljs-attr">&quot;identity&quot;</span>: [
-                      <span class="hljs-string">&quot;string (byte)&quot;</span>
+                    <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                    <span class="hljs-attr">&quot;current_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                    <span class="hljs-attr">&quot;next_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                    <span class="hljs-attr">&quot;previous_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                    <span class="hljs-attr">&quot;data_merkle_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                    <span class="hljs-attr">&quot;document_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                    <span class="hljs-attr">&quot;signatures&quot;</span>: [
+                      {
+                        <span class="hljs-attr">&quot;entity_id&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;public_key&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
+                      }
                     ],
-                    <span class="hljs-attr">&quot;acl_schema_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
-                    <span class="hljs-attr">&quot;embedded_acl_schema&quot;</span>: {}
+                    <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
+                      {
+                        <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;current_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;next_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;previous_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;data_merkle_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;document_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;signatures&quot;</span>: [
+                          {
+                            <span class="hljs-attr">&quot;entity_id&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                            <span class="hljs-attr">&quot;public_key&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                            <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
+                          }
+                        ],
+                        <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
+                          {
+                            <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                            <span class="hljs-attr">&quot;current_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                            <span class="hljs-attr">&quot;next_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                            <span class="hljs-attr">&quot;previous_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                            <span class="hljs-attr">&quot;data_merkle_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                            <span class="hljs-attr">&quot;document_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                            <span class="hljs-attr">&quot;signatures&quot;</span>: [
+                              {
+                                <span class="hljs-attr">&quot;entity_id&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                                <span class="hljs-attr">&quot;public_key&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                                <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
+                              }
+                            ],
+                            <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
+                              {
+                                <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                                <span class="hljs-attr">&quot;current_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                                <span class="hljs-attr">&quot;next_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                                <span class="hljs-attr">&quot;previous_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
                   }
                 ]
               }
@@ -2364,32 +2061,6 @@
           <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
         }
       ],
-      <span class="hljs-attr">&quot;collaborators&quot;</span>: [
-        <span class="hljs-string">&quot;string (byte)&quot;</span>
-      ],
-      <span class="hljs-attr">&quot;acl&quot;</span>: [
-        {
-          <span class="hljs-attr">&quot;identity&quot;</span>: [
-            <span class="hljs-string">&quot;string (byte)&quot;</span>
-          ],
-          <span class="hljs-attr">&quot;acl_schema_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
-          <span class="hljs-attr">&quot;embedded_acl_schema&quot;</span>: {
-            <span class="hljs-attr">&quot;grant_past_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-            <span class="hljs-attr">&quot;grant_future_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-            <span class="hljs-attr">&quot;grant_access_to_future_versions_until&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
-            <span class="hljs-attr">&quot;read_fields&quot;</span>: [
-              {
-                <span class="hljs-attr">&quot;field_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-              }
-            ],
-            <span class="hljs-attr">&quot;write_fields&quot;</span>: [
-              {
-                <span class="hljs-attr">&quot;field_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-              }
-            ]
-          }
-        }
-      ],
       <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
         {
           <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
@@ -2403,32 +2074,6 @@
               <span class="hljs-attr">&quot;entity_id&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
               <span class="hljs-attr">&quot;public_key&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
               <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
-            }
-          ],
-          <span class="hljs-attr">&quot;collaborators&quot;</span>: [
-            <span class="hljs-string">&quot;string (byte)&quot;</span>
-          ],
-          <span class="hljs-attr">&quot;acl&quot;</span>: [
-            {
-              <span class="hljs-attr">&quot;identity&quot;</span>: [
-                <span class="hljs-string">&quot;string (byte)&quot;</span>
-              ],
-              <span class="hljs-attr">&quot;acl_schema_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
-              <span class="hljs-attr">&quot;embedded_acl_schema&quot;</span>: {
-                <span class="hljs-attr">&quot;grant_past_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-                <span class="hljs-attr">&quot;grant_future_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-                <span class="hljs-attr">&quot;grant_access_to_future_versions_until&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
-                <span class="hljs-attr">&quot;read_fields&quot;</span>: [
-                  {
-                    <span class="hljs-attr">&quot;field_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-                  }
-                ],
-                <span class="hljs-attr">&quot;write_fields&quot;</span>: [
-                  {
-                    <span class="hljs-attr">&quot;field_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-                  }
-                ]
-              }
             }
           ],
           <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
@@ -2446,15 +2091,62 @@
                   <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
                 }
               ],
-              <span class="hljs-attr">&quot;collaborators&quot;</span>: [
-                <span class="hljs-string">&quot;string (byte)&quot;</span>
-              ],
-              <span class="hljs-attr">&quot;acl&quot;</span>: [
+              <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
                 {
-                  <span class="hljs-attr">&quot;identity&quot;</span>: [
-                    <span class="hljs-string">&quot;string (byte)&quot;</span>
+                  <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                  <span class="hljs-attr">&quot;current_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                  <span class="hljs-attr">&quot;next_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                  <span class="hljs-attr">&quot;previous_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                  <span class="hljs-attr">&quot;data_merkle_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                  <span class="hljs-attr">&quot;document_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                  <span class="hljs-attr">&quot;signatures&quot;</span>: [
+                    {
+                      <span class="hljs-attr">&quot;entity_id&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                      <span class="hljs-attr">&quot;public_key&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                      <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
+                    }
                   ],
-                  <span class="hljs-attr">&quot;acl_schema_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
+                  <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
+                    {
+                      <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                      <span class="hljs-attr">&quot;current_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                      <span class="hljs-attr">&quot;next_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                      <span class="hljs-attr">&quot;previous_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                      <span class="hljs-attr">&quot;data_merkle_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                      <span class="hljs-attr">&quot;document_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                      <span class="hljs-attr">&quot;signatures&quot;</span>: [
+                        {
+                          <span class="hljs-attr">&quot;entity_id&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                          <span class="hljs-attr">&quot;public_key&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                          <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
+                        }
+                      ],
+                      <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
+                        {
+                          <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                          <span class="hljs-attr">&quot;current_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                          <span class="hljs-attr">&quot;next_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                          <span class="hljs-attr">&quot;previous_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                          <span class="hljs-attr">&quot;data_merkle_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                          <span class="hljs-attr">&quot;document_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                          <span class="hljs-attr">&quot;signatures&quot;</span>: [
+                            {
+                              <span class="hljs-attr">&quot;entity_id&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                              <span class="hljs-attr">&quot;public_key&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                              <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
+                            }
+                          ],
+                          <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
+                            {
+                              <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                              <span class="hljs-attr">&quot;current_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                              <span class="hljs-attr">&quot;next_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
               ]
             }
@@ -2626,32 +2318,6 @@
         <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
       }
     ],
-    <span class="hljs-attr">&quot;collaborators&quot;</span>: [
-      <span class="hljs-string">&quot;string (byte)&quot;</span>
-    ],
-    <span class="hljs-attr">&quot;acl&quot;</span>: [
-      {
-        <span class="hljs-attr">&quot;identity&quot;</span>: [
-          <span class="hljs-string">&quot;string (byte)&quot;</span>
-        ],
-        <span class="hljs-attr">&quot;acl_schema_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
-        <span class="hljs-attr">&quot;embedded_acl_schema&quot;</span>: {
-          <span class="hljs-attr">&quot;grant_past_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-          <span class="hljs-attr">&quot;grant_future_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-          <span class="hljs-attr">&quot;grant_access_to_future_versions_until&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
-          <span class="hljs-attr">&quot;read_fields&quot;</span>: [
-            {
-              <span class="hljs-attr">&quot;field_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-            }
-          ],
-          <span class="hljs-attr">&quot;write_fields&quot;</span>: [
-            {
-              <span class="hljs-attr">&quot;field_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-            }
-          ]
-        }
-      }
-    ],
     <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
       {
         <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
@@ -2665,32 +2331,6 @@
             <span class="hljs-attr">&quot;entity_id&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
             <span class="hljs-attr">&quot;public_key&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
             <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
-          }
-        ],
-        <span class="hljs-attr">&quot;collaborators&quot;</span>: [
-          <span class="hljs-string">&quot;string (byte)&quot;</span>
-        ],
-        <span class="hljs-attr">&quot;acl&quot;</span>: [
-          {
-            <span class="hljs-attr">&quot;identity&quot;</span>: [
-              <span class="hljs-string">&quot;string (byte)&quot;</span>
-            ],
-            <span class="hljs-attr">&quot;acl_schema_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
-            <span class="hljs-attr">&quot;embedded_acl_schema&quot;</span>: {
-              <span class="hljs-attr">&quot;grant_past_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-              <span class="hljs-attr">&quot;grant_future_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-              <span class="hljs-attr">&quot;grant_access_to_future_versions_until&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>,
-              <span class="hljs-attr">&quot;read_fields&quot;</span>: [
-                {
-                  <span class="hljs-attr">&quot;field_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-                }
-              ],
-              <span class="hljs-attr">&quot;write_fields&quot;</span>: [
-                {
-                  <span class="hljs-attr">&quot;field_name&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-                }
-              ]
-            }
           }
         ],
         <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
@@ -2708,19 +2348,65 @@
                 <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
               }
             ],
-            <span class="hljs-attr">&quot;collaborators&quot;</span>: [
-              <span class="hljs-string">&quot;string (byte)&quot;</span>
-            ],
-            <span class="hljs-attr">&quot;acl&quot;</span>: [
+            <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
               {
-                <span class="hljs-attr">&quot;identity&quot;</span>: [
-                  <span class="hljs-string">&quot;string (byte)&quot;</span>
+                <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                <span class="hljs-attr">&quot;current_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                <span class="hljs-attr">&quot;next_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                <span class="hljs-attr">&quot;previous_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                <span class="hljs-attr">&quot;data_merkle_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                <span class="hljs-attr">&quot;document_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                <span class="hljs-attr">&quot;signatures&quot;</span>: [
+                  {
+                    <span class="hljs-attr">&quot;entity_id&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                    <span class="hljs-attr">&quot;public_key&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                    <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
+                  }
                 ],
-                <span class="hljs-attr">&quot;acl_schema_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
-                <span class="hljs-attr">&quot;embedded_acl_schema&quot;</span>: {
-                  <span class="hljs-attr">&quot;grant_past_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>,
-                  <span class="hljs-attr">&quot;grant_future_version_access&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>
-                }
+                <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
+                  {
+                    <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                    <span class="hljs-attr">&quot;current_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                    <span class="hljs-attr">&quot;next_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                    <span class="hljs-attr">&quot;previous_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                    <span class="hljs-attr">&quot;data_merkle_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                    <span class="hljs-attr">&quot;document_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                    <span class="hljs-attr">&quot;signatures&quot;</span>: [
+                      {
+                        <span class="hljs-attr">&quot;entity_id&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;public_key&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
+                      }
+                    ],
+                    <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
+                      {
+                        <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;current_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;next_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;previous_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;data_merkle_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;document_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                        <span class="hljs-attr">&quot;signatures&quot;</span>: [
+                          {
+                            <span class="hljs-attr">&quot;entity_id&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                            <span class="hljs-attr">&quot;public_key&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                            <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
+                          }
+                        ],
+                        <span class="hljs-attr">&quot;previous_versions&quot;</span>: [
+                          {
+                            <span class="hljs-attr">&quot;document_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                            <span class="hljs-attr">&quot;current_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                            <span class="hljs-attr">&quot;next_identifier&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                            <span class="hljs-attr">&quot;previous_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                            <span class="hljs-attr">&quot;data_merkle_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+                            <span class="hljs-attr">&quot;document_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
               }
             ]
           }

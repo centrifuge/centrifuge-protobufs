@@ -1,7 +1,6 @@
 syntax = "proto3";
 
 import "google/protobuf/any.proto";
-import "google/protobuf/timestamp.proto";
 
 package coredocument;
 
@@ -35,10 +34,13 @@ message CoreDocument {
   repeated Signature signatures = 6;
   // List of collaborators on this document. These Centrifuge Identities have access
   // to the document and should receive new versions whenever a document is updated.
-  repeated bytes collaborators = 10;
-  repeated AccessControlEntry acl = 11;
+  // repeated bytes collaborators = 10;
+  // repeated AccessControlEntry acl = 11;
+
   // The previous document is referenced here but doesn't need to be provided and can
   // be left blank
+  //
+  // This is a readonly field
   repeated CoreDocument previous_versions = 8;
   // Document a serialized document
   google.protobuf.Any embedded_data = 13;
@@ -52,30 +54,4 @@ message Signature {
   // `public_key` is the public key of the `entity` used for signing the `CoreDocument`
   bytes public_key = 2;
   bytes signature = 3;
-}
-
-// AccessControlEntry defines a member of the document
-message AccessControlEntry {
-  // All identities listed
-  repeated bytes identity = 1;
-  // There are two ways to describe the acl schema. One of the standard ACL schemas can be referenced by a
-  // unique identifier or a schema can be embedded.
-  bytes acl_schema_identifier = 2;
-  AccessControlSchema embedded_acl_schema = 3;
-}
-
-message AccessControlSchema {
-  // Set either to true to grant access to also look at past versions of the document and/or future updates
-  // to the document.
-  bool grant_past_version_access = 2;
-  bool grant_future_version_access = 3;
-  google.protobuf.Timestamp grant_access_to_future_versions_until = 4;
-  // TODO: how granular do we want to grant these permissions? Fields?
-  repeated FieldAccess read_fields = 5;
-  repeated FieldAccess write_fields = 6;
-}
-
-message FieldAccess {
-  // TODO: how do we identify field names?
-  string field_name = 1;
 }

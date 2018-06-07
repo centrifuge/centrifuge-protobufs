@@ -112,59 +112,6 @@
     }
   },
   "definitions": {
-    "coredocumentAccessControlEntry": {
-      "type": "object",
-      "properties": {
-        "identity": {
-          "type": "array",
-          "items": {
-            "type": "string",
-            "format": "byte"
-          },
-          "title": "All identities listed"
-        },
-        "acl_schema_identifier": {
-          "type": "string",
-          "format": "byte",
-          "description": "There are two ways to describe the acl schema. One of the standard ACL schemas can be referenced by a\nunique identifier or a schema can be embedded."
-        },
-        "embedded_acl_schema": {
-          "$ref": "#/definitions/coredocumentAccessControlSchema"
-        }
-      },
-      "title": "AccessControlEntry defines a member of the document"
-    },
-    "coredocumentAccessControlSchema": {
-      "type": "object",
-      "properties": {
-        "grant_past_version_access": {
-          "type": "boolean",
-          "format": "boolean",
-          "description": "Set either to true to grant access to also look at past versions of the document and/or future updates\nto the document."
-        },
-        "grant_future_version_access": {
-          "type": "boolean",
-          "format": "boolean"
-        },
-        "grant_access_to_future_versions_until": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "read_fields": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/coredocumentFieldAccess"
-          },
-          "title": "TODO: how granular do we want to grant these permissions? Fields?"
-        },
-        "write_fields": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/coredocumentFieldAccess"
-          }
-        }
-      }
-    },
     "coredocumentCoreDocument": {
       "type": "object",
       "properties": {
@@ -203,25 +150,12 @@
           },
           "title": "Signatures"
         },
-        "collaborators": {
-          "type": "array",
-          "items": {
-            "type": "string",
-            "format": "byte"
-          },
-          "description": "List of collaborators on this document. These Centrifuge Identities have access\nto the document and should receive new versions whenever a document is updated."
-        },
-        "acl": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/coredocumentAccessControlEntry"
-          }
-        },
         "previous_versions": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/coredocumentCoreDocument"
           },
+          "description": "This is a readonly field",
           "title": "The previous document is referenced here but doesn't need to be provided and can\nbe left blank"
         },
         "embedded_data": {
@@ -234,15 +168,6 @@
       },
       "description": "* Merkle Roots for the document data\n* Signatures on document data\n* Access Control",
       "title": "`CoreDocument` is a document that can be sent to different nodes and anchored \non chain. It handles all the generic features native Centrifuge Documents support:"
-    },
-    "coredocumentFieldAccess": {
-      "type": "object",
-      "properties": {
-        "field_name": {
-          "type": "string",
-          "title": "TODO: how do we identify field names?"
-        }
-      }
     },
     "coredocumentSignature": {
       "type": "object",
