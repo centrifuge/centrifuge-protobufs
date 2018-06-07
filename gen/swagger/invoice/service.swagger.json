@@ -83,6 +83,33 @@
         ]
       }
     },
+    "/invoice/proof": {
+      "post": {
+        "description": "Creates a list of precise proofs for the specified fields",
+        "operationId": "CreateInvoiceProof",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/invoiceInvoiceProof"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/invoiceCreateInvoiceProofEnvelope"
+            }
+          }
+        ],
+        "tags": [
+          "InvoiceDocumentService"
+        ]
+      }
+    },
     "/invoice/send": {
       "post": {
         "description": "Send an invoice document to the specified party",
@@ -197,6 +224,21 @@
         }
       }
     },
+    "invoiceCreateInvoiceProofEnvelope": {
+      "type": "object",
+      "properties": {
+        "document_identifier": {
+          "type": "string",
+          "format": "byte"
+        },
+        "proof_fields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
     "invoiceInvoiceData": {
       "type": "object",
       "properties": {
@@ -291,6 +333,21 @@
         }
       }
     },
+    "invoiceInvoiceProof": {
+      "type": "object",
+      "properties": {
+        "document_identifier": {
+          "type": "string",
+          "format": "byte"
+        },
+        "field_proofs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/proofsProof"
+          }
+        }
+      }
+    },
     "invoiceReceivedInvoices": {
       "type": "object",
       "properties": {
@@ -315,6 +372,40 @@
         },
         "document": {
           "$ref": "#/definitions/invoiceInvoiceDocument"
+        }
+      }
+    },
+    "proofsMerkleHash": {
+      "type": "object",
+      "properties": {
+        "left": {
+          "type": "string",
+          "format": "byte"
+        },
+        "right": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "proofsProof": {
+      "type": "object",
+      "properties": {
+        "property": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        },
+        "salt": {
+          "type": "string",
+          "format": "byte"
+        },
+        "hashes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/proofsMerkleHash"
+          }
         }
       }
     },
