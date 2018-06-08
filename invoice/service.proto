@@ -54,7 +54,7 @@ service InvoiceDocumentService {
 
 message CreateInvoiceProofEnvelope {
   bytes document_identifier = 1;
-  repeated string proof_fields = 2;
+  repeated string fields = 2;
 }
 
 message InvoiceProof {

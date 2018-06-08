@@ -231,7 +231,7 @@
           "type": "string",
           "format": "byte"
         },
-        "proof_fields": {
+        "fields": {
           "type": "array",
           "items": {
             "type": "string"
