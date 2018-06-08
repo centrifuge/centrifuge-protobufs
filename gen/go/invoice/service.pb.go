@@ -8,7 +8,7 @@ import fmt "fmt"
 import math "math"
 import proofs "github.com/centrifuge/precise-proofs/proofs"
 import empty "github.com/golang/protobuf/ptypes/empty"
-import _ "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger/options/annotations.proto"
+import _ "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger/options"
 import _ "google.golang.org/genproto/googleapis/api/annotations"
 
 import (
