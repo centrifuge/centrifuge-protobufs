@@ -21,6 +21,7 @@ message InvoiceData {
   google.protobuf.Timestamp date_created = 11;
 }
 
+// InvoiceDataSalts keeps track of the salts used for each InvoiceData field.
 message InvoiceDataSalts {
   bytes country = 2;
   bytes currency = 3;
@@ -33,6 +34,7 @@ message InvoiceDataSalts {
   bytes date_created = 11;
 }
 
+// InvoiceDocument combines teh salts, data & coredocument for an invoice
 message InvoiceDocument {
   coredocument.CoreDocument core_document = 1;
   InvoiceData data = 2;

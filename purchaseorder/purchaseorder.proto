@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+import "coredocument/coredocument.proto";
+
+package purchaseorder;
+
+option go_package = "purchaseorderpb";
+
+// PurchaseOrderData is the default schema for a purchase order
+message PurchaseOrderData {
+  string country = 2;
+  string currency = 3;
+  int64 amount = 4;
+  bytes recipient = 5;
+  bytes sender = 6;
+  string comment = 8;
+  google.protobuf.Timestamp delivery_date = 9;
+}
+
+// PurhcaseOrderDataSalts keeps track of the salts used for each PurchaseOrderData field.
+message PurchaseOrderDataSalts {
+  bytes country = 2;
+  bytes currency = 3;
+  bytes amount = 4;
+  bytes recipient = 5;
+  bytes sender = 6;
+  bytes comment = 8;
+  bytes delivery_date = 9;
+}
+
+// PurchaseOrderDocument combines the salts, data & coredocument for a purchase order.
+message PurchaseOrderDocument {
+  coredocument.CoreDocument core_document = 1;
+  PurchaseOrderData data = 2;
+  PurchaseOrderDataSalts salts = 3;
+}

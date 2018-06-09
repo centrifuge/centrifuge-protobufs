@@ -40,7 +40,7 @@ func (m *InvoiceData) Reset()         { *m = InvoiceData{} }
 func (m *InvoiceData) String() string { return proto.CompactTextString(m) }
 func (*InvoiceData) ProtoMessage()    {}
 func (*InvoiceData) Descriptor() ([]byte, []int) {
-	return fileDescriptor_invoice_342ebafce842fd94, []int{0}
+	return fileDescriptor_invoice_b4eb422c5d979d56, []int{0}
 }
 func (m *InvoiceData) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_InvoiceData.Unmarshal(m, b)
@@ -123,6 +123,7 @@ func (m *InvoiceData) GetDateCreated() *timestamp.Timestamp {
 	return nil
 }
 
+// InvoiceDataSalts keeps track of the salts used for each InvoiceData field.
 type InvoiceDataSalts struct {
 	Country              []byte   `protobuf:"bytes,2,opt,name=country,proto3" json:"country,omitempty"`
 	Currency             []byte   `protobuf:"bytes,3,opt,name=currency,proto3" json:"currency,omitempty"`
@@ -142,7 +143,7 @@ func (m *InvoiceDataSalts) Reset()         { *m = InvoiceDataSalts{} }
 func (m *InvoiceDataSalts) String() string { return proto.CompactTextString(m) }
 func (*InvoiceDataSalts) ProtoMessage()    {}
 func (*InvoiceDataSalts) Descriptor() ([]byte, []int) {
-	return fileDescriptor_invoice_342ebafce842fd94, []int{1}
+	return fileDescriptor_invoice_b4eb422c5d979d56, []int{1}
 }
 func (m *InvoiceDataSalts) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_InvoiceDataSalts.Unmarshal(m, b)
@@ -225,6 +226,7 @@ func (m *InvoiceDataSalts) GetDateCreated() []byte {
 	return nil
 }
 
+// InvoiceDocument combines teh salts, data & coredocument for an invoice
 type InvoiceDocument struct {
 	CoreDocument         *coredocument.CoreDocument `protobuf:"bytes,1,opt,name=core_document,json=coreDocument" json:"core_document,omitempty"`
 	Data                 *InvoiceData               `protobuf:"bytes,2,opt,name=data" json:"data,omitempty"`
@@ -238,7 +240,7 @@ func (m *InvoiceDocument) Reset()         { *m = InvoiceDocument{} }
 func (m *InvoiceDocument) String() string { return proto.CompactTextString(m) }
 func (*InvoiceDocument) ProtoMessage()    {}
 func (*InvoiceDocument) Descriptor() ([]byte, []int) {
-	return fileDescriptor_invoice_342ebafce842fd94, []int{2}
+	return fileDescriptor_invoice_b4eb422c5d979d56, []int{2}
 }
 func (m *InvoiceDocument) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_InvoiceDocument.Unmarshal(m, b)
@@ -285,9 +287,9 @@ func init() {
 	proto.RegisterType((*InvoiceDocument)(nil), "invoice.InvoiceDocument")
 }
 
-func init() { proto.RegisterFile("invoice/invoice.proto", fileDescriptor_invoice_342ebafce842fd94) }
+func init() { proto.RegisterFile("invoice/invoice.proto", fileDescriptor_invoice_b4eb422c5d979d56) }
 
-var fileDescriptor_invoice_342ebafce842fd94 = []byte{
+var fileDescriptor_invoice_b4eb422c5d979d56 = []byte{
 	// 389 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xbc, 0x92, 0xbf, 0x8b, 0xdb, 0x30,
 	0x14, 0xc7, 0x71, 0x7e, 0x39, 0x96, 0x55, 0x5a, 0x44, 0x5a, 0x14, 0x53, 0x88, 0x9b, 0xc9, 0x93,
