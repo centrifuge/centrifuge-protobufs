@@ -26,14 +26,14 @@ const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 // P2PMessage wraps a single CoreDocument to be transferred to another noed
 type P2PMessage struct {
-	NetworkIdentifier uint32 `protobuf:"varint,1,opt,name=network_identifier,json=networkIdentifier" json:"network_identifier,omitempty"`
-	CentNodeVersion   string `protobuf:"bytes,2,opt,name=cent_node_version,json=centNodeVersion" json:"cent_node_version,omitempty"`
+	NetworkIdentifier uint32 `protobuf:"varint,1,opt,name=network_identifier,json=networkIdentifier,proto3" json:"network_identifier,omitempty"`
+	CentNodeVersion   string `protobuf:"bytes,2,opt,name=cent_node_version,json=centNodeVersion,proto3" json:"cent_node_version,omitempty"`
 	// Open questions in the P2PMessage
 	// - should we include the document schema so the client can refuse it right away?
 	// - how do you determine if the node is the right recipient for the current
 	//   transaction (e.g. two different nodes with different keys are used for
 	//   one centrifuge ID handling different data).
-	Document             *coredocument.CoreDocument `protobuf:"bytes,5,opt,name=document" json:"document,omitempty"`
+	Document             *coredocument.CoreDocument `protobuf:"bytes,5,opt,name=document,proto3" json:"document,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}                   `json:"-"`
 	XXX_unrecognized     []byte                     `json:"-"`
 	XXX_sizecache        int32                      `json:"-"`
@@ -85,8 +85,8 @@ func (m *P2PMessage) GetDocument() *coredocument.CoreDocument {
 }
 
 type P2PReply struct {
-	CentNodeVersion      string                     `protobuf:"bytes,1,opt,name=cent_node_version,json=centNodeVersion" json:"cent_node_version,omitempty"`
-	Document             *coredocument.CoreDocument `protobuf:"bytes,3,opt,name=document" json:"document,omitempty"`
+	CentNodeVersion      string                     `protobuf:"bytes,1,opt,name=cent_node_version,json=centNodeVersion,proto3" json:"cent_node_version,omitempty"`
+	Document             *coredocument.CoreDocument `protobuf:"bytes,3,opt,name=document,proto3" json:"document,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}                   `json:"-"`
 	XXX_unrecognized     []byte                     `json:"-"`
 	XXX_sizecache        int32                      `json:"-"`
@@ -143,8 +143,9 @@ var _ grpc.ClientConn
 // is compatible with the grpc package it is being compiled against.
 const _ = grpc.SupportPackageIsVersion4
 
-// Client API for P2PService service
-
+// P2PServiceClient is the client API for P2PService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type P2PServiceClient interface {
 	// Post transmits a new version of the document to the recipient
 	Post(ctx context.Context, in *P2PMessage, opts ...grpc.CallOption) (*P2PReply, error)
@@ -160,15 +161,14 @@ func NewP2PServiceClient(cc *grpc.ClientConn) P2PServiceClient {
 
 func (c *p2PServiceClient) Post(ctx context.Context, in *P2PMessage, opts ...grpc.CallOption) (*P2PReply, error) {
 	out := new(P2PReply)
-	err := grpc.Invoke(ctx, "/p2p.P2PService/Post", in, out, c.cc, opts...)
+	err := c.cc.Invoke(ctx, "/p2p.P2PService/Post", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// Server API for P2PService service
-
+// P2PServiceServer is the server API for P2PService service.
 type P2PServiceServer interface {
 	// Post transmits a new version of the document to the recipient
 	Post(context.Context, *P2PMessage) (*P2PReply, error)

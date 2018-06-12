@@ -44,15 +44,15 @@ type CoreDocument struct {
 	DataMerkleRoot []byte `protobuf:"bytes,5,opt,name=data_merkle_root,json=dataMerkleRoot,proto3" json:"data_merkle_root,omitempty"`
 	DocumentRoot   []byte `protobuf:"bytes,7,opt,name=document_root,json=documentRoot,proto3" json:"document_root,omitempty"`
 	// Signatures
-	Signatures []*Signature `protobuf:"bytes,6,rep,name=signatures" json:"signatures,omitempty"`
+	Signatures []*Signature `protobuf:"bytes,6,rep,name=signatures,proto3" json:"signatures,omitempty"`
 	// The previous document is referenced here but doesn't need to be provided and can
 	// be left blank
 	//
 	// This is a readonly field
-	PreviousVersions []*CoreDocument `protobuf:"bytes,8,rep,name=previous_versions,json=previousVersions" json:"previous_versions,omitempty"`
+	PreviousVersions []*CoreDocument `protobuf:"bytes,8,rep,name=previous_versions,json=previousVersions,proto3" json:"previous_versions,omitempty"`
 	// Document a serialized document
-	EmbeddedData         *any.Any `protobuf:"bytes,13,opt,name=embedded_data,json=embeddedData" json:"embedded_data,omitempty"`
-	EmbeddedDataSalts    *any.Any `protobuf:"bytes,14,opt,name=embedded_data_salts,json=embeddedDataSalts" json:"embedded_data_salts,omitempty"`
+	EmbeddedData         *any.Any `protobuf:"bytes,13,opt,name=embedded_data,json=embeddedData,proto3" json:"embedded_data,omitempty"`
+	EmbeddedDataSalts    *any.Any `protobuf:"bytes,14,opt,name=embedded_data_salts,json=embeddedDataSalts,proto3" json:"embedded_data_salts,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
