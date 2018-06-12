@@ -22,15 +22,38 @@ const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 // InvoiceData is the default invoice schema
 type InvoiceData struct {
-	Country              string               `protobuf:"bytes,2,opt,name=country" json:"country,omitempty"`
-	Currency             string               `protobuf:"bytes,3,opt,name=currency" json:"currency,omitempty"`
-	Amount               int64                `protobuf:"varint,4,opt,name=amount" json:"amount,omitempty"`
-	Recipient            []byte               `protobuf:"bytes,5,opt,name=recipient,proto3" json:"recipient,omitempty"`
-	Sender               []byte               `protobuf:"bytes,6,opt,name=sender,proto3" json:"sender,omitempty"`
-	Payee                []byte               `protobuf:"bytes,7,opt,name=payee,proto3" json:"payee,omitempty"`
-	Comment              string               `protobuf:"bytes,8,opt,name=comment" json:"comment,omitempty"`
-	DueDate              *timestamp.Timestamp `protobuf:"bytes,9,opt,name=due_date,json=dueDate" json:"due_date,omitempty"`
-	DateCreated          *timestamp.Timestamp `protobuf:"bytes,11,opt,name=date_created,json=dateCreated" json:"date_created,omitempty"`
+	// invoice number or reference number
+	InvoiceNumber string `protobuf:"bytes,1,opt,name=invoice_number,json=invoiceNumber,proto3" json:"invoice_number,omitempty"`
+	// name of the sender company
+	SenderName string `protobuf:"bytes,3,opt,name=sender_name,json=senderName,proto3" json:"sender_name,omitempty"`
+	// street and address details of the sender company
+	SenderStreet  string `protobuf:"bytes,4,opt,name=sender_street,json=senderStreet,proto3" json:"sender_street,omitempty"`
+	SenderCity    string `protobuf:"bytes,5,opt,name=sender_city,json=senderCity,proto3" json:"sender_city,omitempty"`
+	SenderZipcode string `protobuf:"bytes,6,opt,name=sender_zipcode,json=senderZipcode,proto3" json:"sender_zipcode,omitempty"`
+	// country ISO code of the sender of this invoice
+	SenderCountry string `protobuf:"bytes,7,opt,name=sender_country,json=senderCountry,proto3" json:"sender_country,omitempty"`
+	// name of the recipient company
+	RecipientName    string `protobuf:"bytes,8,opt,name=recipient_name,json=recipientName,proto3" json:"recipient_name,omitempty"`
+	RecipientStreet  string `protobuf:"bytes,9,opt,name=recipient_street,json=recipientStreet,proto3" json:"recipient_street,omitempty"`
+	RecipientCity    string `protobuf:"bytes,10,opt,name=recipient_city,json=recipientCity,proto3" json:"recipient_city,omitempty"`
+	RecipientZipcode string `protobuf:"bytes,11,opt,name=recipient_zipcode,json=recipientZipcode,proto3" json:"recipient_zipcode,omitempty"`
+	// country ISO code of the receipient of this invoice
+	RecipientCountry string `protobuf:"bytes,12,opt,name=recipient_country,json=recipientCountry,proto3" json:"recipient_country,omitempty"`
+	// ISO currency code
+	Currency string `protobuf:"bytes,13,opt,name=currency,proto3" json:"currency,omitempty"`
+	// invoice amount including tax
+	GrossAmount int64 `protobuf:"varint,14,opt,name=gross_amount,json=grossAmount,proto3" json:"gross_amount,omitempty"`
+	// invoice amount excluding tax
+	NetAmount            int64                `protobuf:"varint,15,opt,name=net_amount,json=netAmount,proto3" json:"net_amount,omitempty"`
+	TaxAmount            int64                `protobuf:"varint,16,opt,name=tax_amount,json=taxAmount,proto3" json:"tax_amount,omitempty"`
+	TaxRate              int64                `protobuf:"varint,17,opt,name=tax_rate,json=taxRate,proto3" json:"tax_rate,omitempty"`
+	Recipient            []byte               `protobuf:"bytes,18,opt,name=recipient,proto3" json:"recipient,omitempty"`
+	Sender               []byte               `protobuf:"bytes,19,opt,name=sender,proto3" json:"sender,omitempty"`
+	Payee                []byte               `protobuf:"bytes,20,opt,name=payee,proto3" json:"payee,omitempty"`
+	Comment              string               `protobuf:"bytes,21,opt,name=comment,proto3" json:"comment,omitempty"`
+	DueDate              *timestamp.Timestamp `protobuf:"bytes,22,opt,name=due_date,json=dueDate,proto3" json:"due_date,omitempty"`
+	DateCreated          *timestamp.Timestamp `protobuf:"bytes,23,opt,name=date_created,json=dateCreated,proto3" json:"date_created,omitempty"`
+	ExtraData            []byte               `protobuf:"bytes,24,opt,name=extra_data,json=extraData,proto3" json:"extra_data,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
 	XXX_unrecognized     []byte               `json:"-"`
 	XXX_sizecache        int32                `json:"-"`
@@ -40,7 +63,7 @@ func (m *InvoiceData) Reset()         { *m = InvoiceData{} }
 func (m *InvoiceData) String() string { return proto.CompactTextString(m) }
 func (*InvoiceData) ProtoMessage()    {}
 func (*InvoiceData) Descriptor() ([]byte, []int) {
-	return fileDescriptor_invoice_b4eb422c5d979d56, []int{0}
+	return fileDescriptor_invoice_b92e3a174a643d19, []int{0}
 }
 func (m *InvoiceData) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_InvoiceData.Unmarshal(m, b)
@@ -60,9 +83,79 @@ func (m *InvoiceData) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_InvoiceData proto.InternalMessageInfo
 
-func (m *InvoiceData) GetCountry() string {
+func (m *InvoiceData) GetInvoiceNumber() string {
 	if m != nil {
-		return m.Country
+		return m.InvoiceNumber
+	}
+	return ""
+}
+
+func (m *InvoiceData) GetSenderName() string {
+	if m != nil {
+		return m.SenderName
+	}
+	return ""
+}
+
+func (m *InvoiceData) GetSenderStreet() string {
+	if m != nil {
+		return m.SenderStreet
+	}
+	return ""
+}
+
+func (m *InvoiceData) GetSenderCity() string {
+	if m != nil {
+		return m.SenderCity
+	}
+	return ""
+}
+
+func (m *InvoiceData) GetSenderZipcode() string {
+	if m != nil {
+		return m.SenderZipcode
+	}
+	return ""
+}
+
+func (m *InvoiceData) GetSenderCountry() string {
+	if m != nil {
+		return m.SenderCountry
+	}
+	return ""
+}
+
+func (m *InvoiceData) GetRecipientName() string {
+	if m != nil {
+		return m.RecipientName
+	}
+	return ""
+}
+
+func (m *InvoiceData) GetRecipientStreet() string {
+	if m != nil {
+		return m.RecipientStreet
+	}
+	return ""
+}
+
+func (m *InvoiceData) GetRecipientCity() string {
+	if m != nil {
+		return m.RecipientCity
+	}
+	return ""
+}
+
+func (m *InvoiceData) GetRecipientZipcode() string {
+	if m != nil {
+		return m.RecipientZipcode
+	}
+	return ""
+}
+
+func (m *InvoiceData) GetRecipientCountry() string {
+	if m != nil {
+		return m.RecipientCountry
 	}
 	return ""
 }
@@ -74,9 +167,30 @@ func (m *InvoiceData) GetCurrency() string {
 	return ""
 }
 
-func (m *InvoiceData) GetAmount() int64 {
+func (m *InvoiceData) GetGrossAmount() int64 {
 	if m != nil {
-		return m.Amount
+		return m.GrossAmount
+	}
+	return 0
+}
+
+func (m *InvoiceData) GetNetAmount() int64 {
+	if m != nil {
+		return m.NetAmount
+	}
+	return 0
+}
+
+func (m *InvoiceData) GetTaxAmount() int64 {
+	if m != nil {
+		return m.TaxAmount
+	}
+	return 0
+}
+
+func (m *InvoiceData) GetTaxRate() int64 {
+	if m != nil {
+		return m.TaxRate
 	}
 	return 0
 }
@@ -123,17 +237,38 @@ func (m *InvoiceData) GetDateCreated() *timestamp.Timestamp {
 	return nil
 }
 
+func (m *InvoiceData) GetExtraData() []byte {
+	if m != nil {
+		return m.ExtraData
+	}
+	return nil
+}
+
 // InvoiceDataSalts keeps track of the salts used for each InvoiceData field.
 type InvoiceDataSalts struct {
-	Country              []byte   `protobuf:"bytes,2,opt,name=country,proto3" json:"country,omitempty"`
-	Currency             []byte   `protobuf:"bytes,3,opt,name=currency,proto3" json:"currency,omitempty"`
-	Amount               []byte   `protobuf:"bytes,4,opt,name=amount,proto3" json:"amount,omitempty"`
-	Recipient            []byte   `protobuf:"bytes,5,opt,name=recipient,proto3" json:"recipient,omitempty"`
-	Sender               []byte   `protobuf:"bytes,6,opt,name=sender,proto3" json:"sender,omitempty"`
-	Payee                []byte   `protobuf:"bytes,7,opt,name=payee,proto3" json:"payee,omitempty"`
-	Comment              []byte   `protobuf:"bytes,8,opt,name=comment,proto3" json:"comment,omitempty"`
-	DueDate              []byte   `protobuf:"bytes,9,opt,name=due_date,json=dueDate,proto3" json:"due_date,omitempty"`
-	DateCreated          []byte   `protobuf:"bytes,11,opt,name=date_created,json=dateCreated,proto3" json:"date_created,omitempty"`
+	InvoiceNumber        []byte   `protobuf:"bytes,1,opt,name=invoice_number,json=invoiceNumber,proto3" json:"invoice_number,omitempty"`
+	SenderName           []byte   `protobuf:"bytes,3,opt,name=sender_name,json=senderName,proto3" json:"sender_name,omitempty"`
+	SenderStreet         []byte   `protobuf:"bytes,4,opt,name=sender_street,json=senderStreet,proto3" json:"sender_street,omitempty"`
+	SenderCity           []byte   `protobuf:"bytes,5,opt,name=sender_city,json=senderCity,proto3" json:"sender_city,omitempty"`
+	SenderZipcode        []byte   `protobuf:"bytes,6,opt,name=sender_zipcode,json=senderZipcode,proto3" json:"sender_zipcode,omitempty"`
+	SenderCountry        []byte   `protobuf:"bytes,7,opt,name=sender_country,json=senderCountry,proto3" json:"sender_country,omitempty"`
+	RecipientName        []byte   `protobuf:"bytes,8,opt,name=recipient_name,json=recipientName,proto3" json:"recipient_name,omitempty"`
+	RecipientStreet      []byte   `protobuf:"bytes,9,opt,name=recipient_street,json=recipientStreet,proto3" json:"recipient_street,omitempty"`
+	RecipientCity        []byte   `protobuf:"bytes,10,opt,name=recipient_city,json=recipientCity,proto3" json:"recipient_city,omitempty"`
+	RecipientZipcode     []byte   `protobuf:"bytes,11,opt,name=recipient_zipcode,json=recipientZipcode,proto3" json:"recipient_zipcode,omitempty"`
+	RecipientCountry     []byte   `protobuf:"bytes,12,opt,name=recipient_country,json=recipientCountry,proto3" json:"recipient_country,omitempty"`
+	Currency             []byte   `protobuf:"bytes,13,opt,name=currency,proto3" json:"currency,omitempty"`
+	GrossAmount          []byte   `protobuf:"bytes,14,opt,name=gross_amount,json=grossAmount,proto3" json:"gross_amount,omitempty"`
+	NetAmount            []byte   `protobuf:"bytes,15,opt,name=net_amount,json=netAmount,proto3" json:"net_amount,omitempty"`
+	TaxAmount            []byte   `protobuf:"bytes,16,opt,name=tax_amount,json=taxAmount,proto3" json:"tax_amount,omitempty"`
+	TaxRate              []byte   `protobuf:"bytes,17,opt,name=tax_rate,json=taxRate,proto3" json:"tax_rate,omitempty"`
+	Recipient            []byte   `protobuf:"bytes,18,opt,name=recipient,proto3" json:"recipient,omitempty"`
+	Sender               []byte   `protobuf:"bytes,19,opt,name=sender,proto3" json:"sender,omitempty"`
+	Payee                []byte   `protobuf:"bytes,20,opt,name=payee,proto3" json:"payee,omitempty"`
+	Comment              []byte   `protobuf:"bytes,21,opt,name=comment,proto3" json:"comment,omitempty"`
+	DueDate              []byte   `protobuf:"bytes,22,opt,name=due_date,json=dueDate,proto3" json:"due_date,omitempty"`
+	DateCreated          []byte   `protobuf:"bytes,23,opt,name=date_created,json=dateCreated,proto3" json:"date_created,omitempty"`
+	ExtraData            []byte   `protobuf:"bytes,24,opt,name=extra_data,json=extraData,proto3" json:"extra_data,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -143,7 +278,7 @@ func (m *InvoiceDataSalts) Reset()         { *m = InvoiceDataSalts{} }
 func (m *InvoiceDataSalts) String() string { return proto.CompactTextString(m) }
 func (*InvoiceDataSalts) ProtoMessage()    {}
 func (*InvoiceDataSalts) Descriptor() ([]byte, []int) {
-	return fileDescriptor_invoice_b4eb422c5d979d56, []int{1}
+	return fileDescriptor_invoice_b92e3a174a643d19, []int{1}
 }
 func (m *InvoiceDataSalts) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_InvoiceDataSalts.Unmarshal(m, b)
@@ -163,9 +298,79 @@ func (m *InvoiceDataSalts) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_InvoiceDataSalts proto.InternalMessageInfo
 
-func (m *InvoiceDataSalts) GetCountry() []byte {
+func (m *InvoiceDataSalts) GetInvoiceNumber() []byte {
 	if m != nil {
-		return m.Country
+		return m.InvoiceNumber
+	}
+	return nil
+}
+
+func (m *InvoiceDataSalts) GetSenderName() []byte {
+	if m != nil {
+		return m.SenderName
+	}
+	return nil
+}
+
+func (m *InvoiceDataSalts) GetSenderStreet() []byte {
+	if m != nil {
+		return m.SenderStreet
+	}
+	return nil
+}
+
+func (m *InvoiceDataSalts) GetSenderCity() []byte {
+	if m != nil {
+		return m.SenderCity
+	}
+	return nil
+}
+
+func (m *InvoiceDataSalts) GetSenderZipcode() []byte {
+	if m != nil {
+		return m.SenderZipcode
+	}
+	return nil
+}
+
+func (m *InvoiceDataSalts) GetSenderCountry() []byte {
+	if m != nil {
+		return m.SenderCountry
+	}
+	return nil
+}
+
+func (m *InvoiceDataSalts) GetRecipientName() []byte {
+	if m != nil {
+		return m.RecipientName
+	}
+	return nil
+}
+
+func (m *InvoiceDataSalts) GetRecipientStreet() []byte {
+	if m != nil {
+		return m.RecipientStreet
+	}
+	return nil
+}
+
+func (m *InvoiceDataSalts) GetRecipientCity() []byte {
+	if m != nil {
+		return m.RecipientCity
+	}
+	return nil
+}
+
+func (m *InvoiceDataSalts) GetRecipientZipcode() []byte {
+	if m != nil {
+		return m.RecipientZipcode
+	}
+	return nil
+}
+
+func (m *InvoiceDataSalts) GetRecipientCountry() []byte {
+	if m != nil {
+		return m.RecipientCountry
 	}
 	return nil
 }
@@ -177,9 +382,30 @@ func (m *InvoiceDataSalts) GetCurrency() []byte {
 	return nil
 }
 
-func (m *InvoiceDataSalts) GetAmount() []byte {
+func (m *InvoiceDataSalts) GetGrossAmount() []byte {
 	if m != nil {
-		return m.Amount
+		return m.GrossAmount
+	}
+	return nil
+}
+
+func (m *InvoiceDataSalts) GetNetAmount() []byte {
+	if m != nil {
+		return m.NetAmount
+	}
+	return nil
+}
+
+func (m *InvoiceDataSalts) GetTaxAmount() []byte {
+	if m != nil {
+		return m.TaxAmount
+	}
+	return nil
+}
+
+func (m *InvoiceDataSalts) GetTaxRate() []byte {
+	if m != nil {
+		return m.TaxRate
 	}
 	return nil
 }
@@ -226,11 +452,18 @@ func (m *InvoiceDataSalts) GetDateCreated() []byte {
 	return nil
 }
 
+func (m *InvoiceDataSalts) GetExtraData() []byte {
+	if m != nil {
+		return m.ExtraData
+	}
+	return nil
+}
+
 // InvoiceDocument combines teh salts, data & coredocument for an invoice
 type InvoiceDocument struct {
-	CoreDocument         *coredocument.CoreDocument `protobuf:"bytes,1,opt,name=core_document,json=coreDocument" json:"core_document,omitempty"`
-	Data                 *InvoiceData               `protobuf:"bytes,2,opt,name=data" json:"data,omitempty"`
-	Salts                *InvoiceDataSalts          `protobuf:"bytes,3,opt,name=salts" json:"salts,omitempty"`
+	CoreDocument         *coredocument.CoreDocument `protobuf:"bytes,1,opt,name=core_document,json=coreDocument,proto3" json:"core_document,omitempty"`
+	Data                 *InvoiceData               `protobuf:"bytes,2,opt,name=data,proto3" json:"data,omitempty"`
+	Salts                *InvoiceDataSalts          `protobuf:"bytes,3,opt,name=salts,proto3" json:"salts,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}                   `json:"-"`
 	XXX_unrecognized     []byte                     `json:"-"`
 	XXX_sizecache        int32                      `json:"-"`
@@ -240,7 +473,7 @@ func (m *InvoiceDocument) Reset()         { *m = InvoiceDocument{} }
 func (m *InvoiceDocument) String() string { return proto.CompactTextString(m) }
 func (*InvoiceDocument) ProtoMessage()    {}
 func (*InvoiceDocument) Descriptor() ([]byte, []int) {
-	return fileDescriptor_invoice_b4eb422c5d979d56, []int{2}
+	return fileDescriptor_invoice_b92e3a174a643d19, []int{2}
 }
 func (m *InvoiceDocument) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_InvoiceDocument.Unmarshal(m, b)
@@ -287,33 +520,49 @@ func init() {
 	proto.RegisterType((*InvoiceDocument)(nil), "invoice.InvoiceDocument")
 }
 
-func init() { proto.RegisterFile("invoice/invoice.proto", fileDescriptor_invoice_b4eb422c5d979d56) }
+func init() { proto.RegisterFile("invoice/invoice.proto", fileDescriptor_invoice_b92e3a174a643d19) }
 
-var fileDescriptor_invoice_b4eb422c5d979d56 = []byte{
-	// 389 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xbc, 0x92, 0xbf, 0x8b, 0xdb, 0x30,
-	0x14, 0xc7, 0x71, 0x7e, 0x39, 0x96, 0x55, 0x5a, 0x44, 0x5a, 0x14, 0x53, 0x88, 0x9b, 0xc9, 0x93,
-	0x0d, 0x29, 0x1d, 0x4b, 0xa1, 0xe9, 0xd2, 0xd5, 0x77, 0xd3, 0x2d, 0x41, 0x91, 0xdf, 0x05, 0x43,
-	0x6c, 0x19, 0x59, 0x3e, 0xc8, 0x7e, 0xff, 0xce, 0xcd, 0xf7, 0xef, 0x1d, 0x92, 0xec, 0xc4, 0x09,
-	0x09, 0xb7, 0xdd, 0x64, 0xbe, 0x4f, 0x9f, 0x67, 0x9e, 0x3e, 0x7a, 0xe8, 0x6b, 0x5e, 0x3e, 0x89,
-	0x9c, 0x43, 0xd2, 0x7e, 0xe3, 0x4a, 0x0a, 0x25, 0x88, 0xdb, 0xc6, 0x60, 0xb1, 0x13, 0x62, 0xb7,
-	0x87, 0xc4, 0x94, 0xb7, 0xcd, 0x63, 0xa2, 0xf2, 0x02, 0x6a, 0xc5, 0x8a, 0xca, 0x92, 0xc1, 0x82,
-	0x0b, 0x09, 0x99, 0xe0, 0x4d, 0x01, 0xa5, 0x4a, 0xfa, 0xc1, 0x02, 0xcb, 0xd7, 0x01, 0xf2, 0xff,
-	0xdb, 0xbf, 0xfd, 0x63, 0x8a, 0x11, 0x8a, 0x5c, 0x2e, 0x9a, 0x52, 0xc9, 0x03, 0x1d, 0x84, 0x4e,
-	0xe4, 0xa5, 0x5d, 0x24, 0x01, 0x9a, 0xf2, 0x46, 0x4a, 0x28, 0xf9, 0x81, 0x0e, 0xcd, 0xd1, 0x31,
-	0x93, 0x6f, 0x68, 0xc2, 0x0a, 0xcd, 0xd1, 0x51, 0xe8, 0x44, 0xc3, 0xb4, 0x4d, 0xe4, 0x3b, 0xf2,
-	0x24, 0xf0, 0xbc, 0xca, 0xa1, 0x54, 0x74, 0x1c, 0x3a, 0x11, 0x4e, 0x4f, 0x05, 0xdd, 0x55, 0x43,
-	0x99, 0x81, 0xa4, 0x13, 0x73, 0xd4, 0x26, 0x32, 0x43, 0xe3, 0x8a, 0x1d, 0x00, 0xa8, 0x6b, 0xca,
-	0x36, 0xd8, 0xc9, 0x0a, 0x3d, 0x3a, 0x9d, 0x76, 0x93, 0x99, 0x48, 0x7e, 0xa1, 0x69, 0xd6, 0xc0,
-	0x26, 0x63, 0x0a, 0xa8, 0x17, 0x3a, 0x91, 0xbf, 0x0a, 0x62, 0x2b, 0x26, 0xee, 0xc4, 0xc4, 0xf7,
-	0x9d, 0x98, 0xd4, 0xcd, 0x1a, 0x7d, 0x55, 0x20, 0xbf, 0x11, 0xd6, 0x2d, 0x1b, 0x2e, 0x81, 0x29,
-	0xc8, 0xa8, 0xff, 0x6e, 0xab, 0xaf, 0xf9, 0xb5, 0xc5, 0x97, 0xcf, 0x03, 0xf4, 0xa5, 0x67, 0xee,
-	0x8e, 0xed, 0x55, 0x7d, 0xa9, 0x0f, 0xdf, 0xd6, 0x87, 0x6f, 0xea, 0xc3, 0x1f, 0xa1, 0x0f, 0x9f,
-	0xf4, 0xcd, 0x2f, 0xf4, 0xe1, 0x93, 0xa2, 0x1f, 0x57, 0x14, 0xe1, 0x73, 0x0d, 0x2f, 0x0e, 0xfa,
-	0xdc, 0x69, 0x68, 0x57, 0x8b, 0xfc, 0x41, 0x9f, 0xf4, 0xaa, 0x6d, 0xba, 0x5d, 0xa3, 0x4e, 0xab,
-	0xf6, 0x6c, 0x01, 0xd7, 0x42, 0x1e, 0x5b, 0x52, 0xcc, 0x7b, 0x89, 0x44, 0x68, 0x94, 0x31, 0xc5,
-	0x8c, 0x43, 0x7f, 0x35, 0x8b, 0xbb, 0xf5, 0xef, 0xf9, 0x4e, 0x0d, 0x41, 0x12, 0x34, 0xae, 0xb5,
-	0x79, 0xe3, 0xd4, 0x5f, 0xcd, 0xaf, 0xa1, 0xe6, 0x69, 0x52, 0xcb, 0xfd, 0xf5, 0x1f, 0xbc, 0x16,
-	0xa9, 0xb6, 0xdb, 0x89, 0x79, 0xe4, 0x9f, 0x6f, 0x01, 0x00, 0x00, 0xff, 0xff, 0x47, 0x15, 0xa1,
-	0xaa, 0x68, 0x03, 0x00, 0x00,
+var fileDescriptor_invoice_b92e3a174a643d19 = []byte{
+	// 641 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xbc, 0x95, 0xcf, 0x6e, 0xd3, 0x4e,
+	0x10, 0xc7, 0x95, 0x5f, 0xdb, 0xfc, 0x19, 0x4f, 0xfa, 0x67, 0x7f, 0x6d, 0xd9, 0x46, 0xa0, 0xa6,
+	0x45, 0x48, 0x41, 0x48, 0x89, 0x54, 0xc4, 0x11, 0x21, 0x08, 0x17, 0x2e, 0x3d, 0xb8, 0x9c, 0x7a,
+	0x89, 0x36, 0xf6, 0x50, 0x59, 0xaa, 0xed, 0x68, 0xbd, 0x46, 0x09, 0xcf, 0xc2, 0x2b, 0xf0, 0x2c,
+	0xbc, 0x12, 0xda, 0x59, 0x3b, 0x76, 0xab, 0xd2, 0xb8, 0x17, 0x4e, 0xd1, 0x7e, 0xe7, 0xb3, 0xeb,
+	0x99, 0xc4, 0x9f, 0x2c, 0x1c, 0x45, 0xc9, 0xf7, 0x34, 0x0a, 0x68, 0x52, 0x7c, 0x8e, 0x17, 0x3a,
+	0x35, 0xa9, 0xe8, 0x14, 0xcb, 0xc1, 0xe9, 0x4d, 0x9a, 0xde, 0xdc, 0xd2, 0x84, 0xe3, 0x79, 0xfe,
+	0x6d, 0x62, 0xa2, 0x98, 0x32, 0xa3, 0xe2, 0x85, 0x23, 0x07, 0xa7, 0x41, 0xaa, 0x29, 0x4c, 0x83,
+	0x3c, 0xa6, 0xc4, 0x4c, 0xea, 0x0b, 0x07, 0x9c, 0xff, 0x6e, 0x83, 0xf7, 0xc5, 0x9d, 0xf6, 0x59,
+	0x19, 0x25, 0x5e, 0xc1, 0x6e, 0x71, 0xf8, 0x2c, 0xc9, 0xe3, 0x39, 0x69, 0xd9, 0x1a, 0xb6, 0x46,
+	0x3d, 0xbf, 0x5f, 0xa4, 0x97, 0x1c, 0x8a, 0x53, 0xf0, 0x32, 0x4a, 0x42, 0xd2, 0xb3, 0x44, 0xc5,
+	0x24, 0xb7, 0x98, 0x01, 0x17, 0x5d, 0xaa, 0x98, 0xc4, 0x4b, 0xe8, 0x17, 0x40, 0x66, 0x34, 0x91,
+	0x91, 0xdb, 0x8c, 0xa0, 0x0b, 0xaf, 0x38, 0xab, 0x9d, 0x12, 0x44, 0x66, 0x25, 0x77, 0xea, 0xa7,
+	0x4c, 0x23, 0xb3, 0xb2, 0xdd, 0x14, 0xc0, 0x8f, 0x68, 0x11, 0xa4, 0x21, 0xc9, 0xb6, 0xeb, 0xc6,
+	0xa5, 0xd7, 0x2e, 0xac, 0x61, 0x41, 0x9a, 0x27, 0x46, 0xaf, 0x64, 0xa7, 0x8e, 0x4d, 0x5d, 0x68,
+	0x31, 0x4d, 0x41, 0xb4, 0x88, 0x28, 0x31, 0xae, 0xef, 0xae, 0xc3, 0xd6, 0x29, 0xb7, 0xfe, 0x1a,
+	0xf6, 0x2b, 0xac, 0xe8, 0xbe, 0xc7, 0xe0, 0xde, 0x3a, 0x2f, 0x06, 0xb8, 0x73, 0x22, 0xcf, 0x00,
+	0xf7, 0x4e, 0xe4, 0x31, 0xde, 0xc0, 0x41, 0x85, 0x95, 0x93, 0x78, 0x4c, 0x56, 0x8f, 0x2a, 0x87,
+	0xb9, 0x03, 0x97, 0xf3, 0xe0, 0x3d, 0xb8, 0x1c, 0x69, 0x00, 0xdd, 0x20, 0xd7, 0x9a, 0x92, 0x60,
+	0x25, 0xfb, 0xcc, 0xac, 0xd7, 0xe2, 0x0c, 0xf0, 0x46, 0xa7, 0x59, 0x36, 0x53, 0xb1, 0xa5, 0xe5,
+	0xee, 0xb0, 0x35, 0xda, 0xf2, 0x3d, 0xce, 0x3e, 0x72, 0x24, 0x5e, 0x00, 0x24, 0x64, 0x4a, 0x60,
+	0x8f, 0x81, 0x5e, 0x42, 0xa6, 0x2a, 0x1b, 0xb5, 0x2c, 0xcb, 0xfb, 0xae, 0x6c, 0xd4, 0xb2, 0x28,
+	0x9f, 0x40, 0xd7, 0x96, 0xb5, 0x32, 0x24, 0x0f, 0xb8, 0xd8, 0x31, 0x6a, 0xe9, 0x2b, 0x43, 0xe2,
+	0x39, 0xf4, 0xd6, 0xbd, 0x4a, 0x31, 0x6c, 0x8d, 0xd0, 0xaf, 0x02, 0x71, 0x0c, 0x6d, 0xf7, 0xcb,
+	0xc8, 0xff, 0xb9, 0x54, 0xac, 0xc4, 0x21, 0xec, 0x2c, 0xd4, 0x8a, 0x48, 0x1e, 0x72, 0xec, 0x16,
+	0x42, 0x42, 0x27, 0x48, 0x63, 0xfb, 0xce, 0xca, 0x23, 0x1e, 0xb1, 0x5c, 0x8a, 0x77, 0xd0, 0x0d,
+	0x73, 0x9a, 0x85, 0xb6, 0x81, 0xe3, 0x61, 0x6b, 0xe4, 0x5d, 0x0c, 0xc6, 0xce, 0x88, 0x71, 0x69,
+	0xc4, 0xf8, 0x6b, 0x69, 0x84, 0xdf, 0x09, 0x73, 0xfb, 0x8e, 0x93, 0x78, 0x0f, 0x68, 0xb7, 0xcc,
+	0x02, 0x4d, 0xca, 0x50, 0x28, 0x9f, 0x6d, 0xdc, 0xea, 0x59, 0x7e, 0xea, 0x70, 0xfb, 0xad, 0xd0,
+	0xd2, 0x68, 0x65, 0x9f, 0xab, 0xa4, 0x74, 0xc3, 0x71, 0x62, 0x0d, 0x3a, 0xff, 0xd9, 0x86, 0xfd,
+	0x9a, 0x51, 0x57, 0xea, 0xd6, 0x64, 0x7f, 0xd1, 0x0a, 0x1b, 0x68, 0x85, 0x9b, 0xb5, 0xc2, 0xcd,
+	0x5a, 0x61, 0x03, 0xad, 0xb0, 0x99, 0x56, 0xd8, 0x4c, 0x2b, 0x6c, 0xaa, 0x15, 0x36, 0xd5, 0x0a,
+	0x1b, 0x6b, 0x85, 0x4f, 0xd1, 0x0a, 0x1b, 0x68, 0x85, 0x1b, 0xb4, 0xc2, 0x4d, 0x5a, 0xe1, 0xe3,
+	0x5a, 0xe1, 0x63, 0x5a, 0xe1, 0x3f, 0xd1, 0x0a, 0x2b, 0xad, 0x4e, 0xee, 0x69, 0x85, 0x95, 0x3a,
+	0x67, 0x0f, 0xa8, 0x83, 0x4f, 0xd2, 0xe3, 0x57, 0x0b, 0xf6, 0x4a, 0x3d, 0x8a, 0xab, 0x48, 0x7c,
+	0x80, 0xbe, 0xbd, 0x9a, 0x66, 0xe5, 0xdd, 0xc4, 0x72, 0x58, 0x23, 0xef, 0x5c, 0x58, 0xd3, 0x54,
+	0xaf, 0xb7, 0xf8, 0x18, 0xd4, 0x56, 0x62, 0x04, 0xdb, 0xfc, 0xb4, 0xff, 0x78, 0xdf, 0xe1, 0xb8,
+	0xbc, 0x2e, 0x6b, 0x1e, 0xfa, 0x4c, 0x88, 0x09, 0xec, 0x64, 0xd6, 0x48, 0x76, 0xcb, 0xbb, 0x38,
+	0x79, 0x08, 0x65, 0x65, 0x7d, 0xc7, 0x7d, 0xf2, 0xae, 0x7b, 0x05, 0xb2, 0x98, 0xcf, 0xdb, 0xfc,
+	0xdf, 0xf0, 0xf6, 0x4f, 0x00, 0x00, 0x00, 0xff, 0xff, 0xe8, 0x53, 0x94, 0xc1, 0x98, 0x07, 0x00,
+	0x00,
 }

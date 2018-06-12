@@ -22,13 +22,13 @@ const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 // PurchaseOrderData is the default schema for a purchase order
 type PurchaseOrderData struct {
-	Country              string               `protobuf:"bytes,2,opt,name=country" json:"country,omitempty"`
-	Currency             string               `protobuf:"bytes,3,opt,name=currency" json:"currency,omitempty"`
-	Amount               int64                `protobuf:"varint,4,opt,name=amount" json:"amount,omitempty"`
+	Country              string               `protobuf:"bytes,2,opt,name=country,proto3" json:"country,omitempty"`
+	Currency             string               `protobuf:"bytes,3,opt,name=currency,proto3" json:"currency,omitempty"`
+	Amount               int64                `protobuf:"varint,4,opt,name=amount,proto3" json:"amount,omitempty"`
 	Recipient            []byte               `protobuf:"bytes,5,opt,name=recipient,proto3" json:"recipient,omitempty"`
 	Sender               []byte               `protobuf:"bytes,6,opt,name=sender,proto3" json:"sender,omitempty"`
-	Comment              string               `protobuf:"bytes,8,opt,name=comment" json:"comment,omitempty"`
-	DeliveryDate         *timestamp.Timestamp `protobuf:"bytes,9,opt,name=delivery_date,json=deliveryDate" json:"delivery_date,omitempty"`
+	Comment              string               `protobuf:"bytes,8,opt,name=comment,proto3" json:"comment,omitempty"`
+	DeliveryDate         *timestamp.Timestamp `protobuf:"bytes,9,opt,name=delivery_date,json=deliveryDate,proto3" json:"delivery_date,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
 	XXX_unrecognized     []byte               `json:"-"`
 	XXX_sizecache        int32                `json:"-"`
@@ -196,9 +196,9 @@ func (m *PurchaseOrderDataSalts) GetDeliveryDate() []byte {
 
 // PurchaseOrderDocument combines the salts, data & coredocument for a purchase order.
 type PurchaseOrderDocument struct {
-	CoreDocument         *coredocument.CoreDocument `protobuf:"bytes,1,opt,name=core_document,json=coreDocument" json:"core_document,omitempty"`
-	Data                 *PurchaseOrderData         `protobuf:"bytes,2,opt,name=data" json:"data,omitempty"`
-	Salts                *PurchaseOrderDataSalts    `protobuf:"bytes,3,opt,name=salts" json:"salts,omitempty"`
+	CoreDocument         *coredocument.CoreDocument `protobuf:"bytes,1,opt,name=core_document,json=coreDocument,proto3" json:"core_document,omitempty"`
+	Data                 *PurchaseOrderData         `protobuf:"bytes,2,opt,name=data,proto3" json:"data,omitempty"`
+	Salts                *PurchaseOrderDataSalts    `protobuf:"bytes,3,opt,name=salts,proto3" json:"salts,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}                   `json:"-"`
 	XXX_unrecognized     []byte                     `json:"-"`
 	XXX_sizecache        int32                      `json:"-"`

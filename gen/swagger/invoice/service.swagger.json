@@ -249,13 +249,64 @@
     "invoiceInvoiceData": {
       "type": "object",
       "properties": {
-        "country": {
+        "invoice_number": {
+          "type": "string",
+          "title": "invoice number or reference number"
+        },
+        "sender_name": {
+          "type": "string",
+          "title": "name of the sender company"
+        },
+        "sender_street": {
+          "type": "string",
+          "title": "street and address details of the sender company"
+        },
+        "sender_city": {
           "type": "string"
+        },
+        "sender_zipcode": {
+          "type": "string"
+        },
+        "sender_country": {
+          "type": "string",
+          "title": "country ISO code of the sender of this invoice"
+        },
+        "recipient_name": {
+          "type": "string",
+          "title": "name of the recipient company"
+        },
+        "recipient_street": {
+          "type": "string"
+        },
+        "recipient_city": {
+          "type": "string"
+        },
+        "recipient_zipcode": {
+          "type": "string"
+        },
+        "recipient_country": {
+          "type": "string",
+          "title": "country ISO code of the receipient of this invoice"
         },
         "currency": {
-          "type": "string"
+          "type": "string",
+          "title": "ISO currency code"
         },
-        "amount": {
+        "gross_amount": {
+          "type": "string",
+          "format": "int64",
+          "title": "invoice amount including tax"
+        },
+        "net_amount": {
+          "type": "string",
+          "format": "int64",
+          "title": "invoice amount excluding tax"
+        },
+        "tax_amount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "tax_rate": {
           "type": "string",
           "format": "int64"
         },
@@ -281,6 +332,10 @@
         "date_created": {
           "type": "string",
           "format": "date-time"
+        },
+        "extra_data": {
+          "type": "string",
+          "format": "byte"
         }
       },
       "title": "InvoiceData is the default invoice schema"
@@ -288,7 +343,47 @@
     "invoiceInvoiceDataSalts": {
       "type": "object",
       "properties": {
-        "country": {
+        "invoice_number": {
+          "type": "string",
+          "format": "byte"
+        },
+        "sender_name": {
+          "type": "string",
+          "format": "byte"
+        },
+        "sender_street": {
+          "type": "string",
+          "format": "byte"
+        },
+        "sender_city": {
+          "type": "string",
+          "format": "byte"
+        },
+        "sender_zipcode": {
+          "type": "string",
+          "format": "byte"
+        },
+        "sender_country": {
+          "type": "string",
+          "format": "byte"
+        },
+        "recipient_name": {
+          "type": "string",
+          "format": "byte"
+        },
+        "recipient_street": {
+          "type": "string",
+          "format": "byte"
+        },
+        "recipient_city": {
+          "type": "string",
+          "format": "byte"
+        },
+        "recipient_zipcode": {
+          "type": "string",
+          "format": "byte"
+        },
+        "recipient_country": {
           "type": "string",
           "format": "byte"
         },
@@ -296,7 +391,19 @@
           "type": "string",
           "format": "byte"
         },
-        "amount": {
+        "gross_amount": {
+          "type": "string",
+          "format": "byte"
+        },
+        "net_amount": {
+          "type": "string",
+          "format": "byte"
+        },
+        "tax_amount": {
+          "type": "string",
+          "format": "byte"
+        },
+        "tax_rate": {
           "type": "string",
           "format": "byte"
         },
@@ -321,6 +428,10 @@
           "format": "byte"
         },
         "date_created": {
+          "type": "string",
+          "format": "byte"
+        },
+        "extra_data": {
           "type": "string",
           "format": "byte"
         }
