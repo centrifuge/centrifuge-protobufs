@@ -20,6 +20,7 @@ protoc_version: 3.5.1
 protoc_includes:
   - vendor/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis
   - vendor/github.com/grpc-ecosystem/grpc-gateway/
+  - vendor/github.com/centrifuge/
 
 # Include the Well-Known Types when compiling with protoc.
 # For example, this allows you to do import "google/protobuf/timestamp.proto" in your Protobuf files.
@@ -103,7 +104,8 @@ gen:
     extra_modifiers:
       google/api/annotations.proto: google.golang.org/genproto/googleapis/api/annotations
       google/api/http.proto: google.golang.org/genproto/googleapis/api/annotations
-      protoc-gen-swagger/options/annotations.proto: github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger/options/annotations.proto
+      precise-proofs/proof.proto: github.com/centrifuge/precise-proofs/proofs
+      protoc-gen-swagger/options/annotations.proto: github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger/options
 
 
   # Plugin overrides. For example, if you set "grpc-gpp: /usr/local/bin/grpc_cpp_plugin",

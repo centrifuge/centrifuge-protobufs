@@ -1,6 +1,8 @@
 hash: 98197830985b0e82f358624e3e0bf7a5de82da5749bc45af3884dff5db75a3bb
 updated: 2018-05-11T10:56:00.654859-04:00
 imports:
+- name: github.com/centrifuge/precise-proofs
+  version: 90177c0f78b64ace2a9cb2e90bb756016fd593b2 
 - name: github.com/ghodss/yaml
   version: 0ca9ea5df5451ffdf184b4428c902747c2c11cd7
 - name: github.com/golang/glog

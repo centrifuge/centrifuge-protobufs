@@ -15,6 +15,7 @@ import:
   - protoc-gen-swagger
 - package: github.com/roboll/go-vendorinstall
 - package: github.com/golang/glog
+- package: github.com/centrifuge/precise-proofs
 - package: github.com/ghodss/yaml
   version: ^1.0.0
 - package: gopkg.in/yaml.v2
