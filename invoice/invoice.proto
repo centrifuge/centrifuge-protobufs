@@ -10,28 +10,56 @@ option go_package = "invoicepb";
 
 // InvoiceData is the default invoice schema
 message InvoiceData {
-  string country = 2;
-  string currency = 3;
-  int64 amount = 4;
-  bytes recipient = 5;
-  bytes sender = 6;
-  bytes payee = 7;
-  string comment = 8;
-  google.protobuf.Timestamp due_date = 9;
-  google.protobuf.Timestamp date_created = 11;
+  string invoice_number = 1; /* invoice number or reference number */
+  //string country = 2; /* this is required for the sender and the recipient */
+  string sender_name = 3; /* name of the sender company */
+  string sender_street = 4; /* street and address details of the sender company */
+  string sender_city = 5; /* city of the sender company */
+  string sender_zipcode = 6; /* ZIP or portal code of the sender company */
+  string sender_country = 7; /* country ISO code of the sender of this invoice */
+  string recipient_name = 8; /* name of the recipient company */
+  string recipient_street = 9; /* street and address details of the recipient company */
+  string recipient_city = 10; /* city of the recipient company */
+  string recipient_zipcode = 11; /* ZIP or portal code of the recipient company */
+  string recipient_country = 12; /* country ISO code of the receipient of this invoice */
+  string currency = 13; /* ISO currency code */
+  int64 gross_amount = 14; /* invoice amount including tax */
+  int64 net_amount = 15; /* invoice amount excluding tax */
+  int64 tax_amount = 16;
+  int64 tax_rate = 17;
+  bytes recipient = 18; /* Is this the Centrifuge ID? */
+  bytes sender = 19; /* Is this the Centrifuge ID? */
+  bytes payee = 20; /* Is this the Centrifuge ID? Should be optional? */
+  string comment = 21;
+  google.protobuf.Timestamp due_date = 22;
+  google.protobuf.Timestamp date_created = 23;
 }
 
 // InvoiceDataSalts keeps track of the salts used for each InvoiceData field.
 message InvoiceDataSalts {
-  bytes country = 2;
-  bytes currency = 3;
-  bytes amount = 4;
-  bytes recipient = 5;
-  bytes sender = 6;
-  bytes payee = 7;
-  bytes comment = 8;
-  bytes due_date = 9;
-  bytes date_created = 11;
+  bytes invoice_number = 1;
+  //bytes country = 2;
+  bytes sender_name = 3;
+  bytes sender_street = 4;
+  bytes sender_city = 5;
+  bytes sender_zipcode = 6;
+  bytes sender_country = 7;
+  bytes recipient_name = 8;
+  bytes recipient_street = 9;
+  bytes recipient_city = 10;
+  bytes recipient_zipcode = 11;
+  bytes recipient_country = 12;
+  bytes currency = 13;
+  bytes gross_amount = 14;
+  bytes net_amount = 15;
+  bytes tax_amount = 16;
+  bytes tax_rate = 17;
+  bytes recipient = 18;
+  bytes sender = 19;
+  bytes payee = 20;
+  bytes comment = 21;
+  bytes due_date = 22;
+  bytes date_created = 23;
 }
 
 // InvoiceDocument combines teh salts, data & coredocument for an invoice
