@@ -41,7 +41,6 @@ message InvoiceData {
   string comment = 21;
   google.protobuf.Timestamp due_date = 22;
   google.protobuf.Timestamp date_created = 23;
-
   bytes extra_data = 24;
 }
 

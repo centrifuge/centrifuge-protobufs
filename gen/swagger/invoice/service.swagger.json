@@ -332,6 +332,10 @@
         "date_created": {
           "type": "string",
           "format": "date-time"
+        },
+        "extra_data": {
+          "type": "string",
+          "format": "byte"
         }
       },
       "title": "InvoiceData is the default invoice schema"
@@ -424,6 +428,10 @@
           "format": "byte"
         },
         "date_created": {
+          "type": "string",
+          "format": "byte"
+        },
+        "extra_data": {
           "type": "string",
           "format": "byte"
         }
