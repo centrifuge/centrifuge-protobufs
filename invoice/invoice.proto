@@ -13,62 +13,62 @@ message InvoiceData {
   // invoice number or reference number 
   string invoice_number = 1;
   // name of the sender company 
-  string sender_name = 3;
+  string sender_name = 2;
   // street and address details of the sender company
-  string sender_street = 4;
-  string sender_city = 5;
-  string sender_zipcode = 6;
+  string sender_street = 3;
+  string sender_city = 4;
+  string sender_zipcode = 5;
   // country ISO code of the sender of this invoice 
-  string sender_country = 7;
+  string sender_country = 6;
   // name of the recipient company 
-  string recipient_name = 8;
-  string recipient_street = 9;
-  string recipient_city = 10;
-  string recipient_zipcode = 11;
+  string recipient_name = 7;
+  string recipient_street = 8;
+  string recipient_city = 9;
+  string recipient_zipcode = 10;
   // country ISO code of the receipient of this invoice 
-  string recipient_country = 12;
+  string recipient_country = 11;
   // ISO currency code 
-  string currency = 13;
+  string currency = 12;
   // invoice amount including tax 
-  int64 gross_amount = 14;
+  int64 gross_amount = 13;
   // invoice amount excluding tax 
-  int64 net_amount = 15;
-  int64 tax_amount = 16;
-  int64 tax_rate = 17;
-  bytes recipient = 18;
-  bytes sender = 19;
-  bytes payee = 20;
-  string comment = 21;
-  google.protobuf.Timestamp due_date = 22;
-  google.protobuf.Timestamp date_created = 23;
-  bytes extra_data = 24;
+  int64 net_amount = 14;
+  int64 tax_amount = 15;
+  int64 tax_rate = 16;
+  bytes recipient = 17;
+  bytes sender = 18;
+  bytes payee = 19;
+  string comment = 20;
+  google.protobuf.Timestamp due_date = 21;
+  google.protobuf.Timestamp date_created = 22;
+  bytes extra_data = 23;
 }
 
 // InvoiceDataSalts keeps track of the salts used for each InvoiceData field.
 message InvoiceDataSalts {
   bytes invoice_number = 1;
-  bytes sender_name = 3;
-  bytes sender_street = 4;
-  bytes sender_city = 5;
-  bytes sender_zipcode = 6;
-  bytes sender_country = 7;
-  bytes recipient_name = 8;
-  bytes recipient_street = 9;
-  bytes recipient_city = 10;
-  bytes recipient_zipcode = 11;
-  bytes recipient_country = 12;
-  bytes currency = 13;
-  bytes gross_amount = 14;
-  bytes net_amount = 15;
-  bytes tax_amount = 16;
-  bytes tax_rate = 17;
-  bytes recipient = 18;
-  bytes sender = 19;
-  bytes payee = 20;
-  bytes comment = 21;
-  bytes due_date = 22;
-  bytes date_created = 23;
-  bytes extra_data = 24;
+  bytes sender_name = 2;
+  bytes sender_street = 3;
+  bytes sender_city = 4;
+  bytes sender_zipcode = 5;
+  bytes sender_country = 6;
+  bytes recipient_name = 7;
+  bytes recipient_street = 8;
+  bytes recipient_city = 9;
+  bytes recipient_zipcode = 10;
+  bytes recipient_country = 11;
+  bytes currency = 12;
+  bytes gross_amount = 13;
+  bytes net_amount = 14;
+  bytes tax_amount = 15;
+  bytes tax_rate = 16;
+  bytes recipient = 17;
+  bytes sender = 18;
+  bytes payee = 19;
+  bytes comment = 20;
+  bytes due_date = 21;
+  bytes date_created = 22;
+  bytes extra_data = 23;
 }
 
 // InvoiceDocument combines teh salts, data & coredocument for an invoice
