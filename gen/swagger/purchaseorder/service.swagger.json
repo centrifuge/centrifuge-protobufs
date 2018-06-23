@@ -152,45 +152,44 @@
         "document_identifier": {
           "type": "string",
           "format": "byte",
-          "description": "This is for convenience: the first identifier that was ever used to refer to a \ndocument is kept here. Internally the centrifuge node indexes \u0026 bundles documents \nby original identifier.\n\n32 byte value"
+          "description": "document_identifier is the first ID ever used to anchor the document on chain and \nis used internally to store all future versions.\n\n32 byte value"
         },
         "current_identifier": {
           "type": "string",
           "format": "byte",
-          "description": "The current identifier is the location of the current anchor on chain and is used to \nrefer to the current state.\n\n32 byte value"
+          "description": "current_identifier is the identifier used to refer to the current state of the document.\n\n32 byte value"
         },
         "next_identifier": {
           "type": "string",
           "format": "byte",
-          "description": "When creating the next version this should be used."
+          "description": "next_identifier is the identifier that is going to be used for the next version if any party wants to update the state."
+        },
+        "document_root": {
+          "type": "string",
+          "format": "byte",
+          "title": "# Merkle roots\ndocument_root the root of all roots. It's signature_root along with a list of all signatures"
+        },
+        "signature_root": {
+          "type": "string",
+          "format": "byte",
+          "description": "signature_root is the Merkle root calculated from all fields on the document that need to be signed. This is all fields except for the signatures themselves and the `document_root`."
         },
         "previous_root": {
           "type": "string",
           "format": "byte",
-          "title": "Root"
+          "title": "previous_root is the root of the previous version of the document"
         },
-        "data_merkle_root": {
+        "data_root": {
           "type": "string",
-          "format": "byte"
-        },
-        "document_root": {
-          "type": "string",
-          "format": "byte"
+          "format": "byte",
+          "description": "data_root is the Merkle root calculated for the `embedded_data` \u0026 `embedded_salts` document (such as an invoice)."
         },
         "signatures": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/coredocumentSignature"
           },
-          "title": "Signatures"
-        },
-        "previous_versions": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/coredocumentCoreDocument"
-          },
-          "description": "This is a readonly field",
-          "title": "The previous document is referenced here but doesn't need to be provided and can\nbe left blank"
+          "description": "Signatures\nSignatures of the signature_root by centrifuge identities. This array should be sorted by the Centrifuge ID."
         },
         "embedded_data": {
           "$ref": "#/definitions/protobufAny",
@@ -298,13 +297,64 @@
     "purchaseorderPurchaseOrderData": {
       "type": "object",
       "properties": {
-        "country": {
+        "po_number": {
+          "type": "string",
+          "title": "purchase order number or reference number"
+        },
+        "order_name": {
+          "type": "string",
+          "title": "name of the ordering company"
+        },
+        "order_street": {
+          "type": "string",
+          "title": "street and address details of the ordering company"
+        },
+        "order_city": {
           "type": "string"
+        },
+        "order_zipcode": {
+          "type": "string"
+        },
+        "order_country": {
+          "type": "string",
+          "title": "country ISO code of the ordering company of this purchase order"
+        },
+        "recipient_name": {
+          "type": "string",
+          "title": "name of the recipient company"
+        },
+        "recipient_street": {
+          "type": "string"
+        },
+        "recipient_city": {
+          "type": "string"
+        },
+        "recipient_zipcode": {
+          "type": "string"
+        },
+        "recipient_country": {
+          "type": "string",
+          "title": "country ISO code of the receipient of this purchase order"
         },
         "currency": {
-          "type": "string"
+          "type": "string",
+          "title": "ISO currency code"
         },
-        "amount": {
+        "order_amount": {
+          "type": "string",
+          "format": "int64",
+          "title": "ordering gross amount including tax"
+        },
+        "net_amount": {
+          "type": "string",
+          "format": "int64",
+          "title": "invoice amount excluding tax"
+        },
+        "tax_amount": {
+          "type": "string",
+          "format": "int64"
+        },
+        "tax_rate": {
           "type": "string",
           "format": "int64"
         },
@@ -312,16 +362,30 @@
           "type": "string",
           "format": "byte"
         },
-        "sender": {
+        "order": {
           "type": "string",
           "format": "byte"
+        },
+        "order_contact": {
+          "type": "string",
+          "title": "contact or requester or purchaser at the ordering company"
         },
         "comment": {
           "type": "string"
         },
         "delivery_date": {
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "title": "requested delivery date"
+        },
+        "date_created": {
+          "type": "string",
+          "format": "date-time",
+          "title": "purchase order date"
+        },
+        "extra_data": {
+          "type": "string",
+          "format": "byte"
         }
       },
       "title": "PurchaseOrderData is the default schema for a purchase order"
@@ -329,7 +393,47 @@
     "purchaseorderPurchaseOrderDataSalts": {
       "type": "object",
       "properties": {
-        "country": {
+        "po_number": {
+          "type": "string",
+          "format": "byte"
+        },
+        "order_name": {
+          "type": "string",
+          "format": "byte"
+        },
+        "order_street": {
+          "type": "string",
+          "format": "byte"
+        },
+        "order_city": {
+          "type": "string",
+          "format": "byte"
+        },
+        "order_zipcode": {
+          "type": "string",
+          "format": "byte"
+        },
+        "order_country": {
+          "type": "string",
+          "format": "byte"
+        },
+        "recipient_name": {
+          "type": "string",
+          "format": "byte"
+        },
+        "recipient_street": {
+          "type": "string",
+          "format": "byte"
+        },
+        "recipient_city": {
+          "type": "string",
+          "format": "byte"
+        },
+        "recipient_zipcode": {
+          "type": "string",
+          "format": "byte"
+        },
+        "recipient_country": {
           "type": "string",
           "format": "byte"
         },
@@ -337,7 +441,19 @@
           "type": "string",
           "format": "byte"
         },
-        "amount": {
+        "order_amount": {
+          "type": "string",
+          "format": "byte"
+        },
+        "net_amount": {
+          "type": "string",
+          "format": "byte"
+        },
+        "tax_amount": {
+          "type": "string",
+          "format": "byte"
+        },
+        "tax_rate": {
           "type": "string",
           "format": "byte"
         },
@@ -345,7 +461,11 @@
           "type": "string",
           "format": "byte"
         },
-        "sender": {
+        "order": {
+          "type": "string",
+          "format": "byte"
+        },
+        "order_contact": {
           "type": "string",
           "format": "byte"
         },
@@ -354,6 +474,14 @@
           "format": "byte"
         },
         "delivery_date": {
+          "type": "string",
+          "format": "byte"
+        },
+        "date_created": {
+          "type": "string",
+          "format": "byte"
+        },
+        "extra_data": {
           "type": "string",
           "format": "byte"
         }

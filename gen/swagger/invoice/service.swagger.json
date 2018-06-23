@@ -152,45 +152,44 @@
         "document_identifier": {
           "type": "string",
           "format": "byte",
-          "description": "This is for convenience: the first identifier that was ever used to refer to a \ndocument is kept here. Internally the centrifuge node indexes \u0026 bundles documents \nby original identifier.\n\n32 byte value"
+          "description": "document_identifier is the first ID ever used to anchor the document on chain and \nis used internally to store all future versions.\n\n32 byte value"
         },
         "current_identifier": {
           "type": "string",
           "format": "byte",
-          "description": "The current identifier is the location of the current anchor on chain and is used to \nrefer to the current state.\n\n32 byte value"
+          "description": "current_identifier is the identifier used to refer to the current state of the document.\n\n32 byte value"
         },
         "next_identifier": {
           "type": "string",
           "format": "byte",
-          "description": "When creating the next version this should be used."
+          "description": "next_identifier is the identifier that is going to be used for the next version if any party wants to update the state."
+        },
+        "document_root": {
+          "type": "string",
+          "format": "byte",
+          "title": "# Merkle roots\ndocument_root the root of all roots. It's signature_root along with a list of all signatures"
+        },
+        "signature_root": {
+          "type": "string",
+          "format": "byte",
+          "description": "signature_root is the Merkle root calculated from all fields on the document that need to be signed. This is all fields except for the signatures themselves and the `document_root`."
         },
         "previous_root": {
           "type": "string",
           "format": "byte",
-          "title": "Root"
+          "title": "previous_root is the root of the previous version of the document"
         },
-        "data_merkle_root": {
+        "data_root": {
           "type": "string",
-          "format": "byte"
-        },
-        "document_root": {
-          "type": "string",
-          "format": "byte"
+          "format": "byte",
+          "description": "data_root is the Merkle root calculated for the `embedded_data` \u0026 `embedded_salts` document (such as an invoice)."
         },
         "signatures": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/coredocumentSignature"
           },
-          "title": "Signatures"
-        },
-        "previous_versions": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/coredocumentCoreDocument"
-          },
-          "description": "This is a readonly field",
-          "title": "The previous document is referenced here but doesn't need to be provided and can\nbe left blank"
+          "description": "Signatures\nSignatures of the signature_root by centrifuge identities. This array should be sorted by the Centrifuge ID."
         },
         "embedded_data": {
           "$ref": "#/definitions/protobufAny",
