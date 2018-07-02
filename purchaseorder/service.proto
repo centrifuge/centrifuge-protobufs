@@ -1,15 +1,17 @@
 syntax = "proto3";
 
-import "google/protobuf/empty.proto";
-
-import "google/api/annotations.proto";
-import "precise-proofs/proofs/proof.proto";
-import "protoc-gen-swagger/options/annotations.proto";
-import "purchaseorder/purchaseorder.proto";
-
 package purchaseorder;
 
 option go_package = "purchaseorderpb";
+option java_multiple_files = true;
+option java_outer_classname = "ServiceProto";
+option java_package = "com.purchaseorder";
+
+import "google/api/annotations.proto";
+import "google/protobuf/empty.proto";
+import "precise-proofs/proofs/proof.proto";
+import "protoc-gen-swagger/options/annotations.proto";
+import "purchaseorder/purchaseorder.proto";
 
 // PurchaseOrderDocumentService contains all common interactions for purchaseorder documents
 service PurchaseOrderDocumentService {

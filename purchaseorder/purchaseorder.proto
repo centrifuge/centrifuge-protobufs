@@ -1,12 +1,14 @@
 syntax = "proto3";
 
-import "google/protobuf/timestamp.proto";
-
-import "coredocument/coredocument.proto";
-
 package purchaseorder;
 
 option go_package = "purchaseorderpb";
+option java_multiple_files = true;
+option java_outer_classname = "PurchaseorderProto";
+option java_package = "com.purchaseorder";
+
+import "coredocument/coredocument.proto";
+import "google/protobuf/timestamp.proto";
 
 // PurchaseOrderData is the default schema for a purchase order
 message PurchaseOrderData {

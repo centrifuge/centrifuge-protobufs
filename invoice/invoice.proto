@@ -1,12 +1,14 @@
 syntax = "proto3";
 
-import "google/protobuf/timestamp.proto";
-
-import "coredocument/coredocument.proto";
-
 package invoice;
 
 option go_package = "invoicepb";
+option java_multiple_files = true;
+option java_outer_classname = "InvoiceProto";
+option java_package = "com.invoice";
+
+import "coredocument/coredocument.proto";
+import "google/protobuf/timestamp.proto";
 
 // InvoiceData is the default invoice schema
 message InvoiceData {

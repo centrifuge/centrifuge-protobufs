@@ -22,7 +22,7 @@
         "document_identifier": {
           "type": "string",
           "format": "byte",
-          "description": "document_identifier is the first ID ever used to anchor the document on chain and \nis used internally to store all future versions.\n\n32 byte value"
+          "description": "# Identifiers\nCoreDocument has two kinds of identifiers, the `document_identifier` is assigned \nonce per document and stays the same for the lifetime of the document.\ndocument_identifier is the first ID ever used to anchor the document on chain and \nis used internally to store all future versions. The `current_identifier` and the \n`next_identifier` refer only to this particular version.\n\n32 byte value"
         },
         "current_identifier": {
           "type": "string",
@@ -32,27 +32,27 @@
         "next_identifier": {
           "type": "string",
           "format": "byte",
-          "description": "next_identifier is the identifier that is going to be used for the next version if any party wants to update the state."
+          "description": "next_identifier is the identifier that is going to be used for the next version if any \nparty wants to update the state."
         },
         "document_root": {
           "type": "string",
           "format": "byte",
           "title": "# Merkle roots\ndocument_root the root of all roots. It's signature_root along with a list of all signatures"
         },
-        "signature_root": {
+        "signing_root": {
           "type": "string",
           "format": "byte",
-          "description": "signature_root is the Merkle root calculated from all fields on the document that need to be signed. This is all fields except for the signatures themselves and the `document_root`."
+          "description": "signature_root is the Merkle root calculated from all fields on the document that need \nto be signed. This is all fields except for the signatures themselves and the `document_root`."
         },
         "previous_root": {
           "type": "string",
           "format": "byte",
-          "title": "previous_root is the root of the previous version of the document"
+          "title": "previous_root is the `document_root` of the previous version of the document"
         },
-        "data_root": {
+        "data_merkle_root": {
           "type": "string",
           "format": "byte",
-          "description": "data_root is the Merkle root calculated for the `embedded_data` \u0026 `embedded_salts` document (such as an invoice)."
+          "description": "data_merkle_root is the Merkle root calculated for the `embedded_data` \u0026 `embedded_salts` document (such as an invoice)."
         },
         "signatures": {
           "type": "array",
