@@ -7,14 +7,11 @@ cache:
     directories:
       - ~/bin/
       - ~/.cache/prototool/Linux/x86_64/protobuf/
-      # Cache the glide binary
-      - ~/glide/
-      # Glide's own cache
-      - ~/.glide
+      # Cache dep data 
+      - /tmp/depcache
 install:
   - mkdir -p ~/bin
-  - scripts/install_glide.sh
-  - glide install
+  - go get -u github.com/golang/dep/...
   - go install github.com/CentrifugeInc/centrifuge-protobufs/vendor/github.com/roboll/go-vendorinstall
   - go-vendorinstall github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway
   - go-vendorinstall github.com/golang/protobuf/protoc-gen-go
