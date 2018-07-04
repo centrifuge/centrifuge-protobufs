@@ -1,10 +1,13 @@
 syntax = "proto3";
 
-import "google/protobuf/any.proto";
-
 package coredocument;
 
 option go_package = "coredocumentpb";
+option java_multiple_files = true;
+option java_outer_classname = "CoredocumentProto";
+option java_package = "com.coredocument";
+
+import "google/protobuf/any.proto";
 
 // `CoreDocument` is a document that can be sent to different nodes and anchored 
 // on chain. It handles all the generic features native Centrifuge Documents support:
@@ -13,35 +16,35 @@ option go_package = "coredocumentpb";
 // * Signatures on document data
 // * Access Control
 message CoreDocument {
-  // This is for convenience: the first identifier that was ever used to refer to a 
-  // document is kept here. Internally the centrifuge node indexes & bundles documents 
-  // by original identifier.
+  // # Identifiers
+  // CoreDocument has two kinds of identifiers, the `document_identifier` is assigned 
+  // once per document and stays the same for the lifetime of the document.
+  // document_identifier is the first ID ever used to anchor the document on chain and 
+  // is used internally to store all future versions. The `current_identifier` and the 
+  // `next_identifier` refer only to this particular version.
   // 
   // 32 byte value
   bytes document_identifier = 9;
-  // The current identifier is the location of the current anchor on chain and is used to 
-  // refer to the current state.
+  // current_identifier is the identifier used to refer to the current state of the document.
   // 
   // 32 byte value
   bytes current_identifier = 3;
-  // When creating the next version this should be used.
+  // next_identifier is the identifier that is going to be used for the next version if any 
+  // party wants to update the state.
   bytes next_identifier = 4;
-  // Root
-  bytes previous_root = 2;
-  bytes data_merkle_root = 5;
+  // # Merkle roots
+  // document_root the root of all roots. It's signature_root along with a list of all signatures
   bytes document_root = 7;
+  // signing_root is the Merkle root calculated from all fields on the document that need 
+  // to be signed. This is all fields except for the signatures themselves and the `document_root`. 
+  bytes signing_root = 10;
+  // previous_root is the `document_root` of the previous version of the document
+  bytes previous_root = 2;
+  // data_root is the Merkle root calculated for the `embedded_data` & `embedded_salts` document (such as an invoice).
+  bytes data_root = 5;
   // Signatures
+  // Signatures of the signature_root by centrifuge identities. This array should be sorted by the Centrifuge ID.
   repeated Signature signatures = 6;
-  // List of collaborators on this document. These Centrifuge Identities have access
-  // to the document and should receive new versions whenever a document is updated.
-  // repeated bytes collaborators = 10;
-  // repeated AccessControlEntry acl = 11;
-
-  // The previous document is referenced here but doesn't need to be provided and can
-  // be left blank
-  //
-  // This is a readonly field
-  repeated CoreDocument previous_versions = 8;
   // Document a serialized document
   google.protobuf.Any embedded_data = 13;
   google.protobuf.Any embedded_data_salts = 14;
