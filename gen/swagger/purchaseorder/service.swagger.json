@@ -172,17 +172,17 @@
         "signing_root": {
           "type": "string",
           "format": "byte",
-          "description": "signature_root is the Merkle root calculated from all fields on the document that need \nto be signed. This is all fields except for the signatures themselves and the `document_root`."
+          "description": "signing_root is the Merkle root calculated from all fields on the document that need \nto be signed. This is all fields except for the signatures themselves and the `document_root`."
         },
         "previous_root": {
           "type": "string",
           "format": "byte",
           "title": "previous_root is the `document_root` of the previous version of the document"
         },
-        "data_merkle_root": {
+        "data_root": {
           "type": "string",
           "format": "byte",
-          "description": "data_merkle_root is the Merkle root calculated for the `embedded_data` \u0026 `embedded_salts` document (such as an invoice)."
+          "description": "data_root is the Merkle root calculated for the `embedded_data` \u0026 `embedded_salts` document (such as an invoice)."
         },
         "signatures": {
           "type": "array",

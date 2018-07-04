@@ -35,13 +35,13 @@ message CoreDocument {
   // # Merkle roots
   // document_root the root of all roots. It's signature_root along with a list of all signatures
   bytes document_root = 7;
-  // signature_root is the Merkle root calculated from all fields on the document that need 
+  // signing_root is the Merkle root calculated from all fields on the document that need 
   // to be signed. This is all fields except for the signatures themselves and the `document_root`. 
   bytes signing_root = 10;
   // previous_root is the `document_root` of the previous version of the document
   bytes previous_root = 2;
-  // data_merkle_root is the Merkle root calculated for the `embedded_data` & `embedded_salts` document (such as an invoice).
-  bytes data_merkle_root = 5;
+  // data_root is the Merkle root calculated for the `embedded_data` & `embedded_salts` document (such as an invoice).
+  bytes data_root = 5;
   // Signatures
   // Signatures of the signature_root by centrifuge identities. This array should be sorted by the Centrifuge ID.
   repeated Signature signatures = 6;
