@@ -15,7 +15,8 @@ npm run build_swagger
 ## Making sure all dependencies are installed
 
 ```bash,
-glide install
+go get -u github.com/golang/dep/...
+dep ensure
 go install github.com/CentrifugeInc/centrifuge-protobufs/vendor/github.com/roboll/go-vendorinstall
 
 PATH=$PATH:$GOPATH/bin
@@ -31,7 +32,7 @@ npm install
 Install prototool with:
 
 ```
-curl -sSL https://github.com/uber/prototool/releases/download/v0.2.0/prototool-$(uname -s)-$(uname -m) \
+curl -sSL https://github.com/uber/prototool/releases/download/v0.4.0/prototool-$(uname -s)-$(uname -m) \
   -o /usr/local/bin/prototool && \
   chmod +x /usr/local/bin/prototool && \
   prototool -h
