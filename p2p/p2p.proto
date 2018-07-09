@@ -13,7 +13,7 @@ import "coredocument/coredocument.proto";
 message P2PMessage {
   uint32 network_identifier = 1;
   string cent_node_version = 2;
-  bytes centrifuge_id = 3;
+  bytes sender_centrifuge_id = 3;
   // Open questions in the P2PMessage
   // - should we include the document schema so the client can refuse it right away?
   // - how do you determine if the node is the right recipient for the current
