@@ -2,9 +2,13 @@
 
 
 [[projects]]
+  branch = "master"
   name = "github.com/centrifuge/precise-proofs"
-  packages = ["proofs"]
-  revision = "b27f5da7254f3200cef96451d7b2d8d163358f99"
+  packages = [
+    "proofs",
+    "proofs/proto"
+  ]
+  revision = "f8ef5392db436f8678e972810bf919c0406d1b83"
 
 [[projects]]
   name = "github.com/ghodss/yaml"
@@ -27,6 +31,7 @@
 [[projects]]
   name = "github.com/golang/protobuf"
   packages = [
+    "descriptor",
     "jsonpb",
     "proto",
     "protoc-gen-go",
@@ -42,7 +47,8 @@
     "ptypes/struct",
     "ptypes/timestamp"
   ]
-  revision = "05f48f4eaf0e05663b562bab533cdd472238ce29"
+  revision = "b4deda0973fb4c70b50d226b1af49f3da59f5265"
+  version = "v1.1.0"
 
 [[projects]]
   name = "github.com/grpc-ecosystem/grpc-gateway"

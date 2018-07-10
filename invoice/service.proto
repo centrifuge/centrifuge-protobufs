@@ -10,7 +10,7 @@ option java_package = "com.invoice";
 import "google/api/annotations.proto";
 import "google/protobuf/empty.proto";
 import "invoice/invoice.proto";
-import "precise-proofs/proofs/proof.proto";
+import "precise-proofs/proofs/proto/proof.proto";
 import "protoc-gen-swagger/options/annotations.proto";
 
 // InvoiceDocumentService contains all common interactions for invoice documents
