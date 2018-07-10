@@ -59,6 +59,18 @@ message CoreDocument {
   google.protobuf.Any embedded_data_salts = 14 [
     (proofs.exclude_from_tree) = true
   ];
+  // CoreDocumentSalts is inlined
+  CoreDocumentSalts coredocument_salts = 15 [
+    (proofs.exclude_from_tree) = true
+  ];
+}
+
+message CoreDocumentSalts {
+  bytes document_identifier = 9;
+  bytes current_identifier = 3;
+  bytes next_identifier = 4;
+  bytes previous_root = 2;
+  bytes data_root = 5;
 }
 
 // Signature contains the entity ID, public key used and signature)
