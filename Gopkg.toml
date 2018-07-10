@@ -38,6 +38,7 @@ required = ["github.com/roboll/go-vendorinstall", "github.com/centrifuge/precise
 [[constraint]]
   name = "github.com/grpc-ecosystem/grpc-gateway"
   source = "git@github.com:grpc-ecosystem/grpc-gateway"
+  version = "1.4.1"
 
 [[prune.project]]
     name = "github.com/grpc-ecosystem/grpc-gateway"
@@ -47,7 +48,7 @@ required = ["github.com/roboll/go-vendorinstall", "github.com/centrifuge/precise
 
 [[constraint]]
   name = "google.golang.org/grpc"
-  version = "1.12.0"
+  version = "1.13.0"
 
 [prune]
   go-tests = true
