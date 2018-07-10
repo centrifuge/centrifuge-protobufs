@@ -1,9 +1,12 @@
+# GOBIN needs to be set to ensure govendor can actually be found and executed 
 PATH=$(shell printenv PATH):$(GOBIN)
+
+# If you need to overwrite PROTOTOOL_BIN, you can set this environment variable.
 PROTOTOOL_BIN ?=$(shell which prototool)
 
 all:
 	install
-	gen_go
+	gen_proto
 	gen_swagger
 
 .PHONY: help
@@ -33,6 +36,9 @@ lint: ## runs prototool lint
 gen_go: ## generates the go bindings
 	$(PROTOTOOL_BIN) gen
 
-gen_swagger: ## generates the swagger documenation
+gen_proto: ## runs prototool all
+	$(PROTOTOOL_BIN) all
+
+gen_swagger: ## generates the swagger documentation
 	npm run build_swagger
 
