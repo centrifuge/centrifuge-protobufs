@@ -38,24 +38,20 @@ message CoreDocument {
   bytes document_root = 7 [
     (proofs.exclude_from_tree) = true
   ];
-  
   // signing_root is the Merkle root calculated from all fields on the document that need 
   // to be signed. This is all fields except for the signatures themselves and the `document_root`. 
   bytes signing_root = 10 [
     (proofs.exclude_from_tree) = true
   ];
-
   // previous_root is the `document_root` of the previous version of the document
   bytes previous_root = 2;
   // data_root is the Merkle root calculated for the `embedded_data` & `embedded_salts` document (such as an invoice).
   bytes data_root = 5;
-
   // Signatures
   // Signatures of the signature_root by centrifuge identities. This array should be sorted by the Centrifuge ID.
   repeated Signature signatures = 6 [
     (proofs.exclude_from_tree) = true
   ];
-  
   // Document a serialized document
   google.protobuf.Any embedded_data = 13 [
     (proofs.exclude_from_tree) = true
