@@ -13,14 +13,14 @@ help: ## Show this help message.
 	@echo 'targets:'
 	@egrep '^(.+)\:\ ##\ (.+)' ${MAKEFILE_LIST} | column -t -c 2 -s ':#'
 
-.PHONY: install
 install: ## Install dependencies required to generate bindings & documentation
+install: install_dep vendorinstall
+	
+install_dep:
 	go get -u "github.com/golang/dep/..." 
 	dep ensure
 	npm install
-	vendorinstall
 
-.PHONY: vendorinstall
 vendorinstall: ## Installs all protobuf dependencies with go-vendorinstall
 	go install github.com/CentrifugeInc/centrifuge-protobufs/vendor/github.com/roboll/go-vendorinstall
 	echo $(PATH)
@@ -30,7 +30,6 @@ vendorinstall: ## Installs all protobuf dependencies with go-vendorinstall
 
 lint: ## runs prototool lint 
 	$(PROTOTOOL_BIN) lint
-
 
 gen_go: ## generates the go bindings
 	$(PROTOTOOL_BIN) gen
