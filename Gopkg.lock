@@ -2,7 +2,6 @@
 
 
 [[projects]]
-  branch = "master"
   name = "github.com/centrifuge/precise-proofs"
   packages = [
     "proofs",
@@ -177,6 +176,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "fd0f69aa1d054d9a9036e6fecddf4444f8fac737c1121dc14dbd0c1200771db8"
+  inputs-digest = "c66b54e0af9a59b7c2ce3801abdc77ac26a967d4cd640932489a0efd904bf912"
   solver-name = "gps-cdcl"
   solver-version = 1
