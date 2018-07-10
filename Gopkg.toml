@@ -31,6 +31,11 @@ required = ["github.com/roboll/go-vendorinstall", "github.com/centrifuge/precise
     non-go = false
     unused-packages = false
     
+
+[[constraint]]
+    name = "github.com/golang/protobuf"
+    version = "1.1.0"
+
 [[constraint]]
     name = "github.com/centrifuge/precise-proofs"
     revision = "f8ef5392db436f8678e972810bf919c0406d1b83"

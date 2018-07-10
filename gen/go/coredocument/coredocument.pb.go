@@ -55,12 +55,12 @@ type CoreDocument struct {
 	DataRoot []byte `protobuf:"bytes,5,opt,name=data_root,json=dataRoot,proto3" json:"data_root,omitempty"`
 	// Signatures
 	// Signatures of the signature_root by centrifuge identities. This array should be sorted by the Centrifuge ID.
-	Signatures []*Signature `protobuf:"bytes,6,rep,name=signatures,proto3" json:"signatures,omitempty"`
+	Signatures []*Signature `protobuf:"bytes,6,rep,name=signatures" json:"signatures,omitempty"`
 	// Document a serialized document
-	EmbeddedData      *any.Any `protobuf:"bytes,13,opt,name=embedded_data,json=embeddedData,proto3" json:"embedded_data,omitempty"`
-	EmbeddedDataSalts *any.Any `protobuf:"bytes,14,opt,name=embedded_data_salts,json=embeddedDataSalts,proto3" json:"embedded_data_salts,omitempty"`
+	EmbeddedData      *any.Any `protobuf:"bytes,13,opt,name=embedded_data,json=embeddedData" json:"embedded_data,omitempty"`
+	EmbeddedDataSalts *any.Any `protobuf:"bytes,14,opt,name=embedded_data_salts,json=embeddedDataSalts" json:"embedded_data_salts,omitempty"`
 	// CoreDocumentSalts is inlined
-	CoredocumentSalts    *CoreDocumentSalts `protobuf:"bytes,15,opt,name=coredocument_salts,json=coredocumentSalts,proto3" json:"coredocument_salts,omitempty"`
+	CoredocumentSalts    *CoreDocumentSalts `protobuf:"bytes,15,opt,name=coredocument_salts,json=coredocumentSalts" json:"coredocument_salts,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}           `json:"-"`
 	XXX_unrecognized     []byte             `json:"-"`
 	XXX_sizecache        int32              `json:"-"`
