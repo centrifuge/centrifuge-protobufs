@@ -3,6 +3,7 @@ go:
   - 1.10.x
 env:
   - PROTOTOOL_VERSION=0.4.0
+  - ~/bin/0.4.0/prototool
 cache:
     directories:
       - ~/bin/
