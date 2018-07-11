@@ -3,8 +3,11 @@
 
 [[projects]]
   name = "github.com/centrifuge/precise-proofs"
-  packages = ["proofs"]
-  revision = "b27f5da7254f3200cef96451d7b2d8d163358f99"
+  packages = [
+    "proofs",
+    "proofs/proto"
+  ]
+  revision = "f8ef5392db436f8678e972810bf919c0406d1b83"
 
 [[projects]]
   name = "github.com/ghodss/yaml"
@@ -27,6 +30,7 @@
 [[projects]]
   name = "github.com/golang/protobuf"
   packages = [
+    "descriptor",
     "jsonpb",
     "proto",
     "protoc-gen-go",
@@ -42,7 +46,8 @@
     "ptypes/struct",
     "ptypes/timestamp"
   ]
-  revision = "05f48f4eaf0e05663b562bab533cdd472238ce29"
+  revision = "b4deda0973fb4c70b50d226b1af49f3da59f5265"
+  version = "v1.1.0"
 
 [[projects]]
   name = "github.com/grpc-ecosystem/grpc-gateway"
@@ -58,8 +63,9 @@
     "runtime/internal",
     "utilities"
   ]
-  revision = "a53af079f669b6375dd96cdf5e98e67f886a8b4d"
+  revision = "92583770e3f01b09a0d3e9bdf64321d8bebd48f2"
   source = "git@github.com:grpc-ecosystem/grpc-gateway"
+  version = "v1.4.1"
 
 [[projects]]
   branch = "master"
@@ -68,10 +74,10 @@
   revision = "90d371a664d668ca3e61d3ddddf1916662959f11"
 
 [[projects]]
-  branch = "master"
   name = "github.com/oleiade/reflections"
   packages = ["."]
-  revision = "0e86b3c98b2ff33e30c85cfe97d9a63d439fe7eb"
+  revision = "2b6ec3da648e3e834dc41bad8d9ed7f2dc6a9496"
+  version = "v1.0.0"
 
 [[projects]]
   branch = "master"
@@ -86,17 +92,18 @@
   revision = "c71c7cc334c839f31f3760b2385eab8381daf64e"
 
 [[projects]]
+  branch = "master"
   name = "golang.org/x/net"
   packages = [
     "context",
+    "http/httpguts",
     "http2",
     "http2/hpack",
     "idna",
     "internal/timeseries",
-    "lex/httplex",
     "trace"
   ]
-  revision = "f5dfe339be1d06f81b22525fe34671ee7d2c8904"
+  revision = "292b43bbf7cb8d35ddf40f8d5100ef3837cced3f"
 
 [[projects]]
   name = "golang.org/x/text"
@@ -116,15 +123,17 @@
     "unicode/norm",
     "unicode/rangetable"
   ]
-  revision = "4e4a3210bb54bb31f6ab2cdca2edcc0b50c420c1"
+  revision = "f21a4dfb5e38f5895301dc265a8def02365cc3d0"
+  version = "v0.3.0"
 
 [[projects]]
+  branch = "master"
   name = "google.golang.org/genproto"
   packages = [
     "googleapis/api/annotations",
     "googleapis/rpc/status"
   ]
-  revision = "2b5a72b8730b0b16380010cfe5286c42108d88e7"
+  revision = "e92b116572682a5b432ddd840aeaba2a559eeff1"
 
 [[projects]]
   name = "google.golang.org/grpc"
@@ -133,15 +142,16 @@
     "balancer",
     "balancer/base",
     "balancer/roundrobin",
-    "channelz",
     "codes",
     "connectivity",
     "credentials",
     "encoding",
     "encoding/proto",
-    "grpclb/grpc_lb_v1/messages",
     "grpclog",
     "internal",
+    "internal/backoff",
+    "internal/channelz",
+    "internal/grpcrand",
     "keepalive",
     "metadata",
     "naming",
@@ -154,8 +164,8 @@
     "tap",
     "transport"
   ]
-  revision = "41344da2231b913fa3d983840a57a6b1b7b631a1"
-  version = "v1.12.0"
+  revision = "168a6198bcb0ef175f7dacec0b8691fc141dc9b8"
+  version = "v1.13.0"
 
 [[projects]]
   name = "gopkg.in/yaml.v2"
@@ -166,6 +176,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "fd0f69aa1d054d9a9036e6fecddf4444f8fac737c1121dc14dbd0c1200771db8"
+  inputs-digest = "a035c16f735e9f6b2e8d0f3948f8e84331f288afd7977a7223a0367ae6b448d9"
   solver-name = "gps-cdcl"
   solver-version = 1

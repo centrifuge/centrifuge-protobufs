@@ -23,39 +23,39 @@ const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 // PurchaseOrderData is the default schema for a purchase order
 type PurchaseOrderData struct {
 	// purchase order number or reference number
-	PoNumber string `protobuf:"bytes,1,opt,name=po_number,json=poNumber,proto3" json:"po_number,omitempty"`
+	PoNumber string `protobuf:"bytes,1,opt,name=po_number,json=poNumber" json:"po_number,omitempty"`
 	// name of the ordering company
-	OrderName string `protobuf:"bytes,2,opt,name=order_name,json=orderName,proto3" json:"order_name,omitempty"`
+	OrderName string `protobuf:"bytes,2,opt,name=order_name,json=orderName" json:"order_name,omitempty"`
 	// street and address details of the ordering company
-	OrderStreet  string `protobuf:"bytes,3,opt,name=order_street,json=orderStreet,proto3" json:"order_street,omitempty"`
-	OrderCity    string `protobuf:"bytes,4,opt,name=order_city,json=orderCity,proto3" json:"order_city,omitempty"`
-	OrderZipcode string `protobuf:"bytes,5,opt,name=order_zipcode,json=orderZipcode,proto3" json:"order_zipcode,omitempty"`
+	OrderStreet  string `protobuf:"bytes,3,opt,name=order_street,json=orderStreet" json:"order_street,omitempty"`
+	OrderCity    string `protobuf:"bytes,4,opt,name=order_city,json=orderCity" json:"order_city,omitempty"`
+	OrderZipcode string `protobuf:"bytes,5,opt,name=order_zipcode,json=orderZipcode" json:"order_zipcode,omitempty"`
 	// country ISO code of the ordering company of this purchase order
-	OrderCountry string `protobuf:"bytes,6,opt,name=order_country,json=orderCountry,proto3" json:"order_country,omitempty"`
+	OrderCountry string `protobuf:"bytes,6,opt,name=order_country,json=orderCountry" json:"order_country,omitempty"`
 	// name of the recipient company
-	RecipientName    string `protobuf:"bytes,7,opt,name=recipient_name,json=recipientName,proto3" json:"recipient_name,omitempty"`
-	RecipientStreet  string `protobuf:"bytes,8,opt,name=recipient_street,json=recipientStreet,proto3" json:"recipient_street,omitempty"`
-	RecipientCity    string `protobuf:"bytes,9,opt,name=recipient_city,json=recipientCity,proto3" json:"recipient_city,omitempty"`
-	RecipientZipcode string `protobuf:"bytes,10,opt,name=recipient_zipcode,json=recipientZipcode,proto3" json:"recipient_zipcode,omitempty"`
+	RecipientName    string `protobuf:"bytes,7,opt,name=recipient_name,json=recipientName" json:"recipient_name,omitempty"`
+	RecipientStreet  string `protobuf:"bytes,8,opt,name=recipient_street,json=recipientStreet" json:"recipient_street,omitempty"`
+	RecipientCity    string `protobuf:"bytes,9,opt,name=recipient_city,json=recipientCity" json:"recipient_city,omitempty"`
+	RecipientZipcode string `protobuf:"bytes,10,opt,name=recipient_zipcode,json=recipientZipcode" json:"recipient_zipcode,omitempty"`
 	// country ISO code of the receipient of this purchase order
-	RecipientCountry string `protobuf:"bytes,11,opt,name=recipient_country,json=recipientCountry,proto3" json:"recipient_country,omitempty"`
+	RecipientCountry string `protobuf:"bytes,11,opt,name=recipient_country,json=recipientCountry" json:"recipient_country,omitempty"`
 	// ISO currency code
-	Currency string `protobuf:"bytes,12,opt,name=currency,proto3" json:"currency,omitempty"`
+	Currency string `protobuf:"bytes,12,opt,name=currency" json:"currency,omitempty"`
 	// ordering gross amount including tax
-	OrderAmount int64 `protobuf:"varint,13,opt,name=order_amount,json=orderAmount,proto3" json:"order_amount,omitempty"`
+	OrderAmount int64 `protobuf:"varint,13,opt,name=order_amount,json=orderAmount" json:"order_amount,omitempty"`
 	// invoice amount excluding tax
-	NetAmount int64  `protobuf:"varint,14,opt,name=net_amount,json=netAmount,proto3" json:"net_amount,omitempty"`
-	TaxAmount int64  `protobuf:"varint,15,opt,name=tax_amount,json=taxAmount,proto3" json:"tax_amount,omitempty"`
-	TaxRate   int64  `protobuf:"varint,16,opt,name=tax_rate,json=taxRate,proto3" json:"tax_rate,omitempty"`
+	NetAmount int64  `protobuf:"varint,14,opt,name=net_amount,json=netAmount" json:"net_amount,omitempty"`
+	TaxAmount int64  `protobuf:"varint,15,opt,name=tax_amount,json=taxAmount" json:"tax_amount,omitempty"`
+	TaxRate   int64  `protobuf:"varint,16,opt,name=tax_rate,json=taxRate" json:"tax_rate,omitempty"`
 	Recipient []byte `protobuf:"bytes,17,opt,name=recipient,proto3" json:"recipient,omitempty"`
 	Order     []byte `protobuf:"bytes,18,opt,name=order,proto3" json:"order,omitempty"`
 	// contact or requester or purchaser at the ordering company
-	OrderContact string `protobuf:"bytes,19,opt,name=order_contact,json=orderContact,proto3" json:"order_contact,omitempty"`
-	Comment      string `protobuf:"bytes,20,opt,name=comment,proto3" json:"comment,omitempty"`
+	OrderContact string `protobuf:"bytes,19,opt,name=order_contact,json=orderContact" json:"order_contact,omitempty"`
+	Comment      string `protobuf:"bytes,20,opt,name=comment" json:"comment,omitempty"`
 	// requested delivery date
-	DeliveryDate *timestamp.Timestamp `protobuf:"bytes,21,opt,name=delivery_date,json=deliveryDate,proto3" json:"delivery_date,omitempty"`
+	DeliveryDate *timestamp.Timestamp `protobuf:"bytes,21,opt,name=delivery_date,json=deliveryDate" json:"delivery_date,omitempty"`
 	// purchase order date
-	DateCreated          *timestamp.Timestamp `protobuf:"bytes,22,opt,name=date_created,json=dateCreated,proto3" json:"date_created,omitempty"`
+	DateCreated          *timestamp.Timestamp `protobuf:"bytes,22,opt,name=date_created,json=dateCreated" json:"date_created,omitempty"`
 	ExtraData            []byte               `protobuf:"bytes,23,opt,name=extra_data,json=extraData,proto3" json:"extra_data,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
 	XXX_unrecognized     []byte               `json:"-"`
@@ -464,9 +464,9 @@ func (m *PurchaseOrderDataSalts) GetExtraData() []byte {
 
 // PurchaseOrderDocument combines the salts, data & coredocument for a purchase order.
 type PurchaseOrderDocument struct {
-	CoreDocument         *coredocument.CoreDocument `protobuf:"bytes,1,opt,name=core_document,json=coreDocument,proto3" json:"core_document,omitempty"`
-	Data                 *PurchaseOrderData         `protobuf:"bytes,2,opt,name=data,proto3" json:"data,omitempty"`
-	Salts                *PurchaseOrderDataSalts    `protobuf:"bytes,3,opt,name=salts,proto3" json:"salts,omitempty"`
+	CoreDocument         *coredocument.CoreDocument `protobuf:"bytes,1,opt,name=core_document,json=coreDocument" json:"core_document,omitempty"`
+	Data                 *PurchaseOrderData         `protobuf:"bytes,2,opt,name=data" json:"data,omitempty"`
+	Salts                *PurchaseOrderDataSalts    `protobuf:"bytes,3,opt,name=salts" json:"salts,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}                   `json:"-"`
 	XXX_unrecognized     []byte                     `json:"-"`
 	XXX_sizecache        int32                      `json:"-"`

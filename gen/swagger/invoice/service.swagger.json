@@ -197,10 +197,39 @@
         },
         "embedded_data_salts": {
           "$ref": "#/definitions/protobufAny"
+        },
+        "coredocument_salts": {
+          "$ref": "#/definitions/coredocumentCoreDocumentSalts",
+          "title": "CoreDocumentSalts is inlined"
         }
       },
       "description": "* Merkle Roots for the document data\n* Signatures on document data\n* Access Control",
       "title": "`CoreDocument` is a document that can be sent to different nodes and anchored \non chain. It handles all the generic features native Centrifuge Documents support:"
+    },
+    "coredocumentCoreDocumentSalts": {
+      "type": "object",
+      "properties": {
+        "document_identifier": {
+          "type": "string",
+          "format": "byte"
+        },
+        "current_identifier": {
+          "type": "string",
+          "format": "byte"
+        },
+        "next_identifier": {
+          "type": "string",
+          "format": "byte"
+        },
+        "previous_root": {
+          "type": "string",
+          "format": "byte"
+        },
+        "data_root": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
     },
     "coredocumentSignature": {
       "type": "object",

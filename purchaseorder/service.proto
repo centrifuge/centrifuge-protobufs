@@ -9,7 +9,7 @@ option java_package = "com.purchaseorder";
 
 import "google/api/annotations.proto";
 import "google/protobuf/empty.proto";
-import "precise-proofs/proofs/proof.proto";
+import "precise-proofs/proofs/proto/proof.proto";
 import "protoc-gen-swagger/options/annotations.proto";
 import "purchaseorder/purchaseorder.proto";
 

@@ -2,7 +2,7 @@ language: go
 go:
   - 1.10.x
 env:
-  - PROTOTOOL_VERSION=0.4.0
+  - PROTOTOOL_VERSION=0.4.0 PROTOTOOL_BIN=~/bin/0.4.0/prototool
 cache:
     directories:
       - ~/bin/
@@ -11,17 +11,10 @@ cache:
       - /tmp/depcache
 install:
   - mkdir -p ~/bin
-  - go get -u github.com/golang/dep/...
-  - dep ensure
-  - go install github.com/CentrifugeInc/centrifuge-protobufs/vendor/github.com/roboll/go-vendorinstall
-  - go-vendorinstall github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway
-  - go-vendorinstall github.com/golang/protobuf/protoc-gen-go
-  - go-vendorinstall github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger
   - PROTOTOOL_VERSION=$PROTOTOOL_VERSION ./scripts/install_prototool.sh
-  - npm install
+  - make install
 
 script:
-  - ~/bin/$PROTOTOOL_VERSION/prototool lint
-  - ~/bin/$PROTOTOOL_VERSION/prototool gen
-  - npm run build_swagger
+  - make lint 
+  - make gen_go gen_swagger 
   - echo "Checking that `prototool gen` doesn't result in a modified git tree" && git diff --exit-code gen/
