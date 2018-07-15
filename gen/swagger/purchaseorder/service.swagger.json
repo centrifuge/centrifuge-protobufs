@@ -247,6 +247,10 @@
         "signature": {
           "type": "string",
           "format": "byte"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
         }
       },
       "title": "Signature contains the entity ID, public key used and signature)"

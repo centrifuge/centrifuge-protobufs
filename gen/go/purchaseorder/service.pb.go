@@ -6,10 +6,10 @@ package purchaseorderpb
 import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
+import proto1 "github.com/centrifuge/precise-proofs/proofs/proto"
 import empty "github.com/golang/protobuf/ptypes/empty"
 import _ "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger/options"
 import _ "google.golang.org/genproto/googleapis/api/annotations"
-import proto1 "precise-proofs/proofs/proto"
 
 import (
 	context "golang.org/x/net/context"
