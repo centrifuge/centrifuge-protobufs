@@ -24,7 +24,7 @@
 #   go-tests = true
 #   unused-packages = true
 
-required = ["github.com/roboll/go-vendorinstall", "github.com/centrifuge/precise-proofs/proofs", "github.com/golang/protobuf/protoc-gen-go", "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway"]
+required = ["github.com/roboll/go-vendorinstall", "github.com/centrifuge/precise-proofs/proofs", "github.com/golang/protobuf/protoc-gen-go", "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway", "github.com/gogo/protobuf/gogoproto"]
 
 [[prune.project]]
     name = "github.com/centrifuge/precise-proofs"
@@ -47,6 +47,11 @@ required = ["github.com/roboll/go-vendorinstall", "github.com/centrifuge/precise
 
 [[prune.project]]
     name = "github.com/grpc-ecosystem/grpc-gateway"
+    non-go = false
+    unused-packages = false
+
+[[prune.project]]
+    name = "github.com/gogo/protobuf" 
     non-go = false
     unused-packages = false
 
