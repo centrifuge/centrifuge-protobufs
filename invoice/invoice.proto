@@ -8,6 +8,7 @@ option java_outer_classname = "InvoiceProto";
 option java_package = "com.invoice";
 
 import "coredocument/coredocument.proto";
+import "github.com/gogo/protobuf/gogoproto/gogo.proto";
 import "google/protobuf/timestamp.proto";
 
 // InvoiceData is the default invoice schema
@@ -48,29 +49,75 @@ message InvoiceData {
 
 // InvoiceDataSalts keeps track of the salts used for each InvoiceData field.
 message InvoiceDataSalts {
-  bytes invoice_number = 1;
-  bytes sender_name = 3;
-  bytes sender_street = 4;
-  bytes sender_city = 5;
-  bytes sender_zipcode = 6;
-  bytes sender_country = 7;
-  bytes recipient_name = 8;
-  bytes recipient_street = 9;
-  bytes recipient_city = 10;
-  bytes recipient_zipcode = 11;
-  bytes recipient_country = 12;
-  bytes currency = 13;
-  bytes gross_amount = 14;
-  bytes net_amount = 15;
-  bytes tax_amount = 16;
-  bytes tax_rate = 17;
-  bytes recipient = 18;
-  bytes sender = 19;
-  bytes payee = 20;
-  bytes comment = 21;
-  bytes due_date = 22;
-  bytes date_created = 23;
-  bytes extra_data = 24;
+  bytes invoice_number = 1 [
+    (gogoproto.customtype) = "github.com/ethereum/go-ethereum/common/hexutil.Bytes"
+  ];
+  bytes sender_name = 3 [
+    (gogoproto.customtype) = "github.com/ethereum/go-ethereum/common/hexutil.Bytes"
+  ];
+  bytes sender_street = 4 [
+    (gogoproto.customtype) = "github.com/ethereum/go-ethereum/common/hexutil.Bytes"
+  ];
+  bytes sender_city = 5 [
+    (gogoproto.customtype) = "github.com/ethereum/go-ethereum/common/hexutil.Bytes"
+  ];
+  bytes sender_zipcode = 6 [
+    (gogoproto.customtype) = "github.com/ethereum/go-ethereum/common/hexutil.Bytes"
+  ];
+  bytes sender_country = 7 [
+    (gogoproto.customtype) = "github.com/ethereum/go-ethereum/common/hexutil.Bytes"
+  ];
+  bytes recipient_name = 8 [
+    (gogoproto.customtype) = "github.com/ethereum/go-ethereum/common/hexutil.Bytes"
+  ];
+  bytes recipient_street = 9 [
+    (gogoproto.customtype) = "github.com/ethereum/go-ethereum/common/hexutil.Bytes"
+  ];
+  bytes recipient_city = 10 [
+    (gogoproto.customtype) = "github.com/ethereum/go-ethereum/common/hexutil.Bytes"
+  ];
+  bytes recipient_zipcode = 11 [
+    (gogoproto.customtype) = "github.com/ethereum/go-ethereum/common/hexutil.Bytes"
+  ];
+  bytes recipient_country = 12 [
+    (gogoproto.customtype) = "github.com/ethereum/go-ethereum/common/hexutil.Bytes"
+  ];
+  bytes currency = 13 [
+    (gogoproto.customtype) = "github.com/ethereum/go-ethereum/common/hexutil.Bytes"
+  ];
+  bytes gross_amount = 14 [
+    (gogoproto.customtype) = "github.com/ethereum/go-ethereum/common/hexutil.Bytes"
+  ];
+  bytes net_amount = 15 [
+    (gogoproto.customtype) = "github.com/ethereum/go-ethereum/common/hexutil.Bytes"
+  ];
+  bytes tax_amount = 16 [
+    (gogoproto.customtype) = "github.com/ethereum/go-ethereum/common/hexutil.Bytes"
+  ];
+  bytes tax_rate = 17 [
+    (gogoproto.customtype) = "github.com/ethereum/go-ethereum/common/hexutil.Bytes"
+  ];
+  bytes recipient = 18 [
+    (gogoproto.customtype) = "github.com/ethereum/go-ethereum/common/hexutil.Bytes"
+  ];
+  bytes sender = 19 [
+    (gogoproto.customtype) = "github.com/ethereum/go-ethereum/common/hexutil.Bytes"
+  ];
+  bytes payee = 20 [
+    (gogoproto.customtype) = "github.com/ethereum/go-ethereum/common/hexutil.Bytes"
+  ];
+  bytes comment = 21 [
+    (gogoproto.customtype) = "github.com/ethereum/go-ethereum/common/hexutil.Bytes"
+  ];
+  bytes due_date = 22 [
+    (gogoproto.customtype) = "github.com/ethereum/go-ethereum/common/hexutil.Bytes"
+  ];
+  bytes date_created = 23 [
+    (gogoproto.customtype) = "github.com/ethereum/go-ethereum/common/hexutil.Bytes"
+  ];
+  bytes extra_data = 24 [
+    (gogoproto.customtype) = "github.com/ethereum/go-ethereum/common/hexutil.Bytes"
+  ];
 }
 
 // InvoiceDocument combines teh salts, data & coredocument for an invoice

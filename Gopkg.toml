@@ -24,7 +24,7 @@
 #   go-tests = true
 #   unused-packages = true
 
-required = ["github.com/roboll/go-vendorinstall", "github.com/centrifuge/precise-proofs/proofs", "github.com/golang/protobuf/protoc-gen-go", "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway"]
+required = ["github.com/roboll/go-vendorinstall", "github.com/centrifuge/precise-proofs/proofs", "github.com/golang/protobuf/protoc-gen-go", "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway", "github.com/gogo/protobuf/gogoproto"]
 
 [[prune.project]]
     name = "github.com/centrifuge/precise-proofs"
@@ -43,17 +43,27 @@ required = ["github.com/roboll/go-vendorinstall", "github.com/centrifuge/precise
 [[constraint]]
   name = "github.com/grpc-ecosystem/grpc-gateway"
   source = "git@github.com:grpc-ecosystem/grpc-gateway"
-  version = "1.4.1"
+  revision = "209d7ce1a333550d4ce54dad94432192eeb2041b"
 
 [[prune.project]]
     name = "github.com/grpc-ecosystem/grpc-gateway"
     non-go = false
     unused-packages = false
 
+[[prune.project]]
+    name = "github.com/gogo/protobuf" 
+    non-go = false
+    unused-packages = false
+
+[[constraint]]
+  # Also defined in bazelbuild/rules_go
+  # https://github.com/bazelbuild/rules_go/blob/436452edc29a2f1e0edc22d180fbb57c27e6d0af/go/private/repositories.bzl#L131
+  revision = "86e600f69ee4704c6efbf6a2a40a5c10700e76c2"
+  name = "google.golang.org/genproto"
 
 [[constraint]]
   name = "google.golang.org/grpc"
-  version = "1.13.0"
+  revision = "d11072e7ca9811b1100b80ca0269ac831f06d024"
 
 [prune]
   go-tests = true

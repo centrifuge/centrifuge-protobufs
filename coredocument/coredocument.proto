@@ -7,6 +7,7 @@ option java_multiple_files = true;
 option java_outer_classname = "CoredocumentProto";
 option java_package = "com.coredocument";
 
+import "github.com/gogo/protobuf/gogoproto/gogo.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/timestamp.proto";
 import "precise-proofs/proofs/proto/proof.proto";
@@ -26,17 +27,24 @@ message CoreDocument {
   // `next_identifier` refer only to this particular version.
   // 
   // 32 byte value
-  bytes document_identifier = 9;
+  bytes document_identifier = 9 [
+    (gogoproto.customtype) = "github.com/ethereum/go-ethereum/common/hexutil.Bytes"
+  ];
   // current_identifier is the identifier used to refer to the current state of the document.
   // 
   // 32 byte value
-  bytes current_identifier = 3;
+  bytes current_identifier = 3 [
+    (gogoproto.customtype) = "github.com/ethereum/go-ethereum/common/hexutil.Bytes"
+  ];
   // next_identifier is the identifier that is going to be used for the next version if any 
   // party wants to update the state.
-  bytes next_identifier = 4;
+  bytes next_identifier = 4 [
+    (gogoproto.customtype) = "github.com/ethereum/go-ethereum/common/hexutil.Bytes"
+  ];
   // # Merkle roots
   // document_root the root of all roots. It's signature_root along with a list of all signatures
   bytes document_root = 7 [
+    (gogoproto.customtype) = "github.com/ethereum/go-ethereum/common/hexutil.Bytes",
     (proofs.exclude_from_tree) = true
   ];
   // signing_root is the Merkle root calculated from all fields on the document that need 
@@ -45,9 +53,13 @@ message CoreDocument {
     (proofs.exclude_from_tree) = true
   ];
   // previous_root is the `document_root` of the previous version of the document
-  bytes previous_root = 2;
+  bytes previous_root = 2 [
+    (gogoproto.customtype) = "github.com/ethereum/go-ethereum/common/hexutil.Bytes"
+  ];
   // data_root is the Merkle root calculated for the `embedded_data` & `embedded_salts` document (such as an invoice).
-  bytes data_root = 5;
+  bytes data_root = 5 [
+    (gogoproto.customtype) = "github.com/ethereum/go-ethereum/common/hexutil.Bytes"
+  ];
   // Signatures
   // Signatures of the signature_root by centrifuge identities. This array should be sorted by the Centrifuge ID.
   repeated Signature signatures = 6 [
@@ -60,26 +72,41 @@ message CoreDocument {
   google.protobuf.Any embedded_data_salts = 14 [
     (proofs.exclude_from_tree) = true
   ];
-  // CoreDocumentSalts is inlined
   CoreDocumentSalts coredocument_salts = 15 [
     (proofs.exclude_from_tree) = true
   ];
 }
 
 message CoreDocumentSalts {
-  bytes document_identifier = 9;
-  bytes current_identifier = 3;
-  bytes next_identifier = 4;
-  bytes previous_root = 2;
-  bytes data_root = 5;
+  bytes document_identifier = 9 [
+    (gogoproto.customtype) = "github.com/ethereum/go-ethereum/common/hexutil.Bytes"
+  ];
+  bytes current_identifier = 3 [
+    (gogoproto.customtype) = "github.com/ethereum/go-ethereum/common/hexutil.Bytes"
+  ];
+  bytes next_identifier = 4 [
+    (gogoproto.customtype) = "github.com/ethereum/go-ethereum/common/hexutil.Bytes"
+  ];
+  bytes previous_root = 2 [
+    (gogoproto.customtype) = "github.com/ethereum/go-ethereum/common/hexutil.Bytes"
+  ];
+  bytes data_root = 5 [
+    (gogoproto.customtype) = "github.com/ethereum/go-ethereum/common/hexutil.Bytes"
+  ];
 }
 
 // Signature contains the entity ID, public key used and signature)
 message Signature {
   // `entity_id` is the CentrifugeID of the entity signing the document.
-  bytes entity_id = 1;
+  bytes entity_id = 1 [
+    (gogoproto.customtype) = "github.com/ethereum/go-ethereum/common/hexutil.Bytes"
+  ];
   // `public_key` is the public key of the `entity` used for signing the `CoreDocument`
-  bytes public_key = 2;
-  bytes signature = 3;
+  bytes public_key = 2 [
+    (gogoproto.customtype) = "github.com/ethereum/go-ethereum/common/hexutil.Bytes"
+  ];
+  bytes signature = 3 [
+    (gogoproto.customtype) = "github.com/ethereum/go-ethereum/common/hexutil.Bytes"
+  ];
   google.protobuf.Timestamp timestamp = 4;
 }

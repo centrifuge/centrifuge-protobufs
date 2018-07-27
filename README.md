@@ -77,4 +77,9 @@ npm run build_swagger
 open gen/swagger/html/index.html
 ```
 
+# NixOS
+To run prototool on nixos, copy prototool into /tmp and set the cache path to something writeable (such as /tmp/cache)
 
+```
+PATH=/home/vagrant/work/cent-go/bin/:$PATH /tmp/prototool --cache-path /tmp/cache gen
+```

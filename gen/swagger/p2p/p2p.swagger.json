@@ -69,8 +69,7 @@
           "$ref": "#/definitions/protobufAny"
         },
         "coredocument_salts": {
-          "$ref": "#/definitions/coredocumentCoreDocumentSalts",
-          "title": "CoreDocumentSalts is inlined"
+          "$ref": "#/definitions/coredocumentCoreDocumentSalts"
         }
       },
       "description": "* Merkle Roots for the document data\n* Signatures on document data\n* Access Control",
