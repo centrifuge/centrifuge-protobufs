@@ -9,7 +9,18 @@ option java_package = "com.errors";
 
 // Error contains details about the specific error
 message Error {
+  // unique error code for this error
   int32 code = 1;
+
+  // error description
+  // in case of multiple errors, represents generic error message
+  // with specifics in the errors field
   string message = 2;
+
+  // map of sub errors if there are multiple errors to be passed back
+  // ex:
+  // "document_identifier": "empty identifer",
+  // "next_identifier": "inavlid next identifer",
+  // "document_root": "invalid document root"
   map<string, string> errors = 3;
 }
