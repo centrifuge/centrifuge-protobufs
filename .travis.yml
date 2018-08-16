@@ -14,7 +14,14 @@ install:
   - PROTOTOOL_VERSION=$PROTOTOOL_VERSION ./scripts/install_prototool.sh
   - make install
 
-script:
-  - make lint 
-  - make gen_go gen_swagger 
-  - echo "Checking that `prototool gen` doesn't result in a modified git tree" && git diff --exit-code gen/
+jobs:
+    include:
+    - stage: test
+      script:
+        - make lint
+        - make gen_go gen_swagger
+        - echo "Checking that prototool gen doesn't result in a modified git tree" && git diff --exit-code gen/
+    - stage: deploy
+      script:
+      if: (NOT type IN (pull_request)) AND (branch = master)
+        - ./scripts/push_to_swagger.sh
