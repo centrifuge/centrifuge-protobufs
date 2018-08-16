@@ -21,6 +21,7 @@ jobs:
         - make lint
         - make gen_go gen_swagger
         - echo "Checking that prototool gen doesn't result in a modified git tree" && git diff --exit-code gen/
-      after_success:
+    - stage: deploy
+      script:
       if: (NOT type IN (pull_request)) AND (branch = master)
         - ./scripts/push_to_swagger.sh
