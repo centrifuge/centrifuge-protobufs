@@ -18,3 +18,4 @@ script:
   - make lint 
   - make gen_go gen_swagger 
   - echo "Checking that `prototool gen` doesn't result in a modified git tree" && git diff --exit-code gen/
+  - ./scripts/push_to_swagger.sh
