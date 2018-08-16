@@ -18,6 +18,6 @@ script:
   - make lint 
   - make gen_go gen_swagger 
   - echo "Checking that prototool gen doesn't result in a modified git tree" && git diff --exit-code gen/
-  - if [ $TRAVIS_BRANCH == "master" && $TRAVIS_PULL_REQUEST == "false" ]; then
+  - if [ $TRAVIS_BRANCH == "master" ] && [ $TRAVIS_PULL_REQUEST == "false" ]; then
         ./scripts/push_to_swagger.sh;
     fi
