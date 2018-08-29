@@ -28,6 +28,8 @@ required = ["github.com/roboll/go-vendorinstall", "github.com/centrifuge/precise
 
 [[prune.project]]
     name = "github.com/centrifuge/precise-proofs"
+    source = "git@github.com:lucasvo/precise-proofs"
+    branch = "hash-leaves"
     non-go = false
     unused-packages = false
     
