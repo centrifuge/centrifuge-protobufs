@@ -125,6 +125,44 @@
       },
       "title": "Signature contains the entity ID, public key used and signature)"
     },
+    "p2pAnchDocumentResponse": {
+      "type": "object",
+      "properties": {
+        "cent_node_version": {
+          "type": "string"
+        },
+        "signature": {
+          "type": "string",
+          "format": "byte"
+        },
+        "reciever_centrifuge_id": {
+          "type": "string",
+          "format": "byte"
+        },
+        "document": {
+          "$ref": "#/definitions/coredocumentCoreDocument"
+        }
+      }
+    },
+    "p2pDocUpdateResponse": {
+      "type": "object",
+      "properties": {
+        "cent_node_version": {
+          "type": "string"
+        },
+        "signature": {
+          "type": "string",
+          "format": "byte"
+        },
+        "reciever_centrifuge_id": {
+          "type": "string",
+          "format": "byte"
+        },
+        "document": {
+          "$ref": "#/definitions/coredocumentCoreDocument"
+        }
+      }
+    },
     "p2pP2PReply": {
       "type": "object",
       "properties": {
