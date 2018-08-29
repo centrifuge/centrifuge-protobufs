@@ -45,9 +45,13 @@ message CoreDocument {
     (proofs.exclude_from_tree) = true
   ];
   // previous_root is the `document_root` of the previous version of the document
-  bytes previous_root = 2;
+  bytes previous_root = 2 [
+    (proofs.hashed_field) = true
+  ];
   // data_root is the Merkle root calculated for the `embedded_data` & `embedded_salts` document (such as an invoice).
-  bytes data_root = 5;
+  bytes data_root = 5 [
+    (proofs.hashed_field) = true
+  ];
   // Signatures
   // Signatures of the signature_root by centrifuge identities. This array should be sorted by the Centrifuge ID.
   repeated Signature signatures = 6 [
