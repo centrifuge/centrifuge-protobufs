@@ -2,16 +2,16 @@
 
 
 [[projects]]
-  branch = "hash-leaves"
-  digest = "1:47f315a7077bcb2e07d816c7ba19b3e910cdf0c6ee7d5a977dddd39e0eb90b7e"
+  branch = "master"
+  digest = "1:05aa6174d76c5bcd5d13206a542ca2bd91cdeadd799bf8fa62228995cc8927cc"
   name = "github.com/centrifuge/precise-proofs"
   packages = [
     "proofs",
     "proofs/proto",
   ]
   pruneopts = "T"
-  revision = "b8f7de169e54be286a44bb672a22d722ccc9cb39"
-  source = "git@github.com:lucasvo/precise-proofs"
+  revision = "fbe68f46da974e764087a51de73e043778dadbef"
+  source = "git@github.com:centrifuge/precise-proofs"
 
 [[projects]]
   digest = "1:2cd7915ab26ede7d95b8749e6b1f933f1c6d5398030684e6505940a10f31cfda"

@@ -38,8 +38,8 @@ required = ["github.com/roboll/go-vendorinstall", "github.com/centrifuge/precise
 
 [[constraint]]
     name = "github.com/centrifuge/precise-proofs"
-    branch = "hash-leaves"
-    source = "git@github.com:lucasvo/precise-proofs"
+    branch = "master"
+    source = "git@github.com:centrifuge/precise-proofs"
 
 [[constraint]]
   name = "github.com/grpc-ecosystem/grpc-gateway"
