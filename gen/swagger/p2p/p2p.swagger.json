@@ -125,6 +125,22 @@
       },
       "title": "Signature contains the entity ID, public key used and signature)"
     },
+    "p2pCentrifugeHeader": {
+      "type": "object",
+      "properties": {
+        "network_identifier": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "cent_node_version": {
+          "type": "string"
+        },
+        "sender_centrifuge_id": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
     "p2pP2PReply": {
       "type": "object",
       "properties": {
