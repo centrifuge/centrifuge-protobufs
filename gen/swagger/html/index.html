@@ -75,7 +75,10 @@
           <a href="#definition-proofsMerkleHash"> proofsMerkleHash </a>
           <a href="#definition-proofsProof"> proofsProof </a>
           <a href="#definition-protobufAny"> protobufAny </a>
+          <a href="#definition-p2pAnchDocumentResponse"> p2pAnchDocumentResponse </a>
+          <a href="#definition-p2pCentrifugeHeader"> p2pCentrifugeHeader </a>
           <a href="#definition-p2pP2PReply"> p2pP2PReply </a>
+          <a href="#definition-p2pSignatureResponse"> p2pSignatureResponse </a>
           <a href="#definition-purchaseorderAnchorPurchaseOrderEnvelope"> purchaseorderAnchorPurchaseOrderEnvelope </a>
           <a href="#definition-purchaseorderCreatePurchaseOrderProofEnvelope"> purchaseorderCreatePurchaseOrderProofEnvelope </a>
           <a href="#definition-purchaseorderPurchaseOrderData"> purchaseorderPurchaseOrderData </a>
@@ -3440,6 +3443,93 @@
               </div>
             </div>
           </div>
+          <div id="definition-p2pAnchDocumentResponse" class="definition panel" data-traverse-target="definition-p2pAnchDocumentResponse">
+            <h2 class="panel-title">
+              <a name="/definitions/p2pAnchDocumentResponse"></a>p2pAnchDocumentResponse: object
+              <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-properties">
+                  <dl>
+                    <dt data-property-name="cent_node_version">
+                      <span class="json-property-name">cent_node_version:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="accepted">
+                      <span class="json-property-name">accepted:</span>
+                      <span class="json-property-type">boolean</span>
+                      <span class="json-property-format">(boolean)</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                  </dl>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
+  <span class="hljs-attr">&quot;cent_node_version&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;accepted&quot;</span>: <span class="hljs-string">&quot;boolean (boolean)&quot;</span>
+}
+</code></pre>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-p2pCentrifugeHeader" class="definition panel" data-traverse-target="definition-p2pCentrifugeHeader">
+            <h2 class="panel-title">
+              <a name="/definitions/p2pCentrifugeHeader"></a>p2pCentrifugeHeader: object
+              <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-properties">
+                  <dl>
+                    <dt data-property-name="network_identifier">
+                      <span class="json-property-name">network_identifier:</span>
+                      <span class="json-property-type">integer</span>
+                      <span class="json-property-format">(int64)</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="cent_node_version">
+                      <span class="json-property-name">cent_node_version:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="sender_centrifuge_id">
+                      <span class="json-property-name">sender_centrifuge_id:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-format">(byte)</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                  </dl>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
+  <span class="hljs-attr">&quot;network_identifier&quot;</span>: <span class="hljs-string">&quot;integer (int64)&quot;</span>,
+  <span class="hljs-attr">&quot;cent_node_version&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;sender_centrifuge_id&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
+}
+</code></pre>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
           <div id="definition-p2pP2PReply" class="definition panel" data-traverse-target="definition-p2pP2PReply">
             <h2 class="panel-title">
               <a name="/definitions/p2pP2PReply"></a>p2pP2PReply: object
@@ -3506,6 +3596,54 @@
       <span class="hljs-attr">&quot;previous_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
       <span class="hljs-attr">&quot;data_root&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>
     }
+  }
+}
+</code></pre>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-p2pSignatureResponse" class="definition panel" data-traverse-target="definition-p2pSignatureResponse">
+            <h2 class="panel-title">
+              <a name="/definitions/p2pSignatureResponse"></a>p2pSignatureResponse: object
+              <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-properties">
+                  <dl>
+                    <dt data-property-name="cent_node_version">
+                      <span class="json-property-name">cent_node_version:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="signature">
+                      <span class="json-property-name">signature:</span>
+                      <span class="json-property-type">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/coredocumentSignature">coredocumentSignature</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                  </dl>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> --><pre><code class="hljs lang-json">{
+  <span class="hljs-attr">&quot;cent_node_version&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">&quot;signature&quot;</span>: {
+    <span class="hljs-attr">&quot;entity_id&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+    <span class="hljs-attr">&quot;public_key&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+    <span class="hljs-attr">&quot;signature&quot;</span>: <span class="hljs-string">&quot;string (byte)&quot;</span>,
+    <span class="hljs-attr">&quot;timestamp&quot;</span>: <span class="hljs-string">&quot;string (date-time)&quot;</span>
   }
 }
 </code></pre>
