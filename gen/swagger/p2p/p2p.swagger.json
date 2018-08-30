@@ -125,6 +125,18 @@
       },
       "title": "Signature contains the entity ID, public key used and signature)"
     },
+    "p2pAnchDocumentResponse": {
+      "type": "object",
+      "properties": {
+        "cent_node_version": {
+          "type": "string"
+        },
+        "accepted": {
+          "type": "boolean",
+          "format": "boolean"
+        }
+      }
+    },
     "p2pCentrifugeHeader": {
       "type": "object",
       "properties": {

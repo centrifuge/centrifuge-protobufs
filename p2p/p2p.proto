@@ -50,7 +50,7 @@ message AnchDocumentRequest {
 
 message AnchDocumentResponse {
   string cent_node_version = 1;
-  coredocument.Signature signature = 2;
+  bool accepted = 2;
 }
 
 // P2PService implementas all rpcs that can be called inside of the P2P network
@@ -60,5 +60,5 @@ service P2PService {
   // after the pre-commit the sender asks all participants to sign the new document version
   rpc RequestDocumentSignature(SignatureRequest) returns (SignatureResponse);
   //after all signatures are collected the sender sends the document including the signatures
-  rpc SendAnchoredDocument(AnchDocumentRequest) returns (SignatureResponse);
+  rpc SendAnchoredDocument(AnchDocumentRequest) returns (AnchDocumentResponse);
 }
