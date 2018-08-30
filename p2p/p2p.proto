@@ -28,38 +28,35 @@ message P2PReply {
 }
 
 message DocumentUpdateRequest {
-
   uint32 network_identifier = 1;
   string cent_node_version = 2;
   bytes sender_centrifuge_id = 3;
   coredocument.CoreDocument document = 5;
 }
+
 message SignatureResponse {
-    string cent_node_version = 1;
-    coredocument.Signature signature = 2;
-    bytes reciever_centrifuge_id = 3;
-}
-message AnchDocumentRequest {
-    uint32 network_identifier = 1;
-    string cent_node_version = 2;
-    bytes sender_centrifuge_id = 3;
-    coredocument.CoreDocument document = 4;
-}
-message AnchDocumentResponse {
-    string cent_node_version = 1;
-    coredocument.Signature signature = 2;
-    bytes reciever_centrifuge_id = 3;
+  string cent_node_version = 1;
+  coredocument.Signature signature = 2;
 }
 
+message AnchDocumentRequest {
+  uint32 network_identifier = 1;
+  string cent_node_version = 2;
+  bytes sender_centrifuge_id = 3;
+  coredocument.CoreDocument document = 4;
+}
+
+message AnchDocumentResponse {
+  string cent_node_version = 1;
+  coredocument.Signature signature = 2;
+}
 
 // P2PService implementas all rpcs that can be called inside of the P2P network
 service P2PService {
   // Post transmits a new version of the document to the recipient
   rpc Post(P2PMessage) returns (P2PReply);
-
   // after the pre-commit the sender asks all participants to sign the new document version
   rpc RequestDocumentSignature(DocumentUpdateRequest) returns (SignatureResponse);
-
   //after all signatures are collected the sender sends the document including the signatures
   rpc SendAnchoredDocument(AnchDocumentRequest) returns (SignatureResponse);
 }

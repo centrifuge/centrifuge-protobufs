@@ -144,10 +144,6 @@
         },
         "signature": {
           "$ref": "#/definitions/coredocumentSignature"
-        },
-        "reciever_centrifuge_id": {
-          "type": "string",
-          "format": "byte"
         }
       }
     },
