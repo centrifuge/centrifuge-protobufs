@@ -2,16 +2,14 @@
 
 
 [[projects]]
-  branch = "master"
-  digest = "1:05aa6174d76c5bcd5d13206a542ca2bd91cdeadd799bf8fa62228995cc8927cc"
+  digest = "1:7498b0630b83f73127e52a7a482adeeca008cd5d03e660de5987804fb6ad258c"
   name = "github.com/centrifuge/precise-proofs"
   packages = [
     "proofs",
     "proofs/proto",
   ]
   pruneopts = "T"
-  revision = "fbe68f46da974e764087a51de73e043778dadbef"
-  source = "git@github.com:centrifuge/precise-proofs"
+  revision = "15bc79ad1aca6630e6489e253aef6955686b36a1"
 
 [[projects]]
   digest = "1:2cd7915ab26ede7d95b8749e6b1f933f1c6d5398030684e6505940a10f31cfda"
