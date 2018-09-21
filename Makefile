@@ -25,7 +25,7 @@ install_dep:
 	npm install
 
 vendorinstall: ## Installs all protobuf dependencies with go-vendorinstall
-	go install github.com/CentrifugeInc/centrifuge-protobufs/vendor/github.com/roboll/go-vendorinstall
+	go install github.com/centrifuge/centrifuge-protobufs/vendor/github.com/roboll/go-vendorinstall
 	go-vendorinstall github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway 
 	go-vendorinstall github.com/golang/protobuf/protoc-gen-go 
 	go-vendorinstall github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger 
