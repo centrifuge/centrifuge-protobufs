@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CentrifugeInc/centrifuge-protobufs.git"
+    "url": "git+https://github.com/centrifuge/centrifuge-protobufs.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/CentrifugeInc/centrifuge-protobufs/issues"
+    "url": "https://github.com/centrifuge/centrifuge-protobufs/issues"
   },
-  "homepage": "https://github.com/CentrifugeInc/centrifuge-protobufs#readme",
+  "homepage": "https://github.com/centrifuge/centrifuge-protobufs#readme",
   "devDependencies": {
     "spectacle-docs": "^1.0.3",
     "swagger-merge": "^0.3.3"

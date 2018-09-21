@@ -6,7 +6,7 @@ package invoicepb
 import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
-import coredocument "github.com/CentrifugeInc/centrifuge-protobufs/gen/go/coredocument"
+import coredocument "github.com/centrifuge/centrifuge-protobufs/gen/go/coredocument"
 import timestamp "github.com/golang/protobuf/ptypes/timestamp"
 
 // Reference imports to suppress errors if they are not otherwise used.

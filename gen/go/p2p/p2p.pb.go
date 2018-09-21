@@ -6,7 +6,7 @@ package p2ppb
 import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
-import coredocument "github.com/CentrifugeInc/centrifuge-protobufs/gen/go/coredocument"
+import coredocument "github.com/centrifuge/centrifuge-protobufs/gen/go/coredocument"
 
 import (
 	context "golang.org/x/net/context"
