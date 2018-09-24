@@ -22,10 +22,10 @@ const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 // NotificationMessage wraps a single CoreDocument to be notified to upstream services
 type NotificationMessage struct {
-	EventType            uint32                     `protobuf:"varint,1,opt,name=event_type,json=eventType" json:"event_type,omitempty"`
+	EventType            uint32                     `protobuf:"varint,1,opt,name=event_type,json=eventType,proto3" json:"event_type,omitempty"`
 	CentrifugeId         []byte                     `protobuf:"bytes,2,opt,name=centrifuge_id,json=centrifugeId,proto3" json:"centrifuge_id,omitempty"`
-	Recorded             *timestamp.Timestamp       `protobuf:"bytes,3,opt,name=recorded" json:"recorded,omitempty"`
-	Document             *coredocument.CoreDocument `protobuf:"bytes,4,opt,name=document" json:"document,omitempty"`
+	Recorded             *timestamp.Timestamp       `protobuf:"bytes,3,opt,name=recorded,proto3" json:"recorded,omitempty"`
+	Document             *coredocument.CoreDocument `protobuf:"bytes,4,opt,name=document,proto3" json:"document,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}                   `json:"-"`
 	XXX_unrecognized     []byte                     `json:"-"`
 	XXX_sizecache        int32                      `json:"-"`

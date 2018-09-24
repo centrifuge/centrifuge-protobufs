@@ -68,6 +68,10 @@ message CoreDocument {
   CoreDocumentSalts coredocument_salts = 15 [
     (proofs.exclude_from_tree) = true
   ];
+  // Collaborators are Centrifuge Identities who are participating in a given document consensus
+  repeated bytes collaborators = 16 [
+    (proofs.exclude_from_tree) = true
+  ];
 }
 
 message CoreDocumentSalts {
