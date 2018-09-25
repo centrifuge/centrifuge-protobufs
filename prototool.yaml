@@ -105,7 +105,6 @@ gen:
       google/api/annotations.proto: google.golang.org/genproto/googleapis/api/annotations
       google/api/http.proto: google.golang.org/genproto/googleapis/api/annotations
       precise-proofs/proofs/proto/proof.proto: github.com/centrifuge/precise-proofs/proofs/proto
-      protoc-gen-swagger/options/annotations.proto: github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger/options
 
   # Plugin overrides. For example, if you set "grpc-gpp: /usr/local/bin/grpc_cpp_plugin",
   # This will mean that a plugin named "grpc-gpp" in the plugins list will be looked for
@@ -125,38 +124,6 @@ gen:
         output: gen/go/
         flags: plugins=grpc
 
-      - name: swagger
-        type: go
-        output: gen/swagger/
-
       - name: grpc-gateway
         type: go
         output: gen/go/
-
-#    - name: gogo
-
-      # The type, if any. Valid types are go, gogo.
-      # Use go if your plugin is a standard Golang plugin
-      # that uses github.com/golang/protobuf imports, use gogo
-      # if it uses github.com/gogo/protobuf imports. For protoc-gen-go
-      # use go, For protoc-gen-gogo, protoc-gen-gogoslick, etc, use gogo.
-#      type: gogo
-
-      # Extra flags to specify.
-      # The only flag you will generally set is plugins=grpc for Golang.
-      # The Mfile=package flags are automatically set.
-      # ** Otherwise, enerally do not set this unless you know what you are doing. **
-#      flags: plugins=grpc
-
-      # The path to output generated files to.
-      # If the directory does not exist, it will be created when running generation.
-      # This needs to be a relative path.
-#      output: ../../.gen/proto/go
-
-#    - name: yarpc-go
-#      type: gogo
-#      output: ../../.gen/proto/go
-
-
-#    - name: java
-#      output: ../../.gen/proto/java

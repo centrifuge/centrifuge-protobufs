@@ -4,7 +4,7 @@ PATH=$(shell printenv PATH):$(GOBIN)
 # If you need to overwrite PROTOTOOL_BIN, you can set this environment variable.
 PROTOTOOL_BIN ?=$(shell which prototool)
 
-all: install gen_proto gen_swagger
+all: install gen_proto
 
 .PHONY: help
 help: ## Show this help message.
@@ -19,13 +19,11 @@ install: install_dep vendorinstall
 install_dep:
 	go get -u "github.com/golang/dep/..." 
 	dep ensure
-	npm install
 
 vendorinstall: ## Installs all protobuf dependencies with go-vendorinstall
 	go install github.com/centrifuge/centrifuge-protobufs/vendor/github.com/roboll/go-vendorinstall
 	go-vendorinstall github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway 
-	go-vendorinstall github.com/golang/protobuf/protoc-gen-go 
-	go-vendorinstall github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger 
+	go-vendorinstall github.com/golang/protobuf/protoc-gen-go
 
 lint: ## runs prototool lint 
 	$(PROTOTOOL_BIN) lint
@@ -35,7 +33,3 @@ gen_go: ## generates the go bindings
 
 gen_proto: ## runs prototool all
 	$(PROTOTOOL_BIN) all
-
-gen_swagger: ## generates the swagger documentation
-	npm run build_swagger
-
