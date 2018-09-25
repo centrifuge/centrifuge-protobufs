@@ -4,10 +4,7 @@ PATH=$(shell printenv PATH):$(GOBIN)
 # If you need to overwrite PROTOTOOL_BIN, you can set this environment variable.
 PROTOTOOL_BIN ?=$(shell which prototool)
 
-all:
-	install
-	gen_proto
-	gen_swagger
+all: install gen_proto gen_swagger
 
 .PHONY: help
 help: ## Show this help message.

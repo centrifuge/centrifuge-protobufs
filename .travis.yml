@@ -2,7 +2,7 @@ language: go
 go:
   - 1.10.x
 env:
-  - PROTOTOOL_VERSION=0.4.0 PROTOTOOL_BIN=~/bin/0.4.0/prototool
+  - PROTOTOOL_VERSION=0.4.0 PROTOTOOL_BIN=~/bin/0.4.0/prototool JQ_BIN=~/bin/jq
 cache:
     directories:
       - ~/bin/
@@ -12,6 +12,7 @@ cache:
 install:
   - mkdir -p ~/bin
   - PROTOTOOL_VERSION=$PROTOTOOL_VERSION ./scripts/install_prototool.sh
+  - ./scripts/install_jq.sh
   - make install
 
 jobs:
