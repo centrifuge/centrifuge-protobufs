@@ -23,36 +23,36 @@ const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 // InvoiceData is the default invoice schema
 type InvoiceData struct {
 	// invoice number or reference number
-	InvoiceNumber string `protobuf:"bytes,1,opt,name=invoice_number,json=invoiceNumber,proto3" json:"invoice_number,omitempty"`
+	InvoiceNumber string `protobuf:"bytes,1,opt,name=invoice_number,json=invoiceNumber" json:"invoice_number,omitempty"`
 	// name of the sender company
-	SenderName string `protobuf:"bytes,3,opt,name=sender_name,json=senderName,proto3" json:"sender_name,omitempty"`
+	SenderName string `protobuf:"bytes,3,opt,name=sender_name,json=senderName" json:"sender_name,omitempty"`
 	// street and address details of the sender company
-	SenderStreet  string `protobuf:"bytes,4,opt,name=sender_street,json=senderStreet,proto3" json:"sender_street,omitempty"`
-	SenderCity    string `protobuf:"bytes,5,opt,name=sender_city,json=senderCity,proto3" json:"sender_city,omitempty"`
-	SenderZipcode string `protobuf:"bytes,6,opt,name=sender_zipcode,json=senderZipcode,proto3" json:"sender_zipcode,omitempty"`
+	SenderStreet  string `protobuf:"bytes,4,opt,name=sender_street,json=senderStreet" json:"sender_street,omitempty"`
+	SenderCity    string `protobuf:"bytes,5,opt,name=sender_city,json=senderCity" json:"sender_city,omitempty"`
+	SenderZipcode string `protobuf:"bytes,6,opt,name=sender_zipcode,json=senderZipcode" json:"sender_zipcode,omitempty"`
 	// country ISO code of the sender of this invoice
-	SenderCountry string `protobuf:"bytes,7,opt,name=sender_country,json=senderCountry,proto3" json:"sender_country,omitempty"`
+	SenderCountry string `protobuf:"bytes,7,opt,name=sender_country,json=senderCountry" json:"sender_country,omitempty"`
 	// name of the recipient company
-	RecipientName    string `protobuf:"bytes,8,opt,name=recipient_name,json=recipientName,proto3" json:"recipient_name,omitempty"`
-	RecipientStreet  string `protobuf:"bytes,9,opt,name=recipient_street,json=recipientStreet,proto3" json:"recipient_street,omitempty"`
-	RecipientCity    string `protobuf:"bytes,10,opt,name=recipient_city,json=recipientCity,proto3" json:"recipient_city,omitempty"`
-	RecipientZipcode string `protobuf:"bytes,11,opt,name=recipient_zipcode,json=recipientZipcode,proto3" json:"recipient_zipcode,omitempty"`
+	RecipientName    string `protobuf:"bytes,8,opt,name=recipient_name,json=recipientName" json:"recipient_name,omitempty"`
+	RecipientStreet  string `protobuf:"bytes,9,opt,name=recipient_street,json=recipientStreet" json:"recipient_street,omitempty"`
+	RecipientCity    string `protobuf:"bytes,10,opt,name=recipient_city,json=recipientCity" json:"recipient_city,omitempty"`
+	RecipientZipcode string `protobuf:"bytes,11,opt,name=recipient_zipcode,json=recipientZipcode" json:"recipient_zipcode,omitempty"`
 	// country ISO code of the receipient of this invoice
-	RecipientCountry string `protobuf:"bytes,12,opt,name=recipient_country,json=recipientCountry,proto3" json:"recipient_country,omitempty"`
+	RecipientCountry string `protobuf:"bytes,12,opt,name=recipient_country,json=recipientCountry" json:"recipient_country,omitempty"`
 	// ISO currency code
-	Currency string `protobuf:"bytes,13,opt,name=currency,proto3" json:"currency,omitempty"`
+	Currency string `protobuf:"bytes,13,opt,name=currency" json:"currency,omitempty"`
 	// invoice amount including tax
-	GrossAmount int64 `protobuf:"varint,14,opt,name=gross_amount,json=grossAmount,proto3" json:"gross_amount,omitempty"`
+	GrossAmount int64 `protobuf:"varint,14,opt,name=gross_amount,json=grossAmount" json:"gross_amount,omitempty"`
 	// invoice amount excluding tax
-	NetAmount            int64                `protobuf:"varint,15,opt,name=net_amount,json=netAmount,proto3" json:"net_amount,omitempty"`
-	TaxAmount            int64                `protobuf:"varint,16,opt,name=tax_amount,json=taxAmount,proto3" json:"tax_amount,omitempty"`
-	TaxRate              int64                `protobuf:"varint,17,opt,name=tax_rate,json=taxRate,proto3" json:"tax_rate,omitempty"`
+	NetAmount            int64                `protobuf:"varint,15,opt,name=net_amount,json=netAmount" json:"net_amount,omitempty"`
+	TaxAmount            int64                `protobuf:"varint,16,opt,name=tax_amount,json=taxAmount" json:"tax_amount,omitempty"`
+	TaxRate              int64                `protobuf:"varint,17,opt,name=tax_rate,json=taxRate" json:"tax_rate,omitempty"`
 	Recipient            []byte               `protobuf:"bytes,18,opt,name=recipient,proto3" json:"recipient,omitempty"`
 	Sender               []byte               `protobuf:"bytes,19,opt,name=sender,proto3" json:"sender,omitempty"`
 	Payee                []byte               `protobuf:"bytes,20,opt,name=payee,proto3" json:"payee,omitempty"`
-	Comment              string               `protobuf:"bytes,21,opt,name=comment,proto3" json:"comment,omitempty"`
-	DueDate              *timestamp.Timestamp `protobuf:"bytes,22,opt,name=due_date,json=dueDate,proto3" json:"due_date,omitempty"`
-	DateCreated          *timestamp.Timestamp `protobuf:"bytes,23,opt,name=date_created,json=dateCreated,proto3" json:"date_created,omitempty"`
+	Comment              string               `protobuf:"bytes,21,opt,name=comment" json:"comment,omitempty"`
+	DueDate              *timestamp.Timestamp `protobuf:"bytes,22,opt,name=due_date,json=dueDate" json:"due_date,omitempty"`
+	DateCreated          *timestamp.Timestamp `protobuf:"bytes,23,opt,name=date_created,json=dateCreated" json:"date_created,omitempty"`
 	ExtraData            []byte               `protobuf:"bytes,24,opt,name=extra_data,json=extraData,proto3" json:"extra_data,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
 	XXX_unrecognized     []byte               `json:"-"`
@@ -63,7 +63,7 @@ func (m *InvoiceData) Reset()         { *m = InvoiceData{} }
 func (m *InvoiceData) String() string { return proto.CompactTextString(m) }
 func (*InvoiceData) ProtoMessage()    {}
 func (*InvoiceData) Descriptor() ([]byte, []int) {
-	return fileDescriptor_invoice_a185e1d52e996a3c, []int{0}
+	return fileDescriptor_invoice_6ff8631ab11abd9c, []int{0}
 }
 func (m *InvoiceData) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_InvoiceData.Unmarshal(m, b)
@@ -278,7 +278,7 @@ func (m *InvoiceDataSalts) Reset()         { *m = InvoiceDataSalts{} }
 func (m *InvoiceDataSalts) String() string { return proto.CompactTextString(m) }
 func (*InvoiceDataSalts) ProtoMessage()    {}
 func (*InvoiceDataSalts) Descriptor() ([]byte, []int) {
-	return fileDescriptor_invoice_a185e1d52e996a3c, []int{1}
+	return fileDescriptor_invoice_6ff8631ab11abd9c, []int{1}
 }
 func (m *InvoiceDataSalts) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_InvoiceDataSalts.Unmarshal(m, b)
@@ -461,9 +461,9 @@ func (m *InvoiceDataSalts) GetExtraData() []byte {
 
 // InvoiceDocument combines teh salts, data & coredocument for an invoice
 type InvoiceDocument struct {
-	CoreDocument         *coredocument.CoreDocument `protobuf:"bytes,1,opt,name=core_document,json=coreDocument,proto3" json:"core_document,omitempty"`
-	Data                 *InvoiceData               `protobuf:"bytes,2,opt,name=data,proto3" json:"data,omitempty"`
-	Salts                *InvoiceDataSalts          `protobuf:"bytes,3,opt,name=salts,proto3" json:"salts,omitempty"`
+	CoreDocument         *coredocument.CoreDocument `protobuf:"bytes,1,opt,name=core_document,json=coreDocument" json:"core_document,omitempty"`
+	Data                 *InvoiceData               `protobuf:"bytes,2,opt,name=data" json:"data,omitempty"`
+	Salts                *InvoiceDataSalts          `protobuf:"bytes,3,opt,name=salts" json:"salts,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}                   `json:"-"`
 	XXX_unrecognized     []byte                     `json:"-"`
 	XXX_sizecache        int32                      `json:"-"`
@@ -473,7 +473,7 @@ func (m *InvoiceDocument) Reset()         { *m = InvoiceDocument{} }
 func (m *InvoiceDocument) String() string { return proto.CompactTextString(m) }
 func (*InvoiceDocument) ProtoMessage()    {}
 func (*InvoiceDocument) Descriptor() ([]byte, []int) {
-	return fileDescriptor_invoice_a185e1d52e996a3c, []int{2}
+	return fileDescriptor_invoice_6ff8631ab11abd9c, []int{2}
 }
 func (m *InvoiceDocument) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_InvoiceDocument.Unmarshal(m, b)
@@ -520,9 +520,9 @@ func init() {
 	proto.RegisterType((*InvoiceDocument)(nil), "invoice.InvoiceDocument")
 }
 
-func init() { proto.RegisterFile("invoice/invoice.proto", fileDescriptor_invoice_a185e1d52e996a3c) }
+func init() { proto.RegisterFile("invoice/invoice.proto", fileDescriptor_invoice_6ff8631ab11abd9c) }
 
-var fileDescriptor_invoice_a185e1d52e996a3c = []byte{
+var fileDescriptor_invoice_6ff8631ab11abd9c = []byte{
 	// 655 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xbc, 0x95, 0xdd, 0x6e, 0xd3, 0x30,
 	0x14, 0xc7, 0x15, 0xb6, 0xf5, 0xc3, 0x39, 0xdd, 0x87, 0xd9, 0x86, 0x57, 0x81, 0xd6, 0x0d, 0x21,

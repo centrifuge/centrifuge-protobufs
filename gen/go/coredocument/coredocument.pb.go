@@ -56,12 +56,12 @@ type CoreDocument struct {
 	DataRoot []byte `protobuf:"bytes,5,opt,name=data_root,json=dataRoot,proto3" json:"data_root,omitempty"`
 	// Signatures
 	// Signatures of the signature_root by centrifuge identities. This array should be sorted by the Centrifuge ID.
-	Signatures []*Signature `protobuf:"bytes,6,rep,name=signatures,proto3" json:"signatures,omitempty"`
+	Signatures []*Signature `protobuf:"bytes,6,rep,name=signatures" json:"signatures,omitempty"`
 	// Document a serialized document
-	EmbeddedData      *any.Any `protobuf:"bytes,13,opt,name=embedded_data,json=embeddedData,proto3" json:"embedded_data,omitempty"`
-	EmbeddedDataSalts *any.Any `protobuf:"bytes,14,opt,name=embedded_data_salts,json=embeddedDataSalts,proto3" json:"embedded_data_salts,omitempty"`
+	EmbeddedData      *any.Any `protobuf:"bytes,13,opt,name=embedded_data,json=embeddedData" json:"embedded_data,omitempty"`
+	EmbeddedDataSalts *any.Any `protobuf:"bytes,14,opt,name=embedded_data_salts,json=embeddedDataSalts" json:"embedded_data_salts,omitempty"`
 	// CoreDocumentSalts is inlined
-	CoredocumentSalts *CoreDocumentSalts `protobuf:"bytes,15,opt,name=coredocument_salts,json=coredocumentSalts,proto3" json:"coredocument_salts,omitempty"`
+	CoredocumentSalts *CoreDocumentSalts `protobuf:"bytes,15,opt,name=coredocument_salts,json=coredocumentSalts" json:"coredocument_salts,omitempty"`
 	// Collaborators are Centrifuge Identities who are participating in a given document consensus
 	Collaborators        [][]byte `protobuf:"bytes,16,rep,name=collaborators,proto3" json:"collaborators,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
@@ -73,7 +73,7 @@ func (m *CoreDocument) Reset()         { *m = CoreDocument{} }
 func (m *CoreDocument) String() string { return proto.CompactTextString(m) }
 func (*CoreDocument) ProtoMessage()    {}
 func (*CoreDocument) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_12f45627e8a0b134, []int{0}
+	return fileDescriptor_coredocument_03e0333302fdaef1, []int{0}
 }
 func (m *CoreDocument) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_CoreDocument.Unmarshal(m, b)
@@ -192,7 +192,7 @@ func (m *CoreDocumentSalts) Reset()         { *m = CoreDocumentSalts{} }
 func (m *CoreDocumentSalts) String() string { return proto.CompactTextString(m) }
 func (*CoreDocumentSalts) ProtoMessage()    {}
 func (*CoreDocumentSalts) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_12f45627e8a0b134, []int{1}
+	return fileDescriptor_coredocument_03e0333302fdaef1, []int{1}
 }
 func (m *CoreDocumentSalts) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_CoreDocumentSalts.Unmarshal(m, b)
@@ -254,7 +254,7 @@ type Signature struct {
 	// `public_key` is the public key of the `entity` used for signing the `CoreDocument`
 	PublicKey            []byte               `protobuf:"bytes,2,opt,name=public_key,json=publicKey,proto3" json:"public_key,omitempty"`
 	Signature            []byte               `protobuf:"bytes,3,opt,name=signature,proto3" json:"signature,omitempty"`
-	Timestamp            *timestamp.Timestamp `protobuf:"bytes,4,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
+	Timestamp            *timestamp.Timestamp `protobuf:"bytes,4,opt,name=timestamp" json:"timestamp,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
 	XXX_unrecognized     []byte               `json:"-"`
 	XXX_sizecache        int32                `json:"-"`
@@ -264,7 +264,7 @@ func (m *Signature) Reset()         { *m = Signature{} }
 func (m *Signature) String() string { return proto.CompactTextString(m) }
 func (*Signature) ProtoMessage()    {}
 func (*Signature) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_12f45627e8a0b134, []int{2}
+	return fileDescriptor_coredocument_03e0333302fdaef1, []int{2}
 }
 func (m *Signature) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Signature.Unmarshal(m, b)
@@ -319,10 +319,10 @@ func init() {
 }
 
 func init() {
-	proto.RegisterFile("coredocument/coredocument.proto", fileDescriptor_coredocument_12f45627e8a0b134)
+	proto.RegisterFile("coredocument/coredocument.proto", fileDescriptor_coredocument_03e0333302fdaef1)
 }
 
-var fileDescriptor_coredocument_12f45627e8a0b134 = []byte{
+var fileDescriptor_coredocument_03e0333302fdaef1 = []byte{
 	// 515 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xcc, 0x94, 0xcf, 0x6e, 0xd3, 0x40,
 	0x10, 0xc6, 0x65, 0x42, 0x0a, 0x9e, 0xfc, 0x69, 0xb3, 0x45, 0xc2, 0x04, 0x50, 0xa2, 0x70, 0x68,

@@ -26,15 +26,15 @@ const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 // P2PMessage wraps a single CoreDocument to be transferred to another node
 type P2PMessage struct {
-	NetworkIdentifier  uint32 `protobuf:"varint,1,opt,name=network_identifier,json=networkIdentifier,proto3" json:"network_identifier,omitempty"`
-	CentNodeVersion    string `protobuf:"bytes,2,opt,name=cent_node_version,json=centNodeVersion,proto3" json:"cent_node_version,omitempty"`
+	NetworkIdentifier  uint32 `protobuf:"varint,1,opt,name=network_identifier,json=networkIdentifier" json:"network_identifier,omitempty"`
+	CentNodeVersion    string `protobuf:"bytes,2,opt,name=cent_node_version,json=centNodeVersion" json:"cent_node_version,omitempty"`
 	SenderCentrifugeId []byte `protobuf:"bytes,3,opt,name=sender_centrifuge_id,json=senderCentrifugeId,proto3" json:"sender_centrifuge_id,omitempty"`
 	// Open questions in the P2PMessage
 	// - should we include the document schema so the client can refuse it right away?
 	// - how do you determine if the node is the right recipient for the current
 	//   transaction (e.g. two different nodes with different keys are used for
 	//   one centrifuge ID handling different data).
-	Document             *coredocument.CoreDocument `protobuf:"bytes,5,opt,name=document,proto3" json:"document,omitempty"`
+	Document             *coredocument.CoreDocument `protobuf:"bytes,5,opt,name=document" json:"document,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}                   `json:"-"`
 	XXX_unrecognized     []byte                     `json:"-"`
 	XXX_sizecache        int32                      `json:"-"`
@@ -44,7 +44,7 @@ func (m *P2PMessage) Reset()         { *m = P2PMessage{} }
 func (m *P2PMessage) String() string { return proto.CompactTextString(m) }
 func (*P2PMessage) ProtoMessage()    {}
 func (*P2PMessage) Descriptor() ([]byte, []int) {
-	return fileDescriptor_p2p_42fc7e0ec0f6bc9d, []int{0}
+	return fileDescriptor_p2p_7c695947c3695c01, []int{0}
 }
 func (m *P2PMessage) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_P2PMessage.Unmarshal(m, b)
@@ -93,8 +93,8 @@ func (m *P2PMessage) GetDocument() *coredocument.CoreDocument {
 }
 
 type P2PReply struct {
-	CentNodeVersion      string                     `protobuf:"bytes,1,opt,name=cent_node_version,json=centNodeVersion,proto3" json:"cent_node_version,omitempty"`
-	Document             *coredocument.CoreDocument `protobuf:"bytes,3,opt,name=document,proto3" json:"document,omitempty"`
+	CentNodeVersion      string                     `protobuf:"bytes,1,opt,name=cent_node_version,json=centNodeVersion" json:"cent_node_version,omitempty"`
+	Document             *coredocument.CoreDocument `protobuf:"bytes,3,opt,name=document" json:"document,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}                   `json:"-"`
 	XXX_unrecognized     []byte                     `json:"-"`
 	XXX_sizecache        int32                      `json:"-"`
@@ -104,7 +104,7 @@ func (m *P2PReply) Reset()         { *m = P2PReply{} }
 func (m *P2PReply) String() string { return proto.CompactTextString(m) }
 func (*P2PReply) ProtoMessage()    {}
 func (*P2PReply) Descriptor() ([]byte, []int) {
-	return fileDescriptor_p2p_42fc7e0ec0f6bc9d, []int{1}
+	return fileDescriptor_p2p_7c695947c3695c01, []int{1}
 }
 func (m *P2PReply) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_P2PReply.Unmarshal(m, b)
@@ -139,8 +139,8 @@ func (m *P2PReply) GetDocument() *coredocument.CoreDocument {
 }
 
 type CentrifugeHeader struct {
-	NetworkIdentifier    uint32   `protobuf:"varint,1,opt,name=network_identifier,json=networkIdentifier,proto3" json:"network_identifier,omitempty"`
-	CentNodeVersion      string   `protobuf:"bytes,2,opt,name=cent_node_version,json=centNodeVersion,proto3" json:"cent_node_version,omitempty"`
+	NetworkIdentifier    uint32   `protobuf:"varint,1,opt,name=network_identifier,json=networkIdentifier" json:"network_identifier,omitempty"`
+	CentNodeVersion      string   `protobuf:"bytes,2,opt,name=cent_node_version,json=centNodeVersion" json:"cent_node_version,omitempty"`
 	SenderCentrifugeId   []byte   `protobuf:"bytes,3,opt,name=sender_centrifuge_id,json=senderCentrifugeId,proto3" json:"sender_centrifuge_id,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -151,7 +151,7 @@ func (m *CentrifugeHeader) Reset()         { *m = CentrifugeHeader{} }
 func (m *CentrifugeHeader) String() string { return proto.CompactTextString(m) }
 func (*CentrifugeHeader) ProtoMessage()    {}
 func (*CentrifugeHeader) Descriptor() ([]byte, []int) {
-	return fileDescriptor_p2p_42fc7e0ec0f6bc9d, []int{2}
+	return fileDescriptor_p2p_7c695947c3695c01, []int{2}
 }
 func (m *CentrifugeHeader) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_CentrifugeHeader.Unmarshal(m, b)
@@ -193,8 +193,8 @@ func (m *CentrifugeHeader) GetSenderCentrifugeId() []byte {
 }
 
 type SignatureRequest struct {
-	Header               *CentrifugeHeader          `protobuf:"bytes,1,opt,name=header,proto3" json:"header,omitempty"`
-	Document             *coredocument.CoreDocument `protobuf:"bytes,2,opt,name=document,proto3" json:"document,omitempty"`
+	Header               *CentrifugeHeader          `protobuf:"bytes,1,opt,name=header" json:"header,omitempty"`
+	Document             *coredocument.CoreDocument `protobuf:"bytes,2,opt,name=document" json:"document,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}                   `json:"-"`
 	XXX_unrecognized     []byte                     `json:"-"`
 	XXX_sizecache        int32                      `json:"-"`
@@ -204,7 +204,7 @@ func (m *SignatureRequest) Reset()         { *m = SignatureRequest{} }
 func (m *SignatureRequest) String() string { return proto.CompactTextString(m) }
 func (*SignatureRequest) ProtoMessage()    {}
 func (*SignatureRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_p2p_42fc7e0ec0f6bc9d, []int{3}
+	return fileDescriptor_p2p_7c695947c3695c01, []int{3}
 }
 func (m *SignatureRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_SignatureRequest.Unmarshal(m, b)
@@ -239,8 +239,8 @@ func (m *SignatureRequest) GetDocument() *coredocument.CoreDocument {
 }
 
 type SignatureResponse struct {
-	CentNodeVersion      string                  `protobuf:"bytes,1,opt,name=cent_node_version,json=centNodeVersion,proto3" json:"cent_node_version,omitempty"`
-	Signature            *coredocument.Signature `protobuf:"bytes,2,opt,name=signature,proto3" json:"signature,omitempty"`
+	CentNodeVersion      string                  `protobuf:"bytes,1,opt,name=cent_node_version,json=centNodeVersion" json:"cent_node_version,omitempty"`
+	Signature            *coredocument.Signature `protobuf:"bytes,2,opt,name=signature" json:"signature,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}                `json:"-"`
 	XXX_unrecognized     []byte                  `json:"-"`
 	XXX_sizecache        int32                   `json:"-"`
@@ -250,7 +250,7 @@ func (m *SignatureResponse) Reset()         { *m = SignatureResponse{} }
 func (m *SignatureResponse) String() string { return proto.CompactTextString(m) }
 func (*SignatureResponse) ProtoMessage()    {}
 func (*SignatureResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_p2p_42fc7e0ec0f6bc9d, []int{4}
+	return fileDescriptor_p2p_7c695947c3695c01, []int{4}
 }
 func (m *SignatureResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_SignatureResponse.Unmarshal(m, b)
@@ -285,8 +285,8 @@ func (m *SignatureResponse) GetSignature() *coredocument.Signature {
 }
 
 type AnchDocumentRequest struct {
-	Header               *CentrifugeHeader          `protobuf:"bytes,1,opt,name=header,proto3" json:"header,omitempty"`
-	Document             *coredocument.CoreDocument `protobuf:"bytes,2,opt,name=document,proto3" json:"document,omitempty"`
+	Header               *CentrifugeHeader          `protobuf:"bytes,1,opt,name=header" json:"header,omitempty"`
+	Document             *coredocument.CoreDocument `protobuf:"bytes,2,opt,name=document" json:"document,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}                   `json:"-"`
 	XXX_unrecognized     []byte                     `json:"-"`
 	XXX_sizecache        int32                      `json:"-"`
@@ -296,7 +296,7 @@ func (m *AnchDocumentRequest) Reset()         { *m = AnchDocumentRequest{} }
 func (m *AnchDocumentRequest) String() string { return proto.CompactTextString(m) }
 func (*AnchDocumentRequest) ProtoMessage()    {}
 func (*AnchDocumentRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_p2p_42fc7e0ec0f6bc9d, []int{5}
+	return fileDescriptor_p2p_7c695947c3695c01, []int{5}
 }
 func (m *AnchDocumentRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_AnchDocumentRequest.Unmarshal(m, b)
@@ -331,8 +331,8 @@ func (m *AnchDocumentRequest) GetDocument() *coredocument.CoreDocument {
 }
 
 type AnchDocumentResponse struct {
-	CentNodeVersion      string   `protobuf:"bytes,1,opt,name=cent_node_version,json=centNodeVersion,proto3" json:"cent_node_version,omitempty"`
-	Accepted             bool     `protobuf:"varint,2,opt,name=accepted,proto3" json:"accepted,omitempty"`
+	CentNodeVersion      string   `protobuf:"bytes,1,opt,name=cent_node_version,json=centNodeVersion" json:"cent_node_version,omitempty"`
+	Accepted             bool     `protobuf:"varint,2,opt,name=accepted" json:"accepted,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -342,7 +342,7 @@ func (m *AnchDocumentResponse) Reset()         { *m = AnchDocumentResponse{} }
 func (m *AnchDocumentResponse) String() string { return proto.CompactTextString(m) }
 func (*AnchDocumentResponse) ProtoMessage()    {}
 func (*AnchDocumentResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_p2p_42fc7e0ec0f6bc9d, []int{6}
+	return fileDescriptor_p2p_7c695947c3695c01, []int{6}
 }
 func (m *AnchDocumentResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_AnchDocumentResponse.Unmarshal(m, b)
@@ -394,9 +394,8 @@ var _ grpc.ClientConn
 // is compatible with the grpc package it is being compiled against.
 const _ = grpc.SupportPackageIsVersion4
 
-// P2PServiceClient is the client API for P2PService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
+// Client API for P2PService service
+
 type P2PServiceClient interface {
 	// Post transmits a new version of the document to the recipient
 	Post(ctx context.Context, in *P2PMessage, opts ...grpc.CallOption) (*P2PReply, error)
@@ -416,7 +415,7 @@ func NewP2PServiceClient(cc *grpc.ClientConn) P2PServiceClient {
 
 func (c *p2PServiceClient) Post(ctx context.Context, in *P2PMessage, opts ...grpc.CallOption) (*P2PReply, error) {
 	out := new(P2PReply)
-	err := c.cc.Invoke(ctx, "/p2p.P2PService/Post", in, out, opts...)
+	err := grpc.Invoke(ctx, "/p2p.P2PService/Post", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -425,7 +424,7 @@ func (c *p2PServiceClient) Post(ctx context.Context, in *P2PMessage, opts ...grp
 
 func (c *p2PServiceClient) RequestDocumentSignature(ctx context.Context, in *SignatureRequest, opts ...grpc.CallOption) (*SignatureResponse, error) {
 	out := new(SignatureResponse)
-	err := c.cc.Invoke(ctx, "/p2p.P2PService/RequestDocumentSignature", in, out, opts...)
+	err := grpc.Invoke(ctx, "/p2p.P2PService/RequestDocumentSignature", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -434,14 +433,15 @@ func (c *p2PServiceClient) RequestDocumentSignature(ctx context.Context, in *Sig
 
 func (c *p2PServiceClient) SendAnchoredDocument(ctx context.Context, in *AnchDocumentRequest, opts ...grpc.CallOption) (*AnchDocumentResponse, error) {
 	out := new(AnchDocumentResponse)
-	err := c.cc.Invoke(ctx, "/p2p.P2PService/SendAnchoredDocument", in, out, opts...)
+	err := grpc.Invoke(ctx, "/p2p.P2PService/SendAnchoredDocument", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// P2PServiceServer is the server API for P2PService service.
+// Server API for P2PService service
+
 type P2PServiceServer interface {
 	// Post transmits a new version of the document to the recipient
 	Post(context.Context, *P2PMessage) (*P2PReply, error)
@@ -530,9 +530,9 @@ var _P2PService_serviceDesc = grpc.ServiceDesc{
 	Metadata: "p2p/p2p.proto",
 }
 
-func init() { proto.RegisterFile("p2p/p2p.proto", fileDescriptor_p2p_42fc7e0ec0f6bc9d) }
+func init() { proto.RegisterFile("p2p/p2p.proto", fileDescriptor_p2p_7c695947c3695c01) }
 
-var fileDescriptor_p2p_42fc7e0ec0f6bc9d = []byte{
+var fileDescriptor_p2p_7c695947c3695c01 = []byte{
 	// 453 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xcc, 0x54, 0xcd, 0x6e, 0x13, 0x31,
 	0x10, 0x96, 0x1b, 0x5a, 0xb6, 0x53, 0xa2, 0x36, 0x26, 0xc0, 0xb2, 0x42, 0x22, 0xca, 0x01, 0x45,

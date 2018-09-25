@@ -21,17 +21,17 @@ const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 // Error contains details about the specific error
 type Error struct {
 	// unique error code for this error
-	Code int32 `protobuf:"varint,1,opt,name=code,proto3" json:"code,omitempty"`
+	Code int32 `protobuf:"varint,1,opt,name=code" json:"code,omitempty"`
 	// error description
 	// in case of multiple errors, represents generic error message
 	// with specifics in the errors field
-	Message string `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	Message string `protobuf:"bytes,2,opt,name=message" json:"message,omitempty"`
 	// map of sub errors if there are multiple errors to be passed back
 	// ex:
 	// "document_identifier": "empty identifer",
 	// "next_identifier": "inavlid next identifer",
 	// "document_root": "invalid document root"
-	Errors               map[string]string `protobuf:"bytes,3,rep,name=errors,proto3" json:"errors,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	Errors               map[string]string `protobuf:"bytes,3,rep,name=errors" json:"errors,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
 	XXX_unrecognized     []byte            `json:"-"`
 	XXX_sizecache        int32             `json:"-"`
@@ -41,7 +41,7 @@ func (m *Error) Reset()         { *m = Error{} }
 func (m *Error) String() string { return proto.CompactTextString(m) }
 func (*Error) ProtoMessage()    {}
 func (*Error) Descriptor() ([]byte, []int) {
-	return fileDescriptor_error_90cbc135d89b25cd, []int{0}
+	return fileDescriptor_error_7f5d935252347baa, []int{0}
 }
 func (m *Error) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Error.Unmarshal(m, b)
@@ -87,9 +87,9 @@ func init() {
 	proto.RegisterMapType((map[string]string)(nil), "errors.Error.ErrorsEntry")
 }
 
-func init() { proto.RegisterFile("errors/error.proto", fileDescriptor_error_90cbc135d89b25cd) }
+func init() { proto.RegisterFile("errors/error.proto", fileDescriptor_error_7f5d935252347baa) }
 
-var fileDescriptor_error_90cbc135d89b25cd = []byte{
+var fileDescriptor_error_7f5d935252347baa = []byte{
 	// 183 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x12, 0x4a, 0x2d, 0x2a, 0xca,
 	0x2f, 0x2a, 0xd6, 0x07, 0x53, 0x7a, 0x05, 0x45, 0xf9, 0x25, 0xf9, 0x42, 0x6c, 0x10, 0x31, 0xa5,
