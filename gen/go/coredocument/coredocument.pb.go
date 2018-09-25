@@ -73,7 +73,7 @@ func (m *CoreDocument) Reset()         { *m = CoreDocument{} }
 func (m *CoreDocument) String() string { return proto.CompactTextString(m) }
 func (*CoreDocument) ProtoMessage()    {}
 func (*CoreDocument) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_03e0333302fdaef1, []int{0}
+	return fileDescriptor_coredocument_12f45627e8a0b134, []int{0}
 }
 func (m *CoreDocument) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_CoreDocument.Unmarshal(m, b)
@@ -192,7 +192,7 @@ func (m *CoreDocumentSalts) Reset()         { *m = CoreDocumentSalts{} }
 func (m *CoreDocumentSalts) String() string { return proto.CompactTextString(m) }
 func (*CoreDocumentSalts) ProtoMessage()    {}
 func (*CoreDocumentSalts) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_03e0333302fdaef1, []int{1}
+	return fileDescriptor_coredocument_12f45627e8a0b134, []int{1}
 }
 func (m *CoreDocumentSalts) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_CoreDocumentSalts.Unmarshal(m, b)
@@ -264,7 +264,7 @@ func (m *Signature) Reset()         { *m = Signature{} }
 func (m *Signature) String() string { return proto.CompactTextString(m) }
 func (*Signature) ProtoMessage()    {}
 func (*Signature) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_03e0333302fdaef1, []int{2}
+	return fileDescriptor_coredocument_12f45627e8a0b134, []int{2}
 }
 func (m *Signature) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Signature.Unmarshal(m, b)
@@ -319,10 +319,10 @@ func init() {
 }
 
 func init() {
-	proto.RegisterFile("coredocument/coredocument.proto", fileDescriptor_coredocument_03e0333302fdaef1)
+	proto.RegisterFile("coredocument/coredocument.proto", fileDescriptor_coredocument_12f45627e8a0b134)
 }
 
-var fileDescriptor_coredocument_03e0333302fdaef1 = []byte{
+var fileDescriptor_coredocument_12f45627e8a0b134 = []byte{
 	// 515 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xcc, 0x94, 0xcf, 0x6e, 0xd3, 0x40,
 	0x10, 0xc6, 0x65, 0x42, 0x0a, 0x9e, 0xfc, 0x69, 0xb3, 0x45, 0xc2, 0x04, 0x50, 0xa2, 0x70, 0x68,

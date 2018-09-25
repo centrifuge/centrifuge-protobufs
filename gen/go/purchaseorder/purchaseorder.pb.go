@@ -66,7 +66,7 @@ func (m *PurchaseOrderData) Reset()         { *m = PurchaseOrderData{} }
 func (m *PurchaseOrderData) String() string { return proto.CompactTextString(m) }
 func (*PurchaseOrderData) ProtoMessage()    {}
 func (*PurchaseOrderData) Descriptor() ([]byte, []int) {
-	return fileDescriptor_purchaseorder_df089605b87be238, []int{0}
+	return fileDescriptor_purchaseorder_d3f89a918fc49fe1, []int{0}
 }
 func (m *PurchaseOrderData) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_PurchaseOrderData.Unmarshal(m, b)
@@ -281,7 +281,7 @@ func (m *PurchaseOrderDataSalts) Reset()         { *m = PurchaseOrderDataSalts{}
 func (m *PurchaseOrderDataSalts) String() string { return proto.CompactTextString(m) }
 func (*PurchaseOrderDataSalts) ProtoMessage()    {}
 func (*PurchaseOrderDataSalts) Descriptor() ([]byte, []int) {
-	return fileDescriptor_purchaseorder_df089605b87be238, []int{1}
+	return fileDescriptor_purchaseorder_d3f89a918fc49fe1, []int{1}
 }
 func (m *PurchaseOrderDataSalts) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_PurchaseOrderDataSalts.Unmarshal(m, b)
@@ -476,7 +476,7 @@ func (m *PurchaseOrderDocument) Reset()         { *m = PurchaseOrderDocument{} }
 func (m *PurchaseOrderDocument) String() string { return proto.CompactTextString(m) }
 func (*PurchaseOrderDocument) ProtoMessage()    {}
 func (*PurchaseOrderDocument) Descriptor() ([]byte, []int) {
-	return fileDescriptor_purchaseorder_df089605b87be238, []int{2}
+	return fileDescriptor_purchaseorder_d3f89a918fc49fe1, []int{2}
 }
 func (m *PurchaseOrderDocument) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_PurchaseOrderDocument.Unmarshal(m, b)
@@ -524,10 +524,10 @@ func init() {
 }
 
 func init() {
-	proto.RegisterFile("purchaseorder/purchaseorder.proto", fileDescriptor_purchaseorder_df089605b87be238)
+	proto.RegisterFile("purchaseorder/purchaseorder.proto", fileDescriptor_purchaseorder_d3f89a918fc49fe1)
 }
 
-var fileDescriptor_purchaseorder_df089605b87be238 = []byte{
+var fileDescriptor_purchaseorder_d3f89a918fc49fe1 = []byte{
 	// 665 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x95, 0xcf, 0x6e, 0x13, 0x31,
 	0x10, 0xc6, 0xb5, 0xfd, 0x93, 0x26, 0xce, 0xa4, 0x6d, 0x4c, 0x5b, 0x4c, 0x00, 0x35, 0x6d, 0x55,

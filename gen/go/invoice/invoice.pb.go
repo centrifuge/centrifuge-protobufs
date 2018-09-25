@@ -63,7 +63,7 @@ func (m *InvoiceData) Reset()         { *m = InvoiceData{} }
 func (m *InvoiceData) String() string { return proto.CompactTextString(m) }
 func (*InvoiceData) ProtoMessage()    {}
 func (*InvoiceData) Descriptor() ([]byte, []int) {
-	return fileDescriptor_invoice_6ff8631ab11abd9c, []int{0}
+	return fileDescriptor_invoice_a185e1d52e996a3c, []int{0}
 }
 func (m *InvoiceData) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_InvoiceData.Unmarshal(m, b)
@@ -278,7 +278,7 @@ func (m *InvoiceDataSalts) Reset()         { *m = InvoiceDataSalts{} }
 func (m *InvoiceDataSalts) String() string { return proto.CompactTextString(m) }
 func (*InvoiceDataSalts) ProtoMessage()    {}
 func (*InvoiceDataSalts) Descriptor() ([]byte, []int) {
-	return fileDescriptor_invoice_6ff8631ab11abd9c, []int{1}
+	return fileDescriptor_invoice_a185e1d52e996a3c, []int{1}
 }
 func (m *InvoiceDataSalts) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_InvoiceDataSalts.Unmarshal(m, b)
@@ -473,7 +473,7 @@ func (m *InvoiceDocument) Reset()         { *m = InvoiceDocument{} }
 func (m *InvoiceDocument) String() string { return proto.CompactTextString(m) }
 func (*InvoiceDocument) ProtoMessage()    {}
 func (*InvoiceDocument) Descriptor() ([]byte, []int) {
-	return fileDescriptor_invoice_6ff8631ab11abd9c, []int{2}
+	return fileDescriptor_invoice_a185e1d52e996a3c, []int{2}
 }
 func (m *InvoiceDocument) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_InvoiceDocument.Unmarshal(m, b)
@@ -520,9 +520,9 @@ func init() {
 	proto.RegisterType((*InvoiceDocument)(nil), "invoice.InvoiceDocument")
 }
 
-func init() { proto.RegisterFile("invoice/invoice.proto", fileDescriptor_invoice_6ff8631ab11abd9c) }
+func init() { proto.RegisterFile("invoice/invoice.proto", fileDescriptor_invoice_a185e1d52e996a3c) }
 
-var fileDescriptor_invoice_6ff8631ab11abd9c = []byte{
+var fileDescriptor_invoice_a185e1d52e996a3c = []byte{
 	// 655 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xbc, 0x95, 0xdd, 0x6e, 0xd3, 0x30,
 	0x14, 0xc7, 0x15, 0xb6, 0xf5, 0xc3, 0x39, 0xdd, 0x87, 0xd9, 0x86, 0x57, 0x81, 0xd6, 0x0d, 0x21,

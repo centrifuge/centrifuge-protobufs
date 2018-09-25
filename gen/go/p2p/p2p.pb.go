@@ -44,7 +44,7 @@ func (m *P2PMessage) Reset()         { *m = P2PMessage{} }
 func (m *P2PMessage) String() string { return proto.CompactTextString(m) }
 func (*P2PMessage) ProtoMessage()    {}
 func (*P2PMessage) Descriptor() ([]byte, []int) {
-	return fileDescriptor_p2p_7c695947c3695c01, []int{0}
+	return fileDescriptor_p2p_42fc7e0ec0f6bc9d, []int{0}
 }
 func (m *P2PMessage) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_P2PMessage.Unmarshal(m, b)
@@ -104,7 +104,7 @@ func (m *P2PReply) Reset()         { *m = P2PReply{} }
 func (m *P2PReply) String() string { return proto.CompactTextString(m) }
 func (*P2PReply) ProtoMessage()    {}
 func (*P2PReply) Descriptor() ([]byte, []int) {
-	return fileDescriptor_p2p_7c695947c3695c01, []int{1}
+	return fileDescriptor_p2p_42fc7e0ec0f6bc9d, []int{1}
 }
 func (m *P2PReply) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_P2PReply.Unmarshal(m, b)
@@ -151,7 +151,7 @@ func (m *CentrifugeHeader) Reset()         { *m = CentrifugeHeader{} }
 func (m *CentrifugeHeader) String() string { return proto.CompactTextString(m) }
 func (*CentrifugeHeader) ProtoMessage()    {}
 func (*CentrifugeHeader) Descriptor() ([]byte, []int) {
-	return fileDescriptor_p2p_7c695947c3695c01, []int{2}
+	return fileDescriptor_p2p_42fc7e0ec0f6bc9d, []int{2}
 }
 func (m *CentrifugeHeader) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_CentrifugeHeader.Unmarshal(m, b)
@@ -204,7 +204,7 @@ func (m *SignatureRequest) Reset()         { *m = SignatureRequest{} }
 func (m *SignatureRequest) String() string { return proto.CompactTextString(m) }
 func (*SignatureRequest) ProtoMessage()    {}
 func (*SignatureRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_p2p_7c695947c3695c01, []int{3}
+	return fileDescriptor_p2p_42fc7e0ec0f6bc9d, []int{3}
 }
 func (m *SignatureRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_SignatureRequest.Unmarshal(m, b)
@@ -250,7 +250,7 @@ func (m *SignatureResponse) Reset()         { *m = SignatureResponse{} }
 func (m *SignatureResponse) String() string { return proto.CompactTextString(m) }
 func (*SignatureResponse) ProtoMessage()    {}
 func (*SignatureResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_p2p_7c695947c3695c01, []int{4}
+	return fileDescriptor_p2p_42fc7e0ec0f6bc9d, []int{4}
 }
 func (m *SignatureResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_SignatureResponse.Unmarshal(m, b)
@@ -296,7 +296,7 @@ func (m *AnchDocumentRequest) Reset()         { *m = AnchDocumentRequest{} }
 func (m *AnchDocumentRequest) String() string { return proto.CompactTextString(m) }
 func (*AnchDocumentRequest) ProtoMessage()    {}
 func (*AnchDocumentRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_p2p_7c695947c3695c01, []int{5}
+	return fileDescriptor_p2p_42fc7e0ec0f6bc9d, []int{5}
 }
 func (m *AnchDocumentRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_AnchDocumentRequest.Unmarshal(m, b)
@@ -342,7 +342,7 @@ func (m *AnchDocumentResponse) Reset()         { *m = AnchDocumentResponse{} }
 func (m *AnchDocumentResponse) String() string { return proto.CompactTextString(m) }
 func (*AnchDocumentResponse) ProtoMessage()    {}
 func (*AnchDocumentResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_p2p_7c695947c3695c01, []int{6}
+	return fileDescriptor_p2p_42fc7e0ec0f6bc9d, []int{6}
 }
 func (m *AnchDocumentResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_AnchDocumentResponse.Unmarshal(m, b)
@@ -530,9 +530,9 @@ var _P2PService_serviceDesc = grpc.ServiceDesc{
 	Metadata: "p2p/p2p.proto",
 }
 
-func init() { proto.RegisterFile("p2p/p2p.proto", fileDescriptor_p2p_7c695947c3695c01) }
+func init() { proto.RegisterFile("p2p/p2p.proto", fileDescriptor_p2p_42fc7e0ec0f6bc9d) }
 
-var fileDescriptor_p2p_7c695947c3695c01 = []byte{
+var fileDescriptor_p2p_42fc7e0ec0f6bc9d = []byte{
 	// 453 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xcc, 0x54, 0xcd, 0x6e, 0x13, 0x31,
 	0x10, 0x96, 0x1b, 0x5a, 0xb6, 0x53, 0xa2, 0x36, 0x26, 0xc0, 0xb2, 0x42, 0x22, 0xca, 0x01, 0x45,
