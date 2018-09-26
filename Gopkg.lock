@@ -2,32 +2,33 @@
 
 
 [[projects]]
-  branch = "master"
-  name = "github.com/CentrifugeInc/centrifuge-protobufs"
-  packages = ["gen/go/coredocument"]
-  revision = "0360114f218245cb89f9d0700b34d264f4b3818f"
-
-[[projects]]
+  digest = "1:85b600e1ee69829ff1565c23c23ab88c9e38ecf37b2828faaf32a6a5ed0bc1ef"
   name = "github.com/centrifuge/precise-proofs"
   packages = [
     "proofs",
-    "proofs/proto"
+    "proofs/proto",
   ]
+  pruneopts = "T"
   revision = "c673e56ee0de0d721a10dee5cd2aa59015e4420a"
 
 [[projects]]
+  digest = "1:2cd7915ab26ede7d95b8749e6b1f933f1c6d5398030684e6505940a10f31cfda"
   name = "github.com/ghodss/yaml"
   packages = ["."]
+  pruneopts = "UT"
   revision = "0ca9ea5df5451ffdf184b4428c902747c2c11cd7"
   version = "v1.0.0"
 
 [[projects]]
   branch = "master"
+  digest = "1:1ba1d79f2810270045c328ae5d674321db34e3aae468eb4233883b473c5c0467"
   name = "github.com/golang/glog"
   packages = ["."]
+  pruneopts = "UT"
   revision = "23def4e6c14b4da8ac2ed8007337bc5eb5007998"
 
 [[projects]]
+  digest = "1:a92f19d88128413bb25684e0185e977f89ed86ae8747d75c4b81cb285b53df00"
   name = "github.com/golang/protobuf"
   packages = [
     "descriptor",
@@ -43,12 +44,14 @@
     "ptypes/any",
     "ptypes/duration",
     "ptypes/struct",
-    "ptypes/timestamp"
+    "ptypes/timestamp",
   ]
+  pruneopts = "UT"
   revision = "b4deda0973fb4c70b50d226b1af49f3da59f5265"
   version = "v1.1.0"
 
 [[projects]]
+  digest = "1:69cd81163a00bb8405194d47b8be19283744779b6104f2d6b3735e2a01cdb6fa"
   name = "github.com/grpc-ecosystem/grpc-gateway"
   packages = [
     "codegenerator",
@@ -57,32 +60,40 @@
     "protoc-gen-grpc-gateway/generator",
     "protoc-gen-grpc-gateway/gengateway",
     "protoc-gen-grpc-gateway/httprule",
-    "utilities"
+    "utilities",
   ]
+  pruneopts = "T"
   revision = "92583770e3f01b09a0d3e9bdf64321d8bebd48f2"
   source = "git@github.com:grpc-ecosystem/grpc-gateway"
   version = "v1.4.1"
 
 [[projects]]
   branch = "master"
+  digest = "1:32a62f9393d4b982aae329c535e81e77146924f96ef8b069e4d16c92e22db147"
   name = "github.com/iancoleman/strcase"
   packages = ["."]
+  pruneopts = "UT"
   revision = "90d371a664d668ca3e61d3ddddf1916662959f11"
 
 [[projects]]
   branch = "master"
+  digest = "1:76a7183bfa4b83626f304d1c6eff54184fd8f6b15eba6975d6c7ef53da5ccdda"
   name = "github.com/roboll/go-vendorinstall"
   packages = ["."]
+  pruneopts = "UT"
   revision = "db569a48fcad74a73623ccf43daafe394a96ef35"
 
 [[projects]]
   branch = "master"
+  digest = "1:80618f2ab482af3de624ba3573fae22ec3dfbe9949c8784a42a019f7597dfd20"
   name = "github.com/xsleonard/go-merkle"
   packages = ["."]
+  pruneopts = "UT"
   revision = "c71c7cc334c839f31f3760b2385eab8381daf64e"
 
 [[projects]]
   branch = "master"
+  digest = "1:68349a8c755738add0b9dcc25e5bfcbc11862520e0dfa9ebd32d8b489d7d4971"
   name = "golang.org/x/net"
   packages = [
     "context",
@@ -91,11 +102,13 @@
     "http2/hpack",
     "idna",
     "internal/timeseries",
-    "trace"
+    "trace",
   ]
+  pruneopts = "UT"
   revision = "292b43bbf7cb8d35ddf40f8d5100ef3837cced3f"
 
 [[projects]]
+  digest = "1:a2ab62866c75542dd18d2b069fec854577a20211d7c0ea6ae746072a1dccdd18"
   name = "golang.org/x/text"
   packages = [
     "collate",
@@ -111,21 +124,25 @@
     "unicode/bidi",
     "unicode/cldr",
     "unicode/norm",
-    "unicode/rangetable"
+    "unicode/rangetable",
   ]
+  pruneopts = "UT"
   revision = "f21a4dfb5e38f5895301dc265a8def02365cc3d0"
   version = "v0.3.0"
 
 [[projects]]
   branch = "master"
+  digest = "1:eff11a4ed88d9d3e28dd697961c550af1c4d0d3dccdc6252715b9a65a1d541bb"
   name = "google.golang.org/genproto"
   packages = [
     "googleapis/api/annotations",
-    "googleapis/rpc/status"
+    "googleapis/rpc/status",
   ]
+  pruneopts = "UT"
   revision = "e92b116572682a5b432ddd840aeaba2a559eeff1"
 
 [[projects]]
+  digest = "1:2dab32a43451e320e49608ff4542fdfc653c95dcc35d0065ec9c6c3dd540ed74"
   name = "google.golang.org/grpc"
   packages = [
     ".",
@@ -152,20 +169,34 @@
     "stats",
     "status",
     "tap",
-    "transport"
+    "transport",
   ]
+  pruneopts = "UT"
   revision = "168a6198bcb0ef175f7dacec0b8691fc141dc9b8"
   version = "v1.13.0"
 
 [[projects]]
+  digest = "1:342378ac4dcb378a5448dd723f0784ae519383532f5e70ade24132c4c8693202"
   name = "gopkg.in/yaml.v2"
   packages = ["."]
+  pruneopts = "UT"
   revision = "5420a8b6744d3b0345ab293f6fcba19c978f1183"
   version = "v2.2.1"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "afd6a73f7c5f140616f5c3ba486a2942cff49e4e60940fc2d0db50e86b7d1a63"
+  input-imports = [
+    "github.com/centrifuge/precise-proofs/proofs",
+    "github.com/centrifuge/precise-proofs/proofs/proto",
+    "github.com/golang/protobuf/proto",
+    "github.com/golang/protobuf/protoc-gen-go",
+    "github.com/golang/protobuf/ptypes/any",
+    "github.com/golang/protobuf/ptypes/timestamp",
+    "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway",
+    "github.com/roboll/go-vendorinstall",
+    "golang.org/x/net/context",
+    "google.golang.org/grpc",
+  ]
   solver-name = "gps-cdcl"
   solver-version = 1

@@ -28,9 +28,7 @@ required = ["github.com/roboll/go-vendorinstall", "github.com/centrifuge/precise
 
 [[prune.project]]
     name = "github.com/centrifuge/precise-proofs"
-    non-go = false
     unused-packages = false
-    
 
 [[constraint]]
     name = "github.com/golang/protobuf"
@@ -47,9 +45,7 @@ required = ["github.com/roboll/go-vendorinstall", "github.com/centrifuge/precise
 
 [[prune.project]]
     name = "github.com/grpc-ecosystem/grpc-gateway"
-    non-go = false
     unused-packages = false
-
 
 [[constraint]]
   name = "google.golang.org/grpc"
