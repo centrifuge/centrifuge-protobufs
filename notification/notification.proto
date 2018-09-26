@@ -7,7 +7,6 @@ option java_multiple_files = true;
 option java_outer_classname = "NotificationProto";
 option java_package = "com.notification";
 
-import "coredocument/coredocument.proto";
 import "google/protobuf/timestamp.proto";
 
 // NotificationMessage wraps a single CoreDocument to be notified to upstream services
@@ -15,5 +14,6 @@ message NotificationMessage {
   uint32 event_type = 1;
   bytes centrifuge_id = 2;
   google.protobuf.Timestamp recorded = 3;
-  coredocument.CoreDocument document = 4;
+  string document_type = 4;
+  bytes document_identifier = 5;
 }
