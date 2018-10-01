@@ -22,13 +22,15 @@ message CoreDocument {
   // CoreDocument has two kinds of identifiers, the `document_identifier` is assigned 
   // once per document and stays the same for the lifetime of the document.
   // document_identifier is the first ID ever used to anchor the document on chain and 
-  // is used internally to store all future versions. The `current_identifier` and the 
-  // `next_identifier` refer only to this particular version.
+  // is used internally to store all future versions. The `previous_identifier`, `current_identifier`, and the 
+  // `next_identifier` refer only to a particular version. 
   // 
   // 32 byte value
   bytes document_identifier = 9;
+  // previous_identifier refers to the previous state of the document.
+  // 32 byte value
+  bytes previous_identifier = 16;
   // current_identifier is the identifier used to refer to the current state of the document.
-  // 
   // 32 byte value
   bytes current_identifier = 3;
   // next_identifier is the identifier that is going to be used for the next version if any 
@@ -72,6 +74,7 @@ message CoreDocument {
 
 message CoreDocumentSalts {
   bytes document_identifier = 9;
+  bytes previous_identifier = 1;
   bytes current_identifier = 3;
   bytes next_identifier = 4;
   bytes previous_root = 2;

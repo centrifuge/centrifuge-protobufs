@@ -28,8 +28,8 @@ vendorinstall: ## Installs all protobuf dependencies with go-vendorinstall
 lint: ## runs prototool lint 
 	$(PROTOTOOL_BIN) lint
 
-gen_go: ## generates the go bindings
+gen-go: ## generates the go bindings
 	$(PROTOTOOL_BIN) gen
 
-gen_proto: ## runs prototool all
+gen-proto: ## runs prototool all
 	$(PROTOTOOL_BIN) all
