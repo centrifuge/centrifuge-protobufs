@@ -4,7 +4,7 @@ PATH=$(shell printenv PATH):$(GOBIN)
 # If you need to overwrite PROTOTOOL_BIN, you can set this environment variable.
 PROTOTOOL_BIN ?=$(shell which prototool)
 
-all: install gen_proto
+all: install proto-all
 
 .PHONY: help
 help: ## Show this help message.
@@ -28,8 +28,8 @@ vendorinstall: ## Installs all protobuf dependencies with go-vendorinstall
 lint: ## runs prototool lint 
 	$(PROTOTOOL_BIN) lint
 
-gen-go: ## generates the go bindings
+proto-gen-go: ## generates the go bindings
 	$(PROTOTOOL_BIN) gen
 
-gen-proto: ## runs prototool all
+proto-all: ## runs prototool all
 	$(PROTOTOOL_BIN) all

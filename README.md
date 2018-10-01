@@ -25,20 +25,10 @@ help                 Show this help message.
 install              Install dependencies required to generate bindings & documentation
 vendorinstall        Installs all protobuf dependencies with go-vendorinstall
 lint                 runs prototool lint
-gen-go               generates the go bindings
-gen-proto            runs prototool all
+proto-gen-go         generates the go bindings
+proto-all            runs prototool all
 ```
 ## Making sure all dependencies are installed
-### Install Prototool
-Install prototool with:
-
-```
-curl -sSL https://github.com/uber/prototool/releases/download/v0.4.0/prototool-$(uname -s)-$(uname -m) \
-  -o /usr/local/bin/prototool && \
-  chmod +x /usr/local/bin/prototool && \
-  prototool -h
-```
-
 ### Install dependencies
 ```
 make install
