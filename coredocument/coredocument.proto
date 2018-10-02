@@ -70,6 +70,8 @@ message CoreDocument {
   CoreDocumentSalts coredocument_salts = 15 [
     (proofs.exclude_from_tree) = true
   ];
+  // Collaborators involved in the document consensus
+  repeated bytes collaborators = 17;
 }
 
 message CoreDocumentSalts {
