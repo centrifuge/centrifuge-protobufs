@@ -82,6 +82,7 @@ message CoreDocumentSalts {
   bytes previous_root = 2;
   bytes data_root = 5;
   repeated bytes collaborators = 6;
+  bytes collaborators_length = 7;
 }
 
 // Signature contains the entity ID, public key used and signature)
