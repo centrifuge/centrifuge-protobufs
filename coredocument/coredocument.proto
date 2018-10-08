@@ -22,20 +22,20 @@ message CoreDocument {
   // CoreDocument has two kinds of identifiers, the `document_identifier` is assigned 
   // once per document and stays the same for the lifetime of the document.
   // document_identifier is the first ID ever used to anchor the document on chain and 
-  // is used internally to store all future versions. The `previous_identifier`, `current_identifier`, and the 
-  // `next_identifier` refer only to a particular version. 
+  // is used internally to store all future versions. The `previous_version`, `current_version`, and the
+  // `next_version` refer only to a particular version.
   // 
   // 32 byte value
   bytes document_identifier = 9;
-  // previous_identifier refers to the previous state of the document.
+  // previous_version refers to the previous state of the document.
   // 32 byte value
-  bytes previous_identifier = 16;
-  // current_identifier is the identifier used to refer to the current state of the document.
+  bytes previous_version = 16;
+  // current_version is the version used to refer to the current state of the document.
   // 32 byte value
-  bytes current_identifier = 3;
-  // next_identifier is the identifier that is going to be used for the next version if any 
+  bytes current_version = 3;
+  // next_version is the version that is going to be used for the next version if any
   // party wants to update the state.
-  bytes next_identifier = 4;
+  bytes next_version = 4;
   // # Merkle roots
   // document_root the root of all roots. It's signature_root along with a list of all signatures
   bytes document_root = 7 [
@@ -76,11 +76,13 @@ message CoreDocument {
 
 message CoreDocumentSalts {
   bytes document_identifier = 9;
-  bytes previous_identifier = 1;
-  bytes current_identifier = 3;
-  bytes next_identifier = 4;
+  bytes previous_version = 1;
+  bytes current_version = 3;
+  bytes next_version = 4;
   bytes previous_root = 2;
   bytes data_root = 5;
+  repeated bytes collaborators = 6;
+  bytes collaborators_length = 7;
 }
 
 // Signature contains the entity ID, public key used and signature)
