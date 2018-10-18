@@ -1,8 +1,11 @@
-# centrifuge-documents
-Protobuf files &amp; go bindings for Centrifuge Documents
-
+# centrifuge-protobufs
 [![Build Status](https://travis-ci.com/centrifuge/centrifuge-protobufs.svg?token=Sbf68xBZUZLMB3kGTKcX&branch=master)](https://travis-ci.com/centrifuge/centrifuge-protobufs)
 
+Protobuf files &amp; go bindings for Centrifuge Documents. These define the document schema exchanged by nodes on the P2P network.
+
+**Getting help:** Head over to our developer documentation at [developer.centrifuge.io](http://developer.centrifuge.io) to learn how to setup a node and interact with it. 
+
+**DISCLAIMER:** The code released here presents a very early alpha version that should not be used in production and has not been audited. Use this at your own risk.
 
 # How to commit
 Make sure you run the `make` before committing to make sure the generated files are up to date:
