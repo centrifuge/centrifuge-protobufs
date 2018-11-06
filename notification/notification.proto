@@ -12,8 +12,8 @@ import "google/protobuf/timestamp.proto";
 // NotificationMessage wraps a single CoreDocument to be notified to upstream services
 message NotificationMessage {
   uint32 event_type = 1;
-  string centrifuge_id = 2;
+  string centrifuge_id = 6;
   google.protobuf.Timestamp recorded = 3;
   string document_type = 4;
-  string document_id = 6;
+  string document_id = 7;
 }
