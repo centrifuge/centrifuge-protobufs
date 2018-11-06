@@ -64,7 +64,7 @@
   ]
   pruneopts = "T"
   revision = "92583770e3f01b09a0d3e9bdf64321d8bebd48f2"
-  source = "github.com:grpc-ecosystem/grpc-gateway"
+  source = "github.com/grpc-ecosystem/grpc-gateway"
   version = "v1.4.1"
 
 [[projects]]
