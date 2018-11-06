@@ -15,5 +15,5 @@ message NotificationMessage {
   bytes centrifuge_id = 2;
   google.protobuf.Timestamp recorded = 3;
   string document_type = 4;
-  bytes document_identifier = 5;
+  string document_id = 6;
 }
