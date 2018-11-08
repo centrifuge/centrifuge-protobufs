@@ -2,22 +2,22 @@
 
 
 [[projects]]
-  digest = "1:555689d25974196b23dd690cc2cdf60ed56f633886dbc0a9936100746d22bfa0"
+  digest = "1:2b9b8dff8ca217a33adc4e454614737b475ca187e83483bbc3b7823cc53f6d60"
   name = "github.com/centrifuge/precise-proofs"
   packages = [
     "proofs",
     "proofs/proto",
   ]
   pruneopts = "T"
-  revision = "1abae88cef959657117754ae7602a5285d1008cc"
+  revision = "ff15857d84b0eea93e52cc465f71662b78f62f6f"
 
 [[projects]]
   digest = "1:1fd2424a221c4074d001156bca5128a390ecf30c9af6d4758addc18deacad4bf"
   name = "github.com/ethereum/go-ethereum"
   packages = ["common/hexutil"]
   pruneopts = "UT"
-  revision = "8bbe72075e4e16442c4e28d999edee12e294329e"
-  version = "v1.8.17"
+  revision = "e024c16f34c6028060b645efae1d6258e442442a"
+  source = "github.com/centrifuge/go-ethereum"
 
 [[projects]]
   digest = "1:2cd7915ab26ede7d95b8749e6b1f933f1c6d5398030684e6505940a10f31cfda"
