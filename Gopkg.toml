@@ -36,7 +36,7 @@ required = ["github.com/roboll/go-vendorinstall", "github.com/centrifuge/precise
 
 [[constraint]]
     name = "github.com/centrifuge/precise-proofs"
-    revision ="1abae88cef959657117754ae7602a5285d1008cc"
+    revision ="ff15857d84b0eea93e52cc465f71662b78f62f6f"
 
 [[constraint]]
   name = "github.com/grpc-ecosystem/grpc-gateway"
