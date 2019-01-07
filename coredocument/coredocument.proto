@@ -72,6 +72,10 @@ message CoreDocument {
   ];
   // Collaborators involved in the document consensus
   repeated bytes collaborators = 17;
+  // list of roles
+  map<uint32, Role> roles = 18;
+  // read rules
+  repeated ReadRule read_rules = 19;
 }
 
 message CoreDocumentSalts {
@@ -83,6 +87,10 @@ message CoreDocumentSalts {
   bytes data_root = 5;
   repeated bytes collaborators = 6;
   bytes collaborators_length = 7;
+  map<uint32, SaltedRole> roles = 8;
+  bytes roles_length = 10;
+  repeated SaltedReadRule read_rules = 11;
+  bytes read_rules_length = 12;
 }
 
 // Signature contains the entity ID, public key used and signature)
@@ -93,4 +101,50 @@ message Signature {
   bytes public_key = 2;
   bytes signature = 3;
   google.protobuf.Timestamp timestamp = 4;
+}
+
+// Action defines the set of actions a collaborator can/have per document.
+enum Action {
+  ACTION_INVALID = 0;
+  // read represents just reading the doc/fields
+  ACTION_READ = 1;
+  // read_sign represents reading as well the sign the documents. We will pick this one when requesting the signatures.
+  ACTION_READ_SIGN = 2;
+}
+
+// Roles holds a list of collaborators, NFTs, and/or access tokens.
+message Role {
+  // label to identify the role
+  uint32 label = 1;
+  // collaborators holds the list of document collaborators
+  repeated bytes collaborators = 3;
+  // nfts is a list of registry address/tokenID pairs.
+  // For easier verification in merkle proofs, the values are simply concatenated with the first 22 bytes being the NFT registry and the remaining 32 bytes the tokenID.
+  repeated bytes nfts = 4;
+  bytes access_token_identifier = 5;
+}
+
+message SaltedRole {
+  bytes label = 1;
+  repeated bytes collaborators = 2;
+  bytes collaborators_length = 3;
+  repeated bytes nfts = 4;
+  bytes nfts_length = 5;
+  bytes access_token_identifier = 6;
+}
+
+message ReadRule {
+  // label to identify the ReadRule
+  uint32 label = 1;
+  // roles this rule
+  repeated bytes roles = 2;
+  // action represents what kind of action this rule holds.
+  Action action = 4;
+}
+
+message SaltedReadRule {
+  bytes label = 1;
+  repeated bytes roles = 2;
+  bytes roles_length = 3;
+  bytes action = 4;
 }

@@ -2,22 +2,14 @@
 
 
 [[projects]]
-  digest = "1:2b9b8dff8ca217a33adc4e454614737b475ca187e83483bbc3b7823cc53f6d60"
+  digest = "1:c58d25d741709ebc6e79b3a74f76146a4d7ef90a3709843d8fdf815247bdf8e9"
   name = "github.com/centrifuge/precise-proofs"
   packages = [
     "proofs",
     "proofs/proto",
   ]
   pruneopts = "T"
-  revision = "ff15857d84b0eea93e52cc465f71662b78f62f6f"
-
-[[projects]]
-  digest = "1:1fd2424a221c4074d001156bca5128a390ecf30c9af6d4758addc18deacad4bf"
-  name = "github.com/ethereum/go-ethereum"
-  packages = ["common/hexutil"]
-  pruneopts = "UT"
-  revision = "e024c16f34c6028060b645efae1d6258e442442a"
-  source = "github.com/centrifuge/go-ethereum"
+  revision = "e6376eab28a9a7da6c94f8d23099932a65b4e2a2"
 
 [[projects]]
   digest = "1:2cd7915ab26ede7d95b8749e6b1f933f1c6d5398030684e6505940a10f31cfda"
@@ -74,6 +66,14 @@
   revision = "92583770e3f01b09a0d3e9bdf64321d8bebd48f2"
   source = "github.com/grpc-ecosystem/grpc-gateway"
   version = "v1.4.1"
+
+[[projects]]
+  digest = "1:cf31692c14422fa27c83a05292eb5cbe0fb2775972e8f1f8446a71549bd8980b"
+  name = "github.com/pkg/errors"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "ba968bfe8b2f7e042a574c888954fccecfa385b4"
+  version = "v0.8.1"
 
 [[projects]]
   branch = "master"
