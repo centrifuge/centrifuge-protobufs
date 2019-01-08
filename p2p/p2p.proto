@@ -13,26 +13,31 @@ message CentrifugeHeader {
   uint32 network_identifier = 1;
   string cent_node_version = 2;
   bytes sender_centrifuge_id = 3;
+  // Signature of all fields of CentrifugeHeader (except itself) + body
+  coredocument.Signature signature = 4;
+  // Body message type
+  string type = 5;
+}
+
+message CentrifugeEnvelope {
+  CentrifugeHeader header = 1;
+  bytes body = 2;
 }
 
 message SignatureRequest {
-  CentrifugeHeader header = 1;
-  coredocument.CoreDocument document = 2;
+  coredocument.CoreDocument document = 1;
 }
 
 message SignatureResponse {
-  string cent_node_version = 1;
-  coredocument.Signature signature = 2;
+  coredocument.Signature signature = 1;
 }
 
 message AnchorDocumentRequest {
-  CentrifugeHeader header = 1;
-  coredocument.CoreDocument document = 2;
+  coredocument.CoreDocument document = 1;
 }
 
 message AnchorDocumentResponse {
-  string cent_node_version = 1;
-  bool accepted = 2;
+  bool accepted = 1;
 }
 
 // P2PService implementas all rpcs that can be called inside of the P2P network
