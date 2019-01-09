@@ -73,7 +73,9 @@ message CoreDocument {
   // Collaborators involved in the document consensus
   repeated bytes collaborators = 17;
   // list of roles
-  map<uint32, Role> roles = 18;
+  repeated RoleEntry roles = 1[
+     (proofs.mapping_key) = "key"
+  ];
   // read rules
   repeated ReadRule read_rules = 19;
 }
@@ -87,7 +89,7 @@ message CoreDocumentSalts {
   bytes data_root = 5;
   repeated bytes collaborators = 6;
   bytes collaborators_length = 7;
-  map<uint32, SaltedRole> roles = 8;
+  repeated SaltedRoleEntry roles = 8;
   bytes roles_length = 10;
   repeated SaltedReadRule read_rules = 11;
   bytes read_rules_length = 12;
@@ -114,8 +116,6 @@ enum Action {
 
 // Roles holds a list of collaborators, NFTs, and/or access tokens.
 message Role {
-  // label to identify the role
-  uint32 label = 1;
   // collaborators holds the list of document collaborators
   repeated bytes collaborators = 3;
   // nfts is a list of registry address/tokenID pairs.
@@ -125,7 +125,6 @@ message Role {
 }
 
 message SaltedRole {
-  bytes label = 1;
   repeated bytes collaborators = 2;
   bytes collaborators_length = 3;
   repeated bytes nfts = 4;
@@ -134,17 +133,22 @@ message SaltedRole {
 }
 
 message ReadRule {
-  // label to identify the ReadRule
-  uint32 label = 1;
-  // roles this rule
   repeated bytes roles = 2;
-  // action represents what kind of action this rule holds.
   Action action = 4;
 }
 
 message SaltedReadRule {
-  bytes label = 1;
   repeated bytes roles = 2;
   bytes roles_length = 3;
   bytes action = 4;
+}
+
+message RoleEntry {
+  uint32 key = 1;
+  Role role = 2;
+}
+
+message SaltedRoleEntry {
+  bytes key = 1;
+  SaltedRole role = 2;
 }
