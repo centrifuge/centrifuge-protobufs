@@ -2,14 +2,22 @@
 
 
 [[projects]]
-  digest = "1:85b600e1ee69829ff1565c23c23ab88c9e38ecf37b2828faaf32a6a5ed0bc1ef"
+  digest = "1:2b9b8dff8ca217a33adc4e454614737b475ca187e83483bbc3b7823cc53f6d60"
   name = "github.com/centrifuge/precise-proofs"
   packages = [
     "proofs",
     "proofs/proto",
   ]
   pruneopts = "T"
-  revision = "c673e56ee0de0d721a10dee5cd2aa59015e4420a"
+  revision = "ff15857d84b0eea93e52cc465f71662b78f62f6f"
+
+[[projects]]
+  digest = "1:1fd2424a221c4074d001156bca5128a390ecf30c9af6d4758addc18deacad4bf"
+  name = "github.com/ethereum/go-ethereum"
+  packages = ["common/hexutil"]
+  pruneopts = "UT"
+  revision = "e024c16f34c6028060b645efae1d6258e442442a"
+  source = "github.com/centrifuge/go-ethereum"
 
 [[projects]]
   digest = "1:2cd7915ab26ede7d95b8749e6b1f933f1c6d5398030684e6505940a10f31cfda"
@@ -64,16 +72,8 @@
   ]
   pruneopts = "T"
   revision = "92583770e3f01b09a0d3e9bdf64321d8bebd48f2"
-  source = "git@github.com:grpc-ecosystem/grpc-gateway"
+  source = "github.com/grpc-ecosystem/grpc-gateway"
   version = "v1.4.1"
-
-[[projects]]
-  branch = "master"
-  digest = "1:32a62f9393d4b982aae329c535e81e77146924f96ef8b069e4d16c92e22db147"
-  name = "github.com/iancoleman/strcase"
-  packages = ["."]
-  pruneopts = "UT"
-  revision = "90d371a664d668ca3e61d3ddddf1916662959f11"
 
 [[projects]]
   branch = "master"

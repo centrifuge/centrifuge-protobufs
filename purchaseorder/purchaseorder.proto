@@ -47,6 +47,8 @@ message PurchaseOrderData {
   // purchase order date
   google.protobuf.Timestamp date_created = 22;
   bytes extra_data = 23;
+  // purchase order status
+  string po_status = 24;
 }
 
 // PurhcaseOrderDataSalts keeps track of the salts used for each PurchaseOrderData field.
@@ -74,6 +76,7 @@ message PurchaseOrderDataSalts {
   bytes delivery_date = 21;
   bytes date_created = 22;
   bytes extra_data = 23;
+  bytes po_status = 24;
 }
 
 // PurchaseOrderDocument combines the salts, data & coredocument for a purchase order.
