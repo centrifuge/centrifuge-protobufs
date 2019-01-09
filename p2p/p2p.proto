@@ -9,18 +9,18 @@ option java_package = "com.p2p";
 
 import "coredocument/coredocument.proto";
 
-message CentrifugeHeader {
+message Header {
   uint32 network_identifier = 1;
   string cent_node_version = 2;
   bytes sender_centrifuge_id = 3;
-  // Signature of all fields of CentrifugeHeader (except itself) + body
+  // Signature of all fields of Header (except itself) + body
   coredocument.Signature signature = 4;
   // Body message type
   string type = 5;
 }
 
-message CentrifugeEnvelope {
-  CentrifugeHeader header = 1;
+message Envelope {
+  Header header = 1;
   bytes body = 2;
 }
 
