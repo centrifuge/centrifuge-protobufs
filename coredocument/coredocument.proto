@@ -133,7 +133,7 @@ message SaltedRole {
 }
 
 message ReadRule {
-  repeated bytes roles = 2;
+  repeated uint32 roles = 2;
   Action action = 4;
 }
 
