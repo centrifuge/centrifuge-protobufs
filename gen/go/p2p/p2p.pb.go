@@ -19,11 +19,11 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
-type CentrifugeHeader struct {
-	NetworkIdentifier  uint32 `protobuf:"varint,1,opt,name=network_identifier,json=networkIdentifier,proto3" json:"network_identifier,omitempty"`
-	CentNodeVersion    string `protobuf:"bytes,2,opt,name=cent_node_version,json=centNodeVersion,proto3" json:"cent_node_version,omitempty"`
-	SenderCentrifugeId []byte `protobuf:"bytes,3,opt,name=sender_centrifuge_id,json=senderCentrifugeId,proto3" json:"sender_centrifuge_id,omitempty"`
-	// Signature of all fields of CentrifugeHeader (except itself) + body
+type Header struct {
+	NetworkIdentifier uint32 `protobuf:"varint,1,opt,name=network_identifier,json=networkIdentifier,proto3" json:"network_identifier,omitempty"`
+	NodeVersion       string `protobuf:"bytes,2,opt,name=node_version,json=nodeVersion,proto3" json:"node_version,omitempty"`
+	SenderId          []byte `protobuf:"bytes,3,opt,name=sender_id,json=senderId,proto3" json:"sender_id,omitempty"`
+	// Signature of all fields of Header (except itself) + body
 	Signature *coredocument.Signature `protobuf:"bytes,4,opt,name=signature,proto3" json:"signature,omitempty"`
 	// Body message type
 	Type                 string   `protobuf:"bytes,5,opt,name=type,proto3" json:"type,omitempty"`
@@ -32,105 +32,105 @@ type CentrifugeHeader struct {
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CentrifugeHeader) Reset()         { *m = CentrifugeHeader{} }
-func (m *CentrifugeHeader) String() string { return proto.CompactTextString(m) }
-func (*CentrifugeHeader) ProtoMessage()    {}
-func (*CentrifugeHeader) Descriptor() ([]byte, []int) {
-	return fileDescriptor_p2p_5bc45e2b8fb8fb5c, []int{0}
+func (m *Header) Reset()         { *m = Header{} }
+func (m *Header) String() string { return proto.CompactTextString(m) }
+func (*Header) ProtoMessage()    {}
+func (*Header) Descriptor() ([]byte, []int) {
+	return fileDescriptor_p2p_b72f4386e3631d50, []int{0}
 }
-func (m *CentrifugeHeader) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_CentrifugeHeader.Unmarshal(m, b)
+func (m *Header) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Header.Unmarshal(m, b)
 }
-func (m *CentrifugeHeader) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_CentrifugeHeader.Marshal(b, m, deterministic)
+func (m *Header) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Header.Marshal(b, m, deterministic)
 }
-func (dst *CentrifugeHeader) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_CentrifugeHeader.Merge(dst, src)
+func (dst *Header) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Header.Merge(dst, src)
 }
-func (m *CentrifugeHeader) XXX_Size() int {
-	return xxx_messageInfo_CentrifugeHeader.Size(m)
+func (m *Header) XXX_Size() int {
+	return xxx_messageInfo_Header.Size(m)
 }
-func (m *CentrifugeHeader) XXX_DiscardUnknown() {
-	xxx_messageInfo_CentrifugeHeader.DiscardUnknown(m)
+func (m *Header) XXX_DiscardUnknown() {
+	xxx_messageInfo_Header.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_CentrifugeHeader proto.InternalMessageInfo
+var xxx_messageInfo_Header proto.InternalMessageInfo
 
-func (m *CentrifugeHeader) GetNetworkIdentifier() uint32 {
+func (m *Header) GetNetworkIdentifier() uint32 {
 	if m != nil {
 		return m.NetworkIdentifier
 	}
 	return 0
 }
 
-func (m *CentrifugeHeader) GetCentNodeVersion() string {
+func (m *Header) GetNodeVersion() string {
 	if m != nil {
-		return m.CentNodeVersion
+		return m.NodeVersion
 	}
 	return ""
 }
 
-func (m *CentrifugeHeader) GetSenderCentrifugeId() []byte {
+func (m *Header) GetSenderId() []byte {
 	if m != nil {
-		return m.SenderCentrifugeId
+		return m.SenderId
 	}
 	return nil
 }
 
-func (m *CentrifugeHeader) GetSignature() *coredocument.Signature {
+func (m *Header) GetSignature() *coredocument.Signature {
 	if m != nil {
 		return m.Signature
 	}
 	return nil
 }
 
-func (m *CentrifugeHeader) GetType() string {
+func (m *Header) GetType() string {
 	if m != nil {
 		return m.Type
 	}
 	return ""
 }
 
-type CentrifugeEnvelope struct {
-	Header               *CentrifugeHeader `protobuf:"bytes,1,opt,name=header,proto3" json:"header,omitempty"`
-	Body                 []byte            `protobuf:"bytes,2,opt,name=body,proto3" json:"body,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
-	XXX_unrecognized     []byte            `json:"-"`
-	XXX_sizecache        int32             `json:"-"`
+type Envelope struct {
+	Header               *Header  `protobuf:"bytes,1,opt,name=header,proto3" json:"header,omitempty"`
+	Body                 []byte   `protobuf:"bytes,2,opt,name=body,proto3" json:"body,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CentrifugeEnvelope) Reset()         { *m = CentrifugeEnvelope{} }
-func (m *CentrifugeEnvelope) String() string { return proto.CompactTextString(m) }
-func (*CentrifugeEnvelope) ProtoMessage()    {}
-func (*CentrifugeEnvelope) Descriptor() ([]byte, []int) {
-	return fileDescriptor_p2p_5bc45e2b8fb8fb5c, []int{1}
+func (m *Envelope) Reset()         { *m = Envelope{} }
+func (m *Envelope) String() string { return proto.CompactTextString(m) }
+func (*Envelope) ProtoMessage()    {}
+func (*Envelope) Descriptor() ([]byte, []int) {
+	return fileDescriptor_p2p_b72f4386e3631d50, []int{1}
 }
-func (m *CentrifugeEnvelope) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_CentrifugeEnvelope.Unmarshal(m, b)
+func (m *Envelope) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Envelope.Unmarshal(m, b)
 }
-func (m *CentrifugeEnvelope) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_CentrifugeEnvelope.Marshal(b, m, deterministic)
+func (m *Envelope) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Envelope.Marshal(b, m, deterministic)
 }
-func (dst *CentrifugeEnvelope) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_CentrifugeEnvelope.Merge(dst, src)
+func (dst *Envelope) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Envelope.Merge(dst, src)
 }
-func (m *CentrifugeEnvelope) XXX_Size() int {
-	return xxx_messageInfo_CentrifugeEnvelope.Size(m)
+func (m *Envelope) XXX_Size() int {
+	return xxx_messageInfo_Envelope.Size(m)
 }
-func (m *CentrifugeEnvelope) XXX_DiscardUnknown() {
-	xxx_messageInfo_CentrifugeEnvelope.DiscardUnknown(m)
+func (m *Envelope) XXX_DiscardUnknown() {
+	xxx_messageInfo_Envelope.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_CentrifugeEnvelope proto.InternalMessageInfo
+var xxx_messageInfo_Envelope proto.InternalMessageInfo
 
-func (m *CentrifugeEnvelope) GetHeader() *CentrifugeHeader {
+func (m *Envelope) GetHeader() *Header {
 	if m != nil {
 		return m.Header
 	}
 	return nil
 }
 
-func (m *CentrifugeEnvelope) GetBody() []byte {
+func (m *Envelope) GetBody() []byte {
 	if m != nil {
 		return m.Body
 	}
@@ -148,7 +148,7 @@ func (m *SignatureRequest) Reset()         { *m = SignatureRequest{} }
 func (m *SignatureRequest) String() string { return proto.CompactTextString(m) }
 func (*SignatureRequest) ProtoMessage()    {}
 func (*SignatureRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_p2p_5bc45e2b8fb8fb5c, []int{2}
+	return fileDescriptor_p2p_b72f4386e3631d50, []int{2}
 }
 func (m *SignatureRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_SignatureRequest.Unmarshal(m, b)
@@ -186,7 +186,7 @@ func (m *SignatureResponse) Reset()         { *m = SignatureResponse{} }
 func (m *SignatureResponse) String() string { return proto.CompactTextString(m) }
 func (*SignatureResponse) ProtoMessage()    {}
 func (*SignatureResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_p2p_5bc45e2b8fb8fb5c, []int{3}
+	return fileDescriptor_p2p_b72f4386e3631d50, []int{3}
 }
 func (m *SignatureResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_SignatureResponse.Unmarshal(m, b)
@@ -224,7 +224,7 @@ func (m *AnchorDocumentRequest) Reset()         { *m = AnchorDocumentRequest{} }
 func (m *AnchorDocumentRequest) String() string { return proto.CompactTextString(m) }
 func (*AnchorDocumentRequest) ProtoMessage()    {}
 func (*AnchorDocumentRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_p2p_5bc45e2b8fb8fb5c, []int{4}
+	return fileDescriptor_p2p_b72f4386e3631d50, []int{4}
 }
 func (m *AnchorDocumentRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_AnchorDocumentRequest.Unmarshal(m, b)
@@ -262,7 +262,7 @@ func (m *AnchorDocumentResponse) Reset()         { *m = AnchorDocumentResponse{}
 func (m *AnchorDocumentResponse) String() string { return proto.CompactTextString(m) }
 func (*AnchorDocumentResponse) ProtoMessage()    {}
 func (*AnchorDocumentResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_p2p_5bc45e2b8fb8fb5c, []int{5}
+	return fileDescriptor_p2p_b72f4386e3631d50, []int{5}
 }
 func (m *AnchorDocumentResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_AnchorDocumentResponse.Unmarshal(m, b)
@@ -290,40 +290,39 @@ func (m *AnchorDocumentResponse) GetAccepted() bool {
 }
 
 func init() {
-	proto.RegisterType((*CentrifugeHeader)(nil), "p2p.CentrifugeHeader")
-	proto.RegisterType((*CentrifugeEnvelope)(nil), "p2p.CentrifugeEnvelope")
+	proto.RegisterType((*Header)(nil), "p2p.Header")
+	proto.RegisterType((*Envelope)(nil), "p2p.Envelope")
 	proto.RegisterType((*SignatureRequest)(nil), "p2p.SignatureRequest")
 	proto.RegisterType((*SignatureResponse)(nil), "p2p.SignatureResponse")
 	proto.RegisterType((*AnchorDocumentRequest)(nil), "p2p.AnchorDocumentRequest")
 	proto.RegisterType((*AnchorDocumentResponse)(nil), "p2p.AnchorDocumentResponse")
 }
 
-func init() { proto.RegisterFile("p2p/p2p.proto", fileDescriptor_p2p_5bc45e2b8fb8fb5c) }
+func init() { proto.RegisterFile("p2p/p2p.proto", fileDescriptor_p2p_b72f4386e3631d50) }
 
-var fileDescriptor_p2p_5bc45e2b8fb8fb5c = []byte{
-	// 375 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xa4, 0x52, 0x5f, 0xeb, 0x12, 0x41,
-	0x14, 0x65, 0xfa, 0xfd, 0xb4, 0xf5, 0xaa, 0xa4, 0x43, 0xd6, 0x22, 0x41, 0xcb, 0x3e, 0x2d, 0x81,
-	0x1a, 0xdb, 0x9f, 0xf7, 0xb4, 0x20, 0x7d, 0x28, 0x99, 0xa0, 0xa0, 0x97, 0x45, 0x67, 0xae, 0xba,
-	0x94, 0x33, 0xd3, 0xec, 0xac, 0xe1, 0x57, 0xee, 0x53, 0xc4, 0x8e, 0xeb, 0xae, 0xfa, 0x14, 0xf4,
-	0x36, 0x77, 0xce, 0xe1, 0xdc, 0x73, 0x0e, 0x17, 0xba, 0x3a, 0xd6, 0x13, 0x1d, 0xeb, 0xb1, 0x36,
-	0xca, 0x2a, 0x7a, 0xa7, 0x63, 0x3d, 0x7c, 0xce, 0x95, 0x41, 0xa1, 0x78, 0xbe, 0x47, 0x69, 0x27,
-	0x97, 0xc3, 0x89, 0x15, 0xfe, 0x21, 0xd0, 0x9b, 0xa1, 0xb4, 0x26, 0xdd, 0xe4, 0x5b, 0xfc, 0x88,
-	0x2b, 0x81, 0x86, 0x8e, 0x80, 0x4a, 0xb4, 0xbf, 0x95, 0xf9, 0x91, 0xa4, 0x02, 0xa5, 0x4d, 0x37,
-	0x29, 0x1a, 0x9f, 0x04, 0x24, 0xea, 0xb2, 0x7e, 0x89, 0xcc, 0x2b, 0x80, 0xbe, 0x80, 0x3e, 0x47,
-	0x69, 0x13, 0xa9, 0x04, 0x26, 0x07, 0x34, 0x59, 0xaa, 0xa4, 0xff, 0x20, 0x20, 0x51, 0x8b, 0x3d,
-	0x2a, 0x80, 0x4f, 0x4a, 0xe0, 0xd7, 0xd3, 0x37, 0x7d, 0x09, 0x8f, 0x33, 0x94, 0x02, 0x4d, 0xc2,
-	0xab, 0xad, 0x49, 0x2a, 0xfc, 0xbb, 0x80, 0x44, 0x1d, 0x46, 0x4f, 0x58, 0x6d, 0x68, 0x2e, 0xe8,
-	0x1b, 0x68, 0x65, 0xe9, 0x56, 0xae, 0x6c, 0x6e, 0xd0, 0xbf, 0x0f, 0x48, 0xd4, 0x8e, 0x9f, 0x8e,
-	0xaf, 0x92, 0x7c, 0x39, 0xc3, 0xac, 0x66, 0x52, 0x0a, 0xf7, 0xf6, 0xa8, 0xd1, 0x6f, 0x38, 0x1f,
-	0xee, 0x1d, 0x7e, 0x03, 0x5a, 0x4b, 0x7f, 0x90, 0x07, 0xfc, 0xa9, 0x34, 0xd2, 0x11, 0x34, 0x77,
-	0x2e, 0xb7, 0x4b, 0xd8, 0x8e, 0x07, 0xe3, 0xa2, 0xc4, 0xdb, 0x52, 0x58, 0x49, 0x2a, 0x84, 0xd7,
-	0x4a, 0x1c, 0x5d, 0xc0, 0x0e, 0x73, 0xef, 0x70, 0x01, 0xbd, 0xda, 0x04, 0xfe, 0xca, 0x31, 0xb3,
-	0xf4, 0x2d, 0x78, 0x67, 0x87, 0xa5, 0xf0, 0xf0, 0xda, 0xf6, 0x4c, 0x19, 0x7c, 0x5f, 0x0e, 0xac,
-	0xe2, 0x86, 0x0b, 0xe8, 0x5f, 0x68, 0x65, 0x5a, 0xc9, 0x0c, 0xaf, 0x4b, 0x20, 0xff, 0x5a, 0x42,
-	0xf8, 0x19, 0x06, 0xef, 0x24, 0xdf, 0x29, 0x53, 0xed, 0xf9, 0x4f, 0x73, 0xaf, 0xe1, 0xc9, 0xad,
-	0x60, 0xe9, 0x70, 0x08, 0xde, 0x8a, 0x73, 0xd4, 0x16, 0x85, 0x53, 0xf4, 0x58, 0x35, 0x4f, 0x9f,
-	0xc1, 0x43, 0xae, 0xf6, 0x45, 0xad, 0x53, 0x6f, 0x19, 0xeb, 0x65, 0x71, 0x79, 0x4b, 0xf2, 0xbd,
-	0xa1, 0x63, 0xad, 0xd7, 0xeb, 0xa6, 0xbb, 0xc4, 0x57, 0x7f, 0x03, 0x00, 0x00, 0xff, 0xff, 0xf0,
-	0xc3, 0xdf, 0x99, 0xc0, 0x02, 0x00, 0x00,
+var fileDescriptor_p2p_b72f4386e3631d50 = []byte{
+	// 355 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xa4, 0x92, 0x4f, 0x4f, 0xea, 0x40,
+	0x14, 0xc5, 0x33, 0x8f, 0x3f, 0xaf, 0xdc, 0x42, 0xf2, 0x98, 0xe4, 0xbd, 0xd7, 0xa0, 0x89, 0xb5,
+	0x6e, 0xba, 0x11, 0x92, 0xfa, 0x67, 0x2f, 0x68, 0x22, 0x6c, 0x24, 0x63, 0xe2, 0xc2, 0x0d, 0x81,
+	0xce, 0x55, 0x1a, 0x65, 0x66, 0x9c, 0x0e, 0x18, 0xbe, 0x9e, 0x9f, 0xcc, 0x74, 0x5a, 0x0a, 0xb8,
+	0x32, 0x71, 0x37, 0xf7, 0x9e, 0x9b, 0x73, 0x7f, 0x67, 0x72, 0xa1, 0xa5, 0x22, 0xd5, 0x53, 0x91,
+	0xea, 0x2a, 0x2d, 0x8d, 0xa4, 0x15, 0x15, 0xa9, 0xce, 0x51, 0x2c, 0x35, 0x72, 0x19, 0x2f, 0x17,
+	0x28, 0x4c, 0x6f, 0xb7, 0xc8, 0xa7, 0x82, 0x0f, 0x02, 0xf5, 0x5b, 0x9c, 0x72, 0xd4, 0xf4, 0x14,
+	0xa8, 0x40, 0xf3, 0x2e, 0xf5, 0xcb, 0x24, 0xe1, 0x28, 0x4c, 0xf2, 0x94, 0xa0, 0xf6, 0x88, 0x4f,
+	0xc2, 0x16, 0x6b, 0x17, 0xca, 0xb0, 0x14, 0xe8, 0x31, 0x34, 0x85, 0xe4, 0x38, 0x59, 0xa1, 0x4e,
+	0x13, 0x29, 0xbc, 0x5f, 0x3e, 0x09, 0x1b, 0xcc, 0xcd, 0x7a, 0x0f, 0x79, 0x8b, 0x1e, 0x40, 0x23,
+	0x45, 0xc1, 0x51, 0x4f, 0x12, 0xee, 0x55, 0x7c, 0x12, 0x36, 0x99, 0x93, 0x37, 0x86, 0x9c, 0x5e,
+	0x40, 0x23, 0x4d, 0x9e, 0xc5, 0xd4, 0x2c, 0x35, 0x7a, 0x55, 0x9f, 0x84, 0x6e, 0xf4, 0xbf, 0xbb,
+	0x47, 0x78, 0xbf, 0x91, 0xd9, 0x76, 0x92, 0x52, 0xa8, 0x9a, 0xb5, 0x42, 0xaf, 0x66, 0xd7, 0xd9,
+	0x77, 0x30, 0x00, 0xe7, 0x46, 0xac, 0xf0, 0x55, 0x2a, 0xa4, 0x27, 0x50, 0x9f, 0xdb, 0x3c, 0x96,
+	0xdc, 0x8d, 0xdc, 0x6e, 0xf6, 0x25, 0x79, 0x44, 0x56, 0x48, 0x99, 0xc9, 0x4c, 0xf2, 0xb5, 0x65,
+	0x6e, 0x32, 0xfb, 0x0e, 0x46, 0xf0, 0x67, 0xbb, 0x10, 0xdf, 0x96, 0x98, 0x1a, 0x7a, 0x09, 0xce,
+	0x86, 0xa6, 0xb0, 0xeb, 0xec, 0x23, 0x0e, 0xa4, 0xc6, 0xeb, 0xa2, 0x60, 0xe5, 0x6c, 0x30, 0x82,
+	0xf6, 0x8e, 0x57, 0xaa, 0xa4, 0x48, 0x71, 0x3f, 0x30, 0xf9, 0x6e, 0xe0, 0xe0, 0x0e, 0xfe, 0x5e,
+	0x89, 0x78, 0x2e, 0x75, 0xb9, 0xe7, 0x87, 0x70, 0xe7, 0xf0, 0xef, 0xab, 0x61, 0x41, 0xd8, 0x01,
+	0x67, 0x1a, 0xc7, 0xa8, 0x0c, 0x72, 0xeb, 0xe8, 0xb0, 0xb2, 0xee, 0x1f, 0xc2, 0xef, 0x58, 0x2e,
+	0xb2, 0xcf, 0xec, 0x3b, 0xe3, 0x48, 0x8d, 0xb3, 0xeb, 0x19, 0x93, 0xc7, 0x9a, 0x8a, 0x94, 0x9a,
+	0xcd, 0xea, 0xf6, 0x9a, 0xce, 0x3e, 0x03, 0x00, 0x00, 0xff, 0xff, 0xa3, 0x92, 0xeb, 0xfa, 0x84,
+	0x02, 0x00, 0x00,
 }
