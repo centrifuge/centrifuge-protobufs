@@ -39,11 +39,3 @@ message AnchorDocumentRequest {
 message AnchorDocumentResponse {
   bool accepted = 1;
 }
-
-// P2PService implementas all rpcs that can be called inside of the P2P network
-service P2PService {
-  // after the pre-commit the sender asks all participants to sign the new document version
-  rpc RequestDocumentSignature(SignatureRequest) returns (SignatureResponse);
-  //after all signatures are collected the sender sends the document including the signatures
-  rpc SendAnchoredDocument(AnchorDocumentRequest) returns (AnchorDocumentResponse);
-}
