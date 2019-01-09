@@ -74,7 +74,7 @@ message CoreDocument {
   repeated bytes collaborators = 17;
   // list of roles
   repeated RoleEntry roles = 1[
-     (proofs.mapping_key) = "key"
+     (proofs.mapping_key) = "role_key"
   ];
   // read rules
   repeated ReadRule read_rules = 19;
@@ -144,11 +144,11 @@ message SaltedReadRule {
 }
 
 message RoleEntry {
-  uint32 key = 1;
+  uint32 role_key = 1;
   Role role = 2;
 }
 
 message SaltedRoleEntry {
-  bytes key = 1;
+  bytes role_key = 1;
   SaltedRole role = 2;
 }
