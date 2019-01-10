@@ -149,6 +149,6 @@ message RoleEntry {
 }
 
 message SaltedRoleEntry {
-  bytes role_key = 1;
+  uint32 role_key = 1;
   SaltedRole role = 2;
 }

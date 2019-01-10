@@ -47,7 +47,7 @@ func (x Action) String() string {
 	return proto.EnumName(Action_name, int32(x))
 }
 func (Action) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_d690fa975cd2a56b, []int{0}
+	return fileDescriptor_coredocument_55d5af93ecad967c, []int{0}
 }
 
 // `CoreDocument` is a document that can be sent to different nodes and anchored
@@ -108,7 +108,7 @@ func (m *CoreDocument) Reset()         { *m = CoreDocument{} }
 func (m *CoreDocument) String() string { return proto.CompactTextString(m) }
 func (*CoreDocument) ProtoMessage()    {}
 func (*CoreDocument) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_d690fa975cd2a56b, []int{0}
+	return fileDescriptor_coredocument_55d5af93ecad967c, []int{0}
 }
 func (m *CoreDocument) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_CoreDocument.Unmarshal(m, b)
@@ -255,7 +255,7 @@ func (m *CoreDocumentSalts) Reset()         { *m = CoreDocumentSalts{} }
 func (m *CoreDocumentSalts) String() string { return proto.CompactTextString(m) }
 func (*CoreDocumentSalts) ProtoMessage()    {}
 func (*CoreDocumentSalts) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_d690fa975cd2a56b, []int{1}
+	return fileDescriptor_coredocument_55d5af93ecad967c, []int{1}
 }
 func (m *CoreDocumentSalts) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_CoreDocumentSalts.Unmarshal(m, b)
@@ -376,7 +376,7 @@ func (m *Signature) Reset()         { *m = Signature{} }
 func (m *Signature) String() string { return proto.CompactTextString(m) }
 func (*Signature) ProtoMessage()    {}
 func (*Signature) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_d690fa975cd2a56b, []int{2}
+	return fileDescriptor_coredocument_55d5af93ecad967c, []int{2}
 }
 func (m *Signature) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Signature.Unmarshal(m, b)
@@ -441,7 +441,7 @@ func (m *Role) Reset()         { *m = Role{} }
 func (m *Role) String() string { return proto.CompactTextString(m) }
 func (*Role) ProtoMessage()    {}
 func (*Role) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_d690fa975cd2a56b, []int{3}
+	return fileDescriptor_coredocument_55d5af93ecad967c, []int{3}
 }
 func (m *Role) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Role.Unmarshal(m, b)
@@ -497,7 +497,7 @@ func (m *SaltedRole) Reset()         { *m = SaltedRole{} }
 func (m *SaltedRole) String() string { return proto.CompactTextString(m) }
 func (*SaltedRole) ProtoMessage()    {}
 func (*SaltedRole) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_d690fa975cd2a56b, []int{4}
+	return fileDescriptor_coredocument_55d5af93ecad967c, []int{4}
 }
 func (m *SaltedRole) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_SaltedRole.Unmarshal(m, b)
@@ -564,7 +564,7 @@ func (m *ReadRule) Reset()         { *m = ReadRule{} }
 func (m *ReadRule) String() string { return proto.CompactTextString(m) }
 func (*ReadRule) ProtoMessage()    {}
 func (*ReadRule) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_d690fa975cd2a56b, []int{5}
+	return fileDescriptor_coredocument_55d5af93ecad967c, []int{5}
 }
 func (m *ReadRule) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ReadRule.Unmarshal(m, b)
@@ -611,7 +611,7 @@ func (m *SaltedReadRule) Reset()         { *m = SaltedReadRule{} }
 func (m *SaltedReadRule) String() string { return proto.CompactTextString(m) }
 func (*SaltedReadRule) ProtoMessage()    {}
 func (*SaltedReadRule) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_d690fa975cd2a56b, []int{6}
+	return fileDescriptor_coredocument_55d5af93ecad967c, []int{6}
 }
 func (m *SaltedReadRule) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_SaltedReadRule.Unmarshal(m, b)
@@ -664,7 +664,7 @@ func (m *RoleEntry) Reset()         { *m = RoleEntry{} }
 func (m *RoleEntry) String() string { return proto.CompactTextString(m) }
 func (*RoleEntry) ProtoMessage()    {}
 func (*RoleEntry) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_d690fa975cd2a56b, []int{7}
+	return fileDescriptor_coredocument_55d5af93ecad967c, []int{7}
 }
 func (m *RoleEntry) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_RoleEntry.Unmarshal(m, b)
@@ -699,7 +699,7 @@ func (m *RoleEntry) GetRole() *Role {
 }
 
 type SaltedRoleEntry struct {
-	RoleKey              []byte      `protobuf:"bytes,1,opt,name=role_key,json=roleKey,proto3" json:"role_key,omitempty"`
+	RoleKey              uint32      `protobuf:"varint,1,opt,name=role_key,json=roleKey,proto3" json:"role_key,omitempty"`
 	Role                 *SaltedRole `protobuf:"bytes,2,opt,name=role,proto3" json:"role,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
 	XXX_unrecognized     []byte      `json:"-"`
@@ -710,7 +710,7 @@ func (m *SaltedRoleEntry) Reset()         { *m = SaltedRoleEntry{} }
 func (m *SaltedRoleEntry) String() string { return proto.CompactTextString(m) }
 func (*SaltedRoleEntry) ProtoMessage()    {}
 func (*SaltedRoleEntry) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_d690fa975cd2a56b, []int{8}
+	return fileDescriptor_coredocument_55d5af93ecad967c, []int{8}
 }
 func (m *SaltedRoleEntry) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_SaltedRoleEntry.Unmarshal(m, b)
@@ -730,11 +730,11 @@ func (m *SaltedRoleEntry) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_SaltedRoleEntry proto.InternalMessageInfo
 
-func (m *SaltedRoleEntry) GetRoleKey() []byte {
+func (m *SaltedRoleEntry) GetRoleKey() uint32 {
 	if m != nil {
 		return m.RoleKey
 	}
-	return nil
+	return 0
 }
 
 func (m *SaltedRoleEntry) GetRole() *SaltedRole {
@@ -758,11 +758,11 @@ func init() {
 }
 
 func init() {
-	proto.RegisterFile("coredocument/coredocument.proto", fileDescriptor_coredocument_d690fa975cd2a56b)
+	proto.RegisterFile("coredocument/coredocument.proto", fileDescriptor_coredocument_55d5af93ecad967c)
 }
 
-var fileDescriptor_coredocument_d690fa975cd2a56b = []byte{
-	// 916 bytes of a gzipped FileDescriptorProto
+var fileDescriptor_coredocument_55d5af93ecad967c = []byte{
+	// 914 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x54, 0xdd, 0x6e, 0xdb, 0x36,
 	0x14, 0x9e, 0x62, 0xc7, 0xb5, 0x8f, 0xe4, 0x9f, 0x30, 0x5e, 0xab, 0x66, 0x2d, 0x92, 0x7a, 0xc3,
 	0xea, 0x05, 0x9d, 0x8d, 0xb9, 0xd8, 0x0f, 0xb0, 0x61, 0x98, 0x93, 0x14, 0x83, 0xd1, 0xc2, 0x2b,
@@ -814,11 +814,11 @@ var fileDescriptor_coredocument_d690fa975cd2a56b = []byte{
 	0x5d, 0x67, 0xfa, 0x4a, 0xd9, 0xf4, 0xb7, 0x0b, 0x1b, 0x5b, 0xe9, 0x16, 0x53, 0x68, 0xa4, 0x33,
 	0x84, 0xee, 0x66, 0x8f, 0xa2, 0x74, 0x68, 0xd3, 0xb9, 0x25, 0xd6, 0xc2, 0x81, 0x9f, 0x42, 0x55,
 	0xfc, 0x4a, 0x6b, 0x9a, 0x23, 0x54, 0x7e, 0x59, 0x1d, 0x99, 0xef, 0xbd, 0x84, 0xf6, 0xd6, 0x64,
-	0x96, 0x58, 0xad, 0x8c, 0xf5, 0x51, 0x81, 0xd5, 0xbe, 0x6e, 0xc2, 0x15, 0xf7, 0xe9, 0x39, 0xd4,
-	0xd4, 0x05, 0x21, 0x04, 0xad, 0xf1, 0xf9, 0xd5, 0xe4, 0xa7, 0xa9, 0x3b, 0x99, 0xbe, 0x18, 0x3f,
-	0x9b, 0x5c, 0x74, 0x3e, 0x40, 0x6d, 0x30, 0x93, 0x98, 0xf3, 0x64, 0x7c, 0xd1, 0x31, 0x50, 0x17,
-	0x3a, 0xb9, 0x80, 0x7b, 0x39, 0xf9, 0x71, 0xda, 0xd9, 0x3b, 0xfb, 0x1a, 0x3a, 0x1e, 0x5d, 0x16,
-	0x76, 0x3a, 0x93, 0xef, 0xb7, 0x5e, 0x3d, 0x17, 0x13, 0xf3, 0xdc, 0x78, 0xd9, 0xca, 0x43, 0x56,
-	0xb3, 0x59, 0x4d, 0x8e, 0xd2, 0xe3, 0x7f, 0x02, 0x00, 0x00, 0xff, 0xff, 0x68, 0x32, 0x32, 0x7d,
-	0xa4, 0x09, 0x00, 0x00,
+	0xde, 0xc4, 0xfa, 0xa8, 0xc0, 0x6a, 0x5f, 0x37, 0xe1, 0x8a, 0xfb, 0xf4, 0x1c, 0x6a, 0xea, 0x82,
+	0x10, 0x82, 0xd6, 0xf8, 0xfc, 0x6a, 0xf2, 0xd3, 0xd4, 0x9d, 0x4c, 0x5f, 0x8c, 0x9f, 0x4d, 0x2e,
+	0x3a, 0x1f, 0xa0, 0x36, 0x98, 0x49, 0xcc, 0x79, 0x32, 0xbe, 0xe8, 0x18, 0xa8, 0x0b, 0x9d, 0x5c,
+	0xc0, 0xbd, 0x9c, 0xfc, 0x38, 0xed, 0xec, 0x9d, 0x7d, 0x0d, 0x1d, 0x8f, 0x2e, 0x0b, 0x3b, 0x9d,
+	0xc9, 0xf7, 0x5b, 0xaf, 0x9e, 0x8b, 0x89, 0x79, 0x6e, 0xbc, 0x6c, 0xe5, 0x21, 0xab, 0xd9, 0xac,
+	0x26, 0x47, 0xe9, 0xf1, 0x3f, 0x01, 0x00, 0x00, 0xff, 0xff, 0xc4, 0x8d, 0x4b, 0xad, 0xa4, 0x09,
+	0x00, 0x00,
 }
