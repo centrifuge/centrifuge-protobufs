@@ -32,12 +32,12 @@ message SignatureResponse {
   coredocument.Signature signature = 1;
 }
 
-message GetDocumentRequest {
+message GetAnchoredDocumentRequest {
   bytes document_identifier = 1;
   bytes document_version = 2;
 }
 
-message GetDocumentResponse {
+message GetAnchoredDocumentResponse {
   coredocument.CoreDocument document = 1;
 }
 
