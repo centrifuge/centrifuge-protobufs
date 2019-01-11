@@ -20,13 +20,13 @@ var _ = math.Inf
 const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 type Header struct {
-	NetworkIdentifier uint32 `protobuf:"varint,1,opt,name=network_identifier,json=networkIdentifier,proto3" json:"network_identifier,omitempty"`
-	NodeVersion       string `protobuf:"bytes,2,opt,name=node_version,json=nodeVersion,proto3" json:"node_version,omitempty"`
+	NetworkIdentifier uint32 `protobuf:"varint,1,opt,name=network_identifier,json=networkIdentifier" json:"network_identifier,omitempty"`
+	NodeVersion       string `protobuf:"bytes,2,opt,name=node_version,json=nodeVersion" json:"node_version,omitempty"`
 	SenderId          []byte `protobuf:"bytes,3,opt,name=sender_id,json=senderId,proto3" json:"sender_id,omitempty"`
 	// Signature of all fields of Header (except itself) + body
-	Signature *coredocument.Signature `protobuf:"bytes,4,opt,name=signature,proto3" json:"signature,omitempty"`
+	Signature *coredocument.Signature `protobuf:"bytes,4,opt,name=signature" json:"signature,omitempty"`
 	// Body message type
-	Type                 string   `protobuf:"bytes,5,opt,name=type,proto3" json:"type,omitempty"`
+	Type                 string   `protobuf:"bytes,5,opt,name=type" json:"type,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -36,7 +36,7 @@ func (m *Header) Reset()         { *m = Header{} }
 func (m *Header) String() string { return proto.CompactTextString(m) }
 func (*Header) ProtoMessage()    {}
 func (*Header) Descriptor() ([]byte, []int) {
-	return fileDescriptor_p2p_b72f4386e3631d50, []int{0}
+	return fileDescriptor_p2p_d70ad5afb12ec0d1, []int{0}
 }
 func (m *Header) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Header.Unmarshal(m, b)
@@ -92,7 +92,7 @@ func (m *Header) GetType() string {
 }
 
 type Envelope struct {
-	Header               *Header  `protobuf:"bytes,1,opt,name=header,proto3" json:"header,omitempty"`
+	Header               *Header  `protobuf:"bytes,1,opt,name=header" json:"header,omitempty"`
 	Body                 []byte   `protobuf:"bytes,2,opt,name=body,proto3" json:"body,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -103,7 +103,7 @@ func (m *Envelope) Reset()         { *m = Envelope{} }
 func (m *Envelope) String() string { return proto.CompactTextString(m) }
 func (*Envelope) ProtoMessage()    {}
 func (*Envelope) Descriptor() ([]byte, []int) {
-	return fileDescriptor_p2p_b72f4386e3631d50, []int{1}
+	return fileDescriptor_p2p_d70ad5afb12ec0d1, []int{1}
 }
 func (m *Envelope) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Envelope.Unmarshal(m, b)
@@ -138,7 +138,7 @@ func (m *Envelope) GetBody() []byte {
 }
 
 type SignatureRequest struct {
-	Document             *coredocument.CoreDocument `protobuf:"bytes,1,opt,name=document,proto3" json:"document,omitempty"`
+	Document             *coredocument.CoreDocument `protobuf:"bytes,1,opt,name=document" json:"document,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}                   `json:"-"`
 	XXX_unrecognized     []byte                     `json:"-"`
 	XXX_sizecache        int32                      `json:"-"`
@@ -148,7 +148,7 @@ func (m *SignatureRequest) Reset()         { *m = SignatureRequest{} }
 func (m *SignatureRequest) String() string { return proto.CompactTextString(m) }
 func (*SignatureRequest) ProtoMessage()    {}
 func (*SignatureRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_p2p_b72f4386e3631d50, []int{2}
+	return fileDescriptor_p2p_d70ad5afb12ec0d1, []int{2}
 }
 func (m *SignatureRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_SignatureRequest.Unmarshal(m, b)
@@ -176,7 +176,7 @@ func (m *SignatureRequest) GetDocument() *coredocument.CoreDocument {
 }
 
 type SignatureResponse struct {
-	Signature            *coredocument.Signature `protobuf:"bytes,1,opt,name=signature,proto3" json:"signature,omitempty"`
+	Signature            *coredocument.Signature `protobuf:"bytes,1,opt,name=signature" json:"signature,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}                `json:"-"`
 	XXX_unrecognized     []byte                  `json:"-"`
 	XXX_sizecache        int32                   `json:"-"`
@@ -186,7 +186,7 @@ func (m *SignatureResponse) Reset()         { *m = SignatureResponse{} }
 func (m *SignatureResponse) String() string { return proto.CompactTextString(m) }
 func (*SignatureResponse) ProtoMessage()    {}
 func (*SignatureResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_p2p_b72f4386e3631d50, []int{3}
+	return fileDescriptor_p2p_d70ad5afb12ec0d1, []int{3}
 }
 func (m *SignatureResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_SignatureResponse.Unmarshal(m, b)
@@ -213,8 +213,92 @@ func (m *SignatureResponse) GetSignature() *coredocument.Signature {
 	return nil
 }
 
+type GetDocumentRequest struct {
+	DocumentIdentifier   []byte   `protobuf:"bytes,1,opt,name=document_identifier,json=documentIdentifier,proto3" json:"document_identifier,omitempty"`
+	DocumentVersion      []byte   `protobuf:"bytes,2,opt,name=document_version,json=documentVersion,proto3" json:"document_version,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *GetDocumentRequest) Reset()         { *m = GetDocumentRequest{} }
+func (m *GetDocumentRequest) String() string { return proto.CompactTextString(m) }
+func (*GetDocumentRequest) ProtoMessage()    {}
+func (*GetDocumentRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_p2p_d70ad5afb12ec0d1, []int{4}
+}
+func (m *GetDocumentRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetDocumentRequest.Unmarshal(m, b)
+}
+func (m *GetDocumentRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetDocumentRequest.Marshal(b, m, deterministic)
+}
+func (dst *GetDocumentRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetDocumentRequest.Merge(dst, src)
+}
+func (m *GetDocumentRequest) XXX_Size() int {
+	return xxx_messageInfo_GetDocumentRequest.Size(m)
+}
+func (m *GetDocumentRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetDocumentRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetDocumentRequest proto.InternalMessageInfo
+
+func (m *GetDocumentRequest) GetDocumentIdentifier() []byte {
+	if m != nil {
+		return m.DocumentIdentifier
+	}
+	return nil
+}
+
+func (m *GetDocumentRequest) GetDocumentVersion() []byte {
+	if m != nil {
+		return m.DocumentVersion
+	}
+	return nil
+}
+
+type GetDocumentResponse struct {
+	Document             *coredocument.CoreDocument `protobuf:"bytes,1,opt,name=document" json:"document,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                   `json:"-"`
+	XXX_unrecognized     []byte                     `json:"-"`
+	XXX_sizecache        int32                      `json:"-"`
+}
+
+func (m *GetDocumentResponse) Reset()         { *m = GetDocumentResponse{} }
+func (m *GetDocumentResponse) String() string { return proto.CompactTextString(m) }
+func (*GetDocumentResponse) ProtoMessage()    {}
+func (*GetDocumentResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_p2p_d70ad5afb12ec0d1, []int{5}
+}
+func (m *GetDocumentResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetDocumentResponse.Unmarshal(m, b)
+}
+func (m *GetDocumentResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetDocumentResponse.Marshal(b, m, deterministic)
+}
+func (dst *GetDocumentResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetDocumentResponse.Merge(dst, src)
+}
+func (m *GetDocumentResponse) XXX_Size() int {
+	return xxx_messageInfo_GetDocumentResponse.Size(m)
+}
+func (m *GetDocumentResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetDocumentResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetDocumentResponse proto.InternalMessageInfo
+
+func (m *GetDocumentResponse) GetDocument() *coredocument.CoreDocument {
+	if m != nil {
+		return m.Document
+	}
+	return nil
+}
+
 type AnchorDocumentRequest struct {
-	Document             *coredocument.CoreDocument `protobuf:"bytes,1,opt,name=document,proto3" json:"document,omitempty"`
+	Document             *coredocument.CoreDocument `protobuf:"bytes,1,opt,name=document" json:"document,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}                   `json:"-"`
 	XXX_unrecognized     []byte                     `json:"-"`
 	XXX_sizecache        int32                      `json:"-"`
@@ -224,7 +308,7 @@ func (m *AnchorDocumentRequest) Reset()         { *m = AnchorDocumentRequest{} }
 func (m *AnchorDocumentRequest) String() string { return proto.CompactTextString(m) }
 func (*AnchorDocumentRequest) ProtoMessage()    {}
 func (*AnchorDocumentRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_p2p_b72f4386e3631d50, []int{4}
+	return fileDescriptor_p2p_d70ad5afb12ec0d1, []int{6}
 }
 func (m *AnchorDocumentRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_AnchorDocumentRequest.Unmarshal(m, b)
@@ -252,7 +336,7 @@ func (m *AnchorDocumentRequest) GetDocument() *coredocument.CoreDocument {
 }
 
 type AnchorDocumentResponse struct {
-	Accepted             bool     `protobuf:"varint,1,opt,name=accepted,proto3" json:"accepted,omitempty"`
+	Accepted             bool     `protobuf:"varint,1,opt,name=accepted" json:"accepted,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -262,7 +346,7 @@ func (m *AnchorDocumentResponse) Reset()         { *m = AnchorDocumentResponse{}
 func (m *AnchorDocumentResponse) String() string { return proto.CompactTextString(m) }
 func (*AnchorDocumentResponse) ProtoMessage()    {}
 func (*AnchorDocumentResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_p2p_b72f4386e3631d50, []int{5}
+	return fileDescriptor_p2p_d70ad5afb12ec0d1, []int{7}
 }
 func (m *AnchorDocumentResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_AnchorDocumentResponse.Unmarshal(m, b)
@@ -294,35 +378,40 @@ func init() {
 	proto.RegisterType((*Envelope)(nil), "p2p.Envelope")
 	proto.RegisterType((*SignatureRequest)(nil), "p2p.SignatureRequest")
 	proto.RegisterType((*SignatureResponse)(nil), "p2p.SignatureResponse")
+	proto.RegisterType((*GetDocumentRequest)(nil), "p2p.GetDocumentRequest")
+	proto.RegisterType((*GetDocumentResponse)(nil), "p2p.GetDocumentResponse")
 	proto.RegisterType((*AnchorDocumentRequest)(nil), "p2p.AnchorDocumentRequest")
 	proto.RegisterType((*AnchorDocumentResponse)(nil), "p2p.AnchorDocumentResponse")
 }
 
-func init() { proto.RegisterFile("p2p/p2p.proto", fileDescriptor_p2p_b72f4386e3631d50) }
+func init() { proto.RegisterFile("p2p/p2p.proto", fileDescriptor_p2p_d70ad5afb12ec0d1) }
 
-var fileDescriptor_p2p_b72f4386e3631d50 = []byte{
-	// 355 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xa4, 0x92, 0x4f, 0x4f, 0xea, 0x40,
-	0x14, 0xc5, 0x33, 0x8f, 0x3f, 0xaf, 0xdc, 0x42, 0xf2, 0x98, 0xe4, 0xbd, 0xd7, 0xa0, 0x89, 0xb5,
-	0x6e, 0xba, 0x11, 0x92, 0xfa, 0x67, 0x2f, 0x68, 0x22, 0x6c, 0x24, 0x63, 0xe2, 0xc2, 0x0d, 0x81,
-	0xce, 0x55, 0x1a, 0x65, 0x66, 0x9c, 0x0e, 0x18, 0xbe, 0x9e, 0x9f, 0xcc, 0x74, 0x5a, 0x0a, 0xb8,
-	0x32, 0x71, 0x37, 0xf7, 0x9e, 0x9b, 0x73, 0x7f, 0x67, 0x72, 0xa1, 0xa5, 0x22, 0xd5, 0x53, 0x91,
-	0xea, 0x2a, 0x2d, 0x8d, 0xa4, 0x15, 0x15, 0xa9, 0xce, 0x51, 0x2c, 0x35, 0x72, 0x19, 0x2f, 0x17,
-	0x28, 0x4c, 0x6f, 0xb7, 0xc8, 0xa7, 0x82, 0x0f, 0x02, 0xf5, 0x5b, 0x9c, 0x72, 0xd4, 0xf4, 0x14,
-	0xa8, 0x40, 0xf3, 0x2e, 0xf5, 0xcb, 0x24, 0xe1, 0x28, 0x4c, 0xf2, 0x94, 0xa0, 0xf6, 0x88, 0x4f,
-	0xc2, 0x16, 0x6b, 0x17, 0xca, 0xb0, 0x14, 0xe8, 0x31, 0x34, 0x85, 0xe4, 0x38, 0x59, 0xa1, 0x4e,
-	0x13, 0x29, 0xbc, 0x5f, 0x3e, 0x09, 0x1b, 0xcc, 0xcd, 0x7a, 0x0f, 0x79, 0x8b, 0x1e, 0x40, 0x23,
-	0x45, 0xc1, 0x51, 0x4f, 0x12, 0xee, 0x55, 0x7c, 0x12, 0x36, 0x99, 0x93, 0x37, 0x86, 0x9c, 0x5e,
-	0x40, 0x23, 0x4d, 0x9e, 0xc5, 0xd4, 0x2c, 0x35, 0x7a, 0x55, 0x9f, 0x84, 0x6e, 0xf4, 0xbf, 0xbb,
-	0x47, 0x78, 0xbf, 0x91, 0xd9, 0x76, 0x92, 0x52, 0xa8, 0x9a, 0xb5, 0x42, 0xaf, 0x66, 0xd7, 0xd9,
-	0x77, 0x30, 0x00, 0xe7, 0x46, 0xac, 0xf0, 0x55, 0x2a, 0xa4, 0x27, 0x50, 0x9f, 0xdb, 0x3c, 0x96,
-	0xdc, 0x8d, 0xdc, 0x6e, 0xf6, 0x25, 0x79, 0x44, 0x56, 0x48, 0x99, 0xc9, 0x4c, 0xf2, 0xb5, 0x65,
-	0x6e, 0x32, 0xfb, 0x0e, 0x46, 0xf0, 0x67, 0xbb, 0x10, 0xdf, 0x96, 0x98, 0x1a, 0x7a, 0x09, 0xce,
-	0x86, 0xa6, 0xb0, 0xeb, 0xec, 0x23, 0x0e, 0xa4, 0xc6, 0xeb, 0xa2, 0x60, 0xe5, 0x6c, 0x30, 0x82,
-	0xf6, 0x8e, 0x57, 0xaa, 0xa4, 0x48, 0x71, 0x3f, 0x30, 0xf9, 0x6e, 0xe0, 0xe0, 0x0e, 0xfe, 0x5e,
-	0x89, 0x78, 0x2e, 0x75, 0xb9, 0xe7, 0x87, 0x70, 0xe7, 0xf0, 0xef, 0xab, 0x61, 0x41, 0xd8, 0x01,
-	0x67, 0x1a, 0xc7, 0xa8, 0x0c, 0x72, 0xeb, 0xe8, 0xb0, 0xb2, 0xee, 0x1f, 0xc2, 0xef, 0x58, 0x2e,
-	0xb2, 0xcf, 0xec, 0x3b, 0xe3, 0x48, 0x8d, 0xb3, 0xeb, 0x19, 0x93, 0xc7, 0x9a, 0x8a, 0x94, 0x9a,
-	0xcd, 0xea, 0xf6, 0x9a, 0xce, 0x3e, 0x03, 0x00, 0x00, 0xff, 0xff, 0xa3, 0x92, 0xeb, 0xfa, 0x84,
-	0x02, 0x00, 0x00,
+var fileDescriptor_p2p_d70ad5afb12ec0d1 = []byte{
+	// 401 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x9c, 0x53, 0xdf, 0x6f, 0xd3, 0x30,
+	0x10, 0x96, 0xd9, 0x56, 0xd2, 0x4b, 0x26, 0x36, 0x4f, 0x40, 0x54, 0x90, 0x08, 0xe1, 0x25, 0x3c,
+	0xd0, 0x4a, 0xe1, 0xc7, 0x3b, 0x1b, 0x08, 0x36, 0x09, 0x51, 0x19, 0x89, 0x07, 0x5e, 0xaa, 0x36,
+	0x3e, 0x58, 0x04, 0xb3, 0x0f, 0xc7, 0x1d, 0xea, 0xbf, 0xc7, 0x5f, 0x86, 0xe2, 0x38, 0x69, 0xd2,
+	0x27, 0xd4, 0x37, 0xdf, 0x7d, 0xe7, 0xef, 0xbe, 0xcf, 0x77, 0x86, 0x63, 0xca, 0x69, 0x46, 0x39,
+	0x4d, 0xc9, 0x68, 0xab, 0xf9, 0x01, 0xe5, 0x34, 0x79, 0x52, 0x68, 0x83, 0x52, 0x17, 0xeb, 0x1b,
+	0x54, 0x76, 0xd6, 0x0f, 0x9a, 0xaa, 0xf4, 0x2f, 0x83, 0xd1, 0x47, 0x5c, 0x4a, 0x34, 0xfc, 0x05,
+	0x70, 0x85, 0xf6, 0x8f, 0x36, 0x3f, 0x17, 0xa5, 0x44, 0x65, 0xcb, 0xef, 0x25, 0x9a, 0x98, 0x25,
+	0x2c, 0x3b, 0x16, 0xa7, 0x1e, 0xb9, 0xec, 0x00, 0xfe, 0x14, 0x22, 0xa5, 0x25, 0x2e, 0x6e, 0xd1,
+	0x54, 0xa5, 0x56, 0xf1, 0x9d, 0x84, 0x65, 0x63, 0x11, 0xd6, 0xb9, 0xaf, 0x4d, 0x8a, 0x3f, 0x82,
+	0x71, 0x85, 0x4a, 0xa2, 0x59, 0x94, 0x32, 0x3e, 0x48, 0x58, 0x16, 0x89, 0xa0, 0x49, 0x5c, 0x4a,
+	0xfe, 0x1a, 0xc6, 0x55, 0xf9, 0x43, 0x2d, 0xed, 0xda, 0x60, 0x7c, 0x98, 0xb0, 0x2c, 0xcc, 0x1f,
+	0x4e, 0x07, 0x0a, 0xbf, 0xb4, 0xb0, 0xd8, 0x56, 0x72, 0x0e, 0x87, 0x76, 0x43, 0x18, 0x1f, 0xb9,
+	0x76, 0xee, 0x9c, 0x5e, 0x40, 0xf0, 0x5e, 0xdd, 0xe2, 0x2f, 0x4d, 0xc8, 0x9f, 0xc1, 0xe8, 0xda,
+	0xf9, 0x71, 0xca, 0xc3, 0x3c, 0x9c, 0xd6, 0x4f, 0xd2, 0x58, 0x14, 0x1e, 0xaa, 0x49, 0x56, 0x5a,
+	0x6e, 0x9c, 0xe6, 0x48, 0xb8, 0x73, 0x7a, 0x05, 0x27, 0xdb, 0x86, 0xf8, 0x7b, 0x8d, 0x95, 0xe5,
+	0x6f, 0x20, 0x68, 0xd5, 0x78, 0xba, 0xc9, 0x50, 0xe2, 0x85, 0x36, 0xf8, 0xce, 0x07, 0xa2, 0xab,
+	0x4d, 0xaf, 0xe0, 0xb4, 0xc7, 0x55, 0x91, 0x56, 0x15, 0x0e, 0x0d, 0xb3, 0xff, 0x35, 0x9c, 0x12,
+	0xf0, 0x0f, 0x68, 0xbb, 0x26, 0x5e, 0xd9, 0x0c, 0xce, 0xda, 0x6b, 0xbb, 0xd3, 0x8a, 0x04, 0x6f,
+	0xa1, 0xde, 0xb8, 0x9e, 0xc3, 0x49, 0x77, 0xa1, 0x3f, 0xb2, 0x48, 0xdc, 0x6b, 0xf3, 0x7e, 0x6c,
+	0xe9, 0x27, 0x38, 0x1b, 0x74, 0xf4, 0xfa, 0xf7, 0x7d, 0x8c, 0xcf, 0x70, 0xff, 0xad, 0x2a, 0xae,
+	0xb5, 0xd9, 0xf5, 0xb0, 0x2f, 0xe1, 0x2b, 0x78, 0xb0, 0x4b, 0xe8, 0x25, 0x4e, 0x20, 0x58, 0x16,
+	0x05, 0x92, 0x45, 0xe9, 0x18, 0x03, 0xd1, 0xc5, 0xe7, 0x8f, 0xe1, 0x6e, 0xa1, 0x6f, 0xea, 0x6d,
+	0x38, 0x0f, 0xe6, 0x39, 0xcd, 0xeb, 0xf5, 0x9f, 0xb3, 0x6f, 0x47, 0x94, 0x13, 0xad, 0x56, 0x23,
+	0xf7, 0x1d, 0x5e, 0xfe, 0x0b, 0x00, 0x00, 0xff, 0xff, 0x62, 0x2d, 0x2d, 0xc1, 0x45, 0x03, 0x00,
+	0x00,
 }
