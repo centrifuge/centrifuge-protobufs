@@ -10,7 +10,6 @@ cache:
       # Cache dep data
       - /tmp/depcache
 install:
-  - mkdir -p ~/bin
   - make install
 
 jobs:
