@@ -16,10 +16,6 @@ help: ## Show this help message.
 install: ## Install dependencies required to generate bindings & documentation
 install: env install_prototool install_dep vendorinstall
 
-env:
-	export PROTOTOOL_VERSION=0.4.0
-	export PROTOTOOL_BIN=~/bin/0.4.0/prototool
-
 install_prototool:
 	mkdir -p ~/bin
 	PROTOTOOL_VERSION=$(PROTOTOOL_VERSION) ./scripts/install_prototool.sh
