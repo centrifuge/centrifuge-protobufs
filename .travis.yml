@@ -7,16 +7,14 @@ cache:
     directories:
       - ~/bin/
       - ~/.cache/prototool/Linux/x86_64/protobuf/
-      # Cache dep data 
+      # Cache dep data
       - /tmp/depcache
 install:
-  - mkdir -p ~/bin
-  - PROTOTOOL_VERSION=$PROTOTOOL_VERSION ./scripts/install_prototool.sh
   - make install
 
 jobs:
     include:
     - stage: test
       script:
-        - make lint
+        - make all
         - echo "Checking that prototool gen doesn't result in a modified git tree" && git diff --exit-code gen/

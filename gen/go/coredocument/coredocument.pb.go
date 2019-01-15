@@ -47,7 +47,7 @@ func (x Action) String() string {
 	return proto.EnumName(Action_name, int32(x))
 }
 func (Action) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_55d5af93ecad967c, []int{0}
+	return fileDescriptor_coredocument_e886fae15371d7b5, []int{0}
 }
 
 // `CoreDocument` is a document that can be sent to different nodes and anchored
@@ -108,7 +108,7 @@ func (m *CoreDocument) Reset()         { *m = CoreDocument{} }
 func (m *CoreDocument) String() string { return proto.CompactTextString(m) }
 func (*CoreDocument) ProtoMessage()    {}
 func (*CoreDocument) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_55d5af93ecad967c, []int{0}
+	return fileDescriptor_coredocument_e886fae15371d7b5, []int{0}
 }
 func (m *CoreDocument) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_CoreDocument.Unmarshal(m, b)
@@ -255,7 +255,7 @@ func (m *CoreDocumentSalts) Reset()         { *m = CoreDocumentSalts{} }
 func (m *CoreDocumentSalts) String() string { return proto.CompactTextString(m) }
 func (*CoreDocumentSalts) ProtoMessage()    {}
 func (*CoreDocumentSalts) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_55d5af93ecad967c, []int{1}
+	return fileDescriptor_coredocument_e886fae15371d7b5, []int{1}
 }
 func (m *CoreDocumentSalts) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_CoreDocumentSalts.Unmarshal(m, b)
@@ -376,7 +376,7 @@ func (m *Signature) Reset()         { *m = Signature{} }
 func (m *Signature) String() string { return proto.CompactTextString(m) }
 func (*Signature) ProtoMessage()    {}
 func (*Signature) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_55d5af93ecad967c, []int{2}
+	return fileDescriptor_coredocument_e886fae15371d7b5, []int{2}
 }
 func (m *Signature) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Signature.Unmarshal(m, b)
@@ -441,7 +441,7 @@ func (m *Role) Reset()         { *m = Role{} }
 func (m *Role) String() string { return proto.CompactTextString(m) }
 func (*Role) ProtoMessage()    {}
 func (*Role) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_55d5af93ecad967c, []int{3}
+	return fileDescriptor_coredocument_e886fae15371d7b5, []int{3}
 }
 func (m *Role) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Role.Unmarshal(m, b)
@@ -497,7 +497,7 @@ func (m *SaltedRole) Reset()         { *m = SaltedRole{} }
 func (m *SaltedRole) String() string { return proto.CompactTextString(m) }
 func (*SaltedRole) ProtoMessage()    {}
 func (*SaltedRole) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_55d5af93ecad967c, []int{4}
+	return fileDescriptor_coredocument_e886fae15371d7b5, []int{4}
 }
 func (m *SaltedRole) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_SaltedRole.Unmarshal(m, b)
@@ -564,7 +564,7 @@ func (m *ReadRule) Reset()         { *m = ReadRule{} }
 func (m *ReadRule) String() string { return proto.CompactTextString(m) }
 func (*ReadRule) ProtoMessage()    {}
 func (*ReadRule) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_55d5af93ecad967c, []int{5}
+	return fileDescriptor_coredocument_e886fae15371d7b5, []int{5}
 }
 func (m *ReadRule) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ReadRule.Unmarshal(m, b)
@@ -611,7 +611,7 @@ func (m *SaltedReadRule) Reset()         { *m = SaltedReadRule{} }
 func (m *SaltedReadRule) String() string { return proto.CompactTextString(m) }
 func (*SaltedReadRule) ProtoMessage()    {}
 func (*SaltedReadRule) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_55d5af93ecad967c, []int{6}
+	return fileDescriptor_coredocument_e886fae15371d7b5, []int{6}
 }
 func (m *SaltedReadRule) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_SaltedReadRule.Unmarshal(m, b)
@@ -664,7 +664,7 @@ func (m *RoleEntry) Reset()         { *m = RoleEntry{} }
 func (m *RoleEntry) String() string { return proto.CompactTextString(m) }
 func (*RoleEntry) ProtoMessage()    {}
 func (*RoleEntry) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_55d5af93ecad967c, []int{7}
+	return fileDescriptor_coredocument_e886fae15371d7b5, []int{7}
 }
 func (m *RoleEntry) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_RoleEntry.Unmarshal(m, b)
@@ -710,7 +710,7 @@ func (m *SaltedRoleEntry) Reset()         { *m = SaltedRoleEntry{} }
 func (m *SaltedRoleEntry) String() string { return proto.CompactTextString(m) }
 func (*SaltedRoleEntry) ProtoMessage()    {}
 func (*SaltedRoleEntry) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_55d5af93ecad967c, []int{8}
+	return fileDescriptor_coredocument_e886fae15371d7b5, []int{8}
 }
 func (m *SaltedRoleEntry) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_SaltedRoleEntry.Unmarshal(m, b)
@@ -758,10 +758,10 @@ func init() {
 }
 
 func init() {
-	proto.RegisterFile("coredocument/coredocument.proto", fileDescriptor_coredocument_55d5af93ecad967c)
+	proto.RegisterFile("coredocument/coredocument.proto", fileDescriptor_coredocument_e886fae15371d7b5)
 }
 
-var fileDescriptor_coredocument_55d5af93ecad967c = []byte{
+var fileDescriptor_coredocument_e886fae15371d7b5 = []byte{
 	// 914 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x54, 0xdd, 0x6e, 0xdb, 0x36,
 	0x14, 0x9e, 0x62, 0xc7, 0xb5, 0x8f, 0xe4, 0x9f, 0x30, 0x5e, 0xab, 0x66, 0x2d, 0x92, 0x7a, 0xc3,

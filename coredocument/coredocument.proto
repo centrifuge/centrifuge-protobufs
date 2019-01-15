@@ -73,8 +73,8 @@ message CoreDocument {
   // Collaborators involved in the document consensus
   repeated bytes collaborators = 17;
   // list of roles
-  repeated RoleEntry roles = 1[
-     (proofs.mapping_key) = "role_key"
+  repeated RoleEntry roles = 1 [
+    (proofs.mapping_key) = "role_key"
   ];
   // read rules
   repeated ReadRule read_rules = 19;
