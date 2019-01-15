@@ -16,5 +16,5 @@ jobs:
     include:
     - stage: test
       script:
-        - make lint
+        - make lint gen_proto
         - echo "Checking that prototool gen doesn't result in a modified git tree" && git diff --exit-code gen/
