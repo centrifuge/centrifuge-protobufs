@@ -14,7 +14,7 @@ help: ## Show this help message.
 	@egrep '^(.+)\:\ ##\ (.+)' ${MAKEFILE_LIST} | column -t -c 2 -s ':#'
 
 install: ## Install dependencies required to generate bindings & documentation
-install: env install_prototool install_dep vendorinstall
+install: install_prototool install_dep vendorinstall
 
 install_prototool:
 	mkdir -p ~/bin
