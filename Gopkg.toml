@@ -47,10 +47,6 @@ required = ["github.com/roboll/go-vendorinstall", "github.com/centrifuge/precise
     name = "github.com/grpc-ecosystem/grpc-gateway"
     unused-packages = false
 
-[[constraint]]
-  name = "google.golang.org/grpc"
-  version = "1.13.0"
-
 [prune]
   go-tests = true
   unused-packages = true

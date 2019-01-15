@@ -37,3 +37,11 @@ message AnchorDocumentRequest {
 message AnchorDocumentResponse {
   bool accepted = 1;
 }
+
+message GetDocumentRequest {
+  bytes document_identifier = 1;
+}
+
+message GetDocumentResponse {
+  coredocument.CoreDocument document = 1;
+}
