@@ -34,7 +34,6 @@ message SignatureResponse {
 
 message GetAnchoredDocumentRequest {
   bytes document_identifier = 1;
-  bytes document_version = 2;
 }
 
 message GetAnchoredDocumentResponse {
