@@ -47,7 +47,7 @@ func (x Action) String() string {
 	return proto.EnumName(Action_name, int32(x))
 }
 func (Action) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_55d5af93ecad967c, []int{0}
+	return fileDescriptor_coredocument_e886fae15371d7b5, []int{0}
 }
 
 // `CoreDocument` is a document that can be sent to different nodes and anchored
@@ -87,18 +87,18 @@ type CoreDocument struct {
 	DataRoot []byte `protobuf:"bytes,5,opt,name=data_root,json=dataRoot,proto3" json:"data_root,omitempty"`
 	// Signatures
 	// Signatures of the signature_root by centrifuge identities. This array should be sorted by the Centrifuge ID.
-	Signatures []*Signature `protobuf:"bytes,6,rep,name=signatures,proto3" json:"signatures,omitempty"`
+	Signatures []*Signature `protobuf:"bytes,6,rep,name=signatures" json:"signatures,omitempty"`
 	// Document a serialized document
-	EmbeddedData      *any.Any `protobuf:"bytes,13,opt,name=embedded_data,json=embeddedData,proto3" json:"embedded_data,omitempty"`
-	EmbeddedDataSalts *any.Any `protobuf:"bytes,14,opt,name=embedded_data_salts,json=embeddedDataSalts,proto3" json:"embedded_data_salts,omitempty"`
+	EmbeddedData      *any.Any `protobuf:"bytes,13,opt,name=embedded_data,json=embeddedData" json:"embedded_data,omitempty"`
+	EmbeddedDataSalts *any.Any `protobuf:"bytes,14,opt,name=embedded_data_salts,json=embeddedDataSalts" json:"embedded_data_salts,omitempty"`
 	// CoreDocumentSalts is inlined
-	CoredocumentSalts *CoreDocumentSalts `protobuf:"bytes,15,opt,name=coredocument_salts,json=coredocumentSalts,proto3" json:"coredocument_salts,omitempty"`
+	CoredocumentSalts *CoreDocumentSalts `protobuf:"bytes,15,opt,name=coredocument_salts,json=coredocumentSalts" json:"coredocument_salts,omitempty"`
 	// Collaborators involved in the document consensus
 	Collaborators [][]byte `protobuf:"bytes,17,rep,name=collaborators,proto3" json:"collaborators,omitempty"`
 	// list of roles
-	Roles []*RoleEntry `protobuf:"bytes,1,rep,name=roles,proto3" json:"roles,omitempty"`
+	Roles []*RoleEntry `protobuf:"bytes,1,rep,name=roles" json:"roles,omitempty"`
 	// read rules
-	ReadRules            []*ReadRule `protobuf:"bytes,19,rep,name=read_rules,json=readRules,proto3" json:"read_rules,omitempty"`
+	ReadRules            []*ReadRule `protobuf:"bytes,19,rep,name=read_rules,json=readRules" json:"read_rules,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
 	XXX_unrecognized     []byte      `json:"-"`
 	XXX_sizecache        int32       `json:"-"`
@@ -108,7 +108,7 @@ func (m *CoreDocument) Reset()         { *m = CoreDocument{} }
 func (m *CoreDocument) String() string { return proto.CompactTextString(m) }
 func (*CoreDocument) ProtoMessage()    {}
 func (*CoreDocument) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_55d5af93ecad967c, []int{0}
+	return fileDescriptor_coredocument_e886fae15371d7b5, []int{0}
 }
 func (m *CoreDocument) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_CoreDocument.Unmarshal(m, b)
@@ -242,9 +242,9 @@ type CoreDocumentSalts struct {
 	DataRoot             []byte             `protobuf:"bytes,5,opt,name=data_root,json=dataRoot,proto3" json:"data_root,omitempty"`
 	Collaborators        [][]byte           `protobuf:"bytes,6,rep,name=collaborators,proto3" json:"collaborators,omitempty"`
 	CollaboratorsLength  []byte             `protobuf:"bytes,7,opt,name=collaborators_length,json=collaboratorsLength,proto3" json:"collaborators_length,omitempty"`
-	Roles                []*SaltedRoleEntry `protobuf:"bytes,8,rep,name=roles,proto3" json:"roles,omitempty"`
+	Roles                []*SaltedRoleEntry `protobuf:"bytes,8,rep,name=roles" json:"roles,omitempty"`
 	RolesLength          []byte             `protobuf:"bytes,10,opt,name=roles_length,json=rolesLength,proto3" json:"roles_length,omitempty"`
-	ReadRules            []*SaltedReadRule  `protobuf:"bytes,11,rep,name=read_rules,json=readRules,proto3" json:"read_rules,omitempty"`
+	ReadRules            []*SaltedReadRule  `protobuf:"bytes,11,rep,name=read_rules,json=readRules" json:"read_rules,omitempty"`
 	ReadRulesLength      []byte             `protobuf:"bytes,12,opt,name=read_rules_length,json=readRulesLength,proto3" json:"read_rules_length,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}           `json:"-"`
 	XXX_unrecognized     []byte             `json:"-"`
@@ -255,7 +255,7 @@ func (m *CoreDocumentSalts) Reset()         { *m = CoreDocumentSalts{} }
 func (m *CoreDocumentSalts) String() string { return proto.CompactTextString(m) }
 func (*CoreDocumentSalts) ProtoMessage()    {}
 func (*CoreDocumentSalts) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_55d5af93ecad967c, []int{1}
+	return fileDescriptor_coredocument_e886fae15371d7b5, []int{1}
 }
 func (m *CoreDocumentSalts) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_CoreDocumentSalts.Unmarshal(m, b)
@@ -366,7 +366,7 @@ type Signature struct {
 	// `public_key` is the public key of the `entity` used for signing the `CoreDocument`
 	PublicKey            []byte               `protobuf:"bytes,2,opt,name=public_key,json=publicKey,proto3" json:"public_key,omitempty"`
 	Signature            []byte               `protobuf:"bytes,3,opt,name=signature,proto3" json:"signature,omitempty"`
-	Timestamp            *timestamp.Timestamp `protobuf:"bytes,4,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
+	Timestamp            *timestamp.Timestamp `protobuf:"bytes,4,opt,name=timestamp" json:"timestamp,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
 	XXX_unrecognized     []byte               `json:"-"`
 	XXX_sizecache        int32                `json:"-"`
@@ -376,7 +376,7 @@ func (m *Signature) Reset()         { *m = Signature{} }
 func (m *Signature) String() string { return proto.CompactTextString(m) }
 func (*Signature) ProtoMessage()    {}
 func (*Signature) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_55d5af93ecad967c, []int{2}
+	return fileDescriptor_coredocument_e886fae15371d7b5, []int{2}
 }
 func (m *Signature) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Signature.Unmarshal(m, b)
@@ -441,7 +441,7 @@ func (m *Role) Reset()         { *m = Role{} }
 func (m *Role) String() string { return proto.CompactTextString(m) }
 func (*Role) ProtoMessage()    {}
 func (*Role) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_55d5af93ecad967c, []int{3}
+	return fileDescriptor_coredocument_e886fae15371d7b5, []int{3}
 }
 func (m *Role) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Role.Unmarshal(m, b)
@@ -497,7 +497,7 @@ func (m *SaltedRole) Reset()         { *m = SaltedRole{} }
 func (m *SaltedRole) String() string { return proto.CompactTextString(m) }
 func (*SaltedRole) ProtoMessage()    {}
 func (*SaltedRole) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_55d5af93ecad967c, []int{4}
+	return fileDescriptor_coredocument_e886fae15371d7b5, []int{4}
 }
 func (m *SaltedRole) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_SaltedRole.Unmarshal(m, b)
@@ -553,8 +553,8 @@ func (m *SaltedRole) GetAccessTokenIdentifier() []byte {
 }
 
 type ReadRule struct {
-	Roles                []uint32 `protobuf:"varint,2,rep,packed,name=roles,proto3" json:"roles,omitempty"`
-	Action               Action   `protobuf:"varint,4,opt,name=action,proto3,enum=coredocument.Action" json:"action,omitempty"`
+	Roles                []uint32 `protobuf:"varint,2,rep,packed,name=roles" json:"roles,omitempty"`
+	Action               Action   `protobuf:"varint,4,opt,name=action,enum=coredocument.Action" json:"action,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -564,7 +564,7 @@ func (m *ReadRule) Reset()         { *m = ReadRule{} }
 func (m *ReadRule) String() string { return proto.CompactTextString(m) }
 func (*ReadRule) ProtoMessage()    {}
 func (*ReadRule) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_55d5af93ecad967c, []int{5}
+	return fileDescriptor_coredocument_e886fae15371d7b5, []int{5}
 }
 func (m *ReadRule) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ReadRule.Unmarshal(m, b)
@@ -611,7 +611,7 @@ func (m *SaltedReadRule) Reset()         { *m = SaltedReadRule{} }
 func (m *SaltedReadRule) String() string { return proto.CompactTextString(m) }
 func (*SaltedReadRule) ProtoMessage()    {}
 func (*SaltedReadRule) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_55d5af93ecad967c, []int{6}
+	return fileDescriptor_coredocument_e886fae15371d7b5, []int{6}
 }
 func (m *SaltedReadRule) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_SaltedReadRule.Unmarshal(m, b)
@@ -653,8 +653,8 @@ func (m *SaltedReadRule) GetAction() []byte {
 }
 
 type RoleEntry struct {
-	RoleKey              uint32   `protobuf:"varint,1,opt,name=role_key,json=roleKey,proto3" json:"role_key,omitempty"`
-	Role                 *Role    `protobuf:"bytes,2,opt,name=role,proto3" json:"role,omitempty"`
+	RoleKey              uint32   `protobuf:"varint,1,opt,name=role_key,json=roleKey" json:"role_key,omitempty"`
+	Role                 *Role    `protobuf:"bytes,2,opt,name=role" json:"role,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -664,7 +664,7 @@ func (m *RoleEntry) Reset()         { *m = RoleEntry{} }
 func (m *RoleEntry) String() string { return proto.CompactTextString(m) }
 func (*RoleEntry) ProtoMessage()    {}
 func (*RoleEntry) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_55d5af93ecad967c, []int{7}
+	return fileDescriptor_coredocument_e886fae15371d7b5, []int{7}
 }
 func (m *RoleEntry) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_RoleEntry.Unmarshal(m, b)
@@ -699,8 +699,8 @@ func (m *RoleEntry) GetRole() *Role {
 }
 
 type SaltedRoleEntry struct {
-	RoleKey              uint32      `protobuf:"varint,1,opt,name=role_key,json=roleKey,proto3" json:"role_key,omitempty"`
-	Role                 *SaltedRole `protobuf:"bytes,2,opt,name=role,proto3" json:"role,omitempty"`
+	RoleKey              uint32      `protobuf:"varint,1,opt,name=role_key,json=roleKey" json:"role_key,omitempty"`
+	Role                 *SaltedRole `protobuf:"bytes,2,opt,name=role" json:"role,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
 	XXX_unrecognized     []byte      `json:"-"`
 	XXX_sizecache        int32       `json:"-"`
@@ -710,7 +710,7 @@ func (m *SaltedRoleEntry) Reset()         { *m = SaltedRoleEntry{} }
 func (m *SaltedRoleEntry) String() string { return proto.CompactTextString(m) }
 func (*SaltedRoleEntry) ProtoMessage()    {}
 func (*SaltedRoleEntry) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_55d5af93ecad967c, []int{8}
+	return fileDescriptor_coredocument_e886fae15371d7b5, []int{8}
 }
 func (m *SaltedRoleEntry) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_SaltedRoleEntry.Unmarshal(m, b)
@@ -758,10 +758,10 @@ func init() {
 }
 
 func init() {
-	proto.RegisterFile("coredocument/coredocument.proto", fileDescriptor_coredocument_55d5af93ecad967c)
+	proto.RegisterFile("coredocument/coredocument.proto", fileDescriptor_coredocument_e886fae15371d7b5)
 }
 
-var fileDescriptor_coredocument_55d5af93ecad967c = []byte{
+var fileDescriptor_coredocument_e886fae15371d7b5 = []byte{
 	// 914 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x54, 0xdd, 0x6e, 0xdb, 0x36,
 	0x14, 0x9e, 0x62, 0xc7, 0xb5, 0x8f, 0xe4, 0x9f, 0x30, 0x5e, 0xab, 0x66, 0x2d, 0x92, 0x7a, 0xc3,
