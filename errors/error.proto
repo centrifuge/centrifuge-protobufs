@@ -18,7 +18,7 @@ message Error {
   // map of sub errors if there are multiple errors to be passed back
   // ex:
   // "document_identifier": "empty identifer",
-  // "next_identifier": "inavlid next identifer",
+  // "next_identifier": "invalid next identifer",
   // "document_root": "invalid document root"
   map<string, string> errors = 3;
 }
