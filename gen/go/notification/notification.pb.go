@@ -21,11 +21,11 @@ const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 // NotificationMessage wraps a single CoreDocument to be notified to upstream services
 type NotificationMessage struct {
-	EventType            uint32               `protobuf:"varint,1,opt,name=event_type,json=eventType,proto3" json:"event_type,omitempty"`
-	CentrifugeId         string               `protobuf:"bytes,6,opt,name=centrifuge_id,json=centrifugeId,proto3" json:"centrifuge_id,omitempty"`
-	Recorded             *timestamp.Timestamp `protobuf:"bytes,3,opt,name=recorded,proto3" json:"recorded,omitempty"`
-	DocumentType         string               `protobuf:"bytes,4,opt,name=document_type,json=documentType,proto3" json:"document_type,omitempty"`
-	DocumentId           string               `protobuf:"bytes,7,opt,name=document_id,json=documentId,proto3" json:"document_id,omitempty"`
+	EventType            uint32               `protobuf:"varint,1,opt,name=event_type,json=eventType" json:"event_type,omitempty"`
+	CentrifugeId         string               `protobuf:"bytes,6,opt,name=centrifuge_id,json=centrifugeId" json:"centrifuge_id,omitempty"`
+	Recorded             *timestamp.Timestamp `protobuf:"bytes,3,opt,name=recorded" json:"recorded,omitempty"`
+	DocumentType         string               `protobuf:"bytes,4,opt,name=document_type,json=documentType" json:"document_type,omitempty"`
+	DocumentId           string               `protobuf:"bytes,7,opt,name=document_id,json=documentId" json:"document_id,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
 	XXX_unrecognized     []byte               `json:"-"`
 	XXX_sizecache        int32                `json:"-"`
