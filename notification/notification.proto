@@ -16,4 +16,10 @@ message NotificationMessage {
   google.protobuf.Timestamp recorded = 3;
   string document_type = 4;
   string document_id = 7;
+  // account_id is the account associated to webhook
+  string account_id = 8;
+  // from_id if provided, original trigger of the event
+  string from_id = 9;
+  // to_id if provided, final destination of the event
+  string to_id = 10;
 }
