@@ -38,13 +38,15 @@ message AnchorDocumentResponse {
   bool accepted = 1;
 }
 
+enum AccessType {
+  ACCESS_TYPE_INVALID = 0;
+  ACCESS_TYPE_REQUESTER_VERIFICATION = 1;
+  ACCESS_TYPE_NT_OWNER_VERIFICATION = 2;
+  ACCESS_TYPE_ACCESS_TOKEN_VERIFICATION = 3;
+}
+
 message GetDocumentRequest {
   bytes document_identifier = 1;
-  enum AccessType {
-    REQUESTER_VERIFICATION = 0;
-    NT_OWNER_VERIFICATION = 1;
-    ACCESS_TOKEN_VERIFICATION = 2;
-  }
   AccessType access_type = 2;
   bytes nft = 3;
 }
