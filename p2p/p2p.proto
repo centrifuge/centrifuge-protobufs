@@ -45,7 +45,6 @@ message GetDocumentRequest {
     NT_OWNER_VERIFICATION = 1;
     ACCESS_TOKEN_VERIFICATION = 2;
   }
-
   AccessType access_type = 2;
   bytes nft = 3;
 }
