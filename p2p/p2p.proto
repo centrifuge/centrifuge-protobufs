@@ -52,13 +52,10 @@ message AccessToken {
   bytes granter = 7;
   // The identity being granted access to the document
   bytes grantee = 8;
-
   // Role identifier is the identifier on the read rule that this token should be mapped to
   bytes role_identifier = 9;
-
   // Original identifier of the document
   bytes document_identifier = 2;
-
   // TODO: if set, access will be limited to the specific version
   //  bytes read_version = 3;
 
@@ -66,11 +63,6 @@ message AccessToken {
   // int32 valid_until_block_height = 4;
 
   // TODO: Revocation: TBD in a later PR
-
-  // If the boolean can_be_revoked is set to true, then this access token is revokable by setting the
-  // revoked boolean value to true.
-  //
-  //  Making the token revokable comes at an extra cost as this requires submission of a proof that
   //  bool can_be_revoked = 5;
   //  bool revoked = 6;
 
