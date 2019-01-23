@@ -53,13 +53,14 @@ message AccessToken {
   // The identity being granted access to the document
   bytes grantee = 8;
 
-  // [CLARIFY] Role identifier is the identifier on the read rule that this token should be mapped to
-  //  bytes role_identifier = 10;
+  // Role identifier is the identifier on the read rule that this token should be mapped to
+  bytes role_identifier = 9;
 
   // Original identifier of the document
   bytes document_identifier = 2;
-  // if set, access will be limited to the specific version
-  bytes read_version = 3;
+
+  // TODO: if set, access will be limited to the specific version
+  //  bytes read_version = 3;
 
   // TODO: if set, access will not be granted past a certain block height
   // int32 valid_until_block_height = 4;
@@ -71,13 +72,13 @@ message AccessToken {
   //
   //  Making the token revokable comes at an extra cost as this requires submission of a proof that
   //  bool can_be_revoked = 5;
-  //  bool revoked  = 6;
+  //  bool revoked = 6;
 
   // Signature
   // Cryptographic signature that an access token is valid
-  bytes signature = 9;
+  bytes signature = 10;
   // The public key of the signed message
-  bytes key = 10;
+  bytes key = 11;
 }
 
 message GetDocumentRequest {
