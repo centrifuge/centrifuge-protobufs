@@ -49,33 +49,21 @@ message AccessToken {
   // The identifier is an internal 256bit word
   bytes identifier = 1;
   // The identity granting access to the document
-  bytes granter = 7;
+  bytes granter = 3;
   // The identity being granted access to the document
-  bytes grantee = 8;
+  bytes grantee = 4;
   // Role identifier is the identifier on the read rule that this token should be mapped to
-  bytes role_identifier = 9;
+  bytes role_identifier = 5;
   // Original identifier of the document
   bytes document_identifier = 2;
-  // TODO: if set, access will be limited to the specific version
-  //  bytes read_version = 3;
-
-  // TODO: if set, access will not be granted past a certain block height
-  // int32 valid_until_block_height = 4;
-
-  // TODO: Revocation: TBD in a later PR
-  //  bool can_be_revoked = 5;
-  //  bool revoked = 6;
-
-  // Signature
   // Cryptographic signature that an access token is valid
-  bytes signature = 10;
+  bytes signature = 6;
   // The public key of the signed message
-  bytes key = 11;
+  bytes key = 7;
 }
 
 message GetDocumentRequest {
   bytes document_identifier = 1;
-  // Version of document? or should versioning be handled one layer down in AccessTypes?
   AccessType access_type = 2;
   bytes nft_registry_address = 3;
   bytes nft_token_id = 4;
