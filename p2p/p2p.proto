@@ -45,6 +45,23 @@ enum AccessType {
   ACCESS_TYPE_ACCESS_TOKEN_VERIFICATION = 3;
 }
 
+message AccessToken {
+  // The identifier is an internal 256bit word
+  bytes identifier = 1;
+  // The identity granting access to the document
+  bytes granter = 3;
+  // The identity being granted access to the document
+  bytes grantee = 4;
+  // Role identifier is the identifier on the read rule that this token should be mapped to
+  bytes role_identifier = 5;
+  // Original identifier of the document
+  bytes document_identifier = 2;
+  // Cryptographic signature that an access token is valid
+  bytes signature = 6;
+  // The public key of the signed message
+  bytes key = 7;
+}
+
 message GetDocumentRequest {
   bytes document_identifier = 1;
   AccessType access_type = 2;
