@@ -87,18 +87,18 @@ type CoreDocument struct {
 	DataRoot []byte `protobuf:"bytes,5,opt,name=data_root,json=dataRoot,proto3" json:"data_root,omitempty"`
 	// Signatures
 	// Signatures of the signature_root by centrifuge identities. This array should be sorted by the Centrifuge ID.
-	Signatures []*Signature `protobuf:"bytes,6,rep,name=signatures,proto3" json:"signatures,omitempty"`
+	Signatures []*Signature `protobuf:"bytes,6,rep,name=signatures" json:"signatures,omitempty"`
 	// Document a serialized document
-	EmbeddedData      *any.Any `protobuf:"bytes,13,opt,name=embedded_data,json=embeddedData,proto3" json:"embedded_data,omitempty"`
-	EmbeddedDataSalts *any.Any `protobuf:"bytes,14,opt,name=embedded_data_salts,json=embeddedDataSalts,proto3" json:"embedded_data_salts,omitempty"`
+	EmbeddedData      *any.Any `protobuf:"bytes,13,opt,name=embedded_data,json=embeddedData" json:"embedded_data,omitempty"`
+	EmbeddedDataSalts *any.Any `protobuf:"bytes,14,opt,name=embedded_data_salts,json=embeddedDataSalts" json:"embedded_data_salts,omitempty"`
 	// CoreDocumentSalts is inlined
-	CoredocumentSalts *CoreDocumentSalts `protobuf:"bytes,15,opt,name=coredocument_salts,json=coredocumentSalts,proto3" json:"coredocument_salts,omitempty"`
+	CoredocumentSalts *CoreDocumentSalts `protobuf:"bytes,15,opt,name=coredocument_salts,json=coredocumentSalts" json:"coredocument_salts,omitempty"`
 	// Collaborators involved in the document consensus
 	Collaborators [][]byte `protobuf:"bytes,17,rep,name=collaborators,proto3" json:"collaborators,omitempty"`
 	// list of roles
-	Roles []*Role `protobuf:"bytes,1,rep,name=roles,proto3" json:"roles,omitempty"`
+	Roles []*Role `protobuf:"bytes,1,rep,name=roles" json:"roles,omitempty"`
 	// read rules
-	ReadRules            []*ReadRule `protobuf:"bytes,19,rep,name=read_rules,json=readRules,proto3" json:"read_rules,omitempty"`
+	ReadRules            []*ReadRule `protobuf:"bytes,19,rep,name=read_rules,json=readRules" json:"read_rules,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
 	XXX_unrecognized     []byte      `json:"-"`
 	XXX_sizecache        int32       `json:"-"`
@@ -243,7 +243,7 @@ type CoreDocumentSalts struct {
 	Collaborators        [][]byte          `protobuf:"bytes,6,rep,name=collaborators,proto3" json:"collaborators,omitempty"`
 	CollaboratorsLength  []byte            `protobuf:"bytes,7,opt,name=collaborators_length,json=collaboratorsLength,proto3" json:"collaborators_length,omitempty"`
 	RolesLength          []byte            `protobuf:"bytes,10,opt,name=roles_length,json=rolesLength,proto3" json:"roles_length,omitempty"`
-	ReadRules            []*SaltedReadRule `protobuf:"bytes,11,rep,name=read_rules,json=readRules,proto3" json:"read_rules,omitempty"`
+	ReadRules            []*SaltedReadRule `protobuf:"bytes,11,rep,name=read_rules,json=readRules" json:"read_rules,omitempty"`
 	ReadRulesLength      []byte            `protobuf:"bytes,12,opt,name=read_rules_length,json=readRulesLength,proto3" json:"read_rules_length,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
 	XXX_unrecognized     []byte            `json:"-"`
@@ -358,7 +358,7 @@ type Signature struct {
 	// `public_key` is the public key of the `entity` used for signing the `CoreDocument`
 	PublicKey            []byte               `protobuf:"bytes,2,opt,name=public_key,json=publicKey,proto3" json:"public_key,omitempty"`
 	Signature            []byte               `protobuf:"bytes,3,opt,name=signature,proto3" json:"signature,omitempty"`
-	Timestamp            *timestamp.Timestamp `protobuf:"bytes,4,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
+	Timestamp            *timestamp.Timestamp `protobuf:"bytes,4,opt,name=timestamp" json:"timestamp,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
 	XXX_unrecognized     []byte               `json:"-"`
 	XXX_sizecache        int32                `json:"-"`
@@ -562,8 +562,8 @@ func (m *SaltedRole) GetAccessTokenIdentifier() []byte {
 }
 
 type ReadRule struct {
-	Roles                []uint32 `protobuf:"varint,2,rep,packed,name=roles,proto3" json:"roles,omitempty"`
-	Action               Action   `protobuf:"varint,4,opt,name=action,proto3,enum=coredocument.Action" json:"action,omitempty"`
+	Roles                []uint32 `protobuf:"varint,2,rep,packed,name=roles" json:"roles,omitempty"`
+	Action               Action   `protobuf:"varint,4,opt,name=action,enum=coredocument.Action" json:"action,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`

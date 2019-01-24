@@ -21,16 +21,16 @@ const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 // NotificationMessage wraps a single CoreDocument to be notified to upstream services
 type NotificationMessage struct {
-	EventType    uint32               `protobuf:"varint,1,opt,name=event_type,json=eventType,proto3" json:"event_type,omitempty"`
-	Recorded     *timestamp.Timestamp `protobuf:"bytes,3,opt,name=recorded,proto3" json:"recorded,omitempty"`
-	DocumentType string               `protobuf:"bytes,4,opt,name=document_type,json=documentType,proto3" json:"document_type,omitempty"`
-	DocumentId   string               `protobuf:"bytes,7,opt,name=document_id,json=documentId,proto3" json:"document_id,omitempty"`
+	EventType    uint32               `protobuf:"varint,1,opt,name=event_type,json=eventType" json:"event_type,omitempty"`
+	Recorded     *timestamp.Timestamp `protobuf:"bytes,3,opt,name=recorded" json:"recorded,omitempty"`
+	DocumentType string               `protobuf:"bytes,4,opt,name=document_type,json=documentType" json:"document_type,omitempty"`
+	DocumentId   string               `protobuf:"bytes,7,opt,name=document_id,json=documentId" json:"document_id,omitempty"`
 	// account_id is the account associated to webhook
-	AccountId string `protobuf:"bytes,8,opt,name=account_id,json=accountId,proto3" json:"account_id,omitempty"`
+	AccountId string `protobuf:"bytes,8,opt,name=account_id,json=accountId" json:"account_id,omitempty"`
 	// from_id if provided, original trigger of the event
-	FromId string `protobuf:"bytes,9,opt,name=from_id,json=fromId,proto3" json:"from_id,omitempty"`
+	FromId string `protobuf:"bytes,9,opt,name=from_id,json=fromId" json:"from_id,omitempty"`
 	// to_id if provided, final destination of the event
-	ToId                 string   `protobuf:"bytes,10,opt,name=to_id,json=toId,proto3" json:"to_id,omitempty"`
+	ToId                 string   `protobuf:"bytes,10,opt,name=to_id,json=toId" json:"to_id,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
