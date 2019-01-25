@@ -98,6 +98,16 @@ message AccessToken {
   bytes key = 7;
 }
 
+message AccessTokenSalts {
+  bytes identifier = 1;
+  bytes granter = 3;
+  bytes grantee = 4;
+  bytes role_identifier = 5;
+  bytes document_identifier = 2;
+  bytes signature = 6;
+  bytes key = 7;
+}
+
 message CoreDocumentSalts {
   bytes document_identifier = 9;
   bytes previous_version = 1;
@@ -153,11 +163,11 @@ message SaltedRole {
   bytes collaborators_length = 3;
   repeated bytes nfts = 4;
   bytes nfts_length = 5;
-  bytes access_token_identifier = 6;
+  repeated AccessTokenSalts access_tokens = 6;
 }
 
 message ReadRule {
-  repeated uint32 roles = 2;
+  repeated bytes roles = 2;
   Action action = 4;
 }
 
