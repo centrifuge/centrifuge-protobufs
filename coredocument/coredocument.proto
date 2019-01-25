@@ -81,6 +81,23 @@ message CoreDocument {
   repeated ReadRule read_rules = 19;
 }
 
+message AccessToken {
+  // The identifier is an internal 256bit word
+  bytes identifier = 1;
+  // The identity granting access to the document
+  bytes granter = 3;
+  // The identity being granted access to the document
+  bytes grantee = 4;
+  // Role identifier is the identifier on the read rule that this token should be mapped to
+  bytes role_identifier = 5;
+  // Original identifier of the document
+  bytes document_identifier = 2;
+  // Cryptographic signature that an access token is valid
+  bytes signature = 6;
+  // The public key of the signed message
+  bytes key = 7;
+}
+
 message CoreDocumentSalts {
   bytes document_identifier = 9;
   bytes previous_version = 1;
@@ -123,7 +140,11 @@ message Role {
   // nfts is a list of registry address/tokenID pairs.
   // For easier verification in merkle proofs, the values are simply concatenated with the first 22 bytes being the NFT registry and the remaining 32 bytes the tokenID.
   repeated bytes nfts = 4;
-  bytes access_token_identifier = 5;
+  // AccessTokens which have been added to this CoreDocument
+  repeated AccessToken access_tokens = 5 [
+    (proofs.key_length) = 32,
+    (proofs.mapping_key) = "identifier"
+  ];
 }
 
 message SaltedRole {
