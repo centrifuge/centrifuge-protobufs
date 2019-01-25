@@ -79,8 +79,6 @@ message CoreDocument {
   ];
   // read rules
   repeated ReadRule read_rules = 19;
-  // AccessTokens which have been added to this CoreDocument
-
 }
 
 message AccessToken {
