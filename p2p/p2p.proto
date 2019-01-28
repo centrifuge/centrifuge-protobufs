@@ -38,6 +38,14 @@ message AnchorDocumentResponse {
   bool accepted = 1;
 }
 
+message SendAccessToken {
+  coredocument.AccessToken access_token = 1;
+}
+
+message SendAccessTokenResponse {
+  bool accepted = 1;
+}
+
 enum AccessType {
   ACCESS_TYPE_INVALID = 0;
   ACCESS_TYPE_REQUESTER_VERIFICATION = 1;
@@ -50,6 +58,7 @@ message GetDocumentRequest {
   AccessType access_type = 2;
   bytes nft_registry_address = 3;
   bytes nft_token_id = 4;
+  bytes access_token_id = 5;
 }
 
 message GetDocumentResponse {
