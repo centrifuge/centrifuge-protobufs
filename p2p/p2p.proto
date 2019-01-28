@@ -50,6 +50,12 @@ message GetDocumentRequest {
   AccessType access_type = 2;
   bytes nft_registry_address = 3;
   bytes nft_token_id = 4;
+  AccessTokenRequest access_token_request = 5;
+}
+
+message AccessTokenRequest {
+  bytes delegating_document_identifier = 1;
+  bytes access_token_id = 2;
 }
 
 message GetDocumentResponse {
