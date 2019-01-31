@@ -52,7 +52,7 @@ message CoreDocument {
   ];
   // data_root is the Merkle root calculated for the `embedded_data` & `embedded_salts` document (such as an invoice).
   bytes data_root = 5 [
-    (proofs.hashed_field) = true
+    (proofs.exclude_from_tree) = true
   ];
   // Signatures
   // Signatures of the signature_root by centrifuge identities. This array should be sorted by the Centrifuge ID.
