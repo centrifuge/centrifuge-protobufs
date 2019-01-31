@@ -114,7 +114,6 @@ message CoreDocumentSalts {
   bytes current_version = 3;
   bytes next_version = 4;
   bytes previous_root = 2;
-  bytes data_root = 5;
   repeated bytes collaborators = 6;
   bytes collaborators_length = 7;
   repeated SaltedRole roles = 8;
