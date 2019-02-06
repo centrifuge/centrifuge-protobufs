@@ -1,6 +1,6 @@
 language: go
 go:
-  - 1.10.x
+  - 1.11.4
 env:
   - PROTOTOOL_VERSION=0.4.0 PROTOTOOL_BIN=~/bin/0.4.0/prototool
 cache:
