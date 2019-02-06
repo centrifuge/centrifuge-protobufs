@@ -79,6 +79,11 @@ message CoreDocument {
   ];
   // read rules
   repeated ReadRule read_rules = 19;
+  // nft list for uniqueness check
+  repeated NFT nfts = 20 [
+    (proofs.key_length) = 32,
+    (proofs.mapping_key) = "registry_id"
+  ];
 }
 
 message AccessToken {
@@ -121,6 +126,8 @@ message CoreDocumentSalts {
   bytes roles_length = 10;
   repeated SaltedReadRule read_rules = 11;
   bytes read_rules_length = 12;
+  repeated SaltedNFT nfts = 13;
+  bytes nfts_length = 14;
 }
 
 // Signature contains the entity ID, public key used and signature)
@@ -177,4 +184,14 @@ message SaltedReadRule {
   repeated bytes roles = 2;
   bytes roles_length = 3;
   bytes action = 4;
+}
+
+message NFT {
+  bytes registry_id = 1;
+  bytes token_id = 2;
+}
+
+message SaltedNFT {
+  bytes registry_id = 1;
+  bytes token_id = 2;
 }
