@@ -82,7 +82,7 @@ message CoreDocument {
   // nft list for uniqueness check
   repeated NFT nfts = 20 [
     (proofs.key_length) = 32,
-    (proofs.mapping_key) = "registryId"
+    (proofs.mapping_key) = "registry_id"
   ];
 }
 
