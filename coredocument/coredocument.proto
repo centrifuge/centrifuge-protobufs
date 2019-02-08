@@ -135,6 +135,11 @@ message SignatureData {
   ];
 }
 
+message SignatureDataSalts {
+  repeated bytes signatures = 1;
+  bytes signatures_length = 2;
+}
+
 // Signature contains the signer ID, public key used and signature)
 message Signature {
   // `signature_id` is a composed key signer_id+public_key used
@@ -145,6 +150,14 @@ message Signature {
   bytes public_key = 3;
   bytes signature = 4;
   google.protobuf.Timestamp timestamp = 5;
+}
+
+message SignatureSalts {
+  bytes signature_id = 1;
+  bytes signer_id = 2;
+  bytes public_key = 3;
+  bytes signature = 4;
+  bytes timestamp = 5;
 }
 
 // Action defines the set of actions a collaborator can/have per document.
