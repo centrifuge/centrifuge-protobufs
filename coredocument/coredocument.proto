@@ -140,7 +140,7 @@ message SignatureData {
 }
 
 message SignatureDataSalts {
-  repeated bytes signatures = 1;
+  repeated SignatureSalts signatures = 1;
   bytes signatures_length = 2;
 }
 
