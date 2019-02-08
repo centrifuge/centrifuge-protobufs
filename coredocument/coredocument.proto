@@ -58,6 +58,10 @@ message CoreDocument {
   SignatureData signature_data = 6 [
     (proofs.exclude_from_tree) = true
   ];
+  // signature_data_salts of inlined.
+  SignatureDataSalts signature_data_salts = 8 [
+    (proofs.exclude_from_tree) = true
+  ];
   // Document a serialized document
   google.protobuf.Any embedded_data = 13 [
     (proofs.exclude_from_tree) = true
