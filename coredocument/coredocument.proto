@@ -63,11 +63,11 @@ message CoreDocument {
   google.protobuf.Any embedded_data = 13 [
     (proofs.exclude_from_tree) = true
   ];
-  google.protobuf.Any embedded_data_salts = 14 [
+  repeated DocumentSalt embedded_data_salts = 14 [
     (proofs.exclude_from_tree) = true
   ];
   // CoreDocumentSalts is inlined
-  CoreDocumentSalts coredocument_salts = 15 [
+  repeated DocumentSalt coredocument_salts = 15 [
     (proofs.exclude_from_tree) = true
   ];
   // Collaborators involved in the document consensus
@@ -84,6 +84,11 @@ message CoreDocument {
     (proofs.key_length) = 32,
     (proofs.mapping_key) = "registry_id"
   ];
+}
+
+message DocumentSalt {
+  bytes compact = 1;
+  bytes value = 2;
 }
 
 message AccessToken {
