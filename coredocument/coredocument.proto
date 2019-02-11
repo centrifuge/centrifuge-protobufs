@@ -58,19 +58,15 @@ message CoreDocument {
   SignatureData signature_data = 6 [
     (proofs.exclude_from_tree) = true
   ];
-  // signature_data_salts of inlined.
-  SignatureDataSalts signature_data_salts = 8 [
-    (proofs.exclude_from_tree) = true
-  ];
   // Document a serialized document
   google.protobuf.Any embedded_data = 13 [
     (proofs.exclude_from_tree) = true
   ];
-  google.protobuf.Any embedded_data_salts = 14 [
+  repeated DocumentSalt embedded_data_salts = 14 [
     (proofs.exclude_from_tree) = true
   ];
   // CoreDocumentSalts is inlined
-  CoreDocumentSalts coredocument_salts = 15 [
+  repeated DocumentSalt coredocument_salts = 15 [
     (proofs.exclude_from_tree) = true
   ];
   // Collaborators involved in the document consensus
@@ -87,6 +83,11 @@ message CoreDocument {
     (proofs.key_length) = 32,
     (proofs.mapping_key) = "registry_id"
   ];
+}
+
+message DocumentSalt {
+  bytes compact = 1;
+  bytes value = 2;
 }
 
 message AccessToken {
@@ -139,11 +140,6 @@ message SignatureData {
   ];
 }
 
-message SignatureDataSalts {
-  repeated SignatureSalts signatures = 1;
-  bytes signatures_length = 2;
-}
-
 // Signature contains the signer ID, public key used and signature)
 message Signature {
   // `signature_id` is a composed key signer_id+public_key used
@@ -154,14 +150,6 @@ message Signature {
   bytes public_key = 3;
   bytes signature = 4;
   google.protobuf.Timestamp timestamp = 5;
-}
-
-message SignatureSalts {
-  bytes signature_id = 1;
-  bytes signer_id = 2;
-  bytes public_key = 3;
-  bytes signature = 4;
-  bytes timestamp = 5;
 }
 
 // Action defines the set of actions a collaborator can/have per document.
