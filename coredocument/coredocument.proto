@@ -100,8 +100,10 @@ message AccessToken {
   bytes grantee = 4;
   // Role identifier is the identifier on the read rule that this token should be mapped to
   bytes role_identifier = 5;
-  // Original identifier of the document
+  // Identifier of the document where the access token can be found
   bytes document_identifier = 2;
+  // Identifier of the delegate document which can be accessed via the access token
+  bytes delegated_document_identifier = 8;
   // Cryptographic signature that an access token is valid
   bytes signature = 6;
   // The public key of the signed message
