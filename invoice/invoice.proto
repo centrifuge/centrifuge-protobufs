@@ -7,7 +7,6 @@ option java_multiple_files = true;
 option java_outer_classname = "InvoiceProto";
 option java_package = "com.invoice";
 
-import "coredocument/coredocument.proto";
 import "google/protobuf/timestamp.proto";
 
 // InvoiceData is the default invoice schema
@@ -44,38 +43,4 @@ message InvoiceData {
   google.protobuf.Timestamp due_date = 22;
   google.protobuf.Timestamp date_created = 23;
   bytes extra_data = 24;
-}
-
-// InvoiceDataSalts keeps track of the salts used for each InvoiceData field.
-message InvoiceDataSalts {
-  bytes invoice_number = 1;
-  bytes sender_name = 3;
-  bytes sender_street = 4;
-  bytes sender_city = 5;
-  bytes sender_zipcode = 6;
-  bytes sender_country = 7;
-  bytes recipient_name = 8;
-  bytes recipient_street = 9;
-  bytes recipient_city = 10;
-  bytes recipient_zipcode = 11;
-  bytes recipient_country = 12;
-  bytes currency = 13;
-  bytes gross_amount = 14;
-  bytes net_amount = 15;
-  bytes tax_amount = 16;
-  bytes tax_rate = 17;
-  bytes recipient = 18;
-  bytes sender = 19;
-  bytes payee = 20;
-  bytes comment = 21;
-  bytes due_date = 22;
-  bytes date_created = 23;
-  bytes extra_data = 24;
-}
-
-// InvoiceDocument combines teh salts, data & coredocument for an invoice
-message InvoiceDocument {
-  coredocument.CoreDocument core_document = 1;
-  InvoiceData data = 2;
-  InvoiceDataSalts salts = 3;
 }

@@ -7,7 +7,6 @@ option java_multiple_files = true;
 option java_outer_classname = "PurchaseorderProto";
 option java_package = "com.purchaseorder";
 
-import "coredocument/coredocument.proto";
 import "google/protobuf/timestamp.proto";
 
 // PurchaseOrderData is the default schema for a purchase order
@@ -49,39 +48,4 @@ message PurchaseOrderData {
   bytes extra_data = 23;
   // purchase order status
   string po_status = 24;
-}
-
-// PurhcaseOrderDataSalts keeps track of the salts used for each PurchaseOrderData field.
-message PurchaseOrderDataSalts {
-  bytes po_number = 1;
-  bytes order_name = 2;
-  bytes order_street = 3;
-  bytes order_city = 4;
-  bytes order_zipcode = 5;
-  bytes order_country = 6;
-  bytes recipient_name = 7;
-  bytes recipient_street = 8;
-  bytes recipient_city = 9;
-  bytes recipient_zipcode = 10;
-  bytes recipient_country = 11;
-  bytes currency = 12;
-  bytes order_amount = 13;
-  bytes net_amount = 14;
-  bytes tax_amount = 15;
-  bytes tax_rate = 16;
-  bytes recipient = 17;
-  bytes order = 18;
-  bytes order_contact = 19;
-  bytes comment = 20;
-  bytes delivery_date = 21;
-  bytes date_created = 22;
-  bytes extra_data = 23;
-  bytes po_status = 24;
-}
-
-// PurchaseOrderDocument combines the salts, data & coredocument for a purchase order.
-message PurchaseOrderDocument {
-  coredocument.CoreDocument core_document = 1;
-  PurchaseOrderData data = 2;
-  PurchaseOrderDataSalts salts = 3;
 }
