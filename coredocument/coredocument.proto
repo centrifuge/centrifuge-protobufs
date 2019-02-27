@@ -78,7 +78,7 @@ message CoreDocument {
   // read rules
   repeated ReadRule read_rules = 19;
   // transition rules
-  repeated FieldRule transition_rules = 21;
+  repeated WriteRule transition_rules = 21;
   // nft list for uniqueness check
   repeated NFT nfts = 20 [
     (proofs.key_length) = 32,
@@ -150,15 +150,13 @@ message ReadRule {
   Action action = 4;
 }
 
-message FieldRule {
+message WriteRule {
   // pointer to roles which have write access to the below fields
   repeated bytes roles = 2;
   // fields covered by this rule
   repeated bytes fields = 3;
   // conditions?
-  
-  // available actions
-  Action action = 4;
+
 }
 
 message NFT {
