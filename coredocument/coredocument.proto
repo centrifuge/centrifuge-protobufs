@@ -156,6 +156,7 @@ message FieldRule {
   // fields covered by this rule
   repeated bytes fields = 3;
   // conditions?
+  
   // available actions
   Action action = 4;
 }
