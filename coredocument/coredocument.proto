@@ -70,8 +70,6 @@ message CoreDocument {
   repeated DocumentSalt coredocument_salts = 15 [
     (proofs.exclude_from_tree) = true
   ];
-  // Collaborators involved in the document consensus
-  repeated bytes collaborators = 17;
   // list of roles
   repeated Role roles = 1 [
     (proofs.key_length) = 32,
