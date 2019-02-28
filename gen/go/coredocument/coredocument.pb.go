@@ -86,20 +86,20 @@ type CoreDocument struct {
 	// data_root is the Merkle root calculated for the `embedded_data` & `embedded_salts` document (such as an invoice).
 	DataRoot []byte `protobuf:"bytes,5,opt,name=data_root,json=dataRoot,proto3" json:"data_root,omitempty"`
 	// signature_data of the signature_root by centrifuge identities.
-	SignatureData *SignatureData `protobuf:"bytes,6,opt,name=signature_data,json=signatureData,proto3" json:"signature_data,omitempty"`
+	SignatureData *SignatureData `protobuf:"bytes,6,opt,name=signature_data,json=signatureData" json:"signature_data,omitempty"`
 	// SignatureDataSalts is inlined
-	SignatureDataSalts []*DocumentSalt `protobuf:"bytes,8,rep,name=signature_data_salts,json=signatureDataSalts,proto3" json:"signature_data_salts,omitempty"`
+	SignatureDataSalts []*DocumentSalt `protobuf:"bytes,8,rep,name=signature_data_salts,json=signatureDataSalts" json:"signature_data_salts,omitempty"`
 	// Document a serialized document
-	EmbeddedData      *any.Any        `protobuf:"bytes,13,opt,name=embedded_data,json=embeddedData,proto3" json:"embedded_data,omitempty"`
-	EmbeddedDataSalts []*DocumentSalt `protobuf:"bytes,14,rep,name=embedded_data_salts,json=embeddedDataSalts,proto3" json:"embedded_data_salts,omitempty"`
+	EmbeddedData      *any.Any        `protobuf:"bytes,13,opt,name=embedded_data,json=embeddedData" json:"embedded_data,omitempty"`
+	EmbeddedDataSalts []*DocumentSalt `protobuf:"bytes,14,rep,name=embedded_data_salts,json=embeddedDataSalts" json:"embedded_data_salts,omitempty"`
 	// CoreDocumentSalts is inlined
-	CoredocumentSalts []*DocumentSalt `protobuf:"bytes,15,rep,name=coredocument_salts,json=coredocumentSalts,proto3" json:"coredocument_salts,omitempty"`
+	CoredocumentSalts []*DocumentSalt `protobuf:"bytes,15,rep,name=coredocument_salts,json=coredocumentSalts" json:"coredocument_salts,omitempty"`
 	// list of roles
-	Roles []*Role `protobuf:"bytes,1,rep,name=roles,proto3" json:"roles,omitempty"`
+	Roles []*Role `protobuf:"bytes,1,rep,name=roles" json:"roles,omitempty"`
 	// read rules
-	ReadRules []*ReadRule `protobuf:"bytes,19,rep,name=read_rules,json=readRules,proto3" json:"read_rules,omitempty"`
+	ReadRules []*ReadRule `protobuf:"bytes,19,rep,name=read_rules,json=readRules" json:"read_rules,omitempty"`
 	// nft list for uniqueness check
-	Nfts                 []*NFT   `protobuf:"bytes,20,rep,name=nfts,proto3" json:"nfts,omitempty"`
+	Nfts                 []*NFT   `protobuf:"bytes,20,rep,name=nfts" json:"nfts,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -382,7 +382,7 @@ func (m *AccessToken) GetKey() []byte {
 
 // SignatureData contains the list of signatures identified by the signature_id
 type SignatureData struct {
-	Signatures           []*Signature `protobuf:"bytes,1,rep,name=signatures,proto3" json:"signatures,omitempty"`
+	Signatures           []*Signature `protobuf:"bytes,1,rep,name=signatures" json:"signatures,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}     `json:"-"`
 	XXX_unrecognized     []byte       `json:"-"`
 	XXX_sizecache        int32        `json:"-"`
@@ -428,7 +428,7 @@ type Signature struct {
 	// `public_key` is the public key of the `signer` used for signing the `CoreDocument`
 	PublicKey            []byte               `protobuf:"bytes,3,opt,name=public_key,json=publicKey,proto3" json:"public_key,omitempty"`
 	Signature            []byte               `protobuf:"bytes,4,opt,name=signature,proto3" json:"signature,omitempty"`
-	Timestamp            *timestamp.Timestamp `protobuf:"bytes,5,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
+	Timestamp            *timestamp.Timestamp `protobuf:"bytes,5,opt,name=timestamp" json:"timestamp,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
 	XXX_unrecognized     []byte               `json:"-"`
 	XXX_sizecache        int32                `json:"-"`
@@ -503,7 +503,7 @@ type Role struct {
 	// For easier verification in merkle proofs, the values are simply concatenated with the first 22 bytes being the NFT registry and the remaining 32 bytes the tokenID.
 	Nfts [][]byte `protobuf:"bytes,4,rep,name=nfts,proto3" json:"nfts,omitempty"`
 	// AccessTokens which have been added to this CoreDocument
-	AccessTokens         []*AccessToken `protobuf:"bytes,5,rep,name=access_tokens,json=accessTokens,proto3" json:"access_tokens,omitempty"`
+	AccessTokens         []*AccessToken `protobuf:"bytes,5,rep,name=access_tokens,json=accessTokens" json:"access_tokens,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
 	XXX_unrecognized     []byte         `json:"-"`
 	XXX_sizecache        int32          `json:"-"`
@@ -563,7 +563,7 @@ func (m *Role) GetAccessTokens() []*AccessToken {
 
 type ReadRule struct {
 	Roles                [][]byte `protobuf:"bytes,2,rep,name=roles,proto3" json:"roles,omitempty"`
-	Action               Action   `protobuf:"varint,4,opt,name=action,proto3,enum=coredocument.Action" json:"action,omitempty"`
+	Action               Action   `protobuf:"varint,4,opt,name=action,enum=coredocument.Action" json:"action,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
