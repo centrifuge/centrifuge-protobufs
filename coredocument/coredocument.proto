@@ -73,8 +73,6 @@ message CoreDocument {
   repeated DocumentSalt coredocument_salts = 15 [
     (proofs.exclude_from_tree) = true
   ];
-  // Collaborators involved in the document consensus
-  repeated bytes collaborators = 17;
   // list of roles
   repeated Role roles = 1 [
     (proofs.key_length) = 32,
@@ -111,32 +109,7 @@ message AccessToken {
   bytes key = 7;
 }
 
-message AccessTokenSalts {
-  bytes identifier = 1;
-  bytes granter = 3;
-  bytes grantee = 4;
-  bytes role_identifier = 5;
-  bytes document_identifier = 2;
-  bytes signature = 6;
-  bytes key = 7;
-}
-
-message CoreDocumentSalts {
-  bytes document_identifier = 9;
-  bytes previous_version = 1;
-  bytes current_version = 3;
-  bytes next_version = 4;
-  bytes previous_root = 2;
-  repeated bytes collaborators = 6;
-  bytes collaborators_length = 7;
-  repeated SaltedRole roles = 8;
-  bytes roles_length = 10;
-  repeated SaltedReadRule read_rules = 11;
-  bytes read_rules_length = 12;
-  repeated SaltedNFT nfts = 13;
-  bytes nfts_length = 14;
-}
-
+// SignatureData contains the list of signatures identified by the signature_id
 message SignatureData {
   repeated Signature signatures = 1 [
     (proofs.key_length) = 52,
@@ -144,7 +117,7 @@ message SignatureData {
   ];
 }
 
-// Signature contains the signer ID, public key used and signature)
+// Signature contains the entity ID, public key used and signature)
 message Signature {
   // `signature_id` is a composed key signer_id+public_key used
   bytes signature_id = 1;
@@ -181,33 +154,12 @@ message Role {
   ];
 }
 
-message SaltedRole {
-  bytes role_key = 1;
-  repeated bytes collaborators = 2;
-  bytes collaborators_length = 3;
-  repeated bytes nfts = 4;
-  bytes nfts_length = 5;
-  repeated AccessTokenSalts access_tokens = 6;
-  bytes access_tokens_length = 7;
-}
-
 message ReadRule {
   repeated bytes roles = 2;
   Action action = 4;
 }
 
-message SaltedReadRule {
-  repeated bytes roles = 2;
-  bytes roles_length = 3;
-  bytes action = 4;
-}
-
 message NFT {
-  bytes registry_id = 1;
-  bytes token_id = 2;
-}
-
-message SaltedNFT {
   bytes registry_id = 1;
   bytes token_id = 2;
 }
