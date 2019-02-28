@@ -161,9 +161,10 @@ message TransitionRule {
 }
 
 enum TransitionAction {
-  Set = 0;
-  Edit = 1;
-  Append = 2;
+  TRANSITION_ACTION_SET = 0;
+  TRANSITION_ACTION_EDIT = 1;
+  TRANSITION_ACTION_APPEND = 2;
+  TRANSITION_ACTION_INVALID = 3;
 }
 
 message NFT {
