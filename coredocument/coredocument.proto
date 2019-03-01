@@ -86,7 +86,7 @@ message CoreDocument {
     (proofs.mapping_key) = "registry_id"
   ];
   // AccessTokens which have been added to this CoreDocument
-  repeated AccessToken access_tokens = 22 [
+  repeated AccessToken access_tokens = 21 [
     (proofs.key_length) = 32,
     (proofs.mapping_key) = "identifier"
   ];
