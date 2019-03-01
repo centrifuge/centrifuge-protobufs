@@ -54,9 +54,12 @@ message CoreDocument {
   bytes data_root = 5 [
     (proofs.exclude_from_tree) = true
   ];
-  // Signatures
-  // Signatures of the signature_root by centrifuge identities. This array should be sorted by the Centrifuge ID.
-  repeated Signature signatures = 6 [
+  // signature_data of the signature_root by centrifuge identities.
+  SignatureData signature_data = 6 [
+    (proofs.exclude_from_tree) = true
+  ];
+  // SignatureDataSalts is inlined
+  repeated DocumentSalt signature_data_salts = 8 [
     (proofs.exclude_from_tree) = true
   ];
   // Document a serialized document
@@ -70,8 +73,6 @@ message CoreDocument {
   repeated DocumentSalt coredocument_salts = 15 [
     (proofs.exclude_from_tree) = true
   ];
-  // Collaborators involved in the document consensus
-  repeated bytes collaborators = 17;
   // list of roles
   repeated Role roles = 1 [
     (proofs.key_length) = 32,
@@ -113,14 +114,24 @@ message AccessToken {
   bytes key = 7;
 }
 
+// SignatureData contains the list of signatures identified by the signature_id
+message SignatureData {
+  repeated Signature signatures = 1 [
+    (proofs.key_length) = 52,
+    (proofs.mapping_key) = "signature_id"
+  ];
+}
+
 // Signature contains the entity ID, public key used and signature)
 message Signature {
-  // `entity_id` is the CentrifugeID of the entity signing the document.
-  bytes entity_id = 1;
-  // `public_key` is the public key of the `entity` used for signing the `CoreDocument`
-  bytes public_key = 2;
-  bytes signature = 3;
-  google.protobuf.Timestamp timestamp = 4;
+  // `signature_id` is a composed key signer_id+public_key used
+  bytes signature_id = 1;
+  // `signer_id` is the CentrifugeID of the identity signing the document.
+  bytes signer_id = 2;
+  // `public_key` is the public key of the `signer` used for signing the `CoreDocument`
+  bytes public_key = 3;
+  bytes signature = 4;
+  google.protobuf.Timestamp timestamp = 5;
 }
 
 // Action defines the set of actions a collaborator can/have per document.
