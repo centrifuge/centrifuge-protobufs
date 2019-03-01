@@ -57,7 +57,7 @@ message CoreDocument {
     (proofs.exclude_from_tree) = true
   ];
   // Signatures
-  // Signatures of the signature_root by centrifuge identities. This array should be sorted by the Centrifuge ID.
+  // Signatures of the signature_root by centrifuge identities. This array should be sorted by the Centrifuge ID
   repeated Signature signatures = 6 [
     (proofs.exclude_from_tree) = true
   ];
@@ -72,8 +72,6 @@ message CoreDocument {
   repeated DocumentSalt coredocument_salts = 15 [
     (proofs.exclude_from_tree) = true
   ];
-  // Collaborators involved in the document consensus
-  repeated bytes collaborators = 17;
   // list of roles
   repeated Role roles = 1 [
     (proofs.key_length) = 32,
@@ -85,6 +83,11 @@ message CoreDocument {
   repeated NFT nfts = 20 [
     (proofs.key_length) = 32,
     (proofs.mapping_key) = "registry_id"
+  ];
+  // AccessTokens which have been added to this CoreDocument
+  repeated AccessToken access_tokens = 21 [
+    (proofs.key_length) = 32,
+    (proofs.mapping_key) = "identifier"
   ];
 }
 
@@ -138,11 +141,6 @@ message Role {
   // nfts is a list of registry address/tokenID pairs.
   // For easier verification in merkle proofs, the values are simply concatenated with the first 22 bytes being the NFT registry and the remaining 32 bytes the tokenID.
   repeated bytes nfts = 4;
-  // AccessTokens which have been added to this CoreDocument
-  repeated AccessToken access_tokens = 5 [
-    (proofs.key_length) = 32,
-    (proofs.mapping_key) = "identifier"
-  ];
 }
 
 message ReadRule {
