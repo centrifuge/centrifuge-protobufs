@@ -36,6 +36,8 @@ message CoreDocument {
   // next_version is the version that is going to be used for the next version if any
   // party wants to update the state.
   bytes next_version = 4;
+  // next_preimage is the sha256 pre-image of the next_version. It prevents next state commitment id(anchor id) from getting exposed.
+  bytes next_preimage = 22;
   // # Merkle roots
   // document_root the root of all roots. It's signature_root along with a list of all signatures
   bytes document_root = 7 [
@@ -55,7 +57,7 @@ message CoreDocument {
     (proofs.exclude_from_tree) = true
   ];
   // Signatures
-  // Signatures of the signature_root by centrifuge identities. This array should be sorted by the Centrifuge ID.
+  // Signatures of the signature_root by centrifuge identities. This array should be sorted by the Centrifuge ID
   repeated Signature signatures = 6 [
     (proofs.exclude_from_tree) = true
   ];
@@ -78,11 +80,16 @@ message CoreDocument {
   // read rules
   repeated ReadRule read_rules = 19;
   // transition rules
-  repeated TransitionRule transition_rules = 21;
+  repeated TransitionRule transition_rules = 20;
   // nft list for uniqueness check
-  repeated NFT nfts = 20 [
+  repeated NFT nfts = 21 [
     (proofs.key_length) = 32,
     (proofs.mapping_key) = "registry_id"
+  ];
+  // AccessTokens which have been added to this CoreDocument
+  repeated AccessToken access_tokens = 23 [
+    (proofs.key_length) = 32,
+    (proofs.mapping_key) = "identifier"
   ];
 }
 
@@ -136,11 +143,6 @@ message Role {
   // nfts is a list of registry address/tokenID pairs.
   // For easier verification in merkle proofs, the values are simply concatenated with the first 22 bytes being the NFT registry and the remaining 32 bytes the tokenID.
   repeated bytes nfts = 4;
-  // AccessTokens which have been added to this CoreDocument
-  repeated AccessToken access_tokens = 5 [
-    (proofs.key_length) = 32,
-    (proofs.mapping_key) = "identifier"
-  ];
 }
 
 message ReadRule {
