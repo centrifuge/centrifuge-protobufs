@@ -148,16 +148,23 @@ message ReadRule {
   Action action = 4;
 }
 
+enum FieldMatchType {
+  FIELD_MATCH_TYPE_INVALID = 0;
+  FIELD_MATCH_TYPE_PREFIX = 1;
+  FIELD_MATCH_TYPE_EXACT = 2;
+}
+
 message TransitionRule {
-  // rule label, to help track origin of the rule
-  bytes label = 1;
+  // rule key, to help track pf the rule
+  bytes rule_key = 1;
   // Indicates which roles can make changes or read the fields specified.
   // this list holds pointers to the specific roles in the 'roles' field of the CoreDocument
   repeated int32 roles = 2;
   // fields that can be changed or edited
   repeated bytes fields = 3;
+  FieldMatchType match_type = 4;
   // what kind of action can be done
-  TransitionAction action = 4;
+  TransitionAction action = 5;
 }
 
 enum TransitionAction {
