@@ -55,7 +55,7 @@ message CoreDocument {
   bytes previous_root = 2 [
     (proofs.hashed_field) = true
   ];
-  // data_root is the Merkle root calculated for the `embedded_data` & `embedded_salts` document (such as an invoice).
+  // data_root is the Merkle root calculated for the `embedded_data` document (such as an invoice).
   bytes data_root = 5 [
     (proofs.exclude_from_tree) = true
   ];
@@ -72,13 +72,9 @@ message CoreDocument {
   google.protobuf.Any embedded_data = 13 [
     (proofs.exclude_from_tree) = true
   ];
-  repeated DocumentSalt embedded_data_salts = 14 [
-    (proofs.exclude_from_tree) = true
-  ];
-  // CoreDocumentSalts is inlined
-  repeated DocumentSalt coredocument_salts = 15 [
-    (proofs.exclude_from_tree) = true
-  ];
+  
+  repeated proofs.Salt salts = 15;
+
   // list of roles
   repeated Role roles = 1 [
     (proofs.key_length) = 32,
@@ -102,11 +98,6 @@ message CoreDocument {
   bytes author = 25;
   // timestamp of the latest update
   google.protobuf.Timestamp timestamp = 26;
-}
-
-message DocumentSalt {
-  bytes compact = 1;
-  bytes value = 2;
 }
 
 message AccessToken {
