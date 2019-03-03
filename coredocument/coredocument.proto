@@ -10,6 +10,7 @@ option java_package = "com.coredocument";
 import "google/protobuf/any.proto";
 import "google/protobuf/timestamp.proto";
 import "precise-proofs/proofs/proto/proof.proto";
+import "precise-proofs/proofs/proto/salt.proto";
 
 // `CoreDocument` is a document that can be sent to different nodes and anchored 
 // on chain. It handles all the generic features native Centrifuge Documents support:
