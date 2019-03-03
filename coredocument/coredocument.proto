@@ -44,38 +44,20 @@ message CoreDocument {
   bytes next_preimage = 22;
   // # Merkle roots
   // document_root the root of all roots. It's signature_root along with a list of all signatures
-  bytes document_root = 7 [
-    (proofs.exclude_from_tree) = true
-  ];
+  bytes document_root = 7 [(proofs.exclude_from_tree) = true];
   // signing_root is the Merkle root calculated from all fields on the document that need 
   // to be signed. This is all fields except for the signatures themselves and the `document_root`. 
-  bytes signing_root = 10 [
-    (proofs.exclude_from_tree) = true
-  ];
+  bytes signing_root = 10 [(proofs.exclude_from_tree) = true];
   // previous_root is the `document_root` of the previous version of the document
-  bytes previous_root = 2 [
-    (proofs.hashed_field) = true
-  ];
+  bytes previous_root = 2 [(proofs.hashed_field) = true];
   // data_root is the Merkle root calculated for the `embedded_data` document (such as an invoice).
-  bytes data_root = 5 [
-    (proofs.exclude_from_tree) = true
-  ];
+  bytes data_root = 5 [(proofs.exclude_from_tree) = true];
   // signature_data of the signature_root by centrifuge identities.
   // Signatures of the signature_root by centrifuge identities.
-  SignatureData signature_data = 6 [
-    (proofs.exclude_from_tree) = true
-  ];
-  // SignatureDataSalts is inlined
-  repeated DocumentSalt signature_data_salts = 8 [
-    (proofs.exclude_from_tree) = true
-  ];
+  SignatureData signature_data = 6 [(proofs.exclude_from_tree) = true];
   // Document a serialized document
-  google.protobuf.Any embedded_data = 13 [
-    (proofs.exclude_from_tree) = true
-  ];
-  
+  google.protobuf.Any embedded_data = 13 [(proofs.exclude_from_tree) = true];
   repeated proofs.Salt salts = 15;
-
   // list of roles
   repeated Role roles = 1 [
     (proofs.key_length) = 32,
@@ -140,10 +122,11 @@ message Signature {
 
 // Action defines the set of actions a collaborator can/have per document.
 enum Action {
+  ACTION_INVALID = 0;
   // read_sign represents reading as well the sign the documents. We will pick this one when requesting the signatures.
-  ACTION_READ_SIGN = 0;
+  ACTION_READ_SIGN = 1;
   // read represents just reading the doc/fields
-  ACTION_READ = 1;
+  ACTION_READ = 2;
 }
 
 // Roles holds a list of collaborators, NFTs, and/or access tokens.
@@ -163,8 +146,9 @@ message ReadRule {
 }
 
 enum FieldMatchType {
-  FIELD_MATCH_TYPE_PREFIX = 0;
-  FIELD_MATCH_TYPE_EXACT = 1;
+  FIELD_MATCH_TYPE_INVALID = 0;
+  FIELD_MATCH_TYPE_PREFIX = 1;
+  FIELD_MATCH_TYPE_EXACT = 2;
 }
 
 message TransitionRule {
@@ -182,7 +166,8 @@ message TransitionRule {
 }
 
 enum TransitionAction {
-  TRANSITION_ACTION_EDIT = 0;
+  TRANSITION_ACTION_INVALID = 0;
+  TRANSITION_ACTION_EDIT = 1;
 }
 
 message NFT {

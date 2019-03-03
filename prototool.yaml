@@ -2,19 +2,16 @@ protoc:
   version: 3.6.1
 
   includes:
-    #-
-    - vendor/github.com/grpc-ecosystem/grpc-gateway/
     - vendor/github.com/centrifuge/
 excludes:
   - vendor/github.com/centrifuge/precise-proofs/examples
-
+  - vendor
 lint:
   ignores:
     - id: MESSAGES_HAVE_COMMENTS_EXCEPT_REQUEST_RESPONSE_TYPES
     - id: REQUEST_RESPONSE_NAMES_MATCH_RPC
     - id: REQUEST_RESPONSE_TYPES_IN_SAME_FILE
     - id: REQUEST_RESPONSE_TYPES_UNIQUE
-    - id: ENUM_ZERO_VALUES_INVALID
     - id: FILE_OPTIONS_REQUIRE_JAVA_PACKAGE
     - id: FILE_OPTIONS_JAVA_PACKAGE_SAME_IN_DIR
     - id: FILE_OPTIONS_EQUAL_JAVA_PACKAGE_COM_PB
@@ -36,15 +33,11 @@ generate:
 
     # Extra modifiers to include with Mfile=package.
     extra_modifiers:
-      google/api/annotations.proto: google.golang.org/genproto/googleapis/api/annotations
-      google/api/http.proto: google.golang.org/genproto/googleapis/api/annotations
       precise-proofs/proofs/proto/proof.proto: github.com/centrifuge/precise-proofs/proofs/proto
+      precise-proofs/proofs/proto/salt.proto: github.com/centrifuge/precise-proofs/proofs/proto
   plugins:
       - name: go
         type: go
         output: gen/go/
         flags: plugins=grpc
 
-      - name: grpc-gateway
-        type: go
-        output: gen/go/

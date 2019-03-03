@@ -3,10 +3,12 @@
 
 package notificationpb
 
-import proto "github.com/golang/protobuf/proto"
-import fmt "fmt"
-import math "math"
-import timestamp "github.com/golang/protobuf/ptypes/timestamp"
+import (
+	fmt "fmt"
+	proto "github.com/golang/protobuf/proto"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
+	math "math"
+)
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -17,20 +19,20 @@ var _ = math.Inf
 // is compatible with the proto package it is being compiled against.
 // A compilation error at this line likely means your copy of the
 // proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
 // NotificationMessage wraps a single CoreDocument to be notified to upstream services
 type NotificationMessage struct {
-	EventType    uint32               `protobuf:"varint,1,opt,name=event_type,json=eventType" json:"event_type,omitempty"`
-	Recorded     *timestamp.Timestamp `protobuf:"bytes,3,opt,name=recorded" json:"recorded,omitempty"`
-	DocumentType string               `protobuf:"bytes,4,opt,name=document_type,json=documentType" json:"document_type,omitempty"`
-	DocumentId   string               `protobuf:"bytes,7,opt,name=document_id,json=documentId" json:"document_id,omitempty"`
+	EventType    uint32               `protobuf:"varint,1,opt,name=event_type,json=eventType,proto3" json:"event_type,omitempty"`
+	Recorded     *timestamp.Timestamp `protobuf:"bytes,3,opt,name=recorded,proto3" json:"recorded,omitempty"`
+	DocumentType string               `protobuf:"bytes,4,opt,name=document_type,json=documentType,proto3" json:"document_type,omitempty"`
+	DocumentId   string               `protobuf:"bytes,7,opt,name=document_id,json=documentId,proto3" json:"document_id,omitempty"`
 	// account_id is the account associated to webhook
-	AccountId string `protobuf:"bytes,8,opt,name=account_id,json=accountId" json:"account_id,omitempty"`
+	AccountId string `protobuf:"bytes,8,opt,name=account_id,json=accountId,proto3" json:"account_id,omitempty"`
 	// from_id if provided, original trigger of the event
-	FromId string `protobuf:"bytes,9,opt,name=from_id,json=fromId" json:"from_id,omitempty"`
+	FromId string `protobuf:"bytes,9,opt,name=from_id,json=fromId,proto3" json:"from_id,omitempty"`
 	// to_id if provided, final destination of the event
-	ToId                 string   `protobuf:"bytes,10,opt,name=to_id,json=toId" json:"to_id,omitempty"`
+	ToId                 string   `protobuf:"bytes,10,opt,name=to_id,json=toId,proto3" json:"to_id,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -40,16 +42,17 @@ func (m *NotificationMessage) Reset()         { *m = NotificationMessage{} }
 func (m *NotificationMessage) String() string { return proto.CompactTextString(m) }
 func (*NotificationMessage) ProtoMessage()    {}
 func (*NotificationMessage) Descriptor() ([]byte, []int) {
-	return fileDescriptor_notification_f0e64ddbcd9b013c, []int{0}
+	return fileDescriptor_ff76f27cb6af8e56, []int{0}
 }
+
 func (m *NotificationMessage) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_NotificationMessage.Unmarshal(m, b)
 }
 func (m *NotificationMessage) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_NotificationMessage.Marshal(b, m, deterministic)
 }
-func (dst *NotificationMessage) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_NotificationMessage.Merge(dst, src)
+func (m *NotificationMessage) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_NotificationMessage.Merge(m, src)
 }
 func (m *NotificationMessage) XXX_Size() int {
 	return xxx_messageInfo_NotificationMessage.Size(m)
@@ -113,11 +116,9 @@ func init() {
 	proto.RegisterType((*NotificationMessage)(nil), "notification.NotificationMessage")
 }
 
-func init() {
-	proto.RegisterFile("notification/notification.proto", fileDescriptor_notification_f0e64ddbcd9b013c)
-}
+func init() { proto.RegisterFile("notification/notification.proto", fileDescriptor_ff76f27cb6af8e56) }
 
-var fileDescriptor_notification_f0e64ddbcd9b013c = []byte{
+var fileDescriptor_ff76f27cb6af8e56 = []byte{
 	// 261 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x4c, 0x90, 0x41, 0x4b, 0xc3, 0x40,
 	0x10, 0x46, 0x59, 0xac, 0x6d, 0x33, 0x6d, 0x45, 0xb7, 0x07, 0x43, 0x41, 0x12, 0xf4, 0x92, 0x53,
