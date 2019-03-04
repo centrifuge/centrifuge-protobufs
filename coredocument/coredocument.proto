@@ -158,7 +158,7 @@ enum FieldMatchType {
 
 
 message TransitionRule {
-  // rule key, to help track pf the rule
+  // rule key, to help track of the rule
   bytes rule_key = 1;
   // Indicates which roles can make changes or read the fields specified:
   // this list holds roleIDs correlated to those in the 'roles' field of the CoreDocument
