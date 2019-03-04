@@ -156,13 +156,6 @@ enum FieldMatchType {
   FIELD_MATCH_TYPE_EXACT = 2;
 }
 
-message Field {
-  FieldMatchType match_type = 1;
-  // each value is prefixed with core doc prefix for core document fields, and
-  // invoice prefix for invoice fields
-  // this will help avoid potential unexpected same value across documents.
-  bytes value = 2;
-}
 
 message TransitionRule {
   // rule key, to help track pf the rule
@@ -170,17 +163,17 @@ message TransitionRule {
   // Indicates which roles can make changes or read the fields specified:
   // this list holds roleIDs correlated to those in the 'roles' field of the CoreDocument
   repeated int32 roles = 2;
-  // fields that can be changed or edited
-  repeated Field fields = 3;
-  // what kind of action can be done
+  // prefix or exact
+  FieldMatchType match_type = 3;
+  // compact property of the field
+  bytes field = 4;
+  // what kind of action this rule allows
   TransitionAction action = 5;
 }
 
 enum TransitionAction {
   TRANSITION_ACTION_INVALID = 0;
-  TRANSITION_ACTION_SET = 1;
-  TRANSITION_ACTION_EDIT = 2;
-  TRANSITION_ACTION_APPEND = 3;
+  TRANSITION_ACTION_EDIT = 1;
 }
 
 message NFT {
