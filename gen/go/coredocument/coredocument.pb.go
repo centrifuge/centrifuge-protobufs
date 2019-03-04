@@ -47,7 +47,7 @@ func (x Action) String() string {
 	return proto.EnumName(Action_name, int32(x))
 }
 func (Action) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_5fa3f7917884c1e1, []int{0}
+	return fileDescriptor_coredocument_4495ef6df9ab792b, []int{0}
 }
 
 type FieldMatchType int32
@@ -73,7 +73,7 @@ func (x FieldMatchType) String() string {
 	return proto.EnumName(FieldMatchType_name, int32(x))
 }
 func (FieldMatchType) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_5fa3f7917884c1e1, []int{1}
+	return fileDescriptor_coredocument_4495ef6df9ab792b, []int{1}
 }
 
 type TransitionAction int32
@@ -96,7 +96,7 @@ func (x TransitionAction) String() string {
 	return proto.EnumName(TransitionAction_name, int32(x))
 }
 func (TransitionAction) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_5fa3f7917884c1e1, []int{2}
+	return fileDescriptor_coredocument_4495ef6df9ab792b, []int{2}
 }
 
 // `CoreDocument` is a document that can be sent to different nodes and anchored
@@ -163,7 +163,7 @@ func (m *CoreDocument) Reset()         { *m = CoreDocument{} }
 func (m *CoreDocument) String() string { return proto.CompactTextString(m) }
 func (*CoreDocument) ProtoMessage()    {}
 func (*CoreDocument) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_5fa3f7917884c1e1, []int{0}
+	return fileDescriptor_coredocument_4495ef6df9ab792b, []int{0}
 }
 func (m *CoreDocument) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_CoreDocument.Unmarshal(m, b)
@@ -321,7 +321,7 @@ func (m *DocumentSalt) Reset()         { *m = DocumentSalt{} }
 func (m *DocumentSalt) String() string { return proto.CompactTextString(m) }
 func (*DocumentSalt) ProtoMessage()    {}
 func (*DocumentSalt) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_5fa3f7917884c1e1, []int{1}
+	return fileDescriptor_coredocument_4495ef6df9ab792b, []int{1}
 }
 func (m *DocumentSalt) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_DocumentSalt.Unmarshal(m, b)
@@ -379,7 +379,7 @@ func (m *AccessToken) Reset()         { *m = AccessToken{} }
 func (m *AccessToken) String() string { return proto.CompactTextString(m) }
 func (*AccessToken) ProtoMessage()    {}
 func (*AccessToken) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_5fa3f7917884c1e1, []int{2}
+	return fileDescriptor_coredocument_4495ef6df9ab792b, []int{2}
 }
 func (m *AccessToken) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_AccessToken.Unmarshal(m, b)
@@ -465,7 +465,7 @@ func (m *Signature) Reset()         { *m = Signature{} }
 func (m *Signature) String() string { return proto.CompactTextString(m) }
 func (*Signature) ProtoMessage()    {}
 func (*Signature) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_5fa3f7917884c1e1, []int{3}
+	return fileDescriptor_coredocument_4495ef6df9ab792b, []int{3}
 }
 func (m *Signature) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Signature.Unmarshal(m, b)
@@ -531,7 +531,7 @@ func (m *Role) Reset()         { *m = Role{} }
 func (m *Role) String() string { return proto.CompactTextString(m) }
 func (*Role) ProtoMessage()    {}
 func (*Role) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_5fa3f7917884c1e1, []int{4}
+	return fileDescriptor_coredocument_4495ef6df9ab792b, []int{4}
 }
 func (m *Role) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Role.Unmarshal(m, b)
@@ -584,7 +584,7 @@ func (m *ReadRule) Reset()         { *m = ReadRule{} }
 func (m *ReadRule) String() string { return proto.CompactTextString(m) }
 func (*ReadRule) ProtoMessage()    {}
 func (*ReadRule) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_5fa3f7917884c1e1, []int{5}
+	return fileDescriptor_coredocument_4495ef6df9ab792b, []int{5}
 }
 func (m *ReadRule) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ReadRule.Unmarshal(m, b)
@@ -639,7 +639,7 @@ func (m *TransitionRule) Reset()         { *m = TransitionRule{} }
 func (m *TransitionRule) String() string { return proto.CompactTextString(m) }
 func (*TransitionRule) ProtoMessage()    {}
 func (*TransitionRule) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_5fa3f7917884c1e1, []int{6}
+	return fileDescriptor_coredocument_4495ef6df9ab792b, []int{6}
 }
 func (m *TransitionRule) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_TransitionRule.Unmarshal(m, b)
@@ -706,7 +706,7 @@ func (m *NFT) Reset()         { *m = NFT{} }
 func (m *NFT) String() string { return proto.CompactTextString(m) }
 func (*NFT) ProtoMessage()    {}
 func (*NFT) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_5fa3f7917884c1e1, []int{7}
+	return fileDescriptor_coredocument_4495ef6df9ab792b, []int{7}
 }
 func (m *NFT) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_NFT.Unmarshal(m, b)
@@ -755,10 +755,10 @@ func init() {
 }
 
 func init() {
-	proto.RegisterFile("coredocument/coredocument.proto", fileDescriptor_coredocument_5fa3f7917884c1e1)
+	proto.RegisterFile("coredocument/coredocument.proto", fileDescriptor_coredocument_4495ef6df9ab792b)
 }
 
-var fileDescriptor_coredocument_5fa3f7917884c1e1 = []byte{
+var fileDescriptor_coredocument_4495ef6df9ab792b = []byte{
 	// 1057 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x8c, 0x54, 0xcf, 0x6f, 0xe3, 0x44,
 	0x14, 0xc6, 0x4d, 0xd3, 0x36, 0x2f, 0x3f, 0xea, 0x9d, 0xcd, 0x76, 0xdd, 0x6e, 0x77, 0x5b, 0x02,

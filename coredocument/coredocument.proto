@@ -156,7 +156,6 @@ enum FieldMatchType {
   FIELD_MATCH_TYPE_EXACT = 2;
 }
 
-
 message TransitionRule {
   // rule key, to help track of the rule
   bytes rule_key = 1;
