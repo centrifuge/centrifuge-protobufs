@@ -161,8 +161,8 @@ message TransitionRule {
   // rule key, to help track of the rule
   bytes rule_key = 1;
   // Indicates which roles can make changes or read the fields specified:
-  // this list holds roleIDs correlated to those in the 'roles' field of the CoreDocument
-  repeated int32 roles = 2;
+  // this list holds role keys correlated to those in the 'roles' field of the CoreDocument
+  repeated bytes roles = 2;
   // prefix or exact
   FieldMatchType match_type = 3;
   // compact property of the field
