@@ -44,7 +44,7 @@ func (x Action) String() string {
 	return proto.EnumName(Action_name, int32(x))
 }
 func (Action) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_2307143659b2650f, []int{0}
+	return fileDescriptor_coredocument_eb287821ff5eb544, []int{0}
 }
 
 type FieldMatchType int32
@@ -67,7 +67,7 @@ func (x FieldMatchType) String() string {
 	return proto.EnumName(FieldMatchType_name, int32(x))
 }
 func (FieldMatchType) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_2307143659b2650f, []int{1}
+	return fileDescriptor_coredocument_eb287821ff5eb544, []int{1}
 }
 
 type TransitionAction int32
@@ -87,7 +87,7 @@ func (x TransitionAction) String() string {
 	return proto.EnumName(TransitionAction_name, int32(x))
 }
 func (TransitionAction) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_2307143659b2650f, []int{2}
+	return fileDescriptor_coredocument_eb287821ff5eb544, []int{2}
 }
 
 // `CoreDocument` is a document that can be sent to different nodes and anchored
@@ -131,7 +131,7 @@ type CoreDocument struct {
 	// data_root is the Merkle root calculated for the `embedded_data` & `embedded_salts` document (such as an invoice).
 	DataRoot []byte `protobuf:"bytes,5,opt,name=data_root,json=dataRoot,proto3" json:"data_root,omitempty"`
 	// Signatures
-	// Signatures of the signature_root by centrifuge identities. This array should be sorted by the Centrifuge ID
+	// Signatures of the signature_root by centrifuge identities. This array should be sorted by the Centrifuge ID.
 	Signatures []*Signature `protobuf:"bytes,6,rep,name=signatures" json:"signatures,omitempty"`
 	// Document a serialized document
 	EmbeddedData      *any.Any        `protobuf:"bytes,13,opt,name=embedded_data,json=embeddedData" json:"embedded_data,omitempty"`
@@ -157,7 +157,7 @@ func (m *CoreDocument) Reset()         { *m = CoreDocument{} }
 func (m *CoreDocument) String() string { return proto.CompactTextString(m) }
 func (*CoreDocument) ProtoMessage()    {}
 func (*CoreDocument) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_2307143659b2650f, []int{0}
+	return fileDescriptor_coredocument_eb287821ff5eb544, []int{0}
 }
 func (m *CoreDocument) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_CoreDocument.Unmarshal(m, b)
@@ -322,7 +322,7 @@ func (m *DocumentSalt) Reset()         { *m = DocumentSalt{} }
 func (m *DocumentSalt) String() string { return proto.CompactTextString(m) }
 func (*DocumentSalt) ProtoMessage()    {}
 func (*DocumentSalt) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_2307143659b2650f, []int{1}
+	return fileDescriptor_coredocument_eb287821ff5eb544, []int{1}
 }
 func (m *DocumentSalt) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_DocumentSalt.Unmarshal(m, b)
@@ -380,7 +380,7 @@ func (m *AccessToken) Reset()         { *m = AccessToken{} }
 func (m *AccessToken) String() string { return proto.CompactTextString(m) }
 func (*AccessToken) ProtoMessage()    {}
 func (*AccessToken) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_2307143659b2650f, []int{2}
+	return fileDescriptor_coredocument_eb287821ff5eb544, []int{2}
 }
 func (m *AccessToken) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_AccessToken.Unmarshal(m, b)
@@ -466,7 +466,7 @@ func (m *Signature) Reset()         { *m = Signature{} }
 func (m *Signature) String() string { return proto.CompactTextString(m) }
 func (*Signature) ProtoMessage()    {}
 func (*Signature) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_2307143659b2650f, []int{3}
+	return fileDescriptor_coredocument_eb287821ff5eb544, []int{3}
 }
 func (m *Signature) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Signature.Unmarshal(m, b)
@@ -532,7 +532,7 @@ func (m *Role) Reset()         { *m = Role{} }
 func (m *Role) String() string { return proto.CompactTextString(m) }
 func (*Role) ProtoMessage()    {}
 func (*Role) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_2307143659b2650f, []int{4}
+	return fileDescriptor_coredocument_eb287821ff5eb544, []int{4}
 }
 func (m *Role) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Role.Unmarshal(m, b)
@@ -585,7 +585,7 @@ func (m *ReadRule) Reset()         { *m = ReadRule{} }
 func (m *ReadRule) String() string { return proto.CompactTextString(m) }
 func (*ReadRule) ProtoMessage()    {}
 func (*ReadRule) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_2307143659b2650f, []int{5}
+	return fileDescriptor_coredocument_eb287821ff5eb544, []int{5}
 }
 func (m *ReadRule) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ReadRule.Unmarshal(m, b)
@@ -640,7 +640,7 @@ func (m *TransitionRule) Reset()         { *m = TransitionRule{} }
 func (m *TransitionRule) String() string { return proto.CompactTextString(m) }
 func (*TransitionRule) ProtoMessage()    {}
 func (*TransitionRule) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_2307143659b2650f, []int{6}
+	return fileDescriptor_coredocument_eb287821ff5eb544, []int{6}
 }
 func (m *TransitionRule) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_TransitionRule.Unmarshal(m, b)
@@ -707,7 +707,7 @@ func (m *NFT) Reset()         { *m = NFT{} }
 func (m *NFT) String() string { return proto.CompactTextString(m) }
 func (*NFT) ProtoMessage()    {}
 func (*NFT) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_2307143659b2650f, []int{7}
+	return fileDescriptor_coredocument_eb287821ff5eb544, []int{7}
 }
 func (m *NFT) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_NFT.Unmarshal(m, b)
@@ -756,10 +756,10 @@ func init() {
 }
 
 func init() {
-	proto.RegisterFile("coredocument/coredocument.proto", fileDescriptor_coredocument_2307143659b2650f)
+	proto.RegisterFile("coredocument/coredocument.proto", fileDescriptor_coredocument_eb287821ff5eb544)
 }
 
-var fileDescriptor_coredocument_2307143659b2650f = []byte{
+var fileDescriptor_coredocument_eb287821ff5eb544 = []byte{
 	// 1044 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x8c, 0x54, 0xdf, 0x6f, 0xe3, 0x44,
 	0x10, 0x6e, 0x9a, 0xa6, 0x6d, 0x26, 0x3f, 0xea, 0x6e, 0x73, 0xad, 0xdb, 0x3b, 0xae, 0x25, 0x20,
