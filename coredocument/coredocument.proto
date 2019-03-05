@@ -60,7 +60,7 @@ message CoreDocument {
     (proofs.exclude_from_tree) = true
   ];
   // Signatures
-  // Signatures of the signature_root by centrifuge identities. This array should be sorted by the Centrifuge ID
+  // Signatures of the signature_root by centrifuge identities. This array should be sorted by the Centrifuge ID 
   repeated Signature signatures = 6 [
     (proofs.exclude_from_tree) = true
   ];
