@@ -154,9 +154,8 @@ message ReadRule {
 }
 
 enum FieldMatchType {
-  FIELD_MATCH_TYPE_INVALID = 0;
-  FIELD_MATCH_TYPE_PREFIX = 1;
-  FIELD_MATCH_TYPE_EXACT = 2;
+  FIELD_MATCH_TYPE_PREFIX = 0;
+  FIELD_MATCH_TYPE_EXACT = 1;
 }
 
 message TransitionRule {
@@ -174,8 +173,7 @@ message TransitionRule {
 }
 
 enum TransitionAction {
-  TRANSITION_ACTION_INVALID = 0;
-  TRANSITION_ACTION_EDIT = 1;
+  TRANSITION_ACTION_EDIT = 0;
 }
 
 message NFT {
