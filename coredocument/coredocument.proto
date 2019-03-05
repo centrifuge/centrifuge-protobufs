@@ -130,10 +130,10 @@ message Signature {
 
 // Action defines the set of actions a collaborator can/have per document.
 enum Action {
-  // read represents just reading the doc/fields
-  ACTION_READ = 0;
-  // read_sign represents reading as well the sign the documents. We will pick this one when requesting the signatures.
-  ACTION_READ_SIGN = 1;
+    // read_sign represents reading as well the sign the documents. We will pick this one when requesting the signatures.
+    ACTION_READ_SIGN = 0;
+    // read represents just reading the doc/fields
+    ACTION_READ = 1;
 }
 
 // Roles holds a list of collaborators, NFTs, and/or access tokens.
