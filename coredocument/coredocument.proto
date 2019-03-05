@@ -82,6 +82,8 @@ message CoreDocument {
   ];
   // read rules
   repeated ReadRule read_rules = 19;
+  // transition rules
+  repeated TransitionRule transition_rules = 24;
   // nft list for uniqueness check
   repeated NFT nfts = 20 [
     (proofs.key_length) = 32,
@@ -137,7 +139,7 @@ enum Action {
 
 // Roles holds a list of collaborators, NFTs, and/or access tokens.
 message Role {
-  // Index of the position of the Role within the coredocument
+  // role key which is used to identify the group internally and map the role to rules
   bytes role_key = 1;
   // collaborators holds the list of document collaborators
   repeated bytes collaborators = 3;
@@ -149,6 +151,31 @@ message Role {
 message ReadRule {
   repeated bytes roles = 2;
   Action action = 4;
+}
+
+enum FieldMatchType {
+  FIELD_MATCH_TYPE_INVALID = 0;
+  FIELD_MATCH_TYPE_PREFIX = 1;
+  FIELD_MATCH_TYPE_EXACT = 2;
+}
+
+message TransitionRule {
+  // rule key, to help track of the rule
+  bytes rule_key = 1;
+  // Indicates which roles can make changes or read the fields specified:
+  // this list holds roleIDs correlated to those in the 'roles' field of the CoreDocument
+  repeated int32 roles = 2;
+  // prefix or exact
+  FieldMatchType match_type = 3;
+  // compact property of the field
+  bytes field = 4;
+  // what kind of action this rule allows
+  TransitionAction action = 5;
+}
+
+enum TransitionAction {
+  TRANSITION_ACTION_INVALID = 0;
+  TRANSITION_ACTION_EDIT = 1;
 }
 
 message NFT {
