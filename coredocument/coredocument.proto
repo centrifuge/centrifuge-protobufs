@@ -130,11 +130,10 @@ message Signature {
 
 // Action defines the set of actions a collaborator can/have per document.
 enum Action {
-  ACTION_INVALID = 0;
   // read represents just reading the doc/fields
-  ACTION_READ = 1;
+  ACTION_READ = 0;
   // read_sign represents reading as well the sign the documents. We will pick this one when requesting the signatures.
-  ACTION_READ_SIGN = 2;
+  ACTION_READ_SIGN = 1;
 }
 
 // Roles holds a list of collaborators, NFTs, and/or access tokens.
@@ -154,9 +153,8 @@ message ReadRule {
 }
 
 enum FieldMatchType {
-  FIELD_MATCH_TYPE_INVALID = 0;
-  FIELD_MATCH_TYPE_PREFIX = 1;
-  FIELD_MATCH_TYPE_EXACT = 2;
+  FIELD_MATCH_TYPE_PREFIX = 0;
+  FIELD_MATCH_TYPE_EXACT = 1;
 }
 
 message TransitionRule {
@@ -174,8 +172,7 @@ message TransitionRule {
 }
 
 enum TransitionAction {
-  TRANSITION_ACTION_INVALID = 0;
-  TRANSITION_ACTION_EDIT = 1;
+  TRANSITION_ACTION_EDIT = 0;
 }
 
 message NFT {
