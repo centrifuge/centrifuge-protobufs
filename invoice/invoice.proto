@@ -13,6 +13,8 @@ import "google/protobuf/timestamp.proto";
 message InvoiceData {
   // invoice number or reference number 
   string invoice_number = 1;
+  // invoice status
+  string invoice_status = 2;
   // name of the sender company 
   string sender_name = 3;
   // street and address details of the sender company
