@@ -94,6 +94,8 @@ message CoreDocument {
     (proofs.key_length) = 32,
     (proofs.mapping_key) = "identifier"
   ];
+  // latest update log
+  UpdateLog update = 25;
 }
 
 message DocumentSalt {
@@ -178,4 +180,13 @@ enum TransitionAction {
 message NFT {
   bytes registry_id = 1;
   bytes token_id = 2;
+}
+
+message UpdateLog {
+  // author of the update
+  bytes entity_id = 1;
+  // where this update originated from, currently a libp2p peer id string
+  string peer_id = 2;
+  // timestamp of the update
+  google.protobuf.Timestamp timestamp = 3;
 }
