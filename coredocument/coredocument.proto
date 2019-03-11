@@ -186,7 +186,7 @@ message UpdateLog {
   // author of the update
   bytes entity_id = 1;
   // where this update originated from, currently a libp2p peer id string
-  string peer_id = 2;
+  string node_id = 2;
   // timestamp of the update
   google.protobuf.Timestamp timestamp = 3;
 }
