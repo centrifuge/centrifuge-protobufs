@@ -95,7 +95,7 @@ message CoreDocument {
     (proofs.mapping_key) = "identifier"
   ];
   // author of the latest update
-  bytes entity_id = 25;
+  bytes author = 25;
   // timestamp of the latest update
   google.protobuf.Timestamp timestamp = 26;
 }
