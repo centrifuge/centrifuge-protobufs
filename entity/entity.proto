@@ -7,6 +7,8 @@ option java_multiple_files = true;
 option java_outer_classname = "EntityProto";
 option java_package = "com.entity";
 
+import "precise-proofs/proofs/proto/proof.proto";
+
 message EntityRelationship {
     // owner of the Relationship
     bytes entity = 1;

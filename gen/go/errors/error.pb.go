@@ -21,17 +21,17 @@ const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 // Error contains details about the specific error
 type Error struct {
 	// unique error code for this error
-	Code int32 `protobuf:"varint,1,opt,name=code" json:"code,omitempty"`
+	Code int32 `protobuf:"varint,1,opt,name=code,proto3" json:"code,omitempty"`
 	// error description
 	// in case of multiple errors, represents generic error message
 	// with specifics in the errors field
-	Message string `protobuf:"bytes,2,opt,name=message" json:"message,omitempty"`
+	Message string `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
 	// map of sub errors if there are multiple errors to be passed back
 	// ex:
 	// "document_identifier": "empty identifer",
 	// "next_identifier": "invalid next identifer",
 	// "document_root": "invalid document root"
-	Errors               map[string]string `protobuf:"bytes,3,rep,name=errors" json:"errors,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	Errors               map[string]string `protobuf:"bytes,3,rep,name=errors,proto3" json:"errors,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
 	XXX_unrecognized     []byte            `json:"-"`
 	XXX_sizecache        int32             `json:"-"`
