@@ -49,11 +49,11 @@ func (AccessType) EnumDescriptor() ([]byte, []int) {
 }
 
 type Header struct {
-	NetworkIdentifier uint32 `protobuf:"varint,1,opt,name=network_identifier,json=networkIdentifier,proto3" json:"network_identifier,omitempty"`
-	NodeVersion       string `protobuf:"bytes,2,opt,name=node_version,json=nodeVersion,proto3" json:"node_version,omitempty"`
+	NetworkIdentifier uint32 `protobuf:"varint,1,opt,name=network_identifier,json=networkIdentifier" json:"network_identifier,omitempty"`
+	NodeVersion       string `protobuf:"bytes,2,opt,name=node_version,json=nodeVersion" json:"node_version,omitempty"`
 	SenderId          []byte `protobuf:"bytes,3,opt,name=sender_id,json=senderId,proto3" json:"sender_id,omitempty"`
 	// Body message type
-	Type                 string   `protobuf:"bytes,4,opt,name=type,proto3" json:"type,omitempty"`
+	Type                 string   `protobuf:"bytes,4,opt,name=type" json:"type,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -112,7 +112,7 @@ func (m *Header) GetType() string {
 }
 
 type Envelope struct {
-	Header               *Header  `protobuf:"bytes,1,opt,name=header,proto3" json:"header,omitempty"`
+	Header               *Header  `protobuf:"bytes,1,opt,name=header" json:"header,omitempty"`
 	Body                 []byte   `protobuf:"bytes,2,opt,name=body,proto3" json:"body,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -158,7 +158,7 @@ func (m *Envelope) GetBody() []byte {
 }
 
 type SignatureRequest struct {
-	Document             *coredocument.CoreDocument `protobuf:"bytes,1,opt,name=document,proto3" json:"document,omitempty"`
+	Document             *coredocument.CoreDocument `protobuf:"bytes,1,opt,name=document" json:"document,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}                   `json:"-"`
 	XXX_unrecognized     []byte                     `json:"-"`
 	XXX_sizecache        int32                      `json:"-"`
@@ -196,7 +196,7 @@ func (m *SignatureRequest) GetDocument() *coredocument.CoreDocument {
 }
 
 type SignatureResponse struct {
-	Signature            *coredocument.Signature `protobuf:"bytes,1,opt,name=signature,proto3" json:"signature,omitempty"`
+	Signature            *coredocument.Signature `protobuf:"bytes,1,opt,name=signature" json:"signature,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}                `json:"-"`
 	XXX_unrecognized     []byte                  `json:"-"`
 	XXX_sizecache        int32                   `json:"-"`
@@ -234,7 +234,7 @@ func (m *SignatureResponse) GetSignature() *coredocument.Signature {
 }
 
 type AnchorDocumentRequest struct {
-	Document             *coredocument.CoreDocument `protobuf:"bytes,1,opt,name=document,proto3" json:"document,omitempty"`
+	Document             *coredocument.CoreDocument `protobuf:"bytes,1,opt,name=document" json:"document,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}                   `json:"-"`
 	XXX_unrecognized     []byte                     `json:"-"`
 	XXX_sizecache        int32                      `json:"-"`
@@ -272,7 +272,7 @@ func (m *AnchorDocumentRequest) GetDocument() *coredocument.CoreDocument {
 }
 
 type AnchorDocumentResponse struct {
-	Accepted             bool     `protobuf:"varint,1,opt,name=accepted,proto3" json:"accepted,omitempty"`
+	Accepted             bool     `protobuf:"varint,1,opt,name=accepted" json:"accepted,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -311,10 +311,10 @@ func (m *AnchorDocumentResponse) GetAccepted() bool {
 
 type GetDocumentRequest struct {
 	DocumentIdentifier   []byte              `protobuf:"bytes,1,opt,name=document_identifier,json=documentIdentifier,proto3" json:"document_identifier,omitempty"`
-	AccessType           AccessType          `protobuf:"varint,2,opt,name=access_type,json=accessType,proto3,enum=p2p.AccessType" json:"access_type,omitempty"`
+	AccessType           AccessType          `protobuf:"varint,2,opt,name=access_type,json=accessType,enum=p2p.AccessType" json:"access_type,omitempty"`
 	NftRegistryAddress   []byte              `protobuf:"bytes,3,opt,name=nft_registry_address,json=nftRegistryAddress,proto3" json:"nft_registry_address,omitempty"`
 	NftTokenId           []byte              `protobuf:"bytes,4,opt,name=nft_token_id,json=nftTokenId,proto3" json:"nft_token_id,omitempty"`
-	AccessTokenRequest   *AccessTokenRequest `protobuf:"bytes,5,opt,name=access_token_request,json=accessTokenRequest,proto3" json:"access_token_request,omitempty"`
+	AccessTokenRequest   *AccessTokenRequest `protobuf:"bytes,5,opt,name=access_token_request,json=accessTokenRequest" json:"access_token_request,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}            `json:"-"`
 	XXX_unrecognized     []byte              `json:"-"`
 	XXX_sizecache        int32               `json:"-"`
@@ -426,7 +426,7 @@ func (m *AccessTokenRequest) GetAccessTokenId() []byte {
 }
 
 type GetDocumentResponse struct {
-	Document             *coredocument.CoreDocument `protobuf:"bytes,1,opt,name=document,proto3" json:"document,omitempty"`
+	Document             *coredocument.CoreDocument `protobuf:"bytes,1,opt,name=document" json:"document,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}                   `json:"-"`
 	XXX_unrecognized     []byte                     `json:"-"`
 	XXX_sizecache        int32                      `json:"-"`

@@ -19,13 +19,14 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
+// EntityRelationship allows other identities to access the Entity document.
 type EntityRelationship struct {
-	// owner of the Relationship
-	Entity []byte `protobuf:"bytes,1,opt,name=entity,proto3" json:"entity,omitempty"`
+	// owner id of the Relationship
+	OwnerIdentity []byte `protobuf:"bytes,1,opt,name=owner_identity,json=ownerIdentity,proto3" json:"owner_identity,omitempty"`
 	// label is a reference for the creator
 	Label []byte `protobuf:"bytes,2,opt,name=label,proto3" json:"label,omitempty"`
-	// target identity
-	Identity             []byte   `protobuf:"bytes,3,opt,name=identity,proto3" json:"identity,omitempty"`
+	// identity which should be gruanteed acess
+	TargetIdentity       []byte   `protobuf:"bytes,3,opt,name=target_identity,json=targetIdentity,proto3" json:"target_identity,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -35,7 +36,7 @@ func (m *EntityRelationship) Reset()         { *m = EntityRelationship{} }
 func (m *EntityRelationship) String() string { return proto.CompactTextString(m) }
 func (*EntityRelationship) ProtoMessage()    {}
 func (*EntityRelationship) Descriptor() ([]byte, []int) {
-	return fileDescriptor_entity_86c9f2485a331dd9, []int{0}
+	return fileDescriptor_entity_774948a23b91e72c, []int{0}
 }
 func (m *EntityRelationship) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_EntityRelationship.Unmarshal(m, b)
@@ -55,9 +56,9 @@ func (m *EntityRelationship) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_EntityRelationship proto.InternalMessageInfo
 
-func (m *EntityRelationship) GetEntity() []byte {
+func (m *EntityRelationship) GetOwnerIdentity() []byte {
 	if m != nil {
-		return m.Entity
+		return m.OwnerIdentity
 	}
 	return nil
 }
@@ -69,24 +70,23 @@ func (m *EntityRelationship) GetLabel() []byte {
 	return nil
 }
 
-func (m *EntityRelationship) GetIdentity() []byte {
+func (m *EntityRelationship) GetTargetIdentity() []byte {
 	if m != nil {
-		return m.Identity
+		return m.TargetIdentity
 	}
 	return nil
 }
 
 // EntityData is the default entity schema
 type Entity struct {
-	Identity    []byte      `protobuf:"bytes,1,opt,name=identity,proto3" json:"identity,omitempty"`
-	LegalEntity string      `protobuf:"bytes,2,opt,name=legal_entity,json=legalEntity,proto3" json:"legal_entity,omitempty"`
-	EntityIds   []*EntityId `protobuf:"bytes,3,rep,name=entity_ids,json=entityIds,proto3" json:"entity_ids,omitempty"`
+	Identity  []byte `protobuf:"bytes,1,opt,name=identity,proto3" json:"identity,omitempty"`
+	LegalName string `protobuf:"bytes,2,opt,name=legal_name,json=legalName" json:"legal_name,omitempty"`
 	// address
-	Addresses []*Address `protobuf:"bytes,4,rep,name=addresses,proto3" json:"addresses,omitempty"`
+	Addresses []*Address `protobuf:"bytes,3,rep,name=addresses" json:"addresses,omitempty"`
 	// tax information
-	PaymentDetails []*PaymentDetail `protobuf:"bytes,5,rep,name=payment_details,json=paymentDetails,proto3" json:"payment_details,omitempty"`
+	PaymentDetails []*PaymentDetail `protobuf:"bytes,4,rep,name=payment_details,json=paymentDetails" json:"payment_details,omitempty"`
 	// Entity contact list
-	Contacts             []*Contact `protobuf:"bytes,6,rep,name=contacts,proto3" json:"contacts,omitempty"`
+	Contacts             []*Contact `protobuf:"bytes,5,rep,name=contacts" json:"contacts,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}   `json:"-"`
 	XXX_unrecognized     []byte     `json:"-"`
 	XXX_sizecache        int32      `json:"-"`
@@ -96,7 +96,7 @@ func (m *Entity) Reset()         { *m = Entity{} }
 func (m *Entity) String() string { return proto.CompactTextString(m) }
 func (*Entity) ProtoMessage()    {}
 func (*Entity) Descriptor() ([]byte, []int) {
-	return fileDescriptor_entity_86c9f2485a331dd9, []int{1}
+	return fileDescriptor_entity_774948a23b91e72c, []int{1}
 }
 func (m *Entity) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Entity.Unmarshal(m, b)
@@ -123,18 +123,11 @@ func (m *Entity) GetIdentity() []byte {
 	return nil
 }
 
-func (m *Entity) GetLegalEntity() string {
+func (m *Entity) GetLegalName() string {
 	if m != nil {
-		return m.LegalEntity
+		return m.LegalName
 	}
 	return ""
-}
-
-func (m *Entity) GetEntityIds() []*EntityId {
-	if m != nil {
-		return m.EntityIds
-	}
-	return nil
 }
 
 func (m *Entity) GetAddresses() []*Address {
@@ -159,8 +152,8 @@ func (m *Entity) GetContacts() []*Contact {
 }
 
 type EntityId struct {
-	EntityId             string   `protobuf:"bytes,1,opt,name=entity_id,json=entityId,proto3" json:"entity_id,omitempty"`
-	EntityName           string   `protobuf:"bytes,2,opt,name=entity_name,json=entityName,proto3" json:"entity_name,omitempty"`
+	EntityId             string   `protobuf:"bytes,1,opt,name=entity_id,json=entityId" json:"entity_id,omitempty"`
+	EntityName           string   `protobuf:"bytes,2,opt,name=entity_name,json=entityName" json:"entity_name,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -170,7 +163,7 @@ func (m *EntityId) Reset()         { *m = EntityId{} }
 func (m *EntityId) String() string { return proto.CompactTextString(m) }
 func (*EntityId) ProtoMessage()    {}
 func (*EntityId) Descriptor() ([]byte, []int) {
-	return fileDescriptor_entity_86c9f2485a331dd9, []int{2}
+	return fileDescriptor_entity_774948a23b91e72c, []int{2}
 }
 func (m *EntityId) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_EntityId.Unmarshal(m, b)
@@ -205,12 +198,12 @@ func (m *EntityId) GetEntityName() string {
 }
 
 type Address struct {
-	IsMain               bool     `protobuf:"varint,1,opt,name=is_main,json=isMain,proto3" json:"is_main,omitempty"`
-	Label                string   `protobuf:"bytes,2,opt,name=label,proto3" json:"label,omitempty"`
-	Zip                  string   `protobuf:"bytes,3,opt,name=zip,proto3" json:"zip,omitempty"`
-	Country              string   `protobuf:"bytes,4,opt,name=country,proto3" json:"country,omitempty"`
-	AddressLine1         string   `protobuf:"bytes,5,opt,name=address_line1,json=addressLine1,proto3" json:"address_line1,omitempty"`
-	AddressLine2         string   `protobuf:"bytes,6,opt,name=address_line2,json=addressLine2,proto3" json:"address_line2,omitempty"`
+	IsMain               bool     `protobuf:"varint,1,opt,name=is_main,json=isMain" json:"is_main,omitempty"`
+	Label                string   `protobuf:"bytes,2,opt,name=label" json:"label,omitempty"`
+	Zip                  string   `protobuf:"bytes,3,opt,name=zip" json:"zip,omitempty"`
+	Country              string   `protobuf:"bytes,4,opt,name=country" json:"country,omitempty"`
+	AddressLine1         string   `protobuf:"bytes,5,opt,name=address_line1,json=addressLine1" json:"address_line1,omitempty"`
+	AddressLine2         string   `protobuf:"bytes,6,opt,name=address_line2,json=addressLine2" json:"address_line2,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -220,7 +213,7 @@ func (m *Address) Reset()         { *m = Address{} }
 func (m *Address) String() string { return proto.CompactTextString(m) }
 func (*Address) ProtoMessage()    {}
 func (*Address) Descriptor() ([]byte, []int) {
-	return fileDescriptor_entity_86c9f2485a331dd9, []int{3}
+	return fileDescriptor_entity_774948a23b91e72c, []int{3}
 }
 func (m *Address) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Address.Unmarshal(m, b)
@@ -284,11 +277,11 @@ func (m *Address) GetAddressLine2() string {
 
 type BankPaymentMethod struct {
 	Identifier           []byte   `protobuf:"bytes,1,opt,name=identifier,proto3" json:"identifier,omitempty"`
-	Address              *Address `protobuf:"bytes,2,opt,name=address,proto3" json:"address,omitempty"`
-	HolderName           string   `protobuf:"bytes,3,opt,name=holder_name,json=holderName,proto3" json:"holder_name,omitempty"`
-	BankKey              string   `protobuf:"bytes,4,opt,name=bank_key,json=bankKey,proto3" json:"bank_key,omitempty"`
-	BankAccountNumber    string   `protobuf:"bytes,5,opt,name=bank_account_number,json=bankAccountNumber,proto3" json:"bank_account_number,omitempty"`
-	Currency             string   `protobuf:"bytes,6,opt,name=currency,proto3" json:"currency,omitempty"`
+	Address              *Address `protobuf:"bytes,2,opt,name=address" json:"address,omitempty"`
+	HolderName           string   `protobuf:"bytes,3,opt,name=holder_name,json=holderName" json:"holder_name,omitempty"`
+	BankKey              string   `protobuf:"bytes,4,opt,name=bank_key,json=bankKey" json:"bank_key,omitempty"`
+	BankAccountNumber    string   `protobuf:"bytes,5,opt,name=bank_account_number,json=bankAccountNumber" json:"bank_account_number,omitempty"`
+	Currency             string   `protobuf:"bytes,6,opt,name=currency" json:"currency,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -298,7 +291,7 @@ func (m *BankPaymentMethod) Reset()         { *m = BankPaymentMethod{} }
 func (m *BankPaymentMethod) String() string { return proto.CompactTextString(m) }
 func (*BankPaymentMethod) ProtoMessage()    {}
 func (*BankPaymentMethod) Descriptor() ([]byte, []int) {
-	return fileDescriptor_entity_86c9f2485a331dd9, []int{4}
+	return fileDescriptor_entity_774948a23b91e72c, []int{4}
 }
 func (m *BankPaymentMethod) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_BankPaymentMethod.Unmarshal(m, b)
@@ -362,7 +355,7 @@ func (m *BankPaymentMethod) GetCurrency() string {
 
 type CryptoPaymentMethod struct {
 	Identifier           []byte   `protobuf:"bytes,1,opt,name=identifier,proto3" json:"identifier,omitempty"`
-	AccountAddress       string   `protobuf:"bytes,2,opt,name=account_address,json=accountAddress,proto3" json:"account_address,omitempty"`
+	AccountAddress       string   `protobuf:"bytes,2,opt,name=account_address,json=accountAddress" json:"account_address,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -372,7 +365,7 @@ func (m *CryptoPaymentMethod) Reset()         { *m = CryptoPaymentMethod{} }
 func (m *CryptoPaymentMethod) String() string { return proto.CompactTextString(m) }
 func (*CryptoPaymentMethod) ProtoMessage()    {}
 func (*CryptoPaymentMethod) Descriptor() ([]byte, []int) {
-	return fileDescriptor_entity_86c9f2485a331dd9, []int{5}
+	return fileDescriptor_entity_774948a23b91e72c, []int{5}
 }
 func (m *CryptoPaymentMethod) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_CryptoPaymentMethod.Unmarshal(m, b)
@@ -408,7 +401,7 @@ func (m *CryptoPaymentMethod) GetAccountAddress() string {
 
 type PayPalMethod struct {
 	Identifier           []byte   `protobuf:"bytes,1,opt,name=identifier,proto3" json:"identifier,omitempty"`
-	Email                string   `protobuf:"bytes,2,opt,name=email,proto3" json:"email,omitempty"`
+	Email                string   `protobuf:"bytes,2,opt,name=email" json:"email,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -418,7 +411,7 @@ func (m *PayPalMethod) Reset()         { *m = PayPalMethod{} }
 func (m *PayPalMethod) String() string { return proto.CompactTextString(m) }
 func (*PayPalMethod) ProtoMessage()    {}
 func (*PayPalMethod) Descriptor() ([]byte, []int) {
-	return fileDescriptor_entity_86c9f2485a331dd9, []int{6}
+	return fileDescriptor_entity_774948a23b91e72c, []int{6}
 }
 func (m *PayPalMethod) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_PayPalMethod.Unmarshal(m, b)
@@ -454,22 +447,22 @@ func (m *PayPalMethod) GetEmail() string {
 
 type PaymentDetail struct {
 	// fields for bank accounts and ethereum wallets
-	Predefined bool `protobuf:"varint,1,opt,name=predefined,proto3" json:"predefined,omitempty"`
-	// Types that are valid to be assigned to PaymentMethods:
+	Predefined bool `protobuf:"varint,1,opt,name=predefined" json:"predefined,omitempty"`
+	// Types that are valid to be assigned to PaymentMethod:
 	//	*PaymentDetail_BankPaymentMethod
 	//	*PaymentDetail_CryptoPaymentMethod
 	//	*PaymentDetail_PayPalMethod
-	PaymentMethods       isPaymentDetail_PaymentMethods `protobuf_oneof:"payment_methods"`
-	XXX_NoUnkeyedLiteral struct{}                       `json:"-"`
-	XXX_unrecognized     []byte                         `json:"-"`
-	XXX_sizecache        int32                          `json:"-"`
+	PaymentMethod        isPaymentDetail_PaymentMethod `protobuf_oneof:"payment_method"`
+	XXX_NoUnkeyedLiteral struct{}                      `json:"-"`
+	XXX_unrecognized     []byte                        `json:"-"`
+	XXX_sizecache        int32                         `json:"-"`
 }
 
 func (m *PaymentDetail) Reset()         { *m = PaymentDetail{} }
 func (m *PaymentDetail) String() string { return proto.CompactTextString(m) }
 func (*PaymentDetail) ProtoMessage()    {}
 func (*PaymentDetail) Descriptor() ([]byte, []int) {
-	return fileDescriptor_entity_86c9f2485a331dd9, []int{7}
+	return fileDescriptor_entity_774948a23b91e72c, []int{7}
 }
 func (m *PaymentDetail) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_PaymentDetail.Unmarshal(m, b)
@@ -489,6 +482,31 @@ func (m *PaymentDetail) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_PaymentDetail proto.InternalMessageInfo
 
+type isPaymentDetail_PaymentMethod interface {
+	isPaymentDetail_PaymentMethod()
+}
+
+type PaymentDetail_BankPaymentMethod struct {
+	BankPaymentMethod *BankPaymentMethod `protobuf:"bytes,2,opt,name=bank_payment_method,json=bankPaymentMethod,oneof"`
+}
+type PaymentDetail_CryptoPaymentMethod struct {
+	CryptoPaymentMethod *CryptoPaymentMethod `protobuf:"bytes,3,opt,name=crypto_payment_method,json=cryptoPaymentMethod,oneof"`
+}
+type PaymentDetail_PayPalMethod struct {
+	PayPalMethod *PayPalMethod `protobuf:"bytes,4,opt,name=pay_pal_method,json=payPalMethod,oneof"`
+}
+
+func (*PaymentDetail_BankPaymentMethod) isPaymentDetail_PaymentMethod()   {}
+func (*PaymentDetail_CryptoPaymentMethod) isPaymentDetail_PaymentMethod() {}
+func (*PaymentDetail_PayPalMethod) isPaymentDetail_PaymentMethod()        {}
+
+func (m *PaymentDetail) GetPaymentMethod() isPaymentDetail_PaymentMethod {
+	if m != nil {
+		return m.PaymentMethod
+	}
+	return nil
+}
+
 func (m *PaymentDetail) GetPredefined() bool {
 	if m != nil {
 		return m.Predefined
@@ -496,51 +514,22 @@ func (m *PaymentDetail) GetPredefined() bool {
 	return false
 }
 
-type isPaymentDetail_PaymentMethods interface {
-	isPaymentDetail_PaymentMethods()
-}
-
-type PaymentDetail_BankPaymentMethod struct {
-	BankPaymentMethod *BankPaymentMethod `protobuf:"bytes,2,opt,name=bank_payment_method,json=bankPaymentMethod,proto3,oneof"`
-}
-
-type PaymentDetail_CryptoPaymentMethod struct {
-	CryptoPaymentMethod *CryptoPaymentMethod `protobuf:"bytes,3,opt,name=crypto_payment_method,json=cryptoPaymentMethod,proto3,oneof"`
-}
-
-type PaymentDetail_PayPalMethod struct {
-	PayPalMethod *PayPalMethod `protobuf:"bytes,4,opt,name=pay_pal_method,json=payPalMethod,proto3,oneof"`
-}
-
-func (*PaymentDetail_BankPaymentMethod) isPaymentDetail_PaymentMethods() {}
-
-func (*PaymentDetail_CryptoPaymentMethod) isPaymentDetail_PaymentMethods() {}
-
-func (*PaymentDetail_PayPalMethod) isPaymentDetail_PaymentMethods() {}
-
-func (m *PaymentDetail) GetPaymentMethods() isPaymentDetail_PaymentMethods {
-	if m != nil {
-		return m.PaymentMethods
-	}
-	return nil
-}
-
 func (m *PaymentDetail) GetBankPaymentMethod() *BankPaymentMethod {
-	if x, ok := m.GetPaymentMethods().(*PaymentDetail_BankPaymentMethod); ok {
+	if x, ok := m.GetPaymentMethod().(*PaymentDetail_BankPaymentMethod); ok {
 		return x.BankPaymentMethod
 	}
 	return nil
 }
 
 func (m *PaymentDetail) GetCryptoPaymentMethod() *CryptoPaymentMethod {
-	if x, ok := m.GetPaymentMethods().(*PaymentDetail_CryptoPaymentMethod); ok {
+	if x, ok := m.GetPaymentMethod().(*PaymentDetail_CryptoPaymentMethod); ok {
 		return x.CryptoPaymentMethod
 	}
 	return nil
 }
 
 func (m *PaymentDetail) GetPayPalMethod() *PayPalMethod {
-	if x, ok := m.GetPaymentMethods().(*PaymentDetail_PayPalMethod); ok {
+	if x, ok := m.GetPaymentMethod().(*PaymentDetail_PayPalMethod); ok {
 		return x.PayPalMethod
 	}
 	return nil
@@ -557,8 +546,8 @@ func (*PaymentDetail) XXX_OneofFuncs() (func(msg proto.Message, b *proto.Buffer)
 
 func _PaymentDetail_OneofMarshaler(msg proto.Message, b *proto.Buffer) error {
 	m := msg.(*PaymentDetail)
-	// payment_methods
-	switch x := m.PaymentMethods.(type) {
+	// payment_method
+	switch x := m.PaymentMethod.(type) {
 	case *PaymentDetail_BankPaymentMethod:
 		b.EncodeVarint(2<<3 | proto.WireBytes)
 		if err := b.EncodeMessage(x.BankPaymentMethod); err != nil {
@@ -576,7 +565,7 @@ func _PaymentDetail_OneofMarshaler(msg proto.Message, b *proto.Buffer) error {
 		}
 	case nil:
 	default:
-		return fmt.Errorf("PaymentDetail.PaymentMethods has unexpected type %T", x)
+		return fmt.Errorf("PaymentDetail.PaymentMethod has unexpected type %T", x)
 	}
 	return nil
 }
@@ -584,29 +573,29 @@ func _PaymentDetail_OneofMarshaler(msg proto.Message, b *proto.Buffer) error {
 func _PaymentDetail_OneofUnmarshaler(msg proto.Message, tag, wire int, b *proto.Buffer) (bool, error) {
 	m := msg.(*PaymentDetail)
 	switch tag {
-	case 2: // payment_methods.bank_payment_method
+	case 2: // payment_method.bank_payment_method
 		if wire != proto.WireBytes {
 			return true, proto.ErrInternalBadWireType
 		}
 		msg := new(BankPaymentMethod)
 		err := b.DecodeMessage(msg)
-		m.PaymentMethods = &PaymentDetail_BankPaymentMethod{msg}
+		m.PaymentMethod = &PaymentDetail_BankPaymentMethod{msg}
 		return true, err
-	case 3: // payment_methods.crypto_payment_method
+	case 3: // payment_method.crypto_payment_method
 		if wire != proto.WireBytes {
 			return true, proto.ErrInternalBadWireType
 		}
 		msg := new(CryptoPaymentMethod)
 		err := b.DecodeMessage(msg)
-		m.PaymentMethods = &PaymentDetail_CryptoPaymentMethod{msg}
+		m.PaymentMethod = &PaymentDetail_CryptoPaymentMethod{msg}
 		return true, err
-	case 4: // payment_methods.pay_pal_method
+	case 4: // payment_method.pay_pal_method
 		if wire != proto.WireBytes {
 			return true, proto.ErrInternalBadWireType
 		}
 		msg := new(PayPalMethod)
 		err := b.DecodeMessage(msg)
-		m.PaymentMethods = &PaymentDetail_PayPalMethod{msg}
+		m.PaymentMethod = &PaymentDetail_PayPalMethod{msg}
 		return true, err
 	default:
 		return false, nil
@@ -615,8 +604,8 @@ func _PaymentDetail_OneofUnmarshaler(msg proto.Message, tag, wire int, b *proto.
 
 func _PaymentDetail_OneofSizer(msg proto.Message) (n int) {
 	m := msg.(*PaymentDetail)
-	// payment_methods
-	switch x := m.PaymentMethods.(type) {
+	// payment_method
+	switch x := m.PaymentMethod.(type) {
 	case *PaymentDetail_BankPaymentMethod:
 		s := proto.Size(x.BankPaymentMethod)
 		n += 1 // tag and wire
@@ -640,10 +629,10 @@ func _PaymentDetail_OneofSizer(msg proto.Message) (n int) {
 }
 
 type Contact struct {
-	Name                 string   `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	Title                string   `protobuf:"bytes,2,opt,name=title,proto3" json:"title,omitempty"`
-	Email                string   `protobuf:"bytes,3,opt,name=email,proto3" json:"email,omitempty"`
-	Phone                string   `protobuf:"bytes,4,opt,name=phone,proto3" json:"phone,omitempty"`
+	Name                 string   `protobuf:"bytes,1,opt,name=name" json:"name,omitempty"`
+	Title                string   `protobuf:"bytes,2,opt,name=title" json:"title,omitempty"`
+	Email                string   `protobuf:"bytes,3,opt,name=email" json:"email,omitempty"`
+	Phone                string   `protobuf:"bytes,4,opt,name=phone" json:"phone,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -653,7 +642,7 @@ func (m *Contact) Reset()         { *m = Contact{} }
 func (m *Contact) String() string { return proto.CompactTextString(m) }
 func (*Contact) ProtoMessage()    {}
 func (*Contact) Descriptor() ([]byte, []int) {
-	return fileDescriptor_entity_86c9f2485a331dd9, []int{8}
+	return fileDescriptor_entity_774948a23b91e72c, []int{8}
 }
 func (m *Contact) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Contact.Unmarshal(m, b)
@@ -713,53 +702,51 @@ func init() {
 	proto.RegisterType((*Contact)(nil), "entity.Contact")
 }
 
-func init() { proto.RegisterFile("entity/entity.proto", fileDescriptor_entity_86c9f2485a331dd9) }
+func init() { proto.RegisterFile("entity/entity.proto", fileDescriptor_entity_774948a23b91e72c) }
 
-var fileDescriptor_entity_86c9f2485a331dd9 = []byte{
-	// 706 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x94, 0x54, 0x4d, 0x4f, 0xdb, 0x40,
-	0x10, 0x25, 0xe4, 0xd3, 0x93, 0xf0, 0xb5, 0x81, 0xd6, 0x80, 0xd4, 0x52, 0x57, 0x15, 0x54, 0x15,
-	0xa0, 0xd2, 0x6b, 0x55, 0x89, 0x40, 0xa5, 0x20, 0x0a, 0x4a, 0x7d, 0xec, 0x01, 0x6b, 0x63, 0x2f,
-	0xcd, 0x0a, 0x7b, 0x6d, 0x79, 0x97, 0x83, 0xfb, 0x6b, 0x7a, 0xed, 0xa5, 0xea, 0xb9, 0x37, 0xfe,
-	0x4c, 0xff, 0x01, 0xf7, 0xca, 0xbb, 0x63, 0xc7, 0x21, 0x1c, 0xda, 0x53, 0xfc, 0xe6, 0xcd, 0xce,
-	0xe6, 0xbd, 0x99, 0x59, 0xe8, 0x33, 0xa1, 0xb8, 0xca, 0x0e, 0xcd, 0xcf, 0x41, 0x92, 0xc6, 0x2a,
-	0x26, 0x2d, 0x83, 0xb6, 0x76, 0x93, 0x94, 0xf9, 0x5c, 0xb2, 0xfd, 0x24, 0x8d, 0xe3, 0x6b, 0x79,
-	0x38, 0xfd, 0x51, 0xb1, 0x01, 0xe6, 0x80, 0x73, 0x05, 0xe4, 0xa3, 0x3e, 0xe2, 0xb2, 0x90, 0x2a,
-	0x1e, 0x0b, 0x39, 0xe1, 0x09, 0x79, 0x02, 0x58, 0xc8, 0xae, 0xed, 0xd4, 0xf6, 0x7a, 0x2e, 0x22,
-	0xb2, 0x0e, 0xcd, 0x90, 0x8e, 0x59, 0x68, 0x2f, 0xea, 0xb0, 0x01, 0x64, 0x0b, 0x3a, 0x3c, 0xc0,
-	0xfc, 0xba, 0x26, 0x4a, 0xec, 0xfc, 0x58, 0x84, 0x96, 0xb9, 0x60, 0x26, 0xad, 0x36, 0x9b, 0x46,
-	0x5e, 0x40, 0x2f, 0x64, 0x5f, 0x69, 0xe8, 0x21, 0x9f, 0xd7, 0xb7, 0xdc, 0xae, 0x8e, 0xe1, 0xf1,
-	0x53, 0x00, 0x43, 0x7a, 0x3c, 0x90, 0x76, 0x7d, 0xa7, 0xbe, 0xd7, 0x3d, 0x5a, 0x3d, 0x40, 0xf5,
-	0x26, 0xe7, 0x2c, 0x18, 0xf4, 0x7f, 0xdd, 0xdd, 0xc3, 0xce, 0xef, 0xbb, 0x7b, 0xb0, 0xca, 0x6c,
-	0x17, 0x3f, 0xcf, 0x02, 0x49, 0xf6, 0xc1, 0xa2, 0x41, 0x90, 0x32, 0x29, 0x99, 0xb4, 0x1b, 0xba,
-	0xc8, 0x4a, 0x51, 0xe4, 0xd8, 0x10, 0xee, 0x34, 0x83, 0x7c, 0x80, 0x95, 0x84, 0x66, 0x11, 0x13,
-	0xca, 0x0b, 0x98, 0xa2, 0x3c, 0x94, 0x76, 0x53, 0x1f, 0xda, 0x28, 0x0e, 0x8d, 0x0c, 0x7d, 0xaa,
-	0x59, 0x77, 0x39, 0xa9, 0x42, 0x49, 0xde, 0x40, 0xc7, 0x8f, 0x85, 0xa2, 0xbe, 0x92, 0x76, 0x6b,
-	0xf6, 0xb6, 0x13, 0x13, 0x77, 0xcb, 0x04, 0x67, 0x08, 0x9d, 0x42, 0x07, 0xd9, 0xae, 0xfc, 0x7f,
-	0xed, 0x96, 0xe5, 0x76, 0x0a, 0x15, 0xe4, 0x39, 0x74, 0x91, 0x14, 0x34, 0x62, 0x68, 0x16, 0xba,
-	0x73, 0x49, 0x23, 0xe6, 0xfc, 0xac, 0x41, 0x1b, 0xd5, 0x90, 0xa7, 0xd0, 0xe6, 0xd2, 0x8b, 0x28,
-	0x17, 0xba, 0x4e, 0xc7, 0x6d, 0x71, 0x79, 0x41, 0xb9, 0x98, 0x6d, 0xa6, 0x55, 0x34, 0x73, 0x15,
-	0xea, 0xdf, 0x78, 0xa2, 0xfb, 0x68, 0xb9, 0xf9, 0x27, 0xb1, 0xa1, 0xed, 0xc7, 0xb7, 0x42, 0xa5,
-	0x99, 0xdd, 0xd0, 0xd1, 0x02, 0x92, 0x97, 0xb0, 0x84, 0x56, 0x79, 0x21, 0x17, 0xec, 0xad, 0xdd,
-	0xd4, 0x7c, 0x0f, 0x83, 0x9f, 0xf2, 0xd8, 0xc3, 0xa4, 0x23, 0xbb, 0x35, 0x97, 0x74, 0xe4, 0xfc,
-	0xa9, 0xc1, 0xda, 0x80, 0x8a, 0x1b, 0x74, 0xf3, 0x82, 0xa9, 0x49, 0x1c, 0x90, 0x67, 0x00, 0x66,
-	0x42, 0xae, 0x39, 0x4b, 0x71, 0x66, 0x2a, 0x11, 0xf2, 0x1a, 0xda, 0x58, 0x45, 0x6b, 0x78, 0xa4,
-	0x95, 0x05, 0x9f, 0x5b, 0x36, 0x89, 0xc3, 0x80, 0xa5, 0xc6, 0x32, 0x23, 0x0f, 0x4c, 0x28, 0xb7,
-	0x8c, 0x6c, 0x42, 0x67, 0x4c, 0xc5, 0x8d, 0x77, 0xc3, 0x4a, 0x99, 0x39, 0x3e, 0x67, 0x19, 0x39,
-	0x80, 0xbe, 0xa6, 0xa8, 0xaf, 0x85, 0x7b, 0xe2, 0x36, 0x1a, 0xb3, 0x14, 0xc5, 0xae, 0xe5, 0xd4,
-	0xb1, 0x61, 0x2e, 0x35, 0x91, 0x0f, 0xba, 0x7f, 0x9b, 0xa6, 0x4c, 0xf8, 0x19, 0x8a, 0x2d, 0xb1,
-	0x73, 0x05, 0xfd, 0x93, 0x34, 0x4b, 0x54, 0xfc, 0x7f, 0x4a, 0x77, 0x61, 0xa5, 0xb8, 0xbd, 0xaa,
-	0xd8, 0x72, 0x97, 0x31, 0x8c, 0x82, 0x9d, 0x53, 0xe8, 0x8d, 0x68, 0x36, 0xa2, 0xe1, 0x3f, 0x16,
-	0x5e, 0x87, 0x26, 0x8b, 0x28, 0x2f, 0x87, 0x40, 0x03, 0xe7, 0xfb, 0x22, 0x2c, 0xcd, 0x0c, 0x76,
-	0x5e, 0x27, 0x49, 0x59, 0xc0, 0xae, 0xb9, 0x60, 0x01, 0x0e, 0x52, 0x25, 0x42, 0xce, 0xd1, 0xa3,
-	0x62, 0x5b, 0x22, 0x7d, 0x3d, 0xb6, 0x65, 0xb3, 0x68, 0xcb, 0x5c, 0x8b, 0x87, 0x0b, 0xc6, 0xc0,
-	0x59, 0x37, 0x3e, 0xc3, 0x86, 0xaf, 0x4d, 0x7a, 0x58, 0xae, 0xae, 0xcb, 0x6d, 0x97, 0x2b, 0x34,
-	0xef, 0xe4, 0x70, 0xc1, 0xed, 0xfb, 0x8f, 0x18, 0xfc, 0x1e, 0xf2, 0xd5, 0xf4, 0x12, 0x1a, 0x16,
-	0xb5, 0x1a, 0xba, 0xd6, 0x7a, 0x65, 0x8f, 0x4b, 0xd7, 0x86, 0x0b, 0x6e, 0x2f, 0xa9, 0xe0, 0xc1,
-	0xda, 0xf4, 0x19, 0x30, 0xa7, 0xa5, 0xe3, 0x41, 0x1b, 0x37, 0x98, 0x10, 0x68, 0xe8, 0xa1, 0x32,
-	0x6b, 0xaa, 0xbf, 0x73, 0x5f, 0x15, 0x57, 0x61, 0xb1, 0x9c, 0x06, 0x4c, 0xdd, 0xae, 0x57, 0xdc,
-	0xce, 0xa3, 0xc9, 0x24, 0x16, 0x0c, 0xe7, 0xce, 0x80, 0xc1, 0x2b, 0x00, 0x3f, 0x8e, 0xf0, 0xef,
-	0x0d, 0xba, 0xe6, 0x65, 0x18, 0xe5, 0x8f, 0xf6, 0xa8, 0xf6, 0x05, 0xdf, 0x82, 0x64, 0x3c, 0x6e,
-	0xe9, 0x77, 0xfc, 0xdd, 0xdf, 0x00, 0x00, 0x00, 0xff, 0xff, 0x74, 0xd2, 0x38, 0x40, 0x0f, 0x06,
-	0x00, 0x00,
+var fileDescriptor_entity_774948a23b91e72c = []byte{
+	// 686 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x94, 0x54, 0xcd, 0x4e, 0xdb, 0x40,
+	0x10, 0x26, 0xe4, 0xd7, 0x43, 0x48, 0x60, 0x03, 0xaa, 0x01, 0xb5, 0x45, 0xae, 0x10, 0x54, 0x15,
+	0xa0, 0xd2, 0x6b, 0x55, 0x89, 0x40, 0xa5, 0x20, 0x0a, 0x4a, 0x7d, 0xec, 0xa1, 0xd6, 0xc6, 0x1e,
+	0xc8, 0x0a, 0x7b, 0xd7, 0x5a, 0x2f, 0xaa, 0xc2, 0xcb, 0xf4, 0x0d, 0xfa, 0x4a, 0xbd, 0xf5, 0x39,
+	0x2a, 0xef, 0xae, 0x1d, 0x07, 0x38, 0xb4, 0xa7, 0x64, 0xbe, 0x6f, 0x77, 0xc6, 0xdf, 0x37, 0x33,
+	0x0b, 0x03, 0xe4, 0x8a, 0xa9, 0xd9, 0xb1, 0xf9, 0x39, 0x4a, 0xa5, 0x50, 0x82, 0xb4, 0x4c, 0xb4,
+	0xbd, 0x9f, 0x4a, 0x0c, 0x59, 0x86, 0x87, 0xa9, 0x14, 0xe2, 0x26, 0x3b, 0x9e, 0xff, 0x28, 0x61,
+	0x02, 0x73, 0xc1, 0x7b, 0x00, 0xf2, 0x59, 0x5f, 0xf1, 0x31, 0xa6, 0x8a, 0x09, 0x9e, 0x4d, 0x59,
+	0x4a, 0xf6, 0xa0, 0x27, 0x7e, 0x70, 0x94, 0x01, 0x8b, 0x4c, 0x42, 0xb7, 0xb6, 0x5b, 0x3b, 0xe8,
+	0xfa, 0xab, 0x1a, 0xbd, 0xb0, 0x20, 0xd9, 0x80, 0x66, 0x4c, 0x27, 0x18, 0xbb, 0xcb, 0x9a, 0x35,
+	0x01, 0xd9, 0x87, 0xbe, 0xa2, 0xf2, 0x16, 0xd5, 0xfc, 0x76, 0x5d, 0xf3, 0x3d, 0x03, 0x17, 0xd7,
+	0xbd, 0xdf, 0x35, 0x68, 0x99, 0xe2, 0x64, 0x1b, 0x3a, 0x8f, 0x4a, 0x95, 0x31, 0x79, 0x09, 0x10,
+	0xe3, 0x2d, 0x8d, 0x03, 0x4e, 0x13, 0xd4, 0xa5, 0x1c, 0xdf, 0xd1, 0xc8, 0x35, 0x4d, 0x90, 0x1c,
+	0x82, 0x43, 0xa3, 0x48, 0x62, 0x96, 0x61, 0xe6, 0xd6, 0x77, 0xeb, 0x07, 0x2b, 0x27, 0xfd, 0x23,
+	0x6b, 0xca, 0xa9, 0x21, 0xfc, 0xf9, 0x09, 0xf2, 0x09, 0xfa, 0x29, 0x9d, 0x25, 0xc8, 0x55, 0x10,
+	0xa1, 0xa2, 0x2c, 0xce, 0xdc, 0x86, 0xbe, 0xb4, 0x59, 0x5c, 0x1a, 0x1b, 0xfa, 0x5c, 0xb3, 0x7e,
+	0x2f, 0xad, 0x86, 0x19, 0x79, 0x07, 0x9d, 0x50, 0x70, 0x45, 0x43, 0x95, 0xb9, 0xcd, 0xc5, 0x6a,
+	0x67, 0x06, 0xf7, 0xcb, 0x03, 0xde, 0x08, 0x3a, 0x46, 0xe0, 0x45, 0x44, 0x76, 0xc0, 0x31, 0xe7,
+	0x02, 0x16, 0x69, 0x8d, 0x8e, 0xdf, 0xc1, 0x82, 0x7c, 0x0d, 0x2b, 0x96, 0xac, 0x88, 0x04, 0x03,
+	0xe5, 0x2a, 0xbd, 0x5f, 0x35, 0x68, 0x5b, 0x35, 0xe4, 0x05, 0xb4, 0x59, 0x16, 0x24, 0x94, 0x71,
+	0x9d, 0xa7, 0xe3, 0xb7, 0x58, 0x76, 0x45, 0x19, 0x5f, 0xec, 0x87, 0x53, 0xf4, 0x63, 0x0d, 0xea,
+	0x0f, 0x2c, 0xd5, 0x3d, 0x70, 0xfc, 0xfc, 0x2f, 0x71, 0xa1, 0x1d, 0x8a, 0x7b, 0xae, 0xe4, 0xcc,
+	0x6d, 0x68, 0xb4, 0x08, 0xc9, 0x1b, 0x58, 0xb5, 0x56, 0x05, 0x31, 0xe3, 0xf8, 0xde, 0x6d, 0x6a,
+	0xbe, 0x6b, 0xc1, 0x2f, 0x39, 0xf6, 0xf8, 0xd0, 0x89, 0xdb, 0x7a, 0x72, 0xe8, 0xc4, 0xfb, 0x53,
+	0x83, 0xf5, 0x21, 0xe5, 0x77, 0xd6, 0xcd, 0x2b, 0x54, 0x53, 0x11, 0x91, 0x57, 0x00, 0xa6, 0xaf,
+	0x37, 0x0c, 0xa5, 0xed, 0x74, 0x05, 0x21, 0x6f, 0xa1, 0x6d, 0xb3, 0x68, 0x0d, 0xcf, 0xb4, 0xb2,
+	0xe0, 0x73, 0xcb, 0xa6, 0x22, 0x8e, 0x50, 0x1a, 0xcb, 0x8c, 0x3c, 0x30, 0x90, 0x1e, 0x8c, 0x2d,
+	0xe8, 0x4c, 0x28, 0xbf, 0x0b, 0xee, 0xb0, 0x94, 0x99, 0xc7, 0x97, 0x38, 0x23, 0x47, 0x30, 0xd0,
+	0x14, 0x0d, 0xb5, 0xf0, 0x80, 0xdf, 0x27, 0x13, 0x94, 0x56, 0xec, 0x7a, 0x4e, 0x9d, 0x1a, 0xe6,
+	0x5a, 0x13, 0xf9, 0x78, 0x86, 0xf7, 0x52, 0x22, 0x0f, 0x67, 0x56, 0x6c, 0x19, 0x7b, 0xdf, 0x61,
+	0x70, 0x26, 0x67, 0xa9, 0x12, 0xff, 0xa7, 0x74, 0x1f, 0xfa, 0x45, 0xf5, 0xaa, 0x62, 0xc7, 0xef,
+	0x59, 0xd8, 0x0a, 0xf6, 0xce, 0xa1, 0x3b, 0xa6, 0xb3, 0x31, 0x8d, 0xff, 0x31, 0xf1, 0x06, 0x34,
+	0x31, 0xa1, 0xac, 0x1c, 0x02, 0x1d, 0x78, 0x3f, 0x97, 0x61, 0x75, 0x61, 0xb0, 0xf3, 0x3c, 0xa9,
+	0xc4, 0x08, 0x6f, 0x18, 0xc7, 0xc8, 0x0e, 0x52, 0x05, 0x21, 0x97, 0xd6, 0xa3, 0x62, 0x5b, 0x12,
+	0x5d, 0xde, 0xb6, 0x65, 0xab, 0x68, 0xcb, 0x93, 0x16, 0x8f, 0x96, 0x8c, 0x81, 0x8b, 0x6e, 0x7c,
+	0x85, 0xcd, 0x50, 0x9b, 0xf4, 0x38, 0x5d, 0x5d, 0xa7, 0xdb, 0x29, 0x57, 0xe8, 0xa9, 0x93, 0xa3,
+	0x25, 0x7f, 0x10, 0x3e, 0x63, 0xf0, 0x47, 0xc8, 0x57, 0x33, 0x48, 0x69, 0x5c, 0xe4, 0x6a, 0xe8,
+	0x5c, 0x1b, 0x95, 0x3d, 0x2e, 0x5d, 0x1b, 0x2d, 0xf9, 0xdd, 0xb4, 0x12, 0x0f, 0xd7, 0xa0, 0xb7,
+	0xf8, 0x25, 0x5e, 0x00, 0x6d, 0xbb, 0xc0, 0x84, 0x40, 0x43, 0xcf, 0x94, 0xd9, 0x52, 0xfd, 0x3f,
+	0xb7, 0x55, 0x31, 0x15, 0x17, 0xbb, 0x69, 0x82, 0xb9, 0xd9, 0xf5, 0x8a, 0xd9, 0x39, 0x9a, 0x4e,
+	0x05, 0x47, 0x3b, 0x76, 0x26, 0x18, 0xee, 0x01, 0x84, 0x22, 0xb1, 0x5f, 0x37, 0x5c, 0x31, 0x0f,
+	0xc3, 0x38, 0x7f, 0x85, 0xc7, 0xb5, 0x6f, 0xf6, 0x29, 0x48, 0x27, 0x93, 0x96, 0x7e, 0x98, 0x3f,
+	0xfc, 0x0d, 0x00, 0x00, 0xff, 0xff, 0x76, 0xa9, 0xc9, 0xe5, 0xe0, 0x05, 0x00, 0x00,
 }
