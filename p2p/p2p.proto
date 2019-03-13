@@ -8,6 +8,7 @@ option java_outer_classname = "P2pProto";
 option java_package = "com.p2p";
 
 import "coredocument/coredocument.proto";
+import "google/protobuf/timestamp.proto";
 
 message Header {
   uint32 network_identifier = 1;
@@ -15,6 +16,8 @@ message Header {
   bytes sender_id = 3;
   // Body message type
   string type = 4;
+  // sent timestamp
+  google.protobuf.Timestamp timestamp = 5;
 }
 
 message Envelope {
