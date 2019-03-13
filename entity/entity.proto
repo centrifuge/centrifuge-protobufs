@@ -1,0 +1,87 @@
+syntax = "proto3";
+
+package entity;
+
+option go_package = "entitypb";
+option java_multiple_files = true;
+option java_outer_classname = "EntityProto";
+option java_package = "com.entity";
+
+message EntityRelationship {
+    // owner of the Relationship
+    bytes entity = 1;
+    // label is a reference for the creator
+    bytes label = 2;
+    // target identity
+    bytes identity = 3;
+}
+
+// EntityData is the default entity schema
+message Entity {
+    bytes identity = 1;
+    string legal_entity = 2;
+
+    repeated EntityId entity_ids = 3 [
+                                     (proofs.key_length) = 32,
+                           (proofs.mapping_key) = "entity_id"
+                           ];
+
+    // address
+    repeated Address addresses = 4;
+    // tax information
+    repeated PaymentDetail payment_details = 5;
+    // Entity contact list
+    repeated Contact contacts = 6;
+}
+
+message EntityId {
+    string entity_id = 1;
+    string entity_name = 2;
+}
+
+
+message Address {
+    bool is_main = 1;
+    string label = 2;
+    string zip = 3;
+    string country = 4;
+    string address_line1 = 5;
+    string address_line2 = 6;
+}
+
+message BankPaymentMethod {
+    bytes identifier = 1;
+    Address address = 2;
+    string holder_name = 3;
+    string bank_key = 4;
+    string bank_account_number = 5;
+    string currency = 6;
+}
+
+message CryptoPaymentMethod {
+    bytes identifier = 1;
+    string account_address = 2;
+}
+
+message PayPalMethod {
+    bytes identifier = 1;
+    string email = 2;
+}
+
+message PaymentDetail {
+    // fields for bank accounts and ethereum wallets
+    bool predefined = 1;
+    oneof oneofBlock {
+        BankPaymentMethod bankpayment = 2;
+        CryptoPaymentMethod cryptoPaymentMethod = 3;
+        PayPalMethod payPalMethod = 4;
+    }
+
+}
+
+message Contact {
+    string name = 1;
+    string title = 2;
+    string email = 3;
+    string phone = 4;
+}
