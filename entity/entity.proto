@@ -41,6 +41,7 @@ message Address {
   string country = 7;
   string address_line1 = 8;
   string address_line2 = 9;
+  string contact_person = 10;
 }
 
 message BankPaymentMethod {
@@ -61,8 +62,9 @@ message CryptoPaymentMethod {
 
 message OtherPayment {
   bytes identifier = 1;
-  string pay_to = 2;
-  string supported_currency = 3;
+  string type = 2;
+  string pay_to = 3;
+  string supported_currency = 4;
 }
 
 message PaymentDetail {
