@@ -33,11 +33,11 @@ message InvoiceData {
   // ISO currency code 
   string currency = 13;
   // invoice amount including tax 
-  int64 gross_amount = 14;
+  bytes gross_amount = 14;
   // invoice amount excluding tax 
-  int64 net_amount = 15;
-  int64 tax_amount = 16;
-  int64 tax_rate = 17;
+  bytes net_amount = 15;
+  bytes tax_amount = 16;
+  bytes tax_rate = 17;
   bytes recipient = 18;
   bytes sender = 19;
   bytes payee = 20;
