@@ -124,6 +124,8 @@ message AccessToken {
   bytes signature = 6;
   // The public key of the signed message
   bytes key = 7;
+  // date created timestamp
+  google.protobuf.Timestamp timestamp = 8;
 }
 
 // SignatureData contains the list of signatures identified by the signature_id
