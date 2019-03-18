@@ -121,9 +121,12 @@ message AccessToken {
   // Original identifier of the document
   bytes document_identifier = 2;
   // Cryptographic signature that an access token is valid
-  Signature signature = 6;
+  bytes signature = 6;
   // The public key of the signed message
   bytes key = 7;
+  // The document version will be used to check the timestamp on the document at the time of access token issuance.
+  // This time stamp will be used to validate the signature of the identity issuing the access token.
+  bytes document_version = 8;
 }
 
 // SignatureData contains the list of signatures identified by the signature_id
@@ -144,8 +147,6 @@ message Signature {
   bytes public_key = 3;
   // `signature` is the actual signature of the CoreDocument
   bytes signature = 4;
-  // `timestamp` at the time of signing
-  google.protobuf.Timestamp timestamp = 5;
 }
 
 // Action defines the set of actions a collaborator can/have per document.
