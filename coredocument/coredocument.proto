@@ -121,7 +121,7 @@ message AccessToken {
   // Original identifier of the document
   bytes document_identifier = 2;
   // Cryptographic signature that an access token is valid
-  bytes signature = 6;
+  Signature signature = 6;
   // The public key of the signed message
   bytes key = 7;
 }
