@@ -25,16 +25,16 @@ message InvoiceData {
   string sender_zipcode = 10;
   string sender_state = 11;
   string sender_country = 12;
-  string bill_to_company_name = 13;
-  string bill_to_contact_person_name = 14;
+  string bill_to_company_name = 43;
+  string bill_to_contact_person_name = 44;
   string bill_to_street1 = 15;
   string bill_to_street2 = 16;
   string bill_to_city = 17;
   string bill_to_zipcode = 18;
-  string bill_to_state = 19;
+  string bill_to_state = 50;
   string bill_to_country = 20;
   string bill_to_vat_number = 21;
-  string bill_to_local_tax_id = 22;
+  string bill_to_local_tax_id = 60;
   string remit_to_company_name = 23;
   string remit_to_contact_person_name = 24;
   string remit_to_street1 = 25;
@@ -54,8 +54,8 @@ message InvoiceData {
   string ship_to_zipcode = 40;
   string ship_to_state = 41;
   string ship_to_country = 42;
-  string currency = 43;
-  bytes gross_amount = 44;
+  string currency = 13;
+  bytes gross_amount = 14;
   bytes net_amount = 45;
   bytes tax_amount = 46;
   bytes tax_rate = 47;
@@ -63,7 +63,7 @@ message InvoiceData {
   // centrifuge ID of the recipient
   bytes recipient = 49;
   // centrifuge ID of the sender
-  bytes sender = 50;
+  bytes sender = 19;
   // centrifuge ID of the payee
   bytes payee = 51;
   string comment = 52;
@@ -75,7 +75,7 @@ message InvoiceData {
   bool is_credit_note = 57;
   string credit_note_invoice_number = 58;
   google.protobuf.Timestamp credit_for_invoice_date = 59;
-  google.protobuf.Timestamp date_due = 60;
+  google.protobuf.Timestamp date_due = 22;
   google.protobuf.Timestamp date_paid = 61;
   google.protobuf.Timestamp date_updated = 62;
   google.protobuf.Timestamp date_created = 63;
