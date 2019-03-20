@@ -31,11 +31,11 @@ message PurchaseOrderData {
   // ISO currency code 
   string currency = 12;
   // ordering gross amount including tax 
-  int64 order_amount = 13;
+  bytes order_amount = 13;
   // invoice amount excluding tax 
-  int64 net_amount = 14;
-  int64 tax_amount = 15;
-  int64 tax_rate = 16;
+  bytes net_amount = 14;
+  bytes tax_amount = 15;
+  bytes tax_rate = 16;
   bytes recipient = 17;
   bytes order = 18;
   // contact or requester or purchaser at the ordering company

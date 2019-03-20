@@ -98,6 +98,9 @@ message AccessToken {
   bytes signature = 6;
   // The public key of the signed message
   bytes key = 7;
+  // The document version will be used to check the timestamp on the document at the time of access token issuance.
+  // This time stamp will be used to validate the signature of the identity issuing the access token.
+  bytes document_version = 8;
 }
 
 // SignatureData contains the list of signatures identified by the signature_id
