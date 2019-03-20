@@ -59,7 +59,7 @@ message InvoiceData {
   bytes net_amount = 45;
   bytes tax_amount = 46;
   bytes tax_rate = 47;
-  bool tax_on_line_level = 48;
+  //bool tax_on_line_level = 48;
   // centrifuge ID of the recipient
   bytes recipient = 49;
   // centrifuge ID of the sender
@@ -72,7 +72,7 @@ message InvoiceData {
   string requester_name = 55;
   //number of the delivery note
   string delivery_number = 56;
-  bool is_credit_note = 57;
+  //bool is_credit_note = 57;
   string credit_note_invoice_number = 58;
   google.protobuf.Timestamp credit_for_invoice_date = 59;
   google.protobuf.Timestamp date_due = 22;
