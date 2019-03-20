@@ -12,20 +12,20 @@ import "google/protobuf/timestamp.proto";
 import "precise-proofs/proofs/proto/proof.proto";
 import "precise-proofs/proofs/proto/salt.proto";
 
-// `CoreDocument` is a document that can be sent to different nodes and anchored 
+// `CoreDocument` is a document that can be sent to different nodes and anchored
 // on chain. It handles all the generic features native Centrifuge Documents support:
-// 
+//
 // * Merkle Roots for the document data
 // * Signatures on document data
 // * Access Control
 message CoreDocument {
   // # Identifiers
-  // CoreDocument has two kinds of identifiers, the `document_identifier` is assigned 
+  // CoreDocument has two kinds of identifiers, the `document_identifier` is assigned
   // once per document and stays the same for the lifetime of the document.
-  // document_identifier is the first ID ever used to anchor the document on chain and 
+  // document_identifier is the first ID ever used to anchor the document on chain and
   // is used internally to store all future versions. The `previous_version`, `current_version`, and the
   // `next_version` refer only to a particular version.
-  // 
+  //
   // 32 byte value
   bytes document_identifier = 9;
   // previous_version refers to the previous state of the document.
@@ -45,8 +45,8 @@ message CoreDocument {
   // # Merkle roots
   // document_root the root of all roots. It's signature_root along with a list of all signatures
   bytes document_root = 7 [(proofs.exclude_from_tree) = true];
-  // signing_root is the Merkle root calculated from all fields on the document that need 
-  // to be signed. This is all fields except for the signatures themselves and the `document_root`. 
+  // signing_root is the Merkle root calculated from all fields on the document that need
+  // to be signed. This is all fields except for the signatures themselves and the `document_root`.
   bytes signing_root = 10 [(proofs.exclude_from_tree) = true];
   // previous_root is the `document_root` of the previous version of the document
   bytes previous_root = 2 [(proofs.hashed_field) = true];

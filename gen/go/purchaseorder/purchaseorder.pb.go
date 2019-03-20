@@ -22,24 +22,24 @@ const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 // PurchaseOrderData is the default schema for a purchase order
 type PurchaseOrderData struct {
 	// purchase order number or reference number
-	PoNumber string `protobuf:"bytes,1,opt,name=po_number,json=poNumber" json:"po_number,omitempty"`
+	PoNumber string `protobuf:"bytes,1,opt,name=po_number,json=poNumber,proto3" json:"po_number,omitempty"`
 	// name of the ordering company
-	OrderName string `protobuf:"bytes,2,opt,name=order_name,json=orderName" json:"order_name,omitempty"`
+	OrderName string `protobuf:"bytes,2,opt,name=order_name,json=orderName,proto3" json:"order_name,omitempty"`
 	// street and address details of the ordering company
-	OrderStreet  string `protobuf:"bytes,3,opt,name=order_street,json=orderStreet" json:"order_street,omitempty"`
-	OrderCity    string `protobuf:"bytes,4,opt,name=order_city,json=orderCity" json:"order_city,omitempty"`
-	OrderZipcode string `protobuf:"bytes,5,opt,name=order_zipcode,json=orderZipcode" json:"order_zipcode,omitempty"`
+	OrderStreet  string `protobuf:"bytes,3,opt,name=order_street,json=orderStreet,proto3" json:"order_street,omitempty"`
+	OrderCity    string `protobuf:"bytes,4,opt,name=order_city,json=orderCity,proto3" json:"order_city,omitempty"`
+	OrderZipcode string `protobuf:"bytes,5,opt,name=order_zipcode,json=orderZipcode,proto3" json:"order_zipcode,omitempty"`
 	// country ISO code of the ordering company of this purchase order
-	OrderCountry string `protobuf:"bytes,6,opt,name=order_country,json=orderCountry" json:"order_country,omitempty"`
+	OrderCountry string `protobuf:"bytes,6,opt,name=order_country,json=orderCountry,proto3" json:"order_country,omitempty"`
 	// name of the recipient company
-	RecipientName    string `protobuf:"bytes,7,opt,name=recipient_name,json=recipientName" json:"recipient_name,omitempty"`
-	RecipientStreet  string `protobuf:"bytes,8,opt,name=recipient_street,json=recipientStreet" json:"recipient_street,omitempty"`
-	RecipientCity    string `protobuf:"bytes,9,opt,name=recipient_city,json=recipientCity" json:"recipient_city,omitempty"`
-	RecipientZipcode string `protobuf:"bytes,10,opt,name=recipient_zipcode,json=recipientZipcode" json:"recipient_zipcode,omitempty"`
+	RecipientName    string `protobuf:"bytes,7,opt,name=recipient_name,json=recipientName,proto3" json:"recipient_name,omitempty"`
+	RecipientStreet  string `protobuf:"bytes,8,opt,name=recipient_street,json=recipientStreet,proto3" json:"recipient_street,omitempty"`
+	RecipientCity    string `protobuf:"bytes,9,opt,name=recipient_city,json=recipientCity,proto3" json:"recipient_city,omitempty"`
+	RecipientZipcode string `protobuf:"bytes,10,opt,name=recipient_zipcode,json=recipientZipcode,proto3" json:"recipient_zipcode,omitempty"`
 	// country ISO code of the receipient of this purchase order
-	RecipientCountry string `protobuf:"bytes,11,opt,name=recipient_country,json=recipientCountry" json:"recipient_country,omitempty"`
+	RecipientCountry string `protobuf:"bytes,11,opt,name=recipient_country,json=recipientCountry,proto3" json:"recipient_country,omitempty"`
 	// ISO currency code
-	Currency string `protobuf:"bytes,12,opt,name=currency" json:"currency,omitempty"`
+	Currency string `protobuf:"bytes,12,opt,name=currency,proto3" json:"currency,omitempty"`
 	// ordering gross amount including tax
 	OrderAmount []byte `protobuf:"bytes,13,opt,name=order_amount,json=orderAmount,proto3" json:"order_amount,omitempty"`
 	// invoice amount excluding tax
@@ -49,15 +49,15 @@ type PurchaseOrderData struct {
 	Recipient []byte `protobuf:"bytes,17,opt,name=recipient,proto3" json:"recipient,omitempty"`
 	Order     []byte `protobuf:"bytes,18,opt,name=order,proto3" json:"order,omitempty"`
 	// contact or requester or purchaser at the ordering company
-	OrderContact string `protobuf:"bytes,19,opt,name=order_contact,json=orderContact" json:"order_contact,omitempty"`
-	Comment      string `protobuf:"bytes,20,opt,name=comment" json:"comment,omitempty"`
+	OrderContact string `protobuf:"bytes,19,opt,name=order_contact,json=orderContact,proto3" json:"order_contact,omitempty"`
+	Comment      string `protobuf:"bytes,20,opt,name=comment,proto3" json:"comment,omitempty"`
 	// requested delivery date
-	DeliveryDate *timestamp.Timestamp `protobuf:"bytes,21,opt,name=delivery_date,json=deliveryDate" json:"delivery_date,omitempty"`
+	DeliveryDate *timestamp.Timestamp `protobuf:"bytes,21,opt,name=delivery_date,json=deliveryDate,proto3" json:"delivery_date,omitempty"`
 	// purchase order date
-	DateCreated *timestamp.Timestamp `protobuf:"bytes,22,opt,name=date_created,json=dateCreated" json:"date_created,omitempty"`
+	DateCreated *timestamp.Timestamp `protobuf:"bytes,22,opt,name=date_created,json=dateCreated,proto3" json:"date_created,omitempty"`
 	ExtraData   []byte               `protobuf:"bytes,23,opt,name=extra_data,json=extraData,proto3" json:"extra_data,omitempty"`
 	// purchase order status
-	PoStatus             string   `protobuf:"bytes,24,opt,name=po_status,json=poStatus" json:"po_status,omitempty"`
+	PoStatus             string   `protobuf:"bytes,24,opt,name=po_status,json=poStatus,proto3" json:"po_status,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -67,7 +67,7 @@ func (m *PurchaseOrderData) Reset()         { *m = PurchaseOrderData{} }
 func (m *PurchaseOrderData) String() string { return proto.CompactTextString(m) }
 func (*PurchaseOrderData) ProtoMessage()    {}
 func (*PurchaseOrderData) Descriptor() ([]byte, []int) {
-	return fileDescriptor_purchaseorder_1fae203c03c458a8, []int{0}
+	return fileDescriptor_purchaseorder_79dc24cb53752321, []int{0}
 }
 func (m *PurchaseOrderData) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_PurchaseOrderData.Unmarshal(m, b)
@@ -260,10 +260,10 @@ func init() {
 }
 
 func init() {
-	proto.RegisterFile("purchaseorder/purchaseorder.proto", fileDescriptor_purchaseorder_1fae203c03c458a8)
+	proto.RegisterFile("purchaseorder/purchaseorder.proto", fileDescriptor_purchaseorder_79dc24cb53752321)
 }
 
-var fileDescriptor_purchaseorder_1fae203c03c458a8 = []byte{
+var fileDescriptor_purchaseorder_79dc24cb53752321 = []byte{
 	// 495 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x84, 0x93, 0xc1, 0x6f, 0xd3, 0x30,
 	0x14, 0xc6, 0x55, 0x60, 0x6b, 0xe3, 0x26, 0xeb, 0x6a, 0x06, 0x98, 0x02, 0xa2, 0x03, 0x21, 0x15,

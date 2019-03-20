@@ -22,26 +22,26 @@ const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 // InvoiceData is the default invoice schema
 type InvoiceData struct {
 	// invoice number or reference number
-	InvoiceNumber string `protobuf:"bytes,1,opt,name=invoice_number,json=invoiceNumber" json:"invoice_number,omitempty"`
+	InvoiceNumber string `protobuf:"bytes,1,opt,name=invoice_number,json=invoiceNumber,proto3" json:"invoice_number,omitempty"`
 	// invoice status
-	InvoiceStatus string `protobuf:"bytes,2,opt,name=invoice_status,json=invoiceStatus" json:"invoice_status,omitempty"`
+	InvoiceStatus string `protobuf:"bytes,2,opt,name=invoice_status,json=invoiceStatus,proto3" json:"invoice_status,omitempty"`
 	// name of the sender company
-	SenderName string `protobuf:"bytes,3,opt,name=sender_name,json=senderName" json:"sender_name,omitempty"`
+	SenderName string `protobuf:"bytes,3,opt,name=sender_name,json=senderName,proto3" json:"sender_name,omitempty"`
 	// street and address details of the sender company
-	SenderStreet  string `protobuf:"bytes,4,opt,name=sender_street,json=senderStreet" json:"sender_street,omitempty"`
-	SenderCity    string `protobuf:"bytes,5,opt,name=sender_city,json=senderCity" json:"sender_city,omitempty"`
-	SenderZipcode string `protobuf:"bytes,6,opt,name=sender_zipcode,json=senderZipcode" json:"sender_zipcode,omitempty"`
+	SenderStreet  string `protobuf:"bytes,4,opt,name=sender_street,json=senderStreet,proto3" json:"sender_street,omitempty"`
+	SenderCity    string `protobuf:"bytes,5,opt,name=sender_city,json=senderCity,proto3" json:"sender_city,omitempty"`
+	SenderZipcode string `protobuf:"bytes,6,opt,name=sender_zipcode,json=senderZipcode,proto3" json:"sender_zipcode,omitempty"`
 	// country ISO code of the sender of this invoice
-	SenderCountry string `protobuf:"bytes,7,opt,name=sender_country,json=senderCountry" json:"sender_country,omitempty"`
+	SenderCountry string `protobuf:"bytes,7,opt,name=sender_country,json=senderCountry,proto3" json:"sender_country,omitempty"`
 	// name of the recipient company
-	RecipientName    string `protobuf:"bytes,8,opt,name=recipient_name,json=recipientName" json:"recipient_name,omitempty"`
-	RecipientStreet  string `protobuf:"bytes,9,opt,name=recipient_street,json=recipientStreet" json:"recipient_street,omitempty"`
-	RecipientCity    string `protobuf:"bytes,10,opt,name=recipient_city,json=recipientCity" json:"recipient_city,omitempty"`
-	RecipientZipcode string `protobuf:"bytes,11,opt,name=recipient_zipcode,json=recipientZipcode" json:"recipient_zipcode,omitempty"`
+	RecipientName    string `protobuf:"bytes,8,opt,name=recipient_name,json=recipientName,proto3" json:"recipient_name,omitempty"`
+	RecipientStreet  string `protobuf:"bytes,9,opt,name=recipient_street,json=recipientStreet,proto3" json:"recipient_street,omitempty"`
+	RecipientCity    string `protobuf:"bytes,10,opt,name=recipient_city,json=recipientCity,proto3" json:"recipient_city,omitempty"`
+	RecipientZipcode string `protobuf:"bytes,11,opt,name=recipient_zipcode,json=recipientZipcode,proto3" json:"recipient_zipcode,omitempty"`
 	// country ISO code of the receipient of this invoice
-	RecipientCountry string `protobuf:"bytes,12,opt,name=recipient_country,json=recipientCountry" json:"recipient_country,omitempty"`
+	RecipientCountry string `protobuf:"bytes,12,opt,name=recipient_country,json=recipientCountry,proto3" json:"recipient_country,omitempty"`
 	// ISO currency code
-	Currency string `protobuf:"bytes,13,opt,name=currency" json:"currency,omitempty"`
+	Currency string `protobuf:"bytes,13,opt,name=currency,proto3" json:"currency,omitempty"`
 	// invoice amount including tax
 	GrossAmount []byte `protobuf:"bytes,14,opt,name=gross_amount,json=grossAmount,proto3" json:"gross_amount,omitempty"`
 	// invoice amount excluding tax
@@ -51,9 +51,9 @@ type InvoiceData struct {
 	Recipient            []byte               `protobuf:"bytes,18,opt,name=recipient,proto3" json:"recipient,omitempty"`
 	Sender               []byte               `protobuf:"bytes,19,opt,name=sender,proto3" json:"sender,omitempty"`
 	Payee                []byte               `protobuf:"bytes,20,opt,name=payee,proto3" json:"payee,omitempty"`
-	Comment              string               `protobuf:"bytes,21,opt,name=comment" json:"comment,omitempty"`
-	DueDate              *timestamp.Timestamp `protobuf:"bytes,22,opt,name=due_date,json=dueDate" json:"due_date,omitempty"`
-	DateCreated          *timestamp.Timestamp `protobuf:"bytes,23,opt,name=date_created,json=dateCreated" json:"date_created,omitempty"`
+	Comment              string               `protobuf:"bytes,21,opt,name=comment,proto3" json:"comment,omitempty"`
+	DueDate              *timestamp.Timestamp `protobuf:"bytes,22,opt,name=due_date,json=dueDate,proto3" json:"due_date,omitempty"`
+	DateCreated          *timestamp.Timestamp `protobuf:"bytes,23,opt,name=date_created,json=dateCreated,proto3" json:"date_created,omitempty"`
 	ExtraData            []byte               `protobuf:"bytes,24,opt,name=extra_data,json=extraData,proto3" json:"extra_data,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
 	XXX_unrecognized     []byte               `json:"-"`
@@ -64,7 +64,7 @@ func (m *InvoiceData) Reset()         { *m = InvoiceData{} }
 func (m *InvoiceData) String() string { return proto.CompactTextString(m) }
 func (*InvoiceData) ProtoMessage()    {}
 func (*InvoiceData) Descriptor() ([]byte, []int) {
-	return fileDescriptor_invoice_1095a76f9aa08f65, []int{0}
+	return fileDescriptor_invoice_65105e7029a1cac7, []int{0}
 }
 func (m *InvoiceData) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_InvoiceData.Unmarshal(m, b)
@@ -256,9 +256,9 @@ func init() {
 	proto.RegisterType((*InvoiceData)(nil), "invoice.InvoiceData")
 }
 
-func init() { proto.RegisterFile("invoice/invoice.proto", fileDescriptor_invoice_1095a76f9aa08f65) }
+func init() { proto.RegisterFile("invoice/invoice.proto", fileDescriptor_invoice_65105e7029a1cac7) }
 
-var fileDescriptor_invoice_1095a76f9aa08f65 = []byte{
+var fileDescriptor_invoice_65105e7029a1cac7 = []byte{
 	// 491 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x84, 0x93, 0xcb, 0x6f, 0xd3, 0x40,
 	0x10, 0x87, 0x15, 0xa0, 0x79, 0x8c, 0x9d, 0x3e, 0x96, 0xb6, 0x2c, 0x11, 0xa8, 0x01, 0x84, 0x14,
