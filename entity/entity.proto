@@ -34,14 +34,15 @@ message Entity {
 message Address {
   bool is_main = 1;
   bool is_remit_to = 2;
-  bool is_pay_to = 3;
-  string label = 4;
-  string zip = 5;
-  string state = 6;
-  string country = 7;
-  string address_line1 = 8;
-  string address_line2 = 9;
-  string contact_person = 10;
+  bool is_ship_to = 3;
+  bool is_pay_to = 4;
+  string label = 5;
+  string zip = 6;
+  string state = 7;
+  string country = 8;
+  string address_line1 = 9;
+  string address_line2 = 10;
+  string contact_person = 11;
 }
 
 message BankPaymentMethod {
