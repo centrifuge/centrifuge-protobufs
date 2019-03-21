@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+package common;
+
+option go_package = "commonpb";
+option java_multiple_files = true;
+option java_outer_classname = "DocumentCommonProto";
+option java_package = "com.common";
+
+import "google/protobuf/timestamp.proto";
+
+message BinaryAttachment {
+  string name = 1;
+  //mime type of attached file
+  string file_type = 2;
+  // in byte
+  uint64 size = 3;
+  bytes data = 4;
+  //the md5 checksum of the original file for easier verification - optional
+  bytes checksum = 5;
+}
+
+message PaymentDetails {
+  //identifying this payment. could be a sequential number, could be a transaction hash of the crypto payment
+  string id = 1;
+  google.protobuf.Timestamp date_executed = 2;
+  //centrifuge id of payee
+  bytes payee = 3;
+  //centrifuge id of payer
+  bytes payer = 4;
+  bytes amount = 5;
+  string currency = 6;
+  //payment reference (e.g. reference field on bank transfer)
+  string reference = 7;
+  string bank_name = 8;
+  string bank_address = 9;
+  string bank_country = 10;
+  string bank_account_number = 11;
+  string bank_account_currency = 12;
+  string bank_account_holder_name = 13;
+  string bank_key = 14;
+  //the ID of the chain to use in URI format. e.g. "ethereum://42/<tokenaddress>"
+  string crypto_chain_uri = 15;
+  //the transaction in which the payment happened
+  string crypto_transaction_id = 16;
+  //from address
+  string crypto_from = 17;
+  //to address
+  string crypto_to = 18;
+}
