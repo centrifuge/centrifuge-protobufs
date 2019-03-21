@@ -36,7 +36,7 @@ func (m *EntityRelationship) Reset()         { *m = EntityRelationship{} }
 func (m *EntityRelationship) String() string { return proto.CompactTextString(m) }
 func (*EntityRelationship) ProtoMessage()    {}
 func (*EntityRelationship) Descriptor() ([]byte, []int) {
-	return fileDescriptor_entity_1ae0536e488d4d08, []int{0}
+	return fileDescriptor_entity_ff51b9739f23c8b7, []int{0}
 }
 func (m *EntityRelationship) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_EntityRelationship.Unmarshal(m, b)
@@ -96,7 +96,7 @@ func (m *Entity) Reset()         { *m = Entity{} }
 func (m *Entity) String() string { return proto.CompactTextString(m) }
 func (*Entity) ProtoMessage()    {}
 func (*Entity) Descriptor() ([]byte, []int) {
-	return fileDescriptor_entity_1ae0536e488d4d08, []int{1}
+	return fileDescriptor_entity_ff51b9739f23c8b7, []int{1}
 }
 func (m *Entity) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Entity.Unmarshal(m, b)
@@ -163,7 +163,7 @@ func (m *EntityId) Reset()         { *m = EntityId{} }
 func (m *EntityId) String() string { return proto.CompactTextString(m) }
 func (*EntityId) ProtoMessage()    {}
 func (*EntityId) Descriptor() ([]byte, []int) {
-	return fileDescriptor_entity_1ae0536e488d4d08, []int{2}
+	return fileDescriptor_entity_ff51b9739f23c8b7, []int{2}
 }
 func (m *EntityId) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_EntityId.Unmarshal(m, b)
@@ -213,7 +213,7 @@ func (m *Address) Reset()         { *m = Address{} }
 func (m *Address) String() string { return proto.CompactTextString(m) }
 func (*Address) ProtoMessage()    {}
 func (*Address) Descriptor() ([]byte, []int) {
-	return fileDescriptor_entity_1ae0536e488d4d08, []int{3}
+	return fileDescriptor_entity_ff51b9739f23c8b7, []int{3}
 }
 func (m *Address) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Address.Unmarshal(m, b)
@@ -291,7 +291,7 @@ func (m *BankPaymentMethod) Reset()         { *m = BankPaymentMethod{} }
 func (m *BankPaymentMethod) String() string { return proto.CompactTextString(m) }
 func (*BankPaymentMethod) ProtoMessage()    {}
 func (*BankPaymentMethod) Descriptor() ([]byte, []int) {
-	return fileDescriptor_entity_1ae0536e488d4d08, []int{4}
+	return fileDescriptor_entity_ff51b9739f23c8b7, []int{4}
 }
 func (m *BankPaymentMethod) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_BankPaymentMethod.Unmarshal(m, b)
@@ -365,7 +365,7 @@ func (m *CryptoPaymentMethod) Reset()         { *m = CryptoPaymentMethod{} }
 func (m *CryptoPaymentMethod) String() string { return proto.CompactTextString(m) }
 func (*CryptoPaymentMethod) ProtoMessage()    {}
 func (*CryptoPaymentMethod) Descriptor() ([]byte, []int) {
-	return fileDescriptor_entity_1ae0536e488d4d08, []int{5}
+	return fileDescriptor_entity_ff51b9739f23c8b7, []int{5}
 }
 func (m *CryptoPaymentMethod) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_CryptoPaymentMethod.Unmarshal(m, b)
@@ -411,7 +411,7 @@ func (m *PayPalMethod) Reset()         { *m = PayPalMethod{} }
 func (m *PayPalMethod) String() string { return proto.CompactTextString(m) }
 func (*PayPalMethod) ProtoMessage()    {}
 func (*PayPalMethod) Descriptor() ([]byte, []int) {
-	return fileDescriptor_entity_1ae0536e488d4d08, []int{6}
+	return fileDescriptor_entity_ff51b9739f23c8b7, []int{6}
 }
 func (m *PayPalMethod) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_PayPalMethod.Unmarshal(m, b)
@@ -462,7 +462,7 @@ func (m *PaymentDetail) Reset()         { *m = PaymentDetail{} }
 func (m *PaymentDetail) String() string { return proto.CompactTextString(m) }
 func (*PaymentDetail) ProtoMessage()    {}
 func (*PaymentDetail) Descriptor() ([]byte, []int) {
-	return fileDescriptor_entity_1ae0536e488d4d08, []int{7}
+	return fileDescriptor_entity_ff51b9739f23c8b7, []int{7}
 }
 func (m *PaymentDetail) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_PaymentDetail.Unmarshal(m, b)
@@ -646,7 +646,7 @@ func (m *Contact) Reset()         { *m = Contact{} }
 func (m *Contact) String() string { return proto.CompactTextString(m) }
 func (*Contact) ProtoMessage()    {}
 func (*Contact) Descriptor() ([]byte, []int) {
-	return fileDescriptor_entity_1ae0536e488d4d08, []int{8}
+	return fileDescriptor_entity_ff51b9739f23c8b7, []int{8}
 }
 func (m *Contact) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Contact.Unmarshal(m, b)
@@ -706,9 +706,9 @@ func init() {
 	proto.RegisterType((*Contact)(nil), "entity.Contact")
 }
 
-func init() { proto.RegisterFile("entity/entity.proto", fileDescriptor_entity_1ae0536e488d4d08) }
+func init() { proto.RegisterFile("entity/entity.proto", fileDescriptor_entity_ff51b9739f23c8b7) }
 
-var fileDescriptor_entity_1ae0536e488d4d08 = []byte{
+var fileDescriptor_entity_ff51b9739f23c8b7 = []byte{
 	// 686 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x94, 0x54, 0xcd, 0x4e, 0xdb, 0x40,
 	0x10, 0x26, 0xe4, 0xd7, 0x43, 0x48, 0x60, 0x03, 0xaa, 0x01, 0xb5, 0x45, 0xae, 0x10, 0x54, 0x15,
