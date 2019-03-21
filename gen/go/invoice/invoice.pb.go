@@ -3,10 +3,12 @@
 
 package invoicepb
 
-import proto "github.com/golang/protobuf/proto"
-import fmt "fmt"
-import math "math"
-import timestamp "github.com/golang/protobuf/ptypes/timestamp"
+import (
+	fmt "fmt"
+	proto "github.com/golang/protobuf/proto"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
+	math "math"
+)
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -17,7 +19,7 @@ var _ = math.Inf
 // is compatible with the proto package it is being compiled against.
 // A compilation error at this line likely means your copy of the
 // proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
 // InvoiceData is the default invoice schema
 type InvoiceData struct {
@@ -64,16 +66,17 @@ func (m *InvoiceData) Reset()         { *m = InvoiceData{} }
 func (m *InvoiceData) String() string { return proto.CompactTextString(m) }
 func (*InvoiceData) ProtoMessage()    {}
 func (*InvoiceData) Descriptor() ([]byte, []int) {
-	return fileDescriptor_invoice_5f9c09e626a8e2bd, []int{0}
+	return fileDescriptor_b3e2b5ce0fcadd51, []int{0}
 }
+
 func (m *InvoiceData) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_InvoiceData.Unmarshal(m, b)
 }
 func (m *InvoiceData) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_InvoiceData.Marshal(b, m, deterministic)
 }
-func (dst *InvoiceData) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_InvoiceData.Merge(dst, src)
+func (m *InvoiceData) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_InvoiceData.Merge(m, src)
 }
 func (m *InvoiceData) XXX_Size() int {
 	return xxx_messageInfo_InvoiceData.Size(m)
@@ -256,9 +259,9 @@ func init() {
 	proto.RegisterType((*InvoiceData)(nil), "invoice.InvoiceData")
 }
 
-func init() { proto.RegisterFile("invoice/invoice.proto", fileDescriptor_invoice_5f9c09e626a8e2bd) }
+func init() { proto.RegisterFile("invoice/invoice.proto", fileDescriptor_b3e2b5ce0fcadd51) }
 
-var fileDescriptor_invoice_5f9c09e626a8e2bd = []byte{
+var fileDescriptor_b3e2b5ce0fcadd51 = []byte{
 	// 491 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x84, 0x93, 0xcb, 0x6f, 0xd3, 0x40,
 	0x10, 0x87, 0x15, 0xa0, 0x79, 0x8c, 0x9d, 0x3e, 0x96, 0xb6, 0x2c, 0x11, 0xa8, 0x01, 0x84, 0x14,

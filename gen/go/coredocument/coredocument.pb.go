@@ -3,12 +3,14 @@
 
 package coredocumentpb
 
-import proto "github.com/golang/protobuf/proto"
-import fmt "fmt"
-import math "math"
-import proto1 "github.com/centrifuge/precise-proofs/proofs/proto"
-import any "github.com/golang/protobuf/ptypes/any"
-import timestamp "github.com/golang/protobuf/ptypes/timestamp"
+import (
+	fmt "fmt"
+	proto1 "github.com/centrifuge/precise-proofs/proofs/proto"
+	proto "github.com/golang/protobuf/proto"
+	any "github.com/golang/protobuf/ptypes/any"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
+	math "math"
+)
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -19,7 +21,7 @@ var _ = math.Inf
 // is compatible with the proto package it is being compiled against.
 // A compilation error at this line likely means your copy of the
 // proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
 // Action defines the set of actions a collaborator can/have per document.
 type Action int32
@@ -37,6 +39,7 @@ var Action_name = map[int32]string{
 	1: "ACTION_READ_SIGN",
 	2: "ACTION_READ",
 }
+
 var Action_value = map[string]int32{
 	"ACTION_INVALID":   0,
 	"ACTION_READ_SIGN": 1,
@@ -46,8 +49,9 @@ var Action_value = map[string]int32{
 func (x Action) String() string {
 	return proto.EnumName(Action_name, int32(x))
 }
+
 func (Action) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_e2eaf1b437aaab48, []int{0}
+	return fileDescriptor_eb191193ab8e2cd4, []int{0}
 }
 
 type FieldMatchType int32
@@ -63,6 +67,7 @@ var FieldMatchType_name = map[int32]string{
 	1: "FIELD_MATCH_TYPE_PREFIX",
 	2: "FIELD_MATCH_TYPE_EXACT",
 }
+
 var FieldMatchType_value = map[string]int32{
 	"FIELD_MATCH_TYPE_INVALID": 0,
 	"FIELD_MATCH_TYPE_PREFIX":  1,
@@ -72,8 +77,9 @@ var FieldMatchType_value = map[string]int32{
 func (x FieldMatchType) String() string {
 	return proto.EnumName(FieldMatchType_name, int32(x))
 }
+
 func (FieldMatchType) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_e2eaf1b437aaab48, []int{1}
+	return fileDescriptor_eb191193ab8e2cd4, []int{1}
 }
 
 type TransitionAction int32
@@ -87,6 +93,7 @@ var TransitionAction_name = map[int32]string{
 	0: "TRANSITION_ACTION_INVALID",
 	1: "TRANSITION_ACTION_EDIT",
 }
+
 var TransitionAction_value = map[string]int32{
 	"TRANSITION_ACTION_INVALID": 0,
 	"TRANSITION_ACTION_EDIT":    1,
@@ -95,8 +102,9 @@ var TransitionAction_value = map[string]int32{
 func (x TransitionAction) String() string {
 	return proto.EnumName(TransitionAction_name, int32(x))
 }
+
 func (TransitionAction) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_e2eaf1b437aaab48, []int{2}
+	return fileDescriptor_eb191193ab8e2cd4, []int{2}
 }
 
 // `CoreDocument` is a document that can be sent to different nodes and anchored
@@ -168,16 +176,17 @@ func (m *CoreDocument) Reset()         { *m = CoreDocument{} }
 func (m *CoreDocument) String() string { return proto.CompactTextString(m) }
 func (*CoreDocument) ProtoMessage()    {}
 func (*CoreDocument) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_e2eaf1b437aaab48, []int{0}
+	return fileDescriptor_eb191193ab8e2cd4, []int{0}
 }
+
 func (m *CoreDocument) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_CoreDocument.Unmarshal(m, b)
 }
 func (m *CoreDocument) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_CoreDocument.Marshal(b, m, deterministic)
 }
-func (dst *CoreDocument) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_CoreDocument.Merge(dst, src)
+func (m *CoreDocument) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CoreDocument.Merge(m, src)
 }
 func (m *CoreDocument) XXX_Size() int {
 	return xxx_messageInfo_CoreDocument.Size(m)
@@ -355,16 +364,17 @@ func (m *AccessToken) Reset()         { *m = AccessToken{} }
 func (m *AccessToken) String() string { return proto.CompactTextString(m) }
 func (*AccessToken) ProtoMessage()    {}
 func (*AccessToken) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_e2eaf1b437aaab48, []int{1}
+	return fileDescriptor_eb191193ab8e2cd4, []int{1}
 }
+
 func (m *AccessToken) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_AccessToken.Unmarshal(m, b)
 }
 func (m *AccessToken) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_AccessToken.Marshal(b, m, deterministic)
 }
-func (dst *AccessToken) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_AccessToken.Merge(dst, src)
+func (m *AccessToken) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AccessToken.Merge(m, src)
 }
 func (m *AccessToken) XXX_Size() int {
 	return xxx_messageInfo_AccessToken.Size(m)
@@ -443,16 +453,17 @@ func (m *SignatureData) Reset()         { *m = SignatureData{} }
 func (m *SignatureData) String() string { return proto.CompactTextString(m) }
 func (*SignatureData) ProtoMessage()    {}
 func (*SignatureData) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_e2eaf1b437aaab48, []int{2}
+	return fileDescriptor_eb191193ab8e2cd4, []int{2}
 }
+
 func (m *SignatureData) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_SignatureData.Unmarshal(m, b)
 }
 func (m *SignatureData) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_SignatureData.Marshal(b, m, deterministic)
 }
-func (dst *SignatureData) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SignatureData.Merge(dst, src)
+func (m *SignatureData) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SignatureData.Merge(m, src)
 }
 func (m *SignatureData) XXX_Size() int {
 	return xxx_messageInfo_SignatureData.Size(m)
@@ -489,16 +500,17 @@ func (m *Signature) Reset()         { *m = Signature{} }
 func (m *Signature) String() string { return proto.CompactTextString(m) }
 func (*Signature) ProtoMessage()    {}
 func (*Signature) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_e2eaf1b437aaab48, []int{3}
+	return fileDescriptor_eb191193ab8e2cd4, []int{3}
 }
+
 func (m *Signature) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Signature.Unmarshal(m, b)
 }
 func (m *Signature) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_Signature.Marshal(b, m, deterministic)
 }
-func (dst *Signature) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Signature.Merge(dst, src)
+func (m *Signature) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Signature.Merge(m, src)
 }
 func (m *Signature) XXX_Size() int {
 	return xxx_messageInfo_Signature.Size(m)
@@ -555,16 +567,17 @@ func (m *Role) Reset()         { *m = Role{} }
 func (m *Role) String() string { return proto.CompactTextString(m) }
 func (*Role) ProtoMessage()    {}
 func (*Role) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_e2eaf1b437aaab48, []int{4}
+	return fileDescriptor_eb191193ab8e2cd4, []int{4}
 }
+
 func (m *Role) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Role.Unmarshal(m, b)
 }
 func (m *Role) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_Role.Marshal(b, m, deterministic)
 }
-func (dst *Role) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Role.Merge(dst, src)
+func (m *Role) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Role.Merge(m, src)
 }
 func (m *Role) XXX_Size() int {
 	return xxx_messageInfo_Role.Size(m)
@@ -608,16 +621,17 @@ func (m *ReadRule) Reset()         { *m = ReadRule{} }
 func (m *ReadRule) String() string { return proto.CompactTextString(m) }
 func (*ReadRule) ProtoMessage()    {}
 func (*ReadRule) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_e2eaf1b437aaab48, []int{5}
+	return fileDescriptor_eb191193ab8e2cd4, []int{5}
 }
+
 func (m *ReadRule) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ReadRule.Unmarshal(m, b)
 }
 func (m *ReadRule) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_ReadRule.Marshal(b, m, deterministic)
 }
-func (dst *ReadRule) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ReadRule.Merge(dst, src)
+func (m *ReadRule) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ReadRule.Merge(m, src)
 }
 func (m *ReadRule) XXX_Size() int {
 	return xxx_messageInfo_ReadRule.Size(m)
@@ -663,16 +677,17 @@ func (m *TransitionRule) Reset()         { *m = TransitionRule{} }
 func (m *TransitionRule) String() string { return proto.CompactTextString(m) }
 func (*TransitionRule) ProtoMessage()    {}
 func (*TransitionRule) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_e2eaf1b437aaab48, []int{6}
+	return fileDescriptor_eb191193ab8e2cd4, []int{6}
 }
+
 func (m *TransitionRule) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_TransitionRule.Unmarshal(m, b)
 }
 func (m *TransitionRule) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_TransitionRule.Marshal(b, m, deterministic)
 }
-func (dst *TransitionRule) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_TransitionRule.Merge(dst, src)
+func (m *TransitionRule) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_TransitionRule.Merge(m, src)
 }
 func (m *TransitionRule) XXX_Size() int {
 	return xxx_messageInfo_TransitionRule.Size(m)
@@ -730,16 +745,17 @@ func (m *NFT) Reset()         { *m = NFT{} }
 func (m *NFT) String() string { return proto.CompactTextString(m) }
 func (*NFT) ProtoMessage()    {}
 func (*NFT) Descriptor() ([]byte, []int) {
-	return fileDescriptor_coredocument_e2eaf1b437aaab48, []int{7}
+	return fileDescriptor_eb191193ab8e2cd4, []int{7}
 }
+
 func (m *NFT) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_NFT.Unmarshal(m, b)
 }
 func (m *NFT) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_NFT.Marshal(b, m, deterministic)
 }
-func (dst *NFT) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_NFT.Merge(dst, src)
+func (m *NFT) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_NFT.Merge(m, src)
 }
 func (m *NFT) XXX_Size() int {
 	return xxx_messageInfo_NFT.Size(m)
@@ -765,6 +781,9 @@ func (m *NFT) GetTokenId() []byte {
 }
 
 func init() {
+	proto.RegisterEnum("coredocument.Action", Action_name, Action_value)
+	proto.RegisterEnum("coredocument.FieldMatchType", FieldMatchType_name, FieldMatchType_value)
+	proto.RegisterEnum("coredocument.TransitionAction", TransitionAction_name, TransitionAction_value)
 	proto.RegisterType((*CoreDocument)(nil), "coredocument.CoreDocument")
 	proto.RegisterType((*AccessToken)(nil), "coredocument.AccessToken")
 	proto.RegisterType((*SignatureData)(nil), "coredocument.SignatureData")
@@ -773,16 +792,11 @@ func init() {
 	proto.RegisterType((*ReadRule)(nil), "coredocument.ReadRule")
 	proto.RegisterType((*TransitionRule)(nil), "coredocument.TransitionRule")
 	proto.RegisterType((*NFT)(nil), "coredocument.NFT")
-	proto.RegisterEnum("coredocument.Action", Action_name, Action_value)
-	proto.RegisterEnum("coredocument.FieldMatchType", FieldMatchType_name, FieldMatchType_value)
-	proto.RegisterEnum("coredocument.TransitionAction", TransitionAction_name, TransitionAction_value)
 }
 
-func init() {
-	proto.RegisterFile("coredocument/coredocument.proto", fileDescriptor_coredocument_e2eaf1b437aaab48)
-}
+func init() { proto.RegisterFile("coredocument/coredocument.proto", fileDescriptor_eb191193ab8e2cd4) }
 
-var fileDescriptor_coredocument_e2eaf1b437aaab48 = []byte{
+var fileDescriptor_eb191193ab8e2cd4 = []byte{
 	// 1095 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x7c, 0x54, 0x4b, 0x73, 0xe3, 0x44,
 	0x10, 0xc6, 0x76, 0x9c, 0xd8, 0xed, 0x47, 0xb4, 0xb3, 0x5e, 0xaf, 0xe2, 0x7d, 0x24, 0x18, 0x8a,

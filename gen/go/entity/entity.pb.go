@@ -3,10 +3,12 @@
 
 package entitypb
 
-import proto "github.com/golang/protobuf/proto"
-import fmt "fmt"
-import math "math"
-import _ "github.com/centrifuge/precise-proofs/proofs/proto"
+import (
+	fmt "fmt"
+	_ "github.com/centrifuge/precise-proofs/proofs/proto"
+	proto "github.com/golang/protobuf/proto"
+	math "math"
+)
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -17,7 +19,7 @@ var _ = math.Inf
 // is compatible with the proto package it is being compiled against.
 // A compilation error at this line likely means your copy of the
 // proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
 // EntityRelationship allows other identities to access the Entity document.
 type EntityRelationship struct {
@@ -36,16 +38,17 @@ func (m *EntityRelationship) Reset()         { *m = EntityRelationship{} }
 func (m *EntityRelationship) String() string { return proto.CompactTextString(m) }
 func (*EntityRelationship) ProtoMessage()    {}
 func (*EntityRelationship) Descriptor() ([]byte, []int) {
-	return fileDescriptor_entity_ff51b9739f23c8b7, []int{0}
+	return fileDescriptor_9b38ccb06a827056, []int{0}
 }
+
 func (m *EntityRelationship) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_EntityRelationship.Unmarshal(m, b)
 }
 func (m *EntityRelationship) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_EntityRelationship.Marshal(b, m, deterministic)
 }
-func (dst *EntityRelationship) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_EntityRelationship.Merge(dst, src)
+func (m *EntityRelationship) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_EntityRelationship.Merge(m, src)
 }
 func (m *EntityRelationship) XXX_Size() int {
 	return xxx_messageInfo_EntityRelationship.Size(m)
@@ -96,16 +99,17 @@ func (m *Entity) Reset()         { *m = Entity{} }
 func (m *Entity) String() string { return proto.CompactTextString(m) }
 func (*Entity) ProtoMessage()    {}
 func (*Entity) Descriptor() ([]byte, []int) {
-	return fileDescriptor_entity_ff51b9739f23c8b7, []int{1}
+	return fileDescriptor_9b38ccb06a827056, []int{1}
 }
+
 func (m *Entity) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Entity.Unmarshal(m, b)
 }
 func (m *Entity) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_Entity.Marshal(b, m, deterministic)
 }
-func (dst *Entity) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Entity.Merge(dst, src)
+func (m *Entity) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Entity.Merge(m, src)
 }
 func (m *Entity) XXX_Size() int {
 	return xxx_messageInfo_Entity.Size(m)
@@ -163,16 +167,17 @@ func (m *EntityId) Reset()         { *m = EntityId{} }
 func (m *EntityId) String() string { return proto.CompactTextString(m) }
 func (*EntityId) ProtoMessage()    {}
 func (*EntityId) Descriptor() ([]byte, []int) {
-	return fileDescriptor_entity_ff51b9739f23c8b7, []int{2}
+	return fileDescriptor_9b38ccb06a827056, []int{2}
 }
+
 func (m *EntityId) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_EntityId.Unmarshal(m, b)
 }
 func (m *EntityId) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_EntityId.Marshal(b, m, deterministic)
 }
-func (dst *EntityId) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_EntityId.Merge(dst, src)
+func (m *EntityId) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_EntityId.Merge(m, src)
 }
 func (m *EntityId) XXX_Size() int {
 	return xxx_messageInfo_EntityId.Size(m)
@@ -213,16 +218,17 @@ func (m *Address) Reset()         { *m = Address{} }
 func (m *Address) String() string { return proto.CompactTextString(m) }
 func (*Address) ProtoMessage()    {}
 func (*Address) Descriptor() ([]byte, []int) {
-	return fileDescriptor_entity_ff51b9739f23c8b7, []int{3}
+	return fileDescriptor_9b38ccb06a827056, []int{3}
 }
+
 func (m *Address) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Address.Unmarshal(m, b)
 }
 func (m *Address) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_Address.Marshal(b, m, deterministic)
 }
-func (dst *Address) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Address.Merge(dst, src)
+func (m *Address) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Address.Merge(m, src)
 }
 func (m *Address) XXX_Size() int {
 	return xxx_messageInfo_Address.Size(m)
@@ -291,16 +297,17 @@ func (m *BankPaymentMethod) Reset()         { *m = BankPaymentMethod{} }
 func (m *BankPaymentMethod) String() string { return proto.CompactTextString(m) }
 func (*BankPaymentMethod) ProtoMessage()    {}
 func (*BankPaymentMethod) Descriptor() ([]byte, []int) {
-	return fileDescriptor_entity_ff51b9739f23c8b7, []int{4}
+	return fileDescriptor_9b38ccb06a827056, []int{4}
 }
+
 func (m *BankPaymentMethod) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_BankPaymentMethod.Unmarshal(m, b)
 }
 func (m *BankPaymentMethod) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_BankPaymentMethod.Marshal(b, m, deterministic)
 }
-func (dst *BankPaymentMethod) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_BankPaymentMethod.Merge(dst, src)
+func (m *BankPaymentMethod) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_BankPaymentMethod.Merge(m, src)
 }
 func (m *BankPaymentMethod) XXX_Size() int {
 	return xxx_messageInfo_BankPaymentMethod.Size(m)
@@ -365,16 +372,17 @@ func (m *CryptoPaymentMethod) Reset()         { *m = CryptoPaymentMethod{} }
 func (m *CryptoPaymentMethod) String() string { return proto.CompactTextString(m) }
 func (*CryptoPaymentMethod) ProtoMessage()    {}
 func (*CryptoPaymentMethod) Descriptor() ([]byte, []int) {
-	return fileDescriptor_entity_ff51b9739f23c8b7, []int{5}
+	return fileDescriptor_9b38ccb06a827056, []int{5}
 }
+
 func (m *CryptoPaymentMethod) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_CryptoPaymentMethod.Unmarshal(m, b)
 }
 func (m *CryptoPaymentMethod) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_CryptoPaymentMethod.Marshal(b, m, deterministic)
 }
-func (dst *CryptoPaymentMethod) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_CryptoPaymentMethod.Merge(dst, src)
+func (m *CryptoPaymentMethod) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CryptoPaymentMethod.Merge(m, src)
 }
 func (m *CryptoPaymentMethod) XXX_Size() int {
 	return xxx_messageInfo_CryptoPaymentMethod.Size(m)
@@ -411,16 +419,17 @@ func (m *PayPalMethod) Reset()         { *m = PayPalMethod{} }
 func (m *PayPalMethod) String() string { return proto.CompactTextString(m) }
 func (*PayPalMethod) ProtoMessage()    {}
 func (*PayPalMethod) Descriptor() ([]byte, []int) {
-	return fileDescriptor_entity_ff51b9739f23c8b7, []int{6}
+	return fileDescriptor_9b38ccb06a827056, []int{6}
 }
+
 func (m *PayPalMethod) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_PayPalMethod.Unmarshal(m, b)
 }
 func (m *PayPalMethod) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_PayPalMethod.Marshal(b, m, deterministic)
 }
-func (dst *PayPalMethod) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_PayPalMethod.Merge(dst, src)
+func (m *PayPalMethod) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_PayPalMethod.Merge(m, src)
 }
 func (m *PayPalMethod) XXX_Size() int {
 	return xxx_messageInfo_PayPalMethod.Size(m)
@@ -462,16 +471,17 @@ func (m *PaymentDetail) Reset()         { *m = PaymentDetail{} }
 func (m *PaymentDetail) String() string { return proto.CompactTextString(m) }
 func (*PaymentDetail) ProtoMessage()    {}
 func (*PaymentDetail) Descriptor() ([]byte, []int) {
-	return fileDescriptor_entity_ff51b9739f23c8b7, []int{7}
+	return fileDescriptor_9b38ccb06a827056, []int{7}
 }
+
 func (m *PaymentDetail) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_PaymentDetail.Unmarshal(m, b)
 }
 func (m *PaymentDetail) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_PaymentDetail.Marshal(b, m, deterministic)
 }
-func (dst *PaymentDetail) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_PaymentDetail.Merge(dst, src)
+func (m *PaymentDetail) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_PaymentDetail.Merge(m, src)
 }
 func (m *PaymentDetail) XXX_Size() int {
 	return xxx_messageInfo_PaymentDetail.Size(m)
@@ -539,97 +549,13 @@ func (m *PaymentDetail) GetPayPalMethod() *PayPalMethod {
 	return nil
 }
 
-// XXX_OneofFuncs is for the internal use of the proto package.
-func (*PaymentDetail) XXX_OneofFuncs() (func(msg proto.Message, b *proto.Buffer) error, func(msg proto.Message, tag, wire int, b *proto.Buffer) (bool, error), func(msg proto.Message) (n int), []interface{}) {
-	return _PaymentDetail_OneofMarshaler, _PaymentDetail_OneofUnmarshaler, _PaymentDetail_OneofSizer, []interface{}{
+// XXX_OneofWrappers is for the internal use of the proto package.
+func (*PaymentDetail) XXX_OneofWrappers() []interface{} {
+	return []interface{}{
 		(*PaymentDetail_BankPaymentMethod)(nil),
 		(*PaymentDetail_CryptoPaymentMethod)(nil),
 		(*PaymentDetail_PayPalMethod)(nil),
 	}
-}
-
-func _PaymentDetail_OneofMarshaler(msg proto.Message, b *proto.Buffer) error {
-	m := msg.(*PaymentDetail)
-	// payment_method
-	switch x := m.PaymentMethod.(type) {
-	case *PaymentDetail_BankPaymentMethod:
-		b.EncodeVarint(2<<3 | proto.WireBytes)
-		if err := b.EncodeMessage(x.BankPaymentMethod); err != nil {
-			return err
-		}
-	case *PaymentDetail_CryptoPaymentMethod:
-		b.EncodeVarint(3<<3 | proto.WireBytes)
-		if err := b.EncodeMessage(x.CryptoPaymentMethod); err != nil {
-			return err
-		}
-	case *PaymentDetail_PayPalMethod:
-		b.EncodeVarint(4<<3 | proto.WireBytes)
-		if err := b.EncodeMessage(x.PayPalMethod); err != nil {
-			return err
-		}
-	case nil:
-	default:
-		return fmt.Errorf("PaymentDetail.PaymentMethod has unexpected type %T", x)
-	}
-	return nil
-}
-
-func _PaymentDetail_OneofUnmarshaler(msg proto.Message, tag, wire int, b *proto.Buffer) (bool, error) {
-	m := msg.(*PaymentDetail)
-	switch tag {
-	case 2: // payment_method.bank_payment_method
-		if wire != proto.WireBytes {
-			return true, proto.ErrInternalBadWireType
-		}
-		msg := new(BankPaymentMethod)
-		err := b.DecodeMessage(msg)
-		m.PaymentMethod = &PaymentDetail_BankPaymentMethod{msg}
-		return true, err
-	case 3: // payment_method.crypto_payment_method
-		if wire != proto.WireBytes {
-			return true, proto.ErrInternalBadWireType
-		}
-		msg := new(CryptoPaymentMethod)
-		err := b.DecodeMessage(msg)
-		m.PaymentMethod = &PaymentDetail_CryptoPaymentMethod{msg}
-		return true, err
-	case 4: // payment_method.pay_pal_method
-		if wire != proto.WireBytes {
-			return true, proto.ErrInternalBadWireType
-		}
-		msg := new(PayPalMethod)
-		err := b.DecodeMessage(msg)
-		m.PaymentMethod = &PaymentDetail_PayPalMethod{msg}
-		return true, err
-	default:
-		return false, nil
-	}
-}
-
-func _PaymentDetail_OneofSizer(msg proto.Message) (n int) {
-	m := msg.(*PaymentDetail)
-	// payment_method
-	switch x := m.PaymentMethod.(type) {
-	case *PaymentDetail_BankPaymentMethod:
-		s := proto.Size(x.BankPaymentMethod)
-		n += 1 // tag and wire
-		n += proto.SizeVarint(uint64(s))
-		n += s
-	case *PaymentDetail_CryptoPaymentMethod:
-		s := proto.Size(x.CryptoPaymentMethod)
-		n += 1 // tag and wire
-		n += proto.SizeVarint(uint64(s))
-		n += s
-	case *PaymentDetail_PayPalMethod:
-		s := proto.Size(x.PayPalMethod)
-		n += 1 // tag and wire
-		n += proto.SizeVarint(uint64(s))
-		n += s
-	case nil:
-	default:
-		panic(fmt.Sprintf("proto: unexpected type %T in oneof", x))
-	}
-	return n
 }
 
 type Contact struct {
@@ -646,16 +572,17 @@ func (m *Contact) Reset()         { *m = Contact{} }
 func (m *Contact) String() string { return proto.CompactTextString(m) }
 func (*Contact) ProtoMessage()    {}
 func (*Contact) Descriptor() ([]byte, []int) {
-	return fileDescriptor_entity_ff51b9739f23c8b7, []int{8}
+	return fileDescriptor_9b38ccb06a827056, []int{8}
 }
+
 func (m *Contact) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Contact.Unmarshal(m, b)
 }
 func (m *Contact) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_Contact.Marshal(b, m, deterministic)
 }
-func (dst *Contact) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Contact.Merge(dst, src)
+func (m *Contact) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Contact.Merge(m, src)
 }
 func (m *Contact) XXX_Size() int {
 	return xxx_messageInfo_Contact.Size(m)
@@ -706,9 +633,9 @@ func init() {
 	proto.RegisterType((*Contact)(nil), "entity.Contact")
 }
 
-func init() { proto.RegisterFile("entity/entity.proto", fileDescriptor_entity_ff51b9739f23c8b7) }
+func init() { proto.RegisterFile("entity/entity.proto", fileDescriptor_9b38ccb06a827056) }
 
-var fileDescriptor_entity_ff51b9739f23c8b7 = []byte{
+var fileDescriptor_9b38ccb06a827056 = []byte{
 	// 686 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x94, 0x54, 0xcd, 0x4e, 0xdb, 0x40,
 	0x10, 0x26, 0xe4, 0xd7, 0x43, 0x48, 0x60, 0x03, 0xaa, 0x01, 0xb5, 0x45, 0xae, 0x10, 0x54, 0x15,

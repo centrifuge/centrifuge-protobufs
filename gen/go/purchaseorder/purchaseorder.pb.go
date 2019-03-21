@@ -3,10 +3,12 @@
 
 package purchaseorderpb
 
-import proto "github.com/golang/protobuf/proto"
-import fmt "fmt"
-import math "math"
-import timestamp "github.com/golang/protobuf/ptypes/timestamp"
+import (
+	fmt "fmt"
+	proto "github.com/golang/protobuf/proto"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
+	math "math"
+)
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -17,7 +19,7 @@ var _ = math.Inf
 // is compatible with the proto package it is being compiled against.
 // A compilation error at this line likely means your copy of the
 // proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
 // PurchaseOrderData is the default schema for a purchase order
 type PurchaseOrderData struct {
@@ -67,16 +69,17 @@ func (m *PurchaseOrderData) Reset()         { *m = PurchaseOrderData{} }
 func (m *PurchaseOrderData) String() string { return proto.CompactTextString(m) }
 func (*PurchaseOrderData) ProtoMessage()    {}
 func (*PurchaseOrderData) Descriptor() ([]byte, []int) {
-	return fileDescriptor_purchaseorder_0a1b86b207679c65, []int{0}
+	return fileDescriptor_68cdaff5eff29fb6, []int{0}
 }
+
 func (m *PurchaseOrderData) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_PurchaseOrderData.Unmarshal(m, b)
 }
 func (m *PurchaseOrderData) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_PurchaseOrderData.Marshal(b, m, deterministic)
 }
-func (dst *PurchaseOrderData) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_PurchaseOrderData.Merge(dst, src)
+func (m *PurchaseOrderData) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_PurchaseOrderData.Merge(m, src)
 }
 func (m *PurchaseOrderData) XXX_Size() int {
 	return xxx_messageInfo_PurchaseOrderData.Size(m)
@@ -259,11 +262,9 @@ func init() {
 	proto.RegisterType((*PurchaseOrderData)(nil), "purchaseorder.PurchaseOrderData")
 }
 
-func init() {
-	proto.RegisterFile("purchaseorder/purchaseorder.proto", fileDescriptor_purchaseorder_0a1b86b207679c65)
-}
+func init() { proto.RegisterFile("purchaseorder/purchaseorder.proto", fileDescriptor_68cdaff5eff29fb6) }
 
-var fileDescriptor_purchaseorder_0a1b86b207679c65 = []byte{
+var fileDescriptor_68cdaff5eff29fb6 = []byte{
 	// 495 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x84, 0x93, 0xc1, 0x6f, 0xd3, 0x30,
 	0x14, 0xc6, 0x55, 0x60, 0x6b, 0xe3, 0x26, 0xeb, 0x6a, 0x06, 0x98, 0x02, 0xa2, 0x03, 0x21, 0x15,
