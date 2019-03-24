@@ -26,7 +26,6 @@ install_dep:
 
 vendorinstall: ## Installs all protobuf dependencies with go-vendorinstall
 	go install github.com/centrifuge/centrifuge-protobufs/vendor/github.com/roboll/go-vendorinstall
-	go-vendorinstall github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway
 	go-vendorinstall github.com/golang/protobuf/protoc-gen-go
 
 lint: ## runs prototool lint

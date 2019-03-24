@@ -3,10 +3,12 @@
 
 package invoicepb
 
-import proto "github.com/golang/protobuf/proto"
-import fmt "fmt"
-import math "math"
-import timestamp "github.com/golang/protobuf/ptypes/timestamp"
+import (
+	fmt "fmt"
+	proto "github.com/golang/protobuf/proto"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
+	math "math"
+)
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -17,82 +19,82 @@ var _ = math.Inf
 // is compatible with the proto package it is being compiled against.
 // A compilation error at this line likely means your copy of the
 // proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
 // InvoiceData is the default invoice schema
 type InvoiceData struct {
 	// invoice number or reference number
-	Number string `protobuf:"bytes,1,opt,name=number" json:"number,omitempty"`
+	Number string `protobuf:"bytes,1,opt,name=number,proto3" json:"number,omitempty"`
 	// invoice status
-	Status                   string `protobuf:"bytes,2,opt,name=status" json:"status,omitempty"`
-	SenderInvoiceId          string `protobuf:"bytes,3,opt,name=sender_invoice_id,json=senderInvoiceId" json:"sender_invoice_id,omitempty"`
-	RecipientInvoiceId       string `protobuf:"bytes,4,opt,name=recipient_invoice_id,json=recipientInvoiceId" json:"recipient_invoice_id,omitempty"`
-	SenderCompanyName        string `protobuf:"bytes,5,opt,name=sender_company_name,json=senderCompanyName" json:"sender_company_name,omitempty"`
-	SenderContactPersonName  string `protobuf:"bytes,6,opt,name=sender_contact_person_name,json=senderContactPersonName" json:"sender_contact_person_name,omitempty"`
-	SenderStreet1            string `protobuf:"bytes,7,opt,name=sender_street1,json=senderStreet1" json:"sender_street1,omitempty"`
-	SenderStreet2            string `protobuf:"bytes,8,opt,name=sender_street2,json=senderStreet2" json:"sender_street2,omitempty"`
-	SenderCity               string `protobuf:"bytes,9,opt,name=sender_city,json=senderCity" json:"sender_city,omitempty"`
-	SenderZipcode            string `protobuf:"bytes,10,opt,name=sender_zipcode,json=senderZipcode" json:"sender_zipcode,omitempty"`
-	SenderState              string `protobuf:"bytes,11,opt,name=sender_state,json=senderState" json:"sender_state,omitempty"`
-	SenderCountry            string `protobuf:"bytes,12,opt,name=sender_country,json=senderCountry" json:"sender_country,omitempty"`
-	BillToCompanyName        string `protobuf:"bytes,43,opt,name=bill_to_company_name,json=billToCompanyName" json:"bill_to_company_name,omitempty"`
-	BillToContactPersonName  string `protobuf:"bytes,44,opt,name=bill_to_contact_person_name,json=billToContactPersonName" json:"bill_to_contact_person_name,omitempty"`
-	BillToStreet1            string `protobuf:"bytes,15,opt,name=bill_to_street1,json=billToStreet1" json:"bill_to_street1,omitempty"`
-	BillToStreet2            string `protobuf:"bytes,16,opt,name=bill_to_street2,json=billToStreet2" json:"bill_to_street2,omitempty"`
-	BillToCity               string `protobuf:"bytes,17,opt,name=bill_to_city,json=billToCity" json:"bill_to_city,omitempty"`
-	BillToZipcode            string `protobuf:"bytes,18,opt,name=bill_to_zipcode,json=billToZipcode" json:"bill_to_zipcode,omitempty"`
-	BillToState              string `protobuf:"bytes,50,opt,name=bill_to_state,json=billToState" json:"bill_to_state,omitempty"`
-	BillToCountry            string `protobuf:"bytes,20,opt,name=bill_to_country,json=billToCountry" json:"bill_to_country,omitempty"`
-	BillToVatNumber          string `protobuf:"bytes,21,opt,name=bill_to_vat_number,json=billToVatNumber" json:"bill_to_vat_number,omitempty"`
-	BillToLocalTaxId         string `protobuf:"bytes,60,opt,name=bill_to_local_tax_id,json=billToLocalTaxId" json:"bill_to_local_tax_id,omitempty"`
-	RemitToCompanyName       string `protobuf:"bytes,23,opt,name=remit_to_company_name,json=remitToCompanyName" json:"remit_to_company_name,omitempty"`
-	RemitToContactPersonName string `protobuf:"bytes,24,opt,name=remit_to_contact_person_name,json=remitToContactPersonName" json:"remit_to_contact_person_name,omitempty"`
-	RemitToStreet1           string `protobuf:"bytes,25,opt,name=remit_to_street1,json=remitToStreet1" json:"remit_to_street1,omitempty"`
-	RemitToStreet2           string `protobuf:"bytes,26,opt,name=remit_to_street2,json=remitToStreet2" json:"remit_to_street2,omitempty"`
-	RemitToCity              string `protobuf:"bytes,27,opt,name=remit_to_city,json=remitToCity" json:"remit_to_city,omitempty"`
-	RemitToZipcode           string `protobuf:"bytes,28,opt,name=remit_to_zipcode,json=remitToZipcode" json:"remit_to_zipcode,omitempty"`
-	RemitToState             string `protobuf:"bytes,30,opt,name=remit_to_state,json=remitToState" json:"remit_to_state,omitempty"`
-	RemitToCountry           string `protobuf:"bytes,31,opt,name=remit_to_country,json=remitToCountry" json:"remit_to_country,omitempty"`
-	RemitToVatNumber         string `protobuf:"bytes,32,opt,name=remit_to_vat_number,json=remitToVatNumber" json:"remit_to_vat_number,omitempty"`
-	RemitToLocalTaxId        string `protobuf:"bytes,33,opt,name=remit_to_local_tax_id,json=remitToLocalTaxId" json:"remit_to_local_tax_id,omitempty"`
-	RemitToTaxCountry        string `protobuf:"bytes,34,opt,name=remit_to_tax_country,json=remitToTaxCountry" json:"remit_to_tax_country,omitempty"`
-	ShipToCompanyName        string `protobuf:"bytes,35,opt,name=ship_to_company_name,json=shipToCompanyName" json:"ship_to_company_name,omitempty"`
-	ShipToContactPersonName  string `protobuf:"bytes,36,opt,name=ship_to_contact_person_name,json=shipToContactPersonName" json:"ship_to_contact_person_name,omitempty"`
-	ShipToStreet1            string `protobuf:"bytes,37,opt,name=ship_to_street1,json=shipToStreet1" json:"ship_to_street1,omitempty"`
-	ShipToStreet2            string `protobuf:"bytes,38,opt,name=ship_to_street2,json=shipToStreet2" json:"ship_to_street2,omitempty"`
-	ShipToCity               string `protobuf:"bytes,39,opt,name=ship_to_city,json=shipToCity" json:"ship_to_city,omitempty"`
-	ShipToZipcode            string `protobuf:"bytes,40,opt,name=ship_to_zipcode,json=shipToZipcode" json:"ship_to_zipcode,omitempty"`
-	ShipToState              string `protobuf:"bytes,41,opt,name=ship_to_state,json=shipToState" json:"ship_to_state,omitempty"`
-	ShipToCountry            string `protobuf:"bytes,42,opt,name=ship_to_country,json=shipToCountry" json:"ship_to_country,omitempty"`
-	Currency                 string `protobuf:"bytes,13,opt,name=currency" json:"currency,omitempty"`
+	Status                   string `protobuf:"bytes,2,opt,name=status,proto3" json:"status,omitempty"`
+	SenderInvoiceId          string `protobuf:"bytes,3,opt,name=sender_invoice_id,json=senderInvoiceId,proto3" json:"sender_invoice_id,omitempty"`
+	RecipientInvoiceId       string `protobuf:"bytes,4,opt,name=recipient_invoice_id,json=recipientInvoiceId,proto3" json:"recipient_invoice_id,omitempty"`
+	SenderCompanyName        string `protobuf:"bytes,5,opt,name=sender_company_name,json=senderCompanyName,proto3" json:"sender_company_name,omitempty"`
+	SenderContactPersonName  string `protobuf:"bytes,6,opt,name=sender_contact_person_name,json=senderContactPersonName,proto3" json:"sender_contact_person_name,omitempty"`
+	SenderStreet1            string `protobuf:"bytes,7,opt,name=sender_street1,json=senderStreet1,proto3" json:"sender_street1,omitempty"`
+	SenderStreet2            string `protobuf:"bytes,8,opt,name=sender_street2,json=senderStreet2,proto3" json:"sender_street2,omitempty"`
+	SenderCity               string `protobuf:"bytes,9,opt,name=sender_city,json=senderCity,proto3" json:"sender_city,omitempty"`
+	SenderZipcode            string `protobuf:"bytes,10,opt,name=sender_zipcode,json=senderZipcode,proto3" json:"sender_zipcode,omitempty"`
+	SenderState              string `protobuf:"bytes,11,opt,name=sender_state,json=senderState,proto3" json:"sender_state,omitempty"`
+	SenderCountry            string `protobuf:"bytes,12,opt,name=sender_country,json=senderCountry,proto3" json:"sender_country,omitempty"`
+	BillToCompanyName        string `protobuf:"bytes,43,opt,name=bill_to_company_name,json=billToCompanyName,proto3" json:"bill_to_company_name,omitempty"`
+	BillToContactPersonName  string `protobuf:"bytes,44,opt,name=bill_to_contact_person_name,json=billToContactPersonName,proto3" json:"bill_to_contact_person_name,omitempty"`
+	BillToStreet1            string `protobuf:"bytes,15,opt,name=bill_to_street1,json=billToStreet1,proto3" json:"bill_to_street1,omitempty"`
+	BillToStreet2            string `protobuf:"bytes,16,opt,name=bill_to_street2,json=billToStreet2,proto3" json:"bill_to_street2,omitempty"`
+	BillToCity               string `protobuf:"bytes,17,opt,name=bill_to_city,json=billToCity,proto3" json:"bill_to_city,omitempty"`
+	BillToZipcode            string `protobuf:"bytes,18,opt,name=bill_to_zipcode,json=billToZipcode,proto3" json:"bill_to_zipcode,omitempty"`
+	BillToState              string `protobuf:"bytes,50,opt,name=bill_to_state,json=billToState,proto3" json:"bill_to_state,omitempty"`
+	BillToCountry            string `protobuf:"bytes,20,opt,name=bill_to_country,json=billToCountry,proto3" json:"bill_to_country,omitempty"`
+	BillToVatNumber          string `protobuf:"bytes,21,opt,name=bill_to_vat_number,json=billToVatNumber,proto3" json:"bill_to_vat_number,omitempty"`
+	BillToLocalTaxId         string `protobuf:"bytes,60,opt,name=bill_to_local_tax_id,json=billToLocalTaxId,proto3" json:"bill_to_local_tax_id,omitempty"`
+	RemitToCompanyName       string `protobuf:"bytes,23,opt,name=remit_to_company_name,json=remitToCompanyName,proto3" json:"remit_to_company_name,omitempty"`
+	RemitToContactPersonName string `protobuf:"bytes,24,opt,name=remit_to_contact_person_name,json=remitToContactPersonName,proto3" json:"remit_to_contact_person_name,omitempty"`
+	RemitToStreet1           string `protobuf:"bytes,25,opt,name=remit_to_street1,json=remitToStreet1,proto3" json:"remit_to_street1,omitempty"`
+	RemitToStreet2           string `protobuf:"bytes,26,opt,name=remit_to_street2,json=remitToStreet2,proto3" json:"remit_to_street2,omitempty"`
+	RemitToCity              string `protobuf:"bytes,27,opt,name=remit_to_city,json=remitToCity,proto3" json:"remit_to_city,omitempty"`
+	RemitToZipcode           string `protobuf:"bytes,28,opt,name=remit_to_zipcode,json=remitToZipcode,proto3" json:"remit_to_zipcode,omitempty"`
+	RemitToState             string `protobuf:"bytes,30,opt,name=remit_to_state,json=remitToState,proto3" json:"remit_to_state,omitempty"`
+	RemitToCountry           string `protobuf:"bytes,31,opt,name=remit_to_country,json=remitToCountry,proto3" json:"remit_to_country,omitempty"`
+	RemitToVatNumber         string `protobuf:"bytes,32,opt,name=remit_to_vat_number,json=remitToVatNumber,proto3" json:"remit_to_vat_number,omitempty"`
+	RemitToLocalTaxId        string `protobuf:"bytes,33,opt,name=remit_to_local_tax_id,json=remitToLocalTaxId,proto3" json:"remit_to_local_tax_id,omitempty"`
+	RemitToTaxCountry        string `protobuf:"bytes,34,opt,name=remit_to_tax_country,json=remitToTaxCountry,proto3" json:"remit_to_tax_country,omitempty"`
+	ShipToCompanyName        string `protobuf:"bytes,35,opt,name=ship_to_company_name,json=shipToCompanyName,proto3" json:"ship_to_company_name,omitempty"`
+	ShipToContactPersonName  string `protobuf:"bytes,36,opt,name=ship_to_contact_person_name,json=shipToContactPersonName,proto3" json:"ship_to_contact_person_name,omitempty"`
+	ShipToStreet1            string `protobuf:"bytes,37,opt,name=ship_to_street1,json=shipToStreet1,proto3" json:"ship_to_street1,omitempty"`
+	ShipToStreet2            string `protobuf:"bytes,38,opt,name=ship_to_street2,json=shipToStreet2,proto3" json:"ship_to_street2,omitempty"`
+	ShipToCity               string `protobuf:"bytes,39,opt,name=ship_to_city,json=shipToCity,proto3" json:"ship_to_city,omitempty"`
+	ShipToZipcode            string `protobuf:"bytes,40,opt,name=ship_to_zipcode,json=shipToZipcode,proto3" json:"ship_to_zipcode,omitempty"`
+	ShipToState              string `protobuf:"bytes,41,opt,name=ship_to_state,json=shipToState,proto3" json:"ship_to_state,omitempty"`
+	ShipToCountry            string `protobuf:"bytes,42,opt,name=ship_to_country,json=shipToCountry,proto3" json:"ship_to_country,omitempty"`
+	Currency                 string `protobuf:"bytes,13,opt,name=currency,proto3" json:"currency,omitempty"`
 	GrossAmount              []byte `protobuf:"bytes,14,opt,name=gross_amount,json=grossAmount,proto3" json:"gross_amount,omitempty"`
 	NetAmount                []byte `protobuf:"bytes,45,opt,name=net_amount,json=netAmount,proto3" json:"net_amount,omitempty"`
 	TaxAmount                []byte `protobuf:"bytes,46,opt,name=tax_amount,json=taxAmount,proto3" json:"tax_amount,omitempty"`
 	TaxRate                  []byte `protobuf:"bytes,47,opt,name=tax_rate,json=taxRate,proto3" json:"tax_rate,omitempty"`
-	// bool tax_on_line_level = 48;
+	//bool tax_on_line_level = 48;
 	// centrifuge ID of the recipient
 	Recipient []byte `protobuf:"bytes,49,opt,name=recipient,proto3" json:"recipient,omitempty"`
 	// centrifuge ID of the sender
 	Sender []byte `protobuf:"bytes,19,opt,name=sender,proto3" json:"sender,omitempty"`
 	// centrifuge ID of the payee
 	Payee          []byte `protobuf:"bytes,51,opt,name=payee,proto3" json:"payee,omitempty"`
-	Comment        string `protobuf:"bytes,52,opt,name=comment" json:"comment,omitempty"`
-	ShippingTerms  string `protobuf:"bytes,53,opt,name=shipping_terms,json=shippingTerms" json:"shipping_terms,omitempty"`
-	RequesterEmail string `protobuf:"bytes,54,opt,name=requester_email,json=requesterEmail" json:"requester_email,omitempty"`
-	RequesterName  string `protobuf:"bytes,55,opt,name=requester_name,json=requesterName" json:"requester_name,omitempty"`
-	// number of the delivery note
-	DeliveryNumber string `protobuf:"bytes,56,opt,name=delivery_number,json=deliveryNumber" json:"delivery_number,omitempty"`
-	// bool is_credit_note = 57;
-	CreditNoteInvoiceNumber string               `protobuf:"bytes,58,opt,name=credit_note_invoice_number,json=creditNoteInvoiceNumber" json:"credit_note_invoice_number,omitempty"`
-	CreditForInvoiceDate    *timestamp.Timestamp `protobuf:"bytes,59,opt,name=credit_for_invoice_date,json=creditForInvoiceDate" json:"credit_for_invoice_date,omitempty"`
-	DateDue                 *timestamp.Timestamp `protobuf:"bytes,22,opt,name=date_due,json=dateDue" json:"date_due,omitempty"`
-	DatePaid                *timestamp.Timestamp `protobuf:"bytes,61,opt,name=date_paid,json=datePaid" json:"date_paid,omitempty"`
-	DateUpdated             *timestamp.Timestamp `protobuf:"bytes,62,opt,name=date_updated,json=dateUpdated" json:"date_updated,omitempty"`
-	DateCreated             *timestamp.Timestamp `protobuf:"bytes,63,opt,name=date_created,json=dateCreated" json:"date_created,omitempty"`
-	Attachments             []*BinaryAttachment  `protobuf:"bytes,64,rep,name=attachments" json:"attachments,omitempty"`
-	LineItems               []*InvoiceLineItem   `protobuf:"bytes,65,rep,name=line_items,json=lineItems" json:"line_items,omitempty"`
-	PaymentDetails          []*PaymentDetails    `protobuf:"bytes,66,rep,name=payment_details,json=paymentDetails" json:"payment_details,omitempty"`
-	TaxItems                []*InvoiceTaxItem    `protobuf:"bytes,67,rep,name=tax_items,json=taxItems" json:"tax_items,omitempty"`
+	Comment        string `protobuf:"bytes,52,opt,name=comment,proto3" json:"comment,omitempty"`
+	ShippingTerms  string `protobuf:"bytes,53,opt,name=shipping_terms,json=shippingTerms,proto3" json:"shipping_terms,omitempty"`
+	RequesterEmail string `protobuf:"bytes,54,opt,name=requester_email,json=requesterEmail,proto3" json:"requester_email,omitempty"`
+	RequesterName  string `protobuf:"bytes,55,opt,name=requester_name,json=requesterName,proto3" json:"requester_name,omitempty"`
+	//number of the delivery note
+	DeliveryNumber string `protobuf:"bytes,56,opt,name=delivery_number,json=deliveryNumber,proto3" json:"delivery_number,omitempty"`
+	//bool is_credit_note = 57;
+	CreditNoteInvoiceNumber string               `protobuf:"bytes,58,opt,name=credit_note_invoice_number,json=creditNoteInvoiceNumber,proto3" json:"credit_note_invoice_number,omitempty"`
+	CreditForInvoiceDate    *timestamp.Timestamp `protobuf:"bytes,59,opt,name=credit_for_invoice_date,json=creditForInvoiceDate,proto3" json:"credit_for_invoice_date,omitempty"`
+	DateDue                 *timestamp.Timestamp `protobuf:"bytes,22,opt,name=date_due,json=dateDue,proto3" json:"date_due,omitempty"`
+	DatePaid                *timestamp.Timestamp `protobuf:"bytes,61,opt,name=date_paid,json=datePaid,proto3" json:"date_paid,omitempty"`
+	DateUpdated             *timestamp.Timestamp `protobuf:"bytes,62,opt,name=date_updated,json=dateUpdated,proto3" json:"date_updated,omitempty"`
+	DateCreated             *timestamp.Timestamp `protobuf:"bytes,63,opt,name=date_created,json=dateCreated,proto3" json:"date_created,omitempty"`
+	Attachments             []*BinaryAttachment  `protobuf:"bytes,64,rep,name=attachments,proto3" json:"attachments,omitempty"`
+	LineItems               []*InvoiceLineItem   `protobuf:"bytes,65,rep,name=line_items,json=lineItems,proto3" json:"line_items,omitempty"`
+	PaymentDetails          []*PaymentDetails    `protobuf:"bytes,66,rep,name=payment_details,json=paymentDetails,proto3" json:"payment_details,omitempty"`
+	TaxItems                []*InvoiceTaxItem    `protobuf:"bytes,67,rep,name=tax_items,json=taxItems,proto3" json:"tax_items,omitempty"`
 	XXX_NoUnkeyedLiteral    struct{}             `json:"-"`
 	XXX_unrecognized        []byte               `json:"-"`
 	XXX_sizecache           int32                `json:"-"`
@@ -102,16 +104,17 @@ func (m *InvoiceData) Reset()         { *m = InvoiceData{} }
 func (m *InvoiceData) String() string { return proto.CompactTextString(m) }
 func (*InvoiceData) ProtoMessage()    {}
 func (*InvoiceData) Descriptor() ([]byte, []int) {
-	return fileDescriptor_invoice_b460dbac9bfa1e03, []int{0}
+	return fileDescriptor_b3e2b5ce0fcadd51, []int{0}
 }
+
 func (m *InvoiceData) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_InvoiceData.Unmarshal(m, b)
 }
 func (m *InvoiceData) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_InvoiceData.Marshal(b, m, deterministic)
 }
-func (dst *InvoiceData) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_InvoiceData.Merge(dst, src)
+func (m *InvoiceData) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_InvoiceData.Merge(m, src)
 }
 func (m *InvoiceData) XXX_Size() int {
 	return xxx_messageInfo_InvoiceData.Size(m)
@@ -571,8 +574,8 @@ func (m *InvoiceData) GetTaxItems() []*InvoiceTaxItem {
 }
 
 type InvoiceTaxItem struct {
-	ItemNumber           string   `protobuf:"bytes,1,opt,name=item_number,json=itemNumber" json:"item_number,omitempty"`
-	InvoiceItemNumber    string   `protobuf:"bytes,2,opt,name=invoice_item_number,json=invoiceItemNumber" json:"invoice_item_number,omitempty"`
+	ItemNumber           string   `protobuf:"bytes,1,opt,name=item_number,json=itemNumber,proto3" json:"item_number,omitempty"`
+	InvoiceItemNumber    string   `protobuf:"bytes,2,opt,name=invoice_item_number,json=invoiceItemNumber,proto3" json:"invoice_item_number,omitempty"`
 	TaxAmount            []byte   `protobuf:"bytes,3,opt,name=tax_amount,json=taxAmount,proto3" json:"tax_amount,omitempty"`
 	TaxRate              []byte   `protobuf:"bytes,4,opt,name=tax_rate,json=taxRate,proto3" json:"tax_rate,omitempty"`
 	TaxCode              []byte   `protobuf:"bytes,5,opt,name=tax_code,json=taxCode,proto3" json:"tax_code,omitempty"`
@@ -586,16 +589,17 @@ func (m *InvoiceTaxItem) Reset()         { *m = InvoiceTaxItem{} }
 func (m *InvoiceTaxItem) String() string { return proto.CompactTextString(m) }
 func (*InvoiceTaxItem) ProtoMessage()    {}
 func (*InvoiceTaxItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor_invoice_b460dbac9bfa1e03, []int{1}
+	return fileDescriptor_b3e2b5ce0fcadd51, []int{1}
 }
+
 func (m *InvoiceTaxItem) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_InvoiceTaxItem.Unmarshal(m, b)
 }
 func (m *InvoiceTaxItem) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_InvoiceTaxItem.Marshal(b, m, deterministic)
 }
-func (dst *InvoiceTaxItem) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_InvoiceTaxItem.Merge(dst, src)
+func (m *InvoiceTaxItem) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_InvoiceTaxItem.Merge(m, src)
 }
 func (m *InvoiceTaxItem) XXX_Size() int {
 	return xxx_messageInfo_InvoiceTaxItem.Size(m)
@@ -649,13 +653,13 @@ func (m *InvoiceTaxItem) GetTaxBaseAmount() []byte {
 }
 
 type BinaryAttachment struct {
-	Name string `protobuf:"bytes,1,opt,name=name" json:"name,omitempty"`
-	// mime type of attached file
-	FileType string `protobuf:"bytes,2,opt,name=file_type,json=fileType" json:"file_type,omitempty"`
+	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	//mime type of attached file
+	FileType string `protobuf:"bytes,2,opt,name=file_type,json=fileType,proto3" json:"file_type,omitempty"`
 	// in byte
-	Size uint64 `protobuf:"varint,3,opt,name=size" json:"size,omitempty"`
+	Size uint64 `protobuf:"varint,3,opt,name=size,proto3" json:"size,omitempty"`
 	Data []byte `protobuf:"bytes,4,opt,name=data,proto3" json:"data,omitempty"`
-	// the md5 checksum of the original file for easier verification - optional
+	//the md5 checksum of the original file for easier verification - optional
 	Checksum             []byte   `protobuf:"bytes,5,opt,name=checksum,proto3" json:"checksum,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -666,16 +670,17 @@ func (m *BinaryAttachment) Reset()         { *m = BinaryAttachment{} }
 func (m *BinaryAttachment) String() string { return proto.CompactTextString(m) }
 func (*BinaryAttachment) ProtoMessage()    {}
 func (*BinaryAttachment) Descriptor() ([]byte, []int) {
-	return fileDescriptor_invoice_b460dbac9bfa1e03, []int{2}
+	return fileDescriptor_b3e2b5ce0fcadd51, []int{2}
 }
+
 func (m *BinaryAttachment) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_BinaryAttachment.Unmarshal(m, b)
 }
 func (m *BinaryAttachment) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_BinaryAttachment.Marshal(b, m, deterministic)
 }
-func (dst *BinaryAttachment) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_BinaryAttachment.Merge(dst, src)
+func (m *BinaryAttachment) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_BinaryAttachment.Merge(m, src)
 }
 func (m *BinaryAttachment) XXX_Size() int {
 	return xxx_messageInfo_BinaryAttachment.Size(m)
@@ -722,32 +727,32 @@ func (m *BinaryAttachment) GetChecksum() []byte {
 }
 
 type PaymentDetails struct {
-	// identifying this payment. could be a sequential number, could be a transaction hash of the crypto payment
-	Id           string               `protobuf:"bytes,1,opt,name=id" json:"id,omitempty"`
-	DateExecuted *timestamp.Timestamp `protobuf:"bytes,2,opt,name=date_executed,json=dateExecuted" json:"date_executed,omitempty"`
-	// centrifuge id of payee
+	//identifying this payment. could be a sequential number, could be a transaction hash of the crypto payment
+	Id           string               `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	DateExecuted *timestamp.Timestamp `protobuf:"bytes,2,opt,name=date_executed,json=dateExecuted,proto3" json:"date_executed,omitempty"`
+	//centrifuge id of payee
 	Payee []byte `protobuf:"bytes,3,opt,name=payee,proto3" json:"payee,omitempty"`
-	// centrifuge id of payer
+	//centrifuge id of payer
 	Payer    []byte `protobuf:"bytes,4,opt,name=payer,proto3" json:"payer,omitempty"`
 	Amount   []byte `protobuf:"bytes,5,opt,name=amount,proto3" json:"amount,omitempty"`
-	Currency string `protobuf:"bytes,6,opt,name=currency" json:"currency,omitempty"`
-	// payment reference (e.g. reference field on bank transfer)
-	Reference             string `protobuf:"bytes,7,opt,name=reference" json:"reference,omitempty"`
-	BankName              string `protobuf:"bytes,8,opt,name=bank_name,json=bankName" json:"bank_name,omitempty"`
-	BankAddress           string `protobuf:"bytes,9,opt,name=bank_address,json=bankAddress" json:"bank_address,omitempty"`
-	BankCountry           string `protobuf:"bytes,10,opt,name=bank_country,json=bankCountry" json:"bank_country,omitempty"`
-	BankAccountNumber     string `protobuf:"bytes,11,opt,name=bank_account_number,json=bankAccountNumber" json:"bank_account_number,omitempty"`
-	BankAccountCurrency   string `protobuf:"bytes,12,opt,name=bank_account_currency,json=bankAccountCurrency" json:"bank_account_currency,omitempty"`
-	BankAccountHolderName string `protobuf:"bytes,13,opt,name=bank_account_holder_name,json=bankAccountHolderName" json:"bank_account_holder_name,omitempty"`
-	BankKey               string `protobuf:"bytes,14,opt,name=bank_key,json=bankKey" json:"bank_key,omitempty"`
-	// the ID of the chain to use in URI format. e.g. "ethereum://42/<tokenaddress>"
-	CryptoChainUri string `protobuf:"bytes,15,opt,name=crypto_chain_uri,json=cryptoChainUri" json:"crypto_chain_uri,omitempty"`
-	// the transaction in which the payment happened
-	CryptoTransactionId string `protobuf:"bytes,16,opt,name=crypto_transaction_id,json=cryptoTransactionId" json:"crypto_transaction_id,omitempty"`
-	// from address
-	CryptoFrom string `protobuf:"bytes,17,opt,name=crypto_from,json=cryptoFrom" json:"crypto_from,omitempty"`
-	// to address
-	CryptoTo             string   `protobuf:"bytes,18,opt,name=crypto_to,json=cryptoTo" json:"crypto_to,omitempty"`
+	Currency string `protobuf:"bytes,6,opt,name=currency,proto3" json:"currency,omitempty"`
+	//payment reference (e.g. reference field on bank transfer)
+	Reference             string `protobuf:"bytes,7,opt,name=reference,proto3" json:"reference,omitempty"`
+	BankName              string `protobuf:"bytes,8,opt,name=bank_name,json=bankName,proto3" json:"bank_name,omitempty"`
+	BankAddress           string `protobuf:"bytes,9,opt,name=bank_address,json=bankAddress,proto3" json:"bank_address,omitempty"`
+	BankCountry           string `protobuf:"bytes,10,opt,name=bank_country,json=bankCountry,proto3" json:"bank_country,omitempty"`
+	BankAccountNumber     string `protobuf:"bytes,11,opt,name=bank_account_number,json=bankAccountNumber,proto3" json:"bank_account_number,omitempty"`
+	BankAccountCurrency   string `protobuf:"bytes,12,opt,name=bank_account_currency,json=bankAccountCurrency,proto3" json:"bank_account_currency,omitempty"`
+	BankAccountHolderName string `protobuf:"bytes,13,opt,name=bank_account_holder_name,json=bankAccountHolderName,proto3" json:"bank_account_holder_name,omitempty"`
+	BankKey               string `protobuf:"bytes,14,opt,name=bank_key,json=bankKey,proto3" json:"bank_key,omitempty"`
+	//the ID of the chain to use in URI format. e.g. "ethereum://42/<tokenaddress>"
+	CryptoChainUri string `protobuf:"bytes,15,opt,name=crypto_chain_uri,json=cryptoChainUri,proto3" json:"crypto_chain_uri,omitempty"`
+	//the transaction in which the payment happened
+	CryptoTransactionId string `protobuf:"bytes,16,opt,name=crypto_transaction_id,json=cryptoTransactionId,proto3" json:"crypto_transaction_id,omitempty"`
+	//from address
+	CryptoFrom string `protobuf:"bytes,17,opt,name=crypto_from,json=cryptoFrom,proto3" json:"crypto_from,omitempty"`
+	//to address
+	CryptoTo             string   `protobuf:"bytes,18,opt,name=crypto_to,json=cryptoTo,proto3" json:"crypto_to,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -757,16 +762,17 @@ func (m *PaymentDetails) Reset()         { *m = PaymentDetails{} }
 func (m *PaymentDetails) String() string { return proto.CompactTextString(m) }
 func (*PaymentDetails) ProtoMessage()    {}
 func (*PaymentDetails) Descriptor() ([]byte, []int) {
-	return fileDescriptor_invoice_b460dbac9bfa1e03, []int{3}
+	return fileDescriptor_b3e2b5ce0fcadd51, []int{3}
 }
+
 func (m *PaymentDetails) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_PaymentDetails.Unmarshal(m, b)
 }
 func (m *PaymentDetails) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_PaymentDetails.Marshal(b, m, deterministic)
 }
-func (dst *PaymentDetails) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_PaymentDetails.Merge(dst, src)
+func (m *PaymentDetails) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_PaymentDetails.Merge(m, src)
 }
 func (m *PaymentDetails) XXX_Size() int {
 	return xxx_messageInfo_PaymentDetails.Size(m)
@@ -904,21 +910,21 @@ func (m *PaymentDetails) GetCryptoTo() string {
 }
 
 type InvoiceLineItem struct {
-	ItemNumber    string `protobuf:"bytes,1,opt,name=item_number,json=itemNumber" json:"item_number,omitempty"`
-	Description   string `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
-	SenderPartNo  string `protobuf:"bytes,3,opt,name=sender_part_no,json=senderPartNo" json:"sender_part_no,omitempty"`
+	ItemNumber    string `protobuf:"bytes,1,opt,name=item_number,json=itemNumber,proto3" json:"item_number,omitempty"`
+	Description   string `protobuf:"bytes,2,opt,name=description,proto3" json:"description,omitempty"`
+	SenderPartNo  string `protobuf:"bytes,3,opt,name=sender_part_no,json=senderPartNo,proto3" json:"sender_part_no,omitempty"`
 	PricePerUnit  []byte `protobuf:"bytes,4,opt,name=price_per_unit,json=pricePerUnit,proto3" json:"price_per_unit,omitempty"`
 	Quantity      []byte `protobuf:"bytes,5,opt,name=quantity,proto3" json:"quantity,omitempty"`
-	UnitOfMeasure string `protobuf:"bytes,6,opt,name=unit_of_measure,json=unitOfMeasure" json:"unit_of_measure,omitempty"`
+	UnitOfMeasure string `protobuf:"bytes,6,opt,name=unit_of_measure,json=unitOfMeasure,proto3" json:"unit_of_measure,omitempty"`
 	NetWeight     []byte `protobuf:"bytes,7,opt,name=net_weight,json=netWeight,proto3" json:"net_weight,omitempty"`
 	TaxAmount     []byte `protobuf:"bytes,8,opt,name=tax_amount,json=taxAmount,proto3" json:"tax_amount,omitempty"`
 	TaxRate       []byte `protobuf:"bytes,9,opt,name=tax_rate,json=taxRate,proto3" json:"tax_rate,omitempty"`
 	TaxCode       []byte `protobuf:"bytes,10,opt,name=tax_code,json=taxCode,proto3" json:"tax_code,omitempty"`
-	// the total amount of the line item
+	//the total amount of the line item
 	TotalAmount             []byte   `protobuf:"bytes,11,opt,name=total_amount,json=totalAmount,proto3" json:"total_amount,omitempty"`
-	PurchaseOrderNumber     string   `protobuf:"bytes,12,opt,name=purchase_order_number,json=purchaseOrderNumber" json:"purchase_order_number,omitempty"`
-	PurchaseOrderItemNumber string   `protobuf:"bytes,13,opt,name=purchase_order_item_number,json=purchaseOrderItemNumber" json:"purchase_order_item_number,omitempty"`
-	DeliveryNoteNumber      string   `protobuf:"bytes,14,opt,name=delivery_note_number,json=deliveryNoteNumber" json:"delivery_note_number,omitempty"`
+	PurchaseOrderNumber     string   `protobuf:"bytes,12,opt,name=purchase_order_number,json=purchaseOrderNumber,proto3" json:"purchase_order_number,omitempty"`
+	PurchaseOrderItemNumber string   `protobuf:"bytes,13,opt,name=purchase_order_item_number,json=purchaseOrderItemNumber,proto3" json:"purchase_order_item_number,omitempty"`
+	DeliveryNoteNumber      string   `protobuf:"bytes,14,opt,name=delivery_note_number,json=deliveryNoteNumber,proto3" json:"delivery_note_number,omitempty"`
 	XXX_NoUnkeyedLiteral    struct{} `json:"-"`
 	XXX_unrecognized        []byte   `json:"-"`
 	XXX_sizecache           int32    `json:"-"`
@@ -928,16 +934,17 @@ func (m *InvoiceLineItem) Reset()         { *m = InvoiceLineItem{} }
 func (m *InvoiceLineItem) String() string { return proto.CompactTextString(m) }
 func (*InvoiceLineItem) ProtoMessage()    {}
 func (*InvoiceLineItem) Descriptor() ([]byte, []int) {
-	return fileDescriptor_invoice_b460dbac9bfa1e03, []int{4}
+	return fileDescriptor_b3e2b5ce0fcadd51, []int{4}
 }
+
 func (m *InvoiceLineItem) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_InvoiceLineItem.Unmarshal(m, b)
 }
 func (m *InvoiceLineItem) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_InvoiceLineItem.Marshal(b, m, deterministic)
 }
-func (dst *InvoiceLineItem) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_InvoiceLineItem.Merge(dst, src)
+func (m *InvoiceLineItem) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_InvoiceLineItem.Merge(m, src)
 }
 func (m *InvoiceLineItem) XXX_Size() int {
 	return xxx_messageInfo_InvoiceLineItem.Size(m)
@@ -1054,9 +1061,9 @@ func init() {
 	proto.RegisterType((*InvoiceLineItem)(nil), "invoice.InvoiceLineItem")
 }
 
-func init() { proto.RegisterFile("invoice/invoice.proto", fileDescriptor_invoice_b460dbac9bfa1e03) }
+func init() { proto.RegisterFile("invoice/invoice.proto", fileDescriptor_b3e2b5ce0fcadd51) }
 
-var fileDescriptor_invoice_b460dbac9bfa1e03 = []byte{
+var fileDescriptor_b3e2b5ce0fcadd51 = []byte{
 	// 1718 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x8c, 0x57, 0xeb, 0x56, 0x23, 0xc7,
 	0x11, 0x3e, 0xec, 0x72, 0x91, 0x4a, 0x42, 0x62, 0x07, 0x30, 0x03, 0xbb, 0xc9, 0x02, 0xb1, 0x77,

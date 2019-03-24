@@ -11,28 +11,28 @@ import "google/protobuf/timestamp.proto";
 
 // PurchaseOrderData is the default schema for a purchase order
 message PurchaseOrderData {
-  // purchase order number or reference number 
+  // purchase order number or reference number
   string po_number = 1;
-  // name of the ordering company 
+  // name of the ordering company
   string order_name = 2;
   // street and address details of the ordering company
   string order_street = 3;
   string order_city = 4;
   string order_zipcode = 5;
-  // country ISO code of the ordering company of this purchase order 
+  // country ISO code of the ordering company of this purchase order
   string order_country = 6;
-  // name of the recipient company 
+  // name of the recipient company
   string recipient_name = 7;
   string recipient_street = 8;
   string recipient_city = 9;
   string recipient_zipcode = 10;
-  // country ISO code of the receipient of this purchase order 
+  // country ISO code of the receipient of this purchase order
   string recipient_country = 11;
-  // ISO currency code 
+  // ISO currency code
   string currency = 12;
-  // ordering gross amount including tax 
+  // ordering gross amount including tax
   bytes order_amount = 13;
-  // invoice amount excluding tax 
+  // invoice amount excluding tax
   bytes net_amount = 14;
   bytes tax_amount = 15;
   bytes tax_rate = 16;
