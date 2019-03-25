@@ -60,7 +60,7 @@ message InvoiceData {
   bytes net_amount = 45;
   bytes tax_amount = 46;
   bytes tax_rate = 47;
-  //bool tax_on_line_level = 48;
+  bool tax_on_line_level = 48;
   // centrifuge ID of the recipient
   bytes recipient = 49;
   // centrifuge ID of the sender
