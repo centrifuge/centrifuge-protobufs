@@ -50,8 +50,6 @@ message CoreDocument {
   bytes signing_root = 10 [(proofs.exclude_from_tree) = true];
   // previous_root is the `document_root` of the previous version of the document
   bytes previous_root = 2 [(proofs.hashed_field) = true];
-  // data_root is the Merkle root calculated for the `embedded_data` document (such as an invoice).
-  bytes data_root = 5 [(proofs.exclude_from_tree) = true];
   // signature_data of the signature_root by centrifuge identities.
   // Signatures of the signature_root by centrifuge identities.
   SignatureData signature_data = 6 [(proofs.exclude_from_tree) = true];
