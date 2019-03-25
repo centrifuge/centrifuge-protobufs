@@ -3,11 +3,13 @@
 
 package p2ppb
 
-import proto "github.com/golang/protobuf/proto"
-import fmt "fmt"
-import math "math"
-import coredocument "github.com/centrifuge/centrifuge-protobufs/gen/go/coredocument"
-import timestamp "github.com/golang/protobuf/ptypes/timestamp"
+import (
+	fmt "fmt"
+	coredocument "github.com/centrifuge/centrifuge-protobufs/gen/go/coredocument"
+	proto "github.com/golang/protobuf/proto"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
+	math "math"
+)
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -18,7 +20,7 @@ var _ = math.Inf
 // is compatible with the proto package it is being compiled against.
 // A compilation error at this line likely means your copy of the
 // proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
 type AccessType int32
 
@@ -35,6 +37,7 @@ var AccessType_name = map[int32]string{
 	2: "ACCESS_TYPE_NFT_OWNER_VERIFICATION",
 	3: "ACCESS_TYPE_ACCESS_TOKEN_VERIFICATION",
 }
+
 var AccessType_value = map[string]int32{
 	"ACCESS_TYPE_INVALID":                   0,
 	"ACCESS_TYPE_REQUESTER_VERIFICATION":    1,
@@ -45,18 +48,19 @@ var AccessType_value = map[string]int32{
 func (x AccessType) String() string {
 	return proto.EnumName(AccessType_name, int32(x))
 }
+
 func (AccessType) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_p2p_8d3fa5563faafd2b, []int{0}
+	return fileDescriptor_5630330cdeb1c744, []int{0}
 }
 
 type Header struct {
-	NetworkIdentifier uint32 `protobuf:"varint,1,opt,name=network_identifier,json=networkIdentifier" json:"network_identifier,omitempty"`
-	NodeVersion       string `protobuf:"bytes,2,opt,name=node_version,json=nodeVersion" json:"node_version,omitempty"`
+	NetworkIdentifier uint32 `protobuf:"varint,1,opt,name=network_identifier,json=networkIdentifier,proto3" json:"network_identifier,omitempty"`
+	NodeVersion       string `protobuf:"bytes,2,opt,name=node_version,json=nodeVersion,proto3" json:"node_version,omitempty"`
 	SenderId          []byte `protobuf:"bytes,3,opt,name=sender_id,json=senderId,proto3" json:"sender_id,omitempty"`
 	// Body message type
-	Type string `protobuf:"bytes,4,opt,name=type" json:"type,omitempty"`
+	Type string `protobuf:"bytes,4,opt,name=type,proto3" json:"type,omitempty"`
 	// sent timestamp
-	Timestamp            *timestamp.Timestamp `protobuf:"bytes,5,opt,name=timestamp" json:"timestamp,omitempty"`
+	Timestamp            *timestamp.Timestamp `protobuf:"bytes,5,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
 	XXX_unrecognized     []byte               `json:"-"`
 	XXX_sizecache        int32                `json:"-"`
@@ -66,16 +70,17 @@ func (m *Header) Reset()         { *m = Header{} }
 func (m *Header) String() string { return proto.CompactTextString(m) }
 func (*Header) ProtoMessage()    {}
 func (*Header) Descriptor() ([]byte, []int) {
-	return fileDescriptor_p2p_8d3fa5563faafd2b, []int{0}
+	return fileDescriptor_5630330cdeb1c744, []int{0}
 }
+
 func (m *Header) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Header.Unmarshal(m, b)
 }
 func (m *Header) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_Header.Marshal(b, m, deterministic)
 }
-func (dst *Header) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Header.Merge(dst, src)
+func (m *Header) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Header.Merge(m, src)
 }
 func (m *Header) XXX_Size() int {
 	return xxx_messageInfo_Header.Size(m)
@@ -122,7 +127,7 @@ func (m *Header) GetTimestamp() *timestamp.Timestamp {
 }
 
 type Envelope struct {
-	Header               *Header  `protobuf:"bytes,1,opt,name=header" json:"header,omitempty"`
+	Header               *Header  `protobuf:"bytes,1,opt,name=header,proto3" json:"header,omitempty"`
 	Body                 []byte   `protobuf:"bytes,2,opt,name=body,proto3" json:"body,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -133,16 +138,17 @@ func (m *Envelope) Reset()         { *m = Envelope{} }
 func (m *Envelope) String() string { return proto.CompactTextString(m) }
 func (*Envelope) ProtoMessage()    {}
 func (*Envelope) Descriptor() ([]byte, []int) {
-	return fileDescriptor_p2p_8d3fa5563faafd2b, []int{1}
+	return fileDescriptor_5630330cdeb1c744, []int{1}
 }
+
 func (m *Envelope) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Envelope.Unmarshal(m, b)
 }
 func (m *Envelope) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_Envelope.Marshal(b, m, deterministic)
 }
-func (dst *Envelope) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Envelope.Merge(dst, src)
+func (m *Envelope) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Envelope.Merge(m, src)
 }
 func (m *Envelope) XXX_Size() int {
 	return xxx_messageInfo_Envelope.Size(m)
@@ -168,7 +174,7 @@ func (m *Envelope) GetBody() []byte {
 }
 
 type SignatureRequest struct {
-	Document             *coredocument.CoreDocument `protobuf:"bytes,1,opt,name=document" json:"document,omitempty"`
+	Document             *coredocument.CoreDocument `protobuf:"bytes,1,opt,name=document,proto3" json:"document,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}                   `json:"-"`
 	XXX_unrecognized     []byte                     `json:"-"`
 	XXX_sizecache        int32                      `json:"-"`
@@ -178,16 +184,17 @@ func (m *SignatureRequest) Reset()         { *m = SignatureRequest{} }
 func (m *SignatureRequest) String() string { return proto.CompactTextString(m) }
 func (*SignatureRequest) ProtoMessage()    {}
 func (*SignatureRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_p2p_8d3fa5563faafd2b, []int{2}
+	return fileDescriptor_5630330cdeb1c744, []int{2}
 }
+
 func (m *SignatureRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_SignatureRequest.Unmarshal(m, b)
 }
 func (m *SignatureRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_SignatureRequest.Marshal(b, m, deterministic)
 }
-func (dst *SignatureRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SignatureRequest.Merge(dst, src)
+func (m *SignatureRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SignatureRequest.Merge(m, src)
 }
 func (m *SignatureRequest) XXX_Size() int {
 	return xxx_messageInfo_SignatureRequest.Size(m)
@@ -206,7 +213,7 @@ func (m *SignatureRequest) GetDocument() *coredocument.CoreDocument {
 }
 
 type SignatureResponse struct {
-	Signature            *coredocument.Signature `protobuf:"bytes,1,opt,name=signature" json:"signature,omitempty"`
+	Signature            *coredocument.Signature `protobuf:"bytes,1,opt,name=signature,proto3" json:"signature,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}                `json:"-"`
 	XXX_unrecognized     []byte                  `json:"-"`
 	XXX_sizecache        int32                   `json:"-"`
@@ -216,16 +223,17 @@ func (m *SignatureResponse) Reset()         { *m = SignatureResponse{} }
 func (m *SignatureResponse) String() string { return proto.CompactTextString(m) }
 func (*SignatureResponse) ProtoMessage()    {}
 func (*SignatureResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_p2p_8d3fa5563faafd2b, []int{3}
+	return fileDescriptor_5630330cdeb1c744, []int{3}
 }
+
 func (m *SignatureResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_SignatureResponse.Unmarshal(m, b)
 }
 func (m *SignatureResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_SignatureResponse.Marshal(b, m, deterministic)
 }
-func (dst *SignatureResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SignatureResponse.Merge(dst, src)
+func (m *SignatureResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SignatureResponse.Merge(m, src)
 }
 func (m *SignatureResponse) XXX_Size() int {
 	return xxx_messageInfo_SignatureResponse.Size(m)
@@ -244,7 +252,7 @@ func (m *SignatureResponse) GetSignature() *coredocument.Signature {
 }
 
 type AnchorDocumentRequest struct {
-	Document             *coredocument.CoreDocument `protobuf:"bytes,1,opt,name=document" json:"document,omitempty"`
+	Document             *coredocument.CoreDocument `protobuf:"bytes,1,opt,name=document,proto3" json:"document,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}                   `json:"-"`
 	XXX_unrecognized     []byte                     `json:"-"`
 	XXX_sizecache        int32                      `json:"-"`
@@ -254,16 +262,17 @@ func (m *AnchorDocumentRequest) Reset()         { *m = AnchorDocumentRequest{} }
 func (m *AnchorDocumentRequest) String() string { return proto.CompactTextString(m) }
 func (*AnchorDocumentRequest) ProtoMessage()    {}
 func (*AnchorDocumentRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_p2p_8d3fa5563faafd2b, []int{4}
+	return fileDescriptor_5630330cdeb1c744, []int{4}
 }
+
 func (m *AnchorDocumentRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_AnchorDocumentRequest.Unmarshal(m, b)
 }
 func (m *AnchorDocumentRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_AnchorDocumentRequest.Marshal(b, m, deterministic)
 }
-func (dst *AnchorDocumentRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_AnchorDocumentRequest.Merge(dst, src)
+func (m *AnchorDocumentRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AnchorDocumentRequest.Merge(m, src)
 }
 func (m *AnchorDocumentRequest) XXX_Size() int {
 	return xxx_messageInfo_AnchorDocumentRequest.Size(m)
@@ -282,7 +291,7 @@ func (m *AnchorDocumentRequest) GetDocument() *coredocument.CoreDocument {
 }
 
 type AnchorDocumentResponse struct {
-	Accepted             bool     `protobuf:"varint,1,opt,name=accepted" json:"accepted,omitempty"`
+	Accepted             bool     `protobuf:"varint,1,opt,name=accepted,proto3" json:"accepted,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -292,16 +301,17 @@ func (m *AnchorDocumentResponse) Reset()         { *m = AnchorDocumentResponse{}
 func (m *AnchorDocumentResponse) String() string { return proto.CompactTextString(m) }
 func (*AnchorDocumentResponse) ProtoMessage()    {}
 func (*AnchorDocumentResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_p2p_8d3fa5563faafd2b, []int{5}
+	return fileDescriptor_5630330cdeb1c744, []int{5}
 }
+
 func (m *AnchorDocumentResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_AnchorDocumentResponse.Unmarshal(m, b)
 }
 func (m *AnchorDocumentResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_AnchorDocumentResponse.Marshal(b, m, deterministic)
 }
-func (dst *AnchorDocumentResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_AnchorDocumentResponse.Merge(dst, src)
+func (m *AnchorDocumentResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AnchorDocumentResponse.Merge(m, src)
 }
 func (m *AnchorDocumentResponse) XXX_Size() int {
 	return xxx_messageInfo_AnchorDocumentResponse.Size(m)
@@ -321,10 +331,10 @@ func (m *AnchorDocumentResponse) GetAccepted() bool {
 
 type GetDocumentRequest struct {
 	DocumentIdentifier   []byte              `protobuf:"bytes,1,opt,name=document_identifier,json=documentIdentifier,proto3" json:"document_identifier,omitempty"`
-	AccessType           AccessType          `protobuf:"varint,2,opt,name=access_type,json=accessType,enum=p2p.AccessType" json:"access_type,omitempty"`
+	AccessType           AccessType          `protobuf:"varint,2,opt,name=access_type,json=accessType,proto3,enum=p2p.AccessType" json:"access_type,omitempty"`
 	NftRegistryAddress   []byte              `protobuf:"bytes,3,opt,name=nft_registry_address,json=nftRegistryAddress,proto3" json:"nft_registry_address,omitempty"`
 	NftTokenId           []byte              `protobuf:"bytes,4,opt,name=nft_token_id,json=nftTokenId,proto3" json:"nft_token_id,omitempty"`
-	AccessTokenRequest   *AccessTokenRequest `protobuf:"bytes,5,opt,name=access_token_request,json=accessTokenRequest" json:"access_token_request,omitempty"`
+	AccessTokenRequest   *AccessTokenRequest `protobuf:"bytes,5,opt,name=access_token_request,json=accessTokenRequest,proto3" json:"access_token_request,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}            `json:"-"`
 	XXX_unrecognized     []byte              `json:"-"`
 	XXX_sizecache        int32               `json:"-"`
@@ -334,16 +344,17 @@ func (m *GetDocumentRequest) Reset()         { *m = GetDocumentRequest{} }
 func (m *GetDocumentRequest) String() string { return proto.CompactTextString(m) }
 func (*GetDocumentRequest) ProtoMessage()    {}
 func (*GetDocumentRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_p2p_8d3fa5563faafd2b, []int{6}
+	return fileDescriptor_5630330cdeb1c744, []int{6}
 }
+
 func (m *GetDocumentRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_GetDocumentRequest.Unmarshal(m, b)
 }
 func (m *GetDocumentRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_GetDocumentRequest.Marshal(b, m, deterministic)
 }
-func (dst *GetDocumentRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetDocumentRequest.Merge(dst, src)
+func (m *GetDocumentRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetDocumentRequest.Merge(m, src)
 }
 func (m *GetDocumentRequest) XXX_Size() int {
 	return xxx_messageInfo_GetDocumentRequest.Size(m)
@@ -401,16 +412,17 @@ func (m *AccessTokenRequest) Reset()         { *m = AccessTokenRequest{} }
 func (m *AccessTokenRequest) String() string { return proto.CompactTextString(m) }
 func (*AccessTokenRequest) ProtoMessage()    {}
 func (*AccessTokenRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_p2p_8d3fa5563faafd2b, []int{7}
+	return fileDescriptor_5630330cdeb1c744, []int{7}
 }
+
 func (m *AccessTokenRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_AccessTokenRequest.Unmarshal(m, b)
 }
 func (m *AccessTokenRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_AccessTokenRequest.Marshal(b, m, deterministic)
 }
-func (dst *AccessTokenRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_AccessTokenRequest.Merge(dst, src)
+func (m *AccessTokenRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AccessTokenRequest.Merge(m, src)
 }
 func (m *AccessTokenRequest) XXX_Size() int {
 	return xxx_messageInfo_AccessTokenRequest.Size(m)
@@ -436,7 +448,7 @@ func (m *AccessTokenRequest) GetAccessTokenId() []byte {
 }
 
 type GetDocumentResponse struct {
-	Document             *coredocument.CoreDocument `protobuf:"bytes,1,opt,name=document" json:"document,omitempty"`
+	Document             *coredocument.CoreDocument `protobuf:"bytes,1,opt,name=document,proto3" json:"document,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}                   `json:"-"`
 	XXX_unrecognized     []byte                     `json:"-"`
 	XXX_sizecache        int32                      `json:"-"`
@@ -446,16 +458,17 @@ func (m *GetDocumentResponse) Reset()         { *m = GetDocumentResponse{} }
 func (m *GetDocumentResponse) String() string { return proto.CompactTextString(m) }
 func (*GetDocumentResponse) ProtoMessage()    {}
 func (*GetDocumentResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_p2p_8d3fa5563faafd2b, []int{8}
+	return fileDescriptor_5630330cdeb1c744, []int{8}
 }
+
 func (m *GetDocumentResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_GetDocumentResponse.Unmarshal(m, b)
 }
 func (m *GetDocumentResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_GetDocumentResponse.Marshal(b, m, deterministic)
 }
-func (dst *GetDocumentResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetDocumentResponse.Merge(dst, src)
+func (m *GetDocumentResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetDocumentResponse.Merge(m, src)
 }
 func (m *GetDocumentResponse) XXX_Size() int {
 	return xxx_messageInfo_GetDocumentResponse.Size(m)
@@ -474,6 +487,7 @@ func (m *GetDocumentResponse) GetDocument() *coredocument.CoreDocument {
 }
 
 func init() {
+	proto.RegisterEnum("p2p.AccessType", AccessType_name, AccessType_value)
 	proto.RegisterType((*Header)(nil), "p2p.Header")
 	proto.RegisterType((*Envelope)(nil), "p2p.Envelope")
 	proto.RegisterType((*SignatureRequest)(nil), "p2p.SignatureRequest")
@@ -483,12 +497,11 @@ func init() {
 	proto.RegisterType((*GetDocumentRequest)(nil), "p2p.GetDocumentRequest")
 	proto.RegisterType((*AccessTokenRequest)(nil), "p2p.AccessTokenRequest")
 	proto.RegisterType((*GetDocumentResponse)(nil), "p2p.GetDocumentResponse")
-	proto.RegisterEnum("p2p.AccessType", AccessType_name, AccessType_value)
 }
 
-func init() { proto.RegisterFile("p2p/p2p.proto", fileDescriptor_p2p_8d3fa5563faafd2b) }
+func init() { proto.RegisterFile("p2p/p2p.proto", fileDescriptor_5630330cdeb1c744) }
 
-var fileDescriptor_p2p_8d3fa5563faafd2b = []byte{
+var fileDescriptor_5630330cdeb1c744 = []byte{
 	// 645 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xa4, 0x54, 0x5d, 0x73, 0xd2, 0x40,
 	0x14, 0x35, 0xfd, 0x12, 0x2e, 0xd4, 0xb6, 0xdb, 0x6a, 0x19, 0xec, 0x58, 0x8c, 0x63, 0x07, 0x9d,

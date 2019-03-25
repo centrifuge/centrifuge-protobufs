@@ -14,7 +14,7 @@ import "google/protobuf/timestamp.proto";
 message PurchaseOrderData {
   // purchase order status
   string status = 1;
-  // purchase order number or reference number 
+  // purchase order number or reference number
   string number = 2;
   string sender_order_id = 3;
   string recipient_order_id = 4;

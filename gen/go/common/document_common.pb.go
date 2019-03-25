@@ -3,10 +3,12 @@
 
 package commonpb
 
-import proto "github.com/golang/protobuf/proto"
-import fmt "fmt"
-import math "math"
-import timestamp "github.com/golang/protobuf/ptypes/timestamp"
+import (
+	fmt "fmt"
+	proto "github.com/golang/protobuf/proto"
+	timestamp "github.com/golang/protobuf/ptypes/timestamp"
+	math "math"
+)
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -17,16 +19,16 @@ var _ = math.Inf
 // is compatible with the proto package it is being compiled against.
 // A compilation error at this line likely means your copy of the
 // proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
 type BinaryAttachment struct {
-	Name string `protobuf:"bytes,1,opt,name=name" json:"name,omitempty"`
-	// mime type of attached file
-	FileType string `protobuf:"bytes,2,opt,name=file_type,json=fileType" json:"file_type,omitempty"`
+	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	//mime type of attached file
+	FileType string `protobuf:"bytes,2,opt,name=file_type,json=fileType,proto3" json:"file_type,omitempty"`
 	// in byte
-	Size uint64 `protobuf:"varint,3,opt,name=size" json:"size,omitempty"`
+	Size uint64 `protobuf:"varint,3,opt,name=size,proto3" json:"size,omitempty"`
 	Data []byte `protobuf:"bytes,4,opt,name=data,proto3" json:"data,omitempty"`
-	// the md5 checksum of the original file for easier verification - optional
+	//the md5 checksum of the original file for easier verification - optional
 	Checksum             []byte   `protobuf:"bytes,5,opt,name=checksum,proto3" json:"checksum,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -37,16 +39,17 @@ func (m *BinaryAttachment) Reset()         { *m = BinaryAttachment{} }
 func (m *BinaryAttachment) String() string { return proto.CompactTextString(m) }
 func (*BinaryAttachment) ProtoMessage()    {}
 func (*BinaryAttachment) Descriptor() ([]byte, []int) {
-	return fileDescriptor_document_common_c282f9133c176c60, []int{0}
+	return fileDescriptor_6061ba33c5b40c39, []int{0}
 }
+
 func (m *BinaryAttachment) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_BinaryAttachment.Unmarshal(m, b)
 }
 func (m *BinaryAttachment) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_BinaryAttachment.Marshal(b, m, deterministic)
 }
-func (dst *BinaryAttachment) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_BinaryAttachment.Merge(dst, src)
+func (m *BinaryAttachment) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_BinaryAttachment.Merge(m, src)
 }
 func (m *BinaryAttachment) XXX_Size() int {
 	return xxx_messageInfo_BinaryAttachment.Size(m)
@@ -93,32 +96,32 @@ func (m *BinaryAttachment) GetChecksum() []byte {
 }
 
 type PaymentDetails struct {
-	// identifying this payment. could be a sequential number, could be a transaction hash of the crypto payment
-	Id           string               `protobuf:"bytes,1,opt,name=id" json:"id,omitempty"`
-	DateExecuted *timestamp.Timestamp `protobuf:"bytes,2,opt,name=date_executed,json=dateExecuted" json:"date_executed,omitempty"`
-	// centrifuge id of payee
+	//identifying this payment. could be a sequential number, could be a transaction hash of the crypto payment
+	Id           string               `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	DateExecuted *timestamp.Timestamp `protobuf:"bytes,2,opt,name=date_executed,json=dateExecuted,proto3" json:"date_executed,omitempty"`
+	//centrifuge id of payee
 	Payee []byte `protobuf:"bytes,3,opt,name=payee,proto3" json:"payee,omitempty"`
-	// centrifuge id of payer
+	//centrifuge id of payer
 	Payer    []byte `protobuf:"bytes,4,opt,name=payer,proto3" json:"payer,omitempty"`
 	Amount   []byte `protobuf:"bytes,5,opt,name=amount,proto3" json:"amount,omitempty"`
-	Currency string `protobuf:"bytes,6,opt,name=currency" json:"currency,omitempty"`
-	// payment reference (e.g. reference field on bank transfer)
-	Reference             string `protobuf:"bytes,7,opt,name=reference" json:"reference,omitempty"`
-	BankName              string `protobuf:"bytes,8,opt,name=bank_name,json=bankName" json:"bank_name,omitempty"`
-	BankAddress           string `protobuf:"bytes,9,opt,name=bank_address,json=bankAddress" json:"bank_address,omitempty"`
-	BankCountry           string `protobuf:"bytes,10,opt,name=bank_country,json=bankCountry" json:"bank_country,omitempty"`
-	BankAccountNumber     string `protobuf:"bytes,11,opt,name=bank_account_number,json=bankAccountNumber" json:"bank_account_number,omitempty"`
-	BankAccountCurrency   string `protobuf:"bytes,12,opt,name=bank_account_currency,json=bankAccountCurrency" json:"bank_account_currency,omitempty"`
-	BankAccountHolderName string `protobuf:"bytes,13,opt,name=bank_account_holder_name,json=bankAccountHolderName" json:"bank_account_holder_name,omitempty"`
-	BankKey               string `protobuf:"bytes,14,opt,name=bank_key,json=bankKey" json:"bank_key,omitempty"`
-	// the ID of the chain to use in URI format. e.g. "ethereum://42/<tokenaddress>"
-	CryptoChainUri string `protobuf:"bytes,15,opt,name=crypto_chain_uri,json=cryptoChainUri" json:"crypto_chain_uri,omitempty"`
-	// the transaction in which the payment happened
-	CryptoTransactionId string `protobuf:"bytes,16,opt,name=crypto_transaction_id,json=cryptoTransactionId" json:"crypto_transaction_id,omitempty"`
-	// from address
-	CryptoFrom string `protobuf:"bytes,17,opt,name=crypto_from,json=cryptoFrom" json:"crypto_from,omitempty"`
-	// to address
-	CryptoTo             string   `protobuf:"bytes,18,opt,name=crypto_to,json=cryptoTo" json:"crypto_to,omitempty"`
+	Currency string `protobuf:"bytes,6,opt,name=currency,proto3" json:"currency,omitempty"`
+	//payment reference (e.g. reference field on bank transfer)
+	Reference             string `protobuf:"bytes,7,opt,name=reference,proto3" json:"reference,omitempty"`
+	BankName              string `protobuf:"bytes,8,opt,name=bank_name,json=bankName,proto3" json:"bank_name,omitempty"`
+	BankAddress           string `protobuf:"bytes,9,opt,name=bank_address,json=bankAddress,proto3" json:"bank_address,omitempty"`
+	BankCountry           string `protobuf:"bytes,10,opt,name=bank_country,json=bankCountry,proto3" json:"bank_country,omitempty"`
+	BankAccountNumber     string `protobuf:"bytes,11,opt,name=bank_account_number,json=bankAccountNumber,proto3" json:"bank_account_number,omitempty"`
+	BankAccountCurrency   string `protobuf:"bytes,12,opt,name=bank_account_currency,json=bankAccountCurrency,proto3" json:"bank_account_currency,omitempty"`
+	BankAccountHolderName string `protobuf:"bytes,13,opt,name=bank_account_holder_name,json=bankAccountHolderName,proto3" json:"bank_account_holder_name,omitempty"`
+	BankKey               string `protobuf:"bytes,14,opt,name=bank_key,json=bankKey,proto3" json:"bank_key,omitempty"`
+	//the ID of the chain to use in URI format. e.g. "ethereum://42/<tokenaddress>"
+	CryptoChainUri string `protobuf:"bytes,15,opt,name=crypto_chain_uri,json=cryptoChainUri,proto3" json:"crypto_chain_uri,omitempty"`
+	//the transaction in which the payment happened
+	CryptoTransactionId string `protobuf:"bytes,16,opt,name=crypto_transaction_id,json=cryptoTransactionId,proto3" json:"crypto_transaction_id,omitempty"`
+	//from address
+	CryptoFrom string `protobuf:"bytes,17,opt,name=crypto_from,json=cryptoFrom,proto3" json:"crypto_from,omitempty"`
+	//to address
+	CryptoTo             string   `protobuf:"bytes,18,opt,name=crypto_to,json=cryptoTo,proto3" json:"crypto_to,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -128,16 +131,17 @@ func (m *PaymentDetails) Reset()         { *m = PaymentDetails{} }
 func (m *PaymentDetails) String() string { return proto.CompactTextString(m) }
 func (*PaymentDetails) ProtoMessage()    {}
 func (*PaymentDetails) Descriptor() ([]byte, []int) {
-	return fileDescriptor_document_common_c282f9133c176c60, []int{1}
+	return fileDescriptor_6061ba33c5b40c39, []int{1}
 }
+
 func (m *PaymentDetails) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_PaymentDetails.Unmarshal(m, b)
 }
 func (m *PaymentDetails) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_PaymentDetails.Marshal(b, m, deterministic)
 }
-func (dst *PaymentDetails) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_PaymentDetails.Merge(dst, src)
+func (m *PaymentDetails) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_PaymentDetails.Merge(m, src)
 }
 func (m *PaymentDetails) XXX_Size() int {
 	return xxx_messageInfo_PaymentDetails.Size(m)
@@ -279,11 +283,9 @@ func init() {
 	proto.RegisterType((*PaymentDetails)(nil), "common.PaymentDetails")
 }
 
-func init() {
-	proto.RegisterFile("common/document_common.proto", fileDescriptor_document_common_c282f9133c176c60)
-}
+func init() { proto.RegisterFile("common/document_common.proto", fileDescriptor_6061ba33c5b40c39) }
 
-var fileDescriptor_document_common_c282f9133c176c60 = []byte{
+var fileDescriptor_6061ba33c5b40c39 = []byte{
 	// 523 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x54, 0x53, 0x4f, 0x6f, 0xda, 0x30,
 	0x14, 0x57, 0x18, 0x50, 0x30, 0x94, 0x51, 0xb3, 0x4e, 0x1e, 0xab, 0x54, 0xd6, 0x13, 0x97, 0x05,

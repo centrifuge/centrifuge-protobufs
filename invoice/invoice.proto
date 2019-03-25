@@ -12,7 +12,7 @@ import "google/protobuf/timestamp.proto";
 
 // InvoiceData is the default invoice schema
 message InvoiceData {
-  // invoice number or reference number 
+  // invoice number or reference number
   string number = 1;
   // invoice status
   string status = 2;
