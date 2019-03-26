@@ -40,4 +40,3 @@ generate:
         type: go
         output: gen/go/
         flags: plugins=grpc
-
