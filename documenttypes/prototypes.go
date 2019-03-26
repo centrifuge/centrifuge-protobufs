@@ -9,6 +9,8 @@ const (
 	PurchaseOrderSaltsTypeUrl = "http://github.com/centrifuge/centrifuge-protobufs/purchaseorder/#purchaseorder.PurchaseOrderSalts"
 	EntityDocumentTypeUrl = "http://github.com/centrifuge/centrifuge-protobufs/entity/#entity.EntityDocument"
 	EntityDataTypeUrl = "http://github.com/centrifuge/centrifuge-protobufs/entity/#entity.EntityData"
-	EntityRelationshipTypeUrl = "http://github.com/centrifuge/centrifuge-protobufs/entity/#entity.EntityRelationship"
 	EntitySaltsTypeUrl = "http://github.com/centrifuge/centrifuge-protobufs/entity/#entity.EntitySalts"
+	EntityRelationshipDocumentTypeUrl = "http://github.com/centrifuge/centrifuge-protobufs/entity/#entityrelationship.EntityRelationshipDocument"
+	EntityRelationshipDataTypeUrl = "http://github.com/centrifuge/centrifuge-protobufs/entity/#entityrelationship.EntityRelationshipData"
+	EntityRelationshipSaltsTypeUrl = "http://github.com/centrifuge/centrifuge-protobufs/entity/#entityrelationship.EntityRelationshipSalts"
 )
