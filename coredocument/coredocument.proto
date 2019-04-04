@@ -42,10 +42,10 @@ message CoreDocument {
   bytes next_version = 4;
   // next_preimage is the sha256 pre-image of the next_version. It prevents next state commitment id(anchor id) from getting exposed.
   bytes next_preimage = 22;
-  // signature_data of the signature_root by centrifuge identities.
-  // Signatures of the signature_root by centrifuge identities.
+  // Signatures of the signature_root by collaborators on the document.
   SignatureData signature_data = 6 [(proofs.exclude_from_tree) = true];
-  // Document a serialized document
+  // When a document is transmitted over the wire, the type specific fields (e.g. InvoiceData) are 
+  // embedded in the document using the google.protobuf.Any type. 
   google.protobuf.Any embedded_data = 13 [(proofs.exclude_from_tree) = true];
   repeated proofs.Salt salts = 15;
   // list of roles
@@ -53,9 +53,9 @@ message CoreDocument {
     (proofs.key_length) = 32,
     (proofs.mapping_key) = "role_key"
   ];
-  // read rules
+  // read_rules define who may read a document and who should sign it
   repeated ReadRule read_rules = 19;
-  // transition rules
+  // transition rules define how a document may be manipulated
   repeated TransitionRule transition_rules = 24;
   // nft list for uniqueness check
   repeated NFT nfts = 20 [
@@ -88,8 +88,8 @@ message AccessToken {
   bytes signature = 6;
   // The public key of the signed message
   bytes key = 7;
-  // The document version will be used to check the timestamp on the document at the time of access token issuance.
-  // This time stamp will be used to validate the signature of the identity issuing the access token.
+  // The document version refers to a version of the document this token is embedded in. Its timestamp
+  // will be used to verify the validity of the signature of the access token.
   bytes document_version = 8;
 }
 
