@@ -13,8 +13,8 @@ import "precise-proofs/proofs/proto/proof.proto";
 message EntityRelationship {
   // owner id of the Relationship
   bytes owner_identity = 1;
-  // identity of the entity whose data should be accessed via this relationship
-  bytes entity_identity = 2;
+  // identifier for the entity document whose data should be accessed via this relationship
+  bytes entity_identifier = 2;
   // identity to whom access should be granted
   bytes target_identity = 3;
 }
