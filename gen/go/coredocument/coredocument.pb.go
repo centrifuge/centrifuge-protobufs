@@ -137,17 +137,17 @@ type CoreDocument struct {
 	NextVersion []byte `protobuf:"bytes,4,opt,name=next_version,json=nextVersion,proto3" json:"next_version,omitempty"`
 	// next_preimage is the sha256 pre-image of the next_version. It prevents next state commitment id(anchor id) from getting exposed.
 	NextPreimage []byte `protobuf:"bytes,22,opt,name=next_preimage,json=nextPreimage,proto3" json:"next_preimage,omitempty"`
-	// signature_data of the signature_root by centrifuge identities.
-	// Signatures of the signature_root by centrifuge identities.
+	// Signatures of the signature_root by collaborators on the document.
 	SignatureData *SignatureData `protobuf:"bytes,6,opt,name=signature_data,json=signatureData,proto3" json:"signature_data,omitempty"`
-	// Document a serialized document
+	// When a document is transmitted over the wire, the type specific fields (e.g. InvoiceData) are
+	// embedded in the document using the google.protobuf.Any type.
 	EmbeddedData *any.Any       `protobuf:"bytes,13,opt,name=embedded_data,json=embeddedData,proto3" json:"embedded_data,omitempty"`
 	Salts        []*proto1.Salt `protobuf:"bytes,15,rep,name=salts,proto3" json:"salts,omitempty"`
 	// list of roles
 	Roles []*Role `protobuf:"bytes,1,rep,name=roles,proto3" json:"roles,omitempty"`
-	// read rules
+	// read_rules define who may read a document and who should sign it
 	ReadRules []*ReadRule `protobuf:"bytes,19,rep,name=read_rules,json=readRules,proto3" json:"read_rules,omitempty"`
-	// transition rules
+	// transition rules define how a document may be manipulated
 	TransitionRules []*TransitionRule `protobuf:"bytes,24,rep,name=transition_rules,json=transitionRules,proto3" json:"transition_rules,omitempty"`
 	// nft list for uniqueness check
 	Nfts []*NFT `protobuf:"bytes,20,rep,name=nfts,proto3" json:"nfts,omitempty"`
@@ -314,8 +314,8 @@ type AccessToken struct {
 	Signature []byte `protobuf:"bytes,6,opt,name=signature,proto3" json:"signature,omitempty"`
 	// The public key of the signed message
 	Key []byte `protobuf:"bytes,7,opt,name=key,proto3" json:"key,omitempty"`
-	// The document version will be used to check the timestamp on the document at the time of access token issuance.
-	// This time stamp will be used to validate the signature of the identity issuing the access token.
+	// The document version refers to a version of the document this token is embedded in. Its timestamp
+	// will be used to verify the validity of the signature of the access token.
 	DocumentVersion      []byte   `protobuf:"bytes,8,opt,name=document_version,json=documentVersion,proto3" json:"document_version,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
