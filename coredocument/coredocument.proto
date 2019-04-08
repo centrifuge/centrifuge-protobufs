@@ -44,8 +44,8 @@ message CoreDocument {
   bytes next_preimage = 22;
   // Signatures of the signature_root by collaborators on the document.
   SignatureData signature_data = 6 [(proofs.exclude_from_tree) = true];
-  // When a document is transmitted over the wire, the type specific fields (e.g. InvoiceData) are 
-  // embedded in the document using the google.protobuf.Any type. 
+  // When a document is transmitted over the wire, the type specific fields (e.g. InvoiceData) are
+  // embedded in the document using the google.protobuf.Any type.
   google.protobuf.Any embedded_data = 13 [(proofs.exclude_from_tree) = true];
   repeated proofs.Salt salts = 15;
   // list of roles
