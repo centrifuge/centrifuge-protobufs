@@ -56,9 +56,17 @@ message InvoiceData {
   string ship_to_state = 41;
   string ship_to_country = 42;
   string currency = 13;
+  // A centrifuge decimal bumber which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
+  // eg: 38447.3214 would be represented as 38447321400000000000000
   bytes gross_amount = 14;
+  // A centrifuge decimal bumber which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
+  // eg: 38447.3214 would be represented as 38447321400000000000000
   bytes net_amount = 45;
+  // A centrifuge decimal bumber which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
+  // eg: 38447.3214 would be represented as 38447321400000000000000
   bytes tax_amount = 46;
+  // A centrifuge decimal bumber which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
+  // eg: 38447.3214 would be represented as 38447321400000000000000
   bytes tax_rate = 47;
   bool tax_on_line_level = 48;
   // centrifuge ID of the recipient
@@ -89,9 +97,17 @@ message InvoiceData {
 message TaxItem {
   string item_number = 1;
   string invoice_item_number = 2;
+  // A centrifuge decimal bumber which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
+  // eg: 38447.3214 would be represented as 38447321400000000000000
   bytes tax_amount = 3;
+  // A centrifuge decimal bumber which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
+  // eg: 38447.3214 would be represented as 38447321400000000000000
   bytes tax_rate = 4;
+  // A centrifuge decimal bumber which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
+  // eg: 38447.3214 would be represented as 38447321400000000000000
   bytes tax_code = 5;
+  // A centrifuge decimal bumber which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
+  // eg: 38447.3214 would be represented as 38447321400000000000000
   bytes tax_base_amount = 6;
 }
 
@@ -99,14 +115,28 @@ message LineItem {
   string item_number = 1;
   string description = 2;
   string sender_part_no = 3;
+  // A centrifuge decimal bumber which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
+  // eg: 38447.3214 would be represented as 38447321400000000000000
   bytes price_per_unit = 4;
+  // A centrifuge decimal bumber which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
+  // eg: 38447.3214 would be represented as 38447321400000000000000
   bytes quantity = 5;
   string unit_of_measure = 6;
+  // A centrifuge decimal bumber which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
+  // eg: 38447.3214 would be represented as 38447321400000000000000
   bytes net_weight = 7;
+  // A centrifuge decimal bumber which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
+  // eg: 38447.3214 would be represented as 38447321400000000000000
   bytes tax_amount = 8;
+  // A centrifuge decimal bumber which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
+  // eg: 38447.3214 would be represented as 38447321400000000000000
   bytes tax_rate = 9;
+  // A centrifuge decimal bumber which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
+  // eg: 38447.3214 would be represented as 38447321400000000000000
   bytes tax_code = 10;
-  //the total amount of the line item
+  // the total amount of the line item
+  // Its a centrifuge decimal bumber which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
+  // eg: 38447.3214 would be represented as 38447321400000000000000
   bytes total_amount = 11;
   string purchase_order_number = 12;
   string purchase_order_item_number = 13;
