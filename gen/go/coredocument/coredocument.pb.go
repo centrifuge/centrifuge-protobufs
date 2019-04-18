@@ -196,11 +196,12 @@ type CoreDocument struct {
 	// author of the latest update
 	Author []byte `protobuf:"bytes,25,opt,name=author,proto3" json:"author,omitempty"`
 	// timestamp of the latest update
-	Timestamp            *timestamp.Timestamp `protobuf:"bytes,26,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
-	Attributes           []*Field             `protobuf:"bytes,42,rep,name=attributes,proto3" json:"attributes,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
-	XXX_unrecognized     []byte               `json:"-"`
-	XXX_sizecache        int32                `json:"-"`
+	Timestamp *timestamp.Timestamp `protobuf:"bytes,26,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
+	// custom attributes(user defined fields) for this document
+	Attributes           []*Field `protobuf:"bytes,42,rep,name=attributes,proto3" json:"attributes,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *CoreDocument) Reset()         { *m = CoreDocument{} }

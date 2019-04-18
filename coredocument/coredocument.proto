@@ -71,7 +71,6 @@ message CoreDocument {
   bytes author = 25;
   // timestamp of the latest update
   google.protobuf.Timestamp timestamp = 26;
-
   // custom attributes(user defined fields) for this document
   repeated Field attributes = 42 [
     (proofs.key_length) = 32,
