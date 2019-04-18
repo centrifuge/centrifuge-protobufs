@@ -71,6 +71,12 @@ message CoreDocument {
   bytes author = 25;
   // timestamp of the latest update
   google.protobuf.Timestamp timestamp = 26;
+
+  // custom attributes(user defined fields) for this document
+  repeated Field attributes = 42 [
+    (proofs.key_length) = 32,
+    (proofs.mapping_key) = "key_hashed"
+  ];
 }
 
 message AccessToken {
@@ -166,4 +172,36 @@ enum TransitionAction {
 message NFT {
   bytes registry_id = 1;
   bytes token_id = 2;
+}
+
+// Field represents a custom attribute
+message Field {
+  bytes key_hashed = 1;
+  bytes key_unhashed = 2;
+  FieldType type = 3;
+  oneof value {
+    string str_val = 4;
+    bytes byte_val = 5;
+    google.protobuf.Timestamp time_val = 6;
+    Signed sig_val = 7;
+  }
+}
+
+enum FieldType {
+  FIELD_TYPE_INVALID = 0;
+  FIELD_TYPE_INTEGER = 1;
+  FIELD_TYPE_DECIMAL = 2;
+  FIELD_TYPE_STRING = 3;
+  FIELD_TYPE_BYTES = 4;
+  FIELD_TYPE_TIMESTAMP = 5;
+  FIELD_TYPE_SIGNED = 6;
+}
+
+message Signed {
+  // doc id and version is required so that someone wouldn't be able to fake a signature on another document by copying the signed structure into that document.
+  bytes doc_id = 1;
+  bytes doc_version = 2;
+  bytes value = 3;
+  // signature = sign(doc_id + doc_version + value)
+  bytes signature = 4;
 }
