@@ -184,7 +184,6 @@ message Field {
     string str_val = 4;
     bytes byte_val = 5;
     google.protobuf.Timestamp time_val = 6;
-    Signed sig_val = 7;
   }
 }
 
@@ -195,14 +194,4 @@ enum FieldType {
   FIELD_TYPE_STRING = 3;
   FIELD_TYPE_BYTES = 4;
   FIELD_TYPE_TIMESTAMP = 5;
-  FIELD_TYPE_SIGNED = 6;
-}
-
-message Signed {
-  // doc id and version is required so that someone wouldn't be able to fake a signature on another document by copying the signed structure into that document.
-  bytes doc_id = 1;
-  bytes doc_version = 2;
-  bytes value = 3;
-  // signature = sign(doc_id + doc_version + value)
-  bytes signature = 4;
 }
