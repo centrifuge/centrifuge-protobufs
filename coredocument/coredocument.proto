@@ -71,6 +71,8 @@ message CoreDocument {
   bytes author = 25;
   // timestamp of the latest update
   google.protobuf.Timestamp timestamp = 26;
+  // anchor repository address used to anchor this document
+  bytes anchor_repository_used = 27;
   // custom attributes(user defined fields) for this document
   repeated Field attributes = 42 [
     (proofs.key_length) = 32,
