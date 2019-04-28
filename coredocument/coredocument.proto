@@ -76,7 +76,7 @@ message CoreDocument {
   // custom attributes(user defined fields) for this document
   repeated Field attributes = 42 [
     (proofs.key_length) = 32,
-    (proofs.mapping_key) = "key_hashed"
+    (proofs.mapping_key) = "key"
   ];
 }
 
