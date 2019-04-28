@@ -177,8 +177,8 @@ message NFT {
 
 // Field represents a custom attribute
 message Field {
-  bytes key_hashed = 1;
-  bytes key_unhashed = 2;
+  bytes key = 1;
+  bytes key_label = 2;
   FieldType type = 3;
   oneof value {
     string str_val = 4;
