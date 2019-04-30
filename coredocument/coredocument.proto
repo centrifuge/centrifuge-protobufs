@@ -74,7 +74,7 @@ message CoreDocument {
   // anchor repository address used to anchor this document
   bytes anchor_repository_used = 27;
   // custom attributes(user defined fields) for this document
-  repeated Field attributes = 42 [
+  repeated Attribute attributes = 28 [
     (proofs.key_length) = 32,
     (proofs.mapping_key) = "key"
   ];
@@ -175,11 +175,11 @@ message NFT {
   bytes token_id = 2;
 }
 
-// Field represents a custom attribute
-message Field {
+// Attribute represents a custom attribute
+message Attribute {
   bytes key = 1;
   bytes key_label = 2;
-  FieldType type = 3;
+  AttributeType type = 3;
   oneof value {
     string str_val = 4;
     bytes byte_val = 5;
@@ -187,11 +187,12 @@ message Field {
   }
 }
 
-enum FieldType {
-  FIELD_TYPE_INVALID = 0;
-  FIELD_TYPE_INTEGER = 1;
-  FIELD_TYPE_DECIMAL = 2;
-  FIELD_TYPE_STRING = 3;
-  FIELD_TYPE_BYTES = 4;
-  FIELD_TYPE_TIMESTAMP = 5;
+// AttributeType defines the allowed attribute types.
+enum AttributeType {
+  ATTRIBUTE_TYPE_INVALID = 0;
+  ATTRIBUTE_TYPE_INTEGER = 1;
+  ATTRIBUTE_TYPE_DECIMAL = 2;
+  ATTRIBUTE_TYPE_STRING = 3;
+  ATTRIBUTE_TYPE_BYTES = 4;
+  ATTRIBUTE_TYPE_TIMESTAMP = 5;
 }
