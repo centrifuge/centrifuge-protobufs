@@ -73,6 +73,11 @@ message CoreDocument {
   google.protobuf.Timestamp timestamp = 26;
   // anchor repository address used to anchor this document
   bytes anchor_repository_used = 27;
+  // custom attributes(user defined fields) for this document
+  repeated Attribute attributes = 28 [
+    (proofs.key_length) = 32,
+    (proofs.mapping_key) = "key"
+  ];
 }
 
 message AccessToken {
@@ -168,4 +173,26 @@ enum TransitionAction {
 message NFT {
   bytes registry_id = 1;
   bytes token_id = 2;
+}
+
+// Attribute represents a custom attribute
+message Attribute {
+  bytes key = 1;
+  bytes key_label = 2;
+  AttributeType type = 3;
+  oneof value {
+    string str_val = 4;
+    bytes byte_val = 5;
+    google.protobuf.Timestamp time_val = 6;
+  }
+}
+
+// AttributeType defines the allowed attribute types.
+enum AttributeType {
+  ATTRIBUTE_TYPE_INVALID = 0;
+  ATTRIBUTE_TYPE_INTEGER = 1;
+  ATTRIBUTE_TYPE_DECIMAL = 2;
+  ATTRIBUTE_TYPE_STRING = 3;
+  ATTRIBUTE_TYPE_BYTES = 4;
+  ATTRIBUTE_TYPE_TIMESTAMP = 5;
 }
