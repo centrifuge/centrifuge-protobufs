@@ -9,11 +9,16 @@ option java_package = "com.notification";
 
 import "google/protobuf/timestamp.proto";
 
-// NotificationMessage wraps a single CoreDocument to be notified to upstream services
+// NotificationMessage wraps a single document to be notified to upstream services
 message NotificationMessage {
   uint32 event_type = 1;
   google.protobuf.Timestamp recorded = 3;
   string document_type = 4;
+  // status - Failure or Success
+  string status = 5;
+  // message associated to status, if error, error message enclosed
+  string message = 6;
+  // document_id
   string document_id = 7;
   // account_id is the account associated to webhook
   string account_id = 8;
