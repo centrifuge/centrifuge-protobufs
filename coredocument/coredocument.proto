@@ -184,7 +184,17 @@ message Attribute {
     string str_val = 4;
     bytes byte_val = 5;
     google.protobuf.Timestamp time_val = 6;
+    Signed signed_val = 7;
   }
+}
+
+// Signed holds the custom attribute signature type
+message Signed {
+  bytes doc_version = 1;
+  bytes value = 2;
+  bytes identity = 3;
+  // signature = sign(identity + doc_id(taken from the document.document_identifier) + doc_version + value)
+  bytes signature = 4;
 }
 
 // AttributeType defines the allowed attribute types.
