@@ -195,6 +195,7 @@ message Signed {
   bytes identity = 3;
   // signature = sign(identity + doc_id(taken from the document.document_identifier) + doc_version + value)
   bytes signature = 4;
+  bytes public_key = 5;
 }
 
 // AttributeType defines the allowed attribute types.
