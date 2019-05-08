@@ -195,6 +195,7 @@ message Signed {
   bytes identity = 3;
   // signature = sign(identity + doc_id(taken from the document.document_identifier) + doc_version + value)
   bytes signature = 4;
+  bytes public_key = 5;
 }
 
 // AttributeType defines the allowed attribute types.
@@ -205,4 +206,5 @@ enum AttributeType {
   ATTRIBUTE_TYPE_STRING = 3;
   ATTRIBUTE_TYPE_BYTES = 4;
   ATTRIBUTE_TYPE_TIMESTAMP = 5;
+  ATTRIBUTE_TYPE_SIGNED = 6;
 }
