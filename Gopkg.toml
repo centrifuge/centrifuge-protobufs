@@ -42,7 +42,7 @@ required = [
 
 [[constraint]]
     name = "github.com/centrifuge/precise-proofs"
-    branch = "master"
+    revision = "ba94d76ec63112adbfa8595088f24502dc6aee0b"
 
 [prune]
   go-tests = true
