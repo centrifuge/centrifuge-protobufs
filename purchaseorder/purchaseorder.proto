@@ -32,7 +32,7 @@ message PurchaseOrderData {
   string ship_to_country = 15;
   string payment_terms = 16;
   string currency = 17;
-  // A centrifuge decimal bumber which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
+  // A centrifuge decimal number which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
   // eg: 38447.3214 would be represented as 38447321400000000000000
   bytes total_amount = 18 [(proofs.field_length) = 32];
   // centrifuge ID of the recipient
@@ -53,25 +53,25 @@ message LineItem {
   string status = 1;
   string item_number = 2;
   string description = 3;
-  // A centrifuge decimal bumber which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
+  // A centrifuge decimal number which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
   // eg: 38447.3214 would be represented as 38447321400000000000000
   bytes amount_invoiced = 4 [(proofs.field_length) = 32];
-  // A centrifuge decimal bumber which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
+  // A centrifuge decimal number which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
   // eg: 38447.3214 would be represented as 38447321400000000000000
   bytes amount_total = 5 [(proofs.field_length) = 32];
   string requisition_number = 6;
   string requisition_item = 7;
   string part_no = 8;
-  // A centrifuge decimal bumber which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
+  // A centrifuge decimal number which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
   // eg: 38447.3214 would be represented as 38447321400000000000000
   bytes price_per_unit = 9 [(proofs.field_length) = 32];
-  // A centrifuge decimal bumber which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
+  // A centrifuge decimal number which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
   // eg: 38447.3214 would be represented as 38447321400000000000000
   bytes unit_of_measure = 10 [(proofs.field_length) = 32];
-  // A centrifuge decimal bumber which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
+  // A centrifuge decimal number which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
   // eg: 38447.3214 would be represented as 38447321400000000000000
   bytes quantity = 11 [(proofs.field_length) = 32];
-  // A centrifuge decimal bumber which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
+  // A centrifuge decimal number which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
   // eg: 38447.3214 would be represented as 38447321400000000000000
   bytes received_quantity = 12 [(proofs.field_length) = 32];
   google.protobuf.Timestamp date_updated = 13;
@@ -84,16 +84,16 @@ message LineItem {
 message TaxItem {
   string item_number = 1;
   string purchase_order_item_number = 2;
-  // A centrifuge decimal bumber which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
+  // A centrifuge decimal number which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
   // eg: 38447.3214 would be represented as 38447321400000000000000
   bytes tax_amount = 3 [(proofs.field_length) = 32];
-  // A centrifuge decimal bumber which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
+  // A centrifuge decimal number which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
   // eg: 38447.3214 would be represented as 38447321400000000000000
   bytes tax_rate = 4 [(proofs.field_length) = 32];
-  // A centrifuge decimal bumber which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
+  // A centrifuge decimal number which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
   // eg: 38447.3214 would be represented as 38447321400000000000000
   bytes tax_code = 5 [(proofs.field_length) = 32];
-  // A centrifuge decimal bumber which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
+  // A centrifuge decimal number which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
   // eg: 38447.3214 would be represented as 38447321400000000000000
   bytes tax_base_amount = 6 [(proofs.field_length) = 32];
 }
@@ -102,10 +102,10 @@ message LineItemActivity {
   string item_number = 1;
   //delivered, returned, credited, invoiced, paid, ...
   string status = 2;
-  // A centrifuge decimal bumber which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
+  // A centrifuge decimal number which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
   // eg: 38447.3214 would be represented as 38447321400000000000000
   bytes quantity = 3 [(proofs.field_length) = 32];
-  // A centrifuge decimal bumber which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
+  // A centrifuge decimal number which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
   // eg: 38447.3214 would be represented as 38447321400000000000000
   bytes amount = 4 [(proofs.field_length) = 32];
   //depending on status delivery note, invoice, ...
