@@ -192,7 +192,7 @@ enum FieldMatchType {
 
 message TransitionRule {
   // rule key, to help track of the rule
-  bytes rule_key = 1 [(proofs.field_length) = 4];
+  bytes rule_key = 1 [(proofs.field_length) = 32];
   // Indicates which roles can make changes or read the fields specified:
   // this list holds role keys correlated to those in the 'roles' field of the CoreDocument
   repeated bytes roles = 2 [(proofs.field_length) = 32];
