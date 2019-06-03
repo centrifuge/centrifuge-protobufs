@@ -114,7 +114,7 @@ message AccessToken {
   bytes document_identifier = 2 [(proofs.field_length) = 32];
   // Cryptographic signature that an access token is valid
   bytes signature = 6 [
-    (proofs.field_length) = 32,
+    (proofs.field_length) = 65,
     (proofs.no_salt) = true
   ];
   // The public key of the signed message
@@ -152,7 +152,7 @@ message Signature {
   ];
   // `signature` is the actual signature of the CoreDocument
   bytes signature = 4 [
-    (proofs.field_length) = 32,
+    (proofs.field_length) = 65,
     (proofs.no_salt) = true
   ];
   // `transition_validated` defines if node was able to validate transition rules from document version A -> B
@@ -234,7 +234,7 @@ message Signed {
   bytes identity = 3 [(proofs.field_length) = 20];
   // signature = sign(identity + doc_id(taken from the document.document_identifier) + doc_version + value)
   bytes signature = 4 [
-    (proofs.field_length) = 32,
+    (proofs.field_length) = 65,
     (proofs.no_salt) = true
   ];
   bytes public_key = 5 [(proofs.field_length) = 32];
