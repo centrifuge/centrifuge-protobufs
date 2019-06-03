@@ -2,15 +2,14 @@
 
 
 [[projects]]
-  branch = "master"
-  digest = "1:89b36f856338656625182f38ab3b2685bedb8c50c28e7cd5084cddeff4895131"
+  digest = "1:55a46dc65c8347c45137350453e89302b047b9344c540717e832f807ed0c2b8a"
   name = "github.com/centrifuge/precise-proofs"
   packages = [
     "proofs",
     "proofs/proto",
   ]
   pruneopts = "T"
-  revision = "47365f90bfb4c95a2fea41c538e0e9758bfde8d7"
+  revision = "ba94d76ec63112adbfa8595088f24502dc6aee0b"
 
 [[projects]]
   digest = "1:f8262e41c78f847de9c0cfe06673df91c3a24fca0add1be601820834018a480b"
@@ -30,8 +29,8 @@
     "ptypes/timestamp",
   ]
   pruneopts = "UT"
-  revision = "c823c79ea1570fb5ff454033735a8e68575d1d0f"
-  version = "v1.3.0"
+  revision = "b5d812f8a3706043e23a9cd5babf2e5423744d30"
+  version = "v1.3.1"
 
 [[projects]]
   digest = "1:cf31692c14422fa27c83a05292eb5cbe0fb2775972e8f1f8446a71549bd8980b"
@@ -50,12 +49,12 @@
   revision = "db569a48fcad74a73623ccf43daafe394a96ef35"
 
 [[projects]]
-  digest = "1:65f2553aabd1d6879691058ce20eac0f798a82d92c71f13cd56de3350fa06183"
+  digest = "1:d39d810ccffde4d61766d07ff59855105967fb9e7efe9908407ef4a9cb87b983"
   name = "github.com/xsleonard/go-merkle"
   packages = ["."]
   pruneopts = "UT"
-  revision = "a73b8999d89d80bdcd89d199f41ab7fcdfd12dde"
-  source = "github.com/mikiquantum/go-merkle"
+  revision = "c7855d8c36d110ff46c64fe8364d494eb501a6b4"
+  source = "github.com/centrifuge/go-merkle"
 
 [solve-meta]
   analyzer-name = "dep"

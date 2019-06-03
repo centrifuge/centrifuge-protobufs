@@ -12,16 +12,16 @@ import "precise-proofs/proofs/proto/proof.proto";
 // EntityRelationship allows other identities to access the Entity document.
 message EntityRelationship {
   // owner id of the Relationship
-  bytes owner_identity = 1;
+  bytes owner_identity = 1 [(proofs.field_length) = 20];
   // identifier for the entity document whose data should be accessed via this relationship
-  bytes entity_identifier = 2;
+  bytes entity_identifier = 2 [(proofs.field_length) = 32];
   // identity to whom access should be granted
-  bytes target_identity = 3;
+  bytes target_identity = 3 [(proofs.field_length) = 20];
 }
 
 // EntityData is the default entity schema
 message Entity {
-  bytes identity = 1;
+  bytes identity = 1 [(proofs.field_length) = 20];
   string legal_name = 2;
   // address
   repeated Address addresses = 3;
@@ -46,7 +46,7 @@ message Address {
 }
 
 message BankPaymentMethod {
-  bytes identifier = 1;
+  bytes identifier = 1 [(proofs.field_length) = 32];
   Address address = 2;
   string holder_name = 3;
   string bank_key = 4;
@@ -55,14 +55,14 @@ message BankPaymentMethod {
 }
 
 message CryptoPaymentMethod {
-  bytes identifier = 1;
+  bytes identifier = 1 [(proofs.field_length) = 32];
   string to = 2;
   string chain_uri = 3;
   string supported_currency = 4;
 }
 
 message OtherPayment {
-  bytes identifier = 1;
+  bytes identifier = 1 [(proofs.field_length) = 32];
   string type = 2;
   string pay_to = 3;
   string supported_currency = 4;
