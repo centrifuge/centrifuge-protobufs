@@ -71,11 +71,9 @@ message OtherPayment {
 message PaymentDetail {
   // fields for bank accounts and ethereum wallets
   bool predefined = 1;
-  oneof payment_method {
-    BankPaymentMethod bank_payment_method = 2;
-    CryptoPaymentMethod crypto_payment_method = 3;
-    OtherPayment other_method = 4;
-  }
+  repeated BankPaymentMethod bank_payment_methods = 2;
+  repeated CryptoPaymentMethod crypto_payment_methods = 3;
+  repeated OtherPayment other_methods = 4;
 }
 
 message Contact {
