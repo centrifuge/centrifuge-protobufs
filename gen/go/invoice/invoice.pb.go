@@ -68,16 +68,16 @@ type InvoiceData struct {
 	ShipToState              string `protobuf:"bytes,41,opt,name=ship_to_state,json=shipToState,proto3" json:"ship_to_state,omitempty"`
 	ShipToCountry            string `protobuf:"bytes,42,opt,name=ship_to_country,json=shipToCountry,proto3" json:"ship_to_country,omitempty"`
 	Currency                 string `protobuf:"bytes,13,opt,name=currency,proto3" json:"currency,omitempty"`
-	// A centrifuge decimal bumber which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
+	// A centrifuge decimal number which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
 	// eg: 38447.3214 would be represented as 38447321400000000000000
 	GrossAmount []byte `protobuf:"bytes,14,opt,name=gross_amount,json=grossAmount,proto3" json:"gross_amount,omitempty"`
-	// A centrifuge decimal bumber which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
+	// A centrifuge decimal number which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
 	// eg: 38447.3214 would be represented as 38447321400000000000000
 	NetAmount []byte `protobuf:"bytes,45,opt,name=net_amount,json=netAmount,proto3" json:"net_amount,omitempty"`
-	// A centrifuge decimal bumber which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
+	// A centrifuge decimal number which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
 	// eg: 38447.3214 would be represented as 38447321400000000000000
 	TaxAmount []byte `protobuf:"bytes,46,opt,name=tax_amount,json=taxAmount,proto3" json:"tax_amount,omitempty"`
-	// A centrifuge decimal bumber which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
+	// A centrifuge decimal number which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
 	// eg: 38447.3214 would be represented as 38447321400000000000000
 	TaxRate        []byte `protobuf:"bytes,47,opt,name=tax_rate,json=taxRate,proto3" json:"tax_rate,omitempty"`
 	TaxOnLineLevel bool   `protobuf:"varint,48,opt,name=tax_on_line_level,json=taxOnLineLevel,proto3" json:"tax_on_line_level,omitempty"`
@@ -599,16 +599,16 @@ func (m *InvoiceData) GetTaxItems() []*TaxItem {
 type TaxItem struct {
 	ItemNumber        string `protobuf:"bytes,1,opt,name=item_number,json=itemNumber,proto3" json:"item_number,omitempty"`
 	InvoiceItemNumber string `protobuf:"bytes,2,opt,name=invoice_item_number,json=invoiceItemNumber,proto3" json:"invoice_item_number,omitempty"`
-	// A centrifuge decimal bumber which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
+	// A centrifuge decimal number which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
 	// eg: 38447.3214 would be represented as 38447321400000000000000
 	TaxAmount []byte `protobuf:"bytes,3,opt,name=tax_amount,json=taxAmount,proto3" json:"tax_amount,omitempty"`
-	// A centrifuge decimal bumber which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
+	// A centrifuge decimal number which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
 	// eg: 38447.3214 would be represented as 38447321400000000000000
 	TaxRate []byte `protobuf:"bytes,4,opt,name=tax_rate,json=taxRate,proto3" json:"tax_rate,omitempty"`
-	// A centrifuge decimal bumber which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
+	// A centrifuge decimal number which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
 	// eg: 38447.3214 would be represented as 38447321400000000000000
 	TaxCode []byte `protobuf:"bytes,5,opt,name=tax_code,json=taxCode,proto3" json:"tax_code,omitempty"`
-	// A centrifuge decimal bumber which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
+	// A centrifuge decimal number which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
 	// eg: 38447.3214 would be represented as 38447321400000000000000
 	TaxBaseAmount        []byte   `protobuf:"bytes,6,opt,name=tax_base_amount,json=taxBaseAmount,proto3" json:"tax_base_amount,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
@@ -687,27 +687,27 @@ type LineItem struct {
 	ItemNumber   string `protobuf:"bytes,1,opt,name=item_number,json=itemNumber,proto3" json:"item_number,omitempty"`
 	Description  string `protobuf:"bytes,2,opt,name=description,proto3" json:"description,omitempty"`
 	SenderPartNo string `protobuf:"bytes,3,opt,name=sender_part_no,json=senderPartNo,proto3" json:"sender_part_no,omitempty"`
-	// A centrifuge decimal bumber which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
+	// A centrifuge decimal number which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
 	// eg: 38447.3214 would be represented as 38447321400000000000000
 	PricePerUnit []byte `protobuf:"bytes,4,opt,name=price_per_unit,json=pricePerUnit,proto3" json:"price_per_unit,omitempty"`
-	// A centrifuge decimal bumber which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
+	// A centrifuge decimal number which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
 	// eg: 38447.3214 would be represented as 38447321400000000000000
 	Quantity      []byte `protobuf:"bytes,5,opt,name=quantity,proto3" json:"quantity,omitempty"`
 	UnitOfMeasure string `protobuf:"bytes,6,opt,name=unit_of_measure,json=unitOfMeasure,proto3" json:"unit_of_measure,omitempty"`
-	// A centrifuge decimal bumber which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
+	// A centrifuge decimal number which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
 	// eg: 38447.3214 would be represented as 38447321400000000000000
 	NetWeight []byte `protobuf:"bytes,7,opt,name=net_weight,json=netWeight,proto3" json:"net_weight,omitempty"`
-	// A centrifuge decimal bumber which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
+	// A centrifuge decimal number which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
 	// eg: 38447.3214 would be represented as 38447321400000000000000
 	TaxAmount []byte `protobuf:"bytes,8,opt,name=tax_amount,json=taxAmount,proto3" json:"tax_amount,omitempty"`
-	// A centrifuge decimal bumber which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
+	// A centrifuge decimal number which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
 	// eg: 38447.3214 would be represented as 38447321400000000000000
 	TaxRate []byte `protobuf:"bytes,9,opt,name=tax_rate,json=taxRate,proto3" json:"tax_rate,omitempty"`
-	// A centrifuge decimal bumber which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
+	// A centrifuge decimal number which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
 	// eg: 38447.3214 would be represented as 38447321400000000000000
 	TaxCode []byte `protobuf:"bytes,10,opt,name=tax_code,json=taxCode,proto3" json:"tax_code,omitempty"`
 	// the total amount of the line item
-	// Its a centrifuge decimal bumber which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
+	// Its a centrifuge decimal number which is a 256bit(32 byte) integer and assume a precision of 18 behind the decimal point.
 	// eg: 38447.3214 would be represented as 38447321400000000000000
 	TotalAmount             []byte   `protobuf:"bytes,11,opt,name=total_amount,json=totalAmount,proto3" json:"total_amount,omitempty"`
 	PurchaseOrderNumber     string   `protobuf:"bytes,12,opt,name=purchase_order_number,json=purchaseOrderNumber,proto3" json:"purchase_order_number,omitempty"`
