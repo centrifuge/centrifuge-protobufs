@@ -30,7 +30,7 @@ message SignatureRequest {
 }
 
 message SignatureResponse {
-  repeated coredocument.Signature signature = 1;
+  repeated coredocument.Signature signatures = 1;
 }
 
 message AnchorDocumentRequest {
