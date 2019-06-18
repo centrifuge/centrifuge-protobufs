@@ -12,5 +12,5 @@ import "precise-proofs/proofs/proto/proof.proto";
 // GenericData for generic documents.
 // Note: for now, it just contains a single field with default value always and not publicly exposed
 message GenericData {
-  bytes scheme = 1 [(proofs.key_length) = 52];
+  bytes scheme = 1 [(proofs.key_length) = 32];
 }
