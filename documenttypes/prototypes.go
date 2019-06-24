@@ -13,4 +13,5 @@ const (
 	EntityRelationshipDocumentTypeUrl = "http://github.com/centrifuge/centrifuge-protobufs/entityrelationship/#entityrelationship.EntityRelationshipDocument"
 	EntityRelationshipDataTypeUrl = "http://github.com/centrifuge/centrifuge-protobufs/entityrelationship/#entityrelationship.EntityRelationshipData"
 	EntityRelationshipSaltsTypeUrl = "http://github.com/centrifuge/centrifuge-protobufs/entityrelationship/#entityrelationship.EntityRelationshipSalts"
+	GenericDataTypeUrl = "http://github.com/centrifuge/centrifuge-protobufs/generic/#generic.Generic"
 )
