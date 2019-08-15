@@ -3,17 +3,17 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:89b36f856338656625182f38ab3b2685bedb8c50c28e7cd5084cddeff4895131"
+  digest = "1:e95147133074a81ca26f7d8fab90549718b2f9362727864c2eddd661cb4366a4"
   name = "github.com/centrifuge/precise-proofs"
   packages = [
     "proofs",
     "proofs/proto",
   ]
   pruneopts = "T"
-  revision = "47365f90bfb4c95a2fea41c538e0e9758bfde8d7"
+  revision = "2ed0cc3986aa6f8c5e9efc0f661607bf2857713f"
 
 [[projects]]
-  digest = "1:f8262e41c78f847de9c0cfe06673df91c3a24fca0add1be601820834018a480b"
+  digest = "1:996b4cd8e5fd5fe3f033cbe220c6bf5ab8766d22ec289c52f3050b9ad5d07b0d"
   name = "github.com/golang/protobuf"
   packages = [
     "descriptor",
@@ -30,8 +30,8 @@
     "ptypes/timestamp",
   ]
   pruneopts = "UT"
-  revision = "c823c79ea1570fb5ff454033735a8e68575d1d0f"
-  version = "v1.3.0"
+  revision = "6c65a5562fc06764971b7c5d05c76c75e84bdbf7"
+  version = "v1.3.2"
 
 [[projects]]
   digest = "1:cf31692c14422fa27c83a05292eb5cbe0fb2775972e8f1f8446a71549bd8980b"
@@ -50,12 +50,12 @@
   revision = "db569a48fcad74a73623ccf43daafe394a96ef35"
 
 [[projects]]
-  digest = "1:65f2553aabd1d6879691058ce20eac0f798a82d92c71f13cd56de3350fa06183"
+  digest = "1:2833602d8454c0f7dac4f73c1a1c0fc1a52dcc738e3ad87d4a64f6446966510d"
   name = "github.com/xsleonard/go-merkle"
   packages = ["."]
   pruneopts = "UT"
-  revision = "a73b8999d89d80bdcd89d199f41ab7fcdfd12dde"
-  source = "github.com/mikiquantum/go-merkle"
+  revision = "f8894f6f7351abae156c2365b31354d4cd78a1af"
+  source = "github.com/centrifuge/go-merkle"
 
 [solve-meta]
   analyzer-name = "dep"
