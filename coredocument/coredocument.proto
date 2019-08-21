@@ -204,6 +204,14 @@ message Monetary {
   bytes value = 1; // fixed 32 bytes
   bytes chain = 2; // fixed 4 bytes
   bytes id = 3; // fixed 32 bytes
+  MonetaryType type = 4 [(proofs.exclude_from_tree) = true]; // fixed 4 bytes
+}
+
+// MonetaryType defines the allowed monetary types
+enum MonetaryType {
+  MONETARY_TYPE_INVALID = 0;
+  MONETARY_TYPE_NATIVE = 1; // FIAT|NATIVE
+  MONETARY_TYPE_TOKEN = 2; // ERC20 | Sidechain Token
 }
 
 // AttributeType defines the allowed attribute types.
