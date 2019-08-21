@@ -199,19 +199,12 @@ message Signed {
   bytes public_key = 5;
 }
 
-// Monetary holds decimal value, id and chain context
+// Monetary holds decimal value, id, type and chain context
 message Monetary {
-  bytes value = 1; // fixed 32 bytes
+  bytes type = 1; // fixed 1 byte
   bytes chain = 2; // fixed 4 bytes
-  bytes id = 3; // fixed 32 bytes
-  MonetaryType type = 4 [(proofs.exclude_from_tree) = true]; // fixed 4 bytes
-}
-
-// MonetaryType defines the allowed monetary types
-enum MonetaryType {
-  MONETARY_TYPE_INVALID = 0;
-  MONETARY_TYPE_NATIVE = 1; // FIAT|NATIVE
-  MONETARY_TYPE_TOKEN = 2; // ERC20 | Sidechain Token
+  bytes value = 3; // fixed 32 bytes
+  bytes id = 4; // fixed 32 bytes
 }
 
 // AttributeType defines the allowed attribute types.
