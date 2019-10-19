@@ -135,21 +135,12 @@ message SignatureData {
 
 // Signature contains the entity ID, public key used and signature)
 message Signature {
-  // `signature_id` is a composed key signer_id+public_key used
-  bytes signature_id = 1 [
-    (proofs.exclude_from_tree) = true,
-    (proofs.field_length) = 52
-  ];
+  // `signature_id` is a composed key signer_id+public_key (20+32) used
+  bytes signature_id = 1 [(proofs.exclude_from_tree) = true];
   // `signer_id` is the CentrifugeID of the identity signing the document.
-  bytes signer_id = 2 [
-    (proofs.exclude_from_tree) = true,
-    (proofs.field_length) = 20
-  ];
+  bytes signer_id = 2 [(proofs.exclude_from_tree) = true];
   // `public_key` is the public key of the `signer` used for signing the `CoreDocument`
-  bytes public_key = 3 [
-    (proofs.exclude_from_tree) = true,
-    (proofs.field_length) = 32
-  ];
+  bytes public_key = 3 [(proofs.exclude_from_tree) = true];
   // `signature` is the actual signature of the CoreDocument
   bytes signature = 4 [
     (proofs.field_length) = 65,
