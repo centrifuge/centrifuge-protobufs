@@ -192,6 +192,7 @@ message Attribute {
 // Signed holds the custom attribute signature type
 message Signed {
   bytes doc_version = 1;
+  AttributeType type = 6;
   bytes value = 2;
   bytes identity = 3;
   // signature = sign(identity + doc_id(taken from the document.document_identifier) + doc_version + value)
