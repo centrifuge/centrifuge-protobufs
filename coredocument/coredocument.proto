@@ -27,21 +27,39 @@ message CoreDocument {
   // `next_version` refer only to a particular version.
   //
   // 32 byte value
-  bytes document_identifier = 9;
+  bytes document_identifier = 9 [
+    (proofs.field_length) = 32,
+    (proofs.no_salt) = true
+  ];
   // previous_version refers to the previous state of the document.
   // 32 byte value
-  bytes previous_version = 16;
+  bytes previous_version = 16 [
+    (proofs.field_length) = 32,
+    (proofs.no_salt) = true
+  ];
   // current_version is the version used to refer to the current state of the document.
   // 32 byte value
-  bytes current_version = 3;
+  bytes current_version = 3 [
+    (proofs.field_length) = 32,
+    (proofs.no_salt) = true
+  ];
   // current_preimage is the sha256 pre-image of the current_version. It prevents current state commitment id(anchor id) from getting exposed.
   // 32 byte value
-  bytes current_preimage = 23;
+  bytes current_preimage = 23 [
+    (proofs.field_length) = 32,
+    (proofs.no_salt) = true
+  ];
   // next_version is the version that is going to be used for the next version if any
   // party wants to update the state.
-  bytes next_version = 4;
+  bytes next_version = 4 [
+    (proofs.field_length) = 32,
+    (proofs.no_salt) = true
+  ];
   // next_preimage is the sha256 pre-image of the next_version. It prevents next state commitment id(anchor id) from getting exposed.
-  bytes next_preimage = 22;
+  bytes next_preimage = 22 [
+    (proofs.field_length) = 32,
+    (proofs.no_salt) = true
+  ];
   // Signatures of the signature_root by collaborators on the document.
   SignatureData signature_data = 6 [(proofs.exclude_from_tree) = true];
   // When a document is transmitted over the wire, the type specific fields (e.g. InvoiceData) are
@@ -68,11 +86,11 @@ message CoreDocument {
     (proofs.mapping_key) = "identifier"
   ];
   // author of the latest update
-  bytes author = 25;
+  bytes author = 25 [(proofs.field_length) = 20];
   // timestamp of the latest update
   google.protobuf.Timestamp timestamp = 26;
   // anchor repository address used to anchor this document
-  bytes anchor_repository_used = 27;
+  bytes anchor_repository_used = 27 [(proofs.field_length) = 32];
   // custom attributes(user defined fields) for this document
   repeated Attribute attributes = 28 [
     (proofs.field_length) = 32,
@@ -82,27 +100,34 @@ message CoreDocument {
 
 message AccessToken {
   // The identifier is an internal 256bit word
-  bytes identifier = 1;
+  bytes identifier = 1 [(proofs.field_length) = 32];
   // The identity granting access to the document
-  bytes granter = 3;
+  bytes granter = 3 [(proofs.field_length) = 20];
   // The identity being granted access to the document
-  bytes grantee = 4;
+  bytes grantee = 4 [(proofs.field_length) = 20];
   // Role identifier is the identifier on the read rule that this token should be mapped to
-  bytes role_identifier = 5;
+  bytes role_identifier = 5 [
+    (proofs.field_length) = 32,
+    (proofs.no_salt) = true
+  ];
   // Original identifier of the document
-  bytes document_identifier = 2;
+  bytes document_identifier = 2 [(proofs.field_length) = 32];
   // Cryptographic signature that an access token is valid
-  bytes signature = 6;
+  bytes signature = 6 [
+    (proofs.field_length) = 65,
+    (proofs.no_salt) = true
+  ];
   // The public key of the signed message
-  bytes key = 7;
+  bytes key = 7 [(proofs.field_length) = 32];
   // The document version refers to a version of the document this token is embedded in. Its timestamp
   // will be used to verify the validity of the signature of the access token.
-  bytes document_version = 8;
+  bytes document_version = 8 [(proofs.field_length) = 32];
 }
 
 // SignatureData contains the list of signatures identified by the signature_id
 message SignatureData {
   repeated Signature signatures = 1 [
+    (proofs.append_fields) = true,
     (proofs.field_length) = 52,
     (proofs.mapping_key) = "signature_id"
   ];
@@ -110,14 +135,19 @@ message SignatureData {
 
 // Signature contains the entity ID, public key used and signature)
 message Signature {
-  // `signature_id` is a composed key signer_id+public_key used
-  bytes signature_id = 1;
+  // `signature_id` is a composed key signer_id+public_key (20+32) used
+  bytes signature_id = 1 [(proofs.exclude_from_tree) = true];
   // `signer_id` is the CentrifugeID of the identity signing the document.
-  bytes signer_id = 2;
+  bytes signer_id = 2 [(proofs.exclude_from_tree) = true];
   // `public_key` is the public key of the `signer` used for signing the `CoreDocument`
-  bytes public_key = 3;
+  bytes public_key = 3 [(proofs.exclude_from_tree) = true];
   // `signature` is the actual signature of the CoreDocument
-  bytes signature = 4;
+  bytes signature = 4 [
+    (proofs.field_length) = 65,
+    (proofs.no_salt) = true
+  ];
+  // `transition_validated` defines if node was able to validate transition rules from document version A -> B
+  bool transition_validated = 5;
 }
 
 // Action defines the set of actions a collaborator can/have per document.
@@ -132,16 +162,16 @@ enum Action {
 // Roles holds a list of collaborators, NFTs, and/or access tokens.
 message Role {
   // role key which is used to identify the group internally and map the role to rules
-  bytes role_key = 1;
+  bytes role_key = 1 [(proofs.field_length) = 32];
   // collaborators holds the list of document collaborators
-  repeated bytes collaborators = 3;
+  repeated bytes collaborators = 3 [(proofs.field_length) = 20];
   // nfts is a list of registry address/tokenID pairs.
-  // For easier verification in merkle proofs, the values are simply concatenated with the first 22 bytes being the NFT registry and the remaining 32 bytes the tokenID.
-  repeated bytes nfts = 4;
+  // For easier verification in merkle proofs, the values are simply concatenated with the first 20 bytes being the NFT registry and the remaining 32 bytes the tokenID.
+  repeated bytes nfts = 4 [(proofs.field_length) = 52];
 }
 
 message ReadRule {
-  repeated bytes roles = 2;
+  repeated bytes roles = 2 [(proofs.field_length) = 32];
   Action action = 4;
 }
 
@@ -153,10 +183,10 @@ enum FieldMatchType {
 
 message TransitionRule {
   // rule key, to help track of the rule
-  bytes rule_key = 1;
+  bytes rule_key = 1 [(proofs.field_length) = 32];
   // Indicates which roles can make changes or read the fields specified:
   // this list holds role keys correlated to those in the 'roles' field of the CoreDocument
-  repeated bytes roles = 2;
+  repeated bytes roles = 2 [(proofs.field_length) = 32];
   // prefix or exact
   FieldMatchType match_type = 3;
   // compact property of the field
@@ -171,13 +201,13 @@ enum TransitionAction {
 }
 
 message NFT {
-  bytes registry_id = 1;
-  bytes token_id = 2;
+  bytes registry_id = 1 [(proofs.field_length) = 20];
+  bytes token_id = 2 [(proofs.field_length) = 32];
 }
 
 // Attribute represents a custom attribute
 message Attribute {
-  bytes key = 1;
+  bytes key = 1 [(proofs.field_length) = 32];
   bytes key_label = 2;
   AttributeType type = 3;
   oneof value {
@@ -191,13 +221,16 @@ message Attribute {
 
 // Signed holds the custom attribute signature type
 message Signed {
-  bytes doc_version = 1;
+  bytes doc_version = 1 [(proofs.field_length) = 32];
   AttributeType type = 6;
   bytes value = 2;
-  bytes identity = 3;
+  bytes identity = 3 [(proofs.field_length) = 20];
   // signature = sign(identity + doc_id(taken from the document.document_identifier) + doc_version + value)
-  bytes signature = 4;
-  bytes public_key = 5;
+  bytes signature = 4 [
+    (proofs.field_length) = 65,
+    (proofs.no_salt) = true
+  ];
+  bytes public_key = 5 [(proofs.field_length) = 32];
 }
 
 // Monetary holds decimal value, id, type and chain context
