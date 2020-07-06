@@ -193,11 +193,18 @@ message TransitionRule {
   bytes field = 4;
   // what kind of action this rule allows
   TransitionAction action = 5;
+  // fields holds the list of attribute fields that will be passed to WASM
+  repeated bytes fields = 6;
+  // target field is the attribute label that will hold the result of the WASM execution
+  bytes target_field = 7;
+  // code is the WASM binary that will be executed
+  bytes code = 8;
 }
 
 enum TransitionAction {
   TRANSITION_ACTION_INVALID = 0;
   TRANSITION_ACTION_EDIT = 1;
+  TRANSITION_ACTION_COMPUTE = 2;
 }
 
 message NFT {
