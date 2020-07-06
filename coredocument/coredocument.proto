@@ -193,12 +193,12 @@ message TransitionRule {
   bytes field = 4;
   // what kind of action this rule allows
   TransitionAction action = 5;
-  // fields holds the list of attribute fields that will be passed to WASM
-  repeated bytes fields = 6;
-  // target field is the attribute label that will hold the result of the WASM execution
-  bytes target_field = 7;
-  // code is the WASM binary that will be executed
-  bytes code = 8;
+  // compute_fields holds the list of attribute fields that will be passed to WASM
+  repeated bytes compute_fields = 6;
+  // compute_target_field is the attribute label that will hold the result of the WASM execution
+  bytes compute_target_field = 7;
+  // compute_code is the WASM binary that will be executed
+  bytes compute_code = 8;
 }
 
 enum TransitionAction {
