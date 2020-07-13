@@ -98,6 +98,18 @@ message CoreDocument {
   ];
 }
 
+// TransitionRulesFingerprint is used to create the 'fingerprint' hash for verifying if the Transition Rules and Roles
+// of a CoreDocument have changed
+message TransitionRulesFingerprint {
+  // list of roles
+  repeated Role roles = 1 [
+    (proofs.field_length) = 32,
+    (proofs.mapping_key) = "role_key"
+  ];
+  // transition rules define how a document may be manipulated
+  repeated TransitionRule transition_rules = 3;
+}
+
 message AccessToken {
   // The identifier is an internal 256bit word
   bytes identifier = 1 [(proofs.field_length) = 32];
