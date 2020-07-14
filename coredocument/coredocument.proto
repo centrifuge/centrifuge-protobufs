@@ -104,10 +104,11 @@ message TransitionRulesFingerprint {
   // list of roles
   repeated Role roles = 1 [
     (proofs.field_length) = 32,
-    (proofs.mapping_key) = "role_key"
+    (proofs.mapping_key) = "role_key",
+    (proofs.no_salt) = true
   ];
   // transition rules define how a document may be manipulated
-  repeated TransitionRule transition_rules = 3;
+  repeated TransitionRule transition_rules = 3 [(proofs.no_salt) = true];
 }
 
 message AccessToken {
