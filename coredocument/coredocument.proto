@@ -76,10 +76,7 @@ message CoreDocument {
   // transition rules define how a document may be manipulated
   repeated TransitionRule transition_rules = 24;
   // nft list for uniqueness check
-  repeated NFT nfts = 20 [
-    (proofs.field_length) = 32,
-    (proofs.mapping_key) = "registry_id"
-  ];
+  repeated NFT nfts = 20 [(proofs.mapping_key) = "registry_id"];
   // AccessTokens which have been added to this CoreDocument
   repeated AccessToken access_tokens = 21 [
     (proofs.field_length) = 32,
