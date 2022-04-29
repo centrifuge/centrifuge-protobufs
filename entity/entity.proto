@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package entity;
 
-option go_package = "entitypb";
+option go_package = "github.com/centrifuge/centrifuge-protobufs/gen/go/entity;entitypb";
 option java_multiple_files = true;
 option java_outer_classname = "EntityProto";
 option java_package = "com.entity";

@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package coredocument;
 
-option go_package = "coredocumentpb";
+option go_package = "github.com/centrifuge/centrifuge-protobufs/gen/go/coredocument;coredocumentpb";
 option java_multiple_files = true;
 option java_outer_classname = "CoredocumentProto";
 option java_package = "com.coredocument";
@@ -218,8 +218,12 @@ enum TransitionAction {
 }
 
 message NFT {
-  bytes registry_id = 1 [(proofs.field_length) = 20];
-  bytes token_id = 2 [(proofs.field_length) = 32];
+  bytes registry_id = 1 [(proofs.field_length) = 20, deprecated = true];
+  bytes token_id = 2 [(proofs.field_length) = 32, deprecated = true];
+
+  bytes class_id = 3;
+
+  bytes instance_id = 4;
 }
 
 // Attribute represents a custom attribute
