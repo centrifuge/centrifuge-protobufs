@@ -1,12 +1,6 @@
-# GOBIN needs to be set to ensure govendor can actually be found and executed
-PATH=$(shell printenv PATH):$(GOBIN)
+all: install proto
 
-# If you need to overwrite PROTOTOOL_BIN, you can set this environment variable.
-PROTOTOOL_BIN ?=$(shell which prototool)
-
-all: install proto-all
-
-.PHONY: help
+.PHONY: help install proto-lint proto
 help: ## Show this help message.
 	@echo 'usage: make [target] ...'
 	@echo
@@ -14,25 +8,34 @@ help: ## Show this help message.
 	@egrep '^(.+)\:\ ##\ (.+)' ${MAKEFILE_LIST} | column -t -c 2 -s ':#'
 
 install: ## Install dependencies required to generate bindings & documentation
-install: install_prototool install_dep vendorinstall
+	@go install github.com/ckaznocha/protoc-gen-lint@0.2.4
+	@go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.28.0
+	@go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@1.2.0
 
-install_prototool:
-	mkdir -p ~/bin
-	PROTOTOOL_VERSION=$(PROTOTOOL_VERSION) ./scripts/install_prototool.sh
+define generate_proto
+	mkdir -p $(2)/$(1)
+	protoc -I$(1) \
+		-Ivendor/github.com/centrifuge \
+		--go_out=paths=source_relative:$(2)/$(1) \
+		--go-grpc_out=paths=source_relative:$(2)/$(1) \
+		$(1)/*.proto
+endef
 
-install_dep:
-	go get -u "github.com/golang/dep/..."
-	dep ensure
+PROTO_FILES = $(shell  find . -maxdepth 2 -name '*.proto')
 
-vendorinstall: ## Installs all protobuf dependencies with go-vendorinstall
-	go install github.com/centrifuge/centrifuge-protobufs/vendor/github.com/roboll/go-vendorinstall
-	go-vendorinstall github.com/golang/protobuf/protoc-gen-go
+proto-lint: ## Lint protos
+	@protoc -I. \
+    		-Ivendor/github.com/centrifuge \
+    		--lint_out=. \
+    		${PROTO_FILES}
 
-lint: ## runs prototool lint
-	$(PROTOTOOL_BIN) lint
+OUTDIR = gen/go
 
-proto-gen-go: ## generates the go bindings
-	$(PROTOTOOL_BIN) gen
-
-proto-all: ## runs prototool all
-	$(PROTOTOOL_BIN) all
+proto: ## Generate go bindings
+	@rm -rf ${OUTDIR}
+	@mkdir -p ${OUTDIR}
+	@protoc -I. \
+		-Ivendor/github.com/centrifuge \
+		--go_out=paths=source_relative:${OUTDIR} \
+		--go-grpc_out=paths=source_relative:${OUTDIR} \
+		${PROTO_FILES}
