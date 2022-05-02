@@ -221,9 +221,9 @@ message NFT {
   bytes registry_id = 1 [(proofs.field_length) = 20, deprecated = true];
   bytes token_id = 2 [(proofs.field_length) = 32, deprecated = true];
 
-  bytes class_id = 3;
+  bytes class_id = 3 [(proofs.field_length) = 32];
 
-  bytes instance_id = 4;
+  bytes instance_id = 4 [(proofs.field_length) = 32];
 }
 
 // Attribute represents a custom attribute
