@@ -76,7 +76,9 @@ message CoreDocument {
   // transition rules define how a document may be manipulated
   repeated TransitionRule transition_rules = 24;
   // nft list for uniqueness check
-  repeated NFT nfts = 20 [(proofs.mapping_key) = "registry_id"];
+  //
+  // deprecated
+  repeated NFT nfts = 20 [(proofs.mapping_key) = "registry_id", deprecated = true];
   // AccessTokens which have been added to this CoreDocument
   repeated AccessToken access_tokens = 21 [
     (proofs.field_length) = 32,
@@ -93,6 +95,8 @@ message CoreDocument {
     (proofs.field_length) = 32,
     (proofs.mapping_key) = "key"
   ];
+
+  repeated CcNft cc_nfts = 29 [(proofs.mapping_key) = "class_id"];
 }
 
 // TransitionRulesFingerprint is used to create the 'fingerprint' hash for verifying if the Transition Rules and Roles
@@ -220,10 +224,11 @@ enum TransitionAction {
 message NFT {
   bytes registry_id = 1 [(proofs.field_length) = 20, deprecated = true];
   bytes token_id = 2 [(proofs.field_length) = 32, deprecated = true];
+}
 
-  bytes class_id = 3 [(proofs.field_length) = 32];
-
-  bytes instance_id = 4 [(proofs.field_length) = 32];
+message CcNft {
+  bytes class_id = 1 [(proofs.field_length) = 32];
+  bytes instance_id = 2 [(proofs.field_length) = 32];
 }
 
 // Attribute represents a custom attribute
