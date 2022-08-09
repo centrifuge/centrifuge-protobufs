@@ -138,7 +138,7 @@ message AccessToken {
 message SignatureData {
   repeated Signature signatures = 1 [
     (proofs.append_fields) = true,
-    (proofs.field_length) = 52,
+    (proofs.field_length) = 64,
     (proofs.mapping_key) = "signature_id"
   ];
 }
@@ -177,7 +177,7 @@ message Role {
   repeated bytes collaborators = 3 [(proofs.field_length) = 32];
   // nfts is a list of registry address/tokenID pairs.
   // For easier verification in merkle proofs, the values are simply concatenated with the first 20 bytes being the NFT registry and the remaining 32 bytes the tokenID.
-  repeated bytes nfts = 4 [(proofs.field_length) = 52];
+  repeated bytes nfts = 4 [(proofs.field_length) = 64];
 }
 
 message ReadRule {
