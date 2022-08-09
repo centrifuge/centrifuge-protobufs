@@ -83,7 +83,7 @@ message CoreDocument {
     (proofs.mapping_key) = "identifier"
   ];
   // author of the latest update
-  bytes author = 25 [(proofs.field_length) = 20];
+  bytes author = 25 [(proofs.field_length) = 32];
   // timestamp of the latest update
   google.protobuf.Timestamp timestamp = 26;
   // anchor repository address used to anchor this document
@@ -112,9 +112,9 @@ message AccessToken {
   // The identifier is an internal 256bit word
   bytes identifier = 1 [(proofs.field_length) = 32];
   // The identity granting access to the document
-  bytes granter = 3 [(proofs.field_length) = 20];
+  bytes granter = 3 [(proofs.field_length) = 32];
   // The identity being granted access to the document
-  bytes grantee = 4 [(proofs.field_length) = 20];
+  bytes grantee = 4 [(proofs.field_length) = 32];
   // Role identifier is the identifier on the read rule that this token should be mapped to
   bytes role_identifier = 5 [
     (proofs.field_length) = 32,
@@ -174,7 +174,7 @@ message Role {
   // role key which is used to identify the group internally and map the role to rules
   bytes role_key = 1 [(proofs.field_length) = 32];
   // collaborators holds the list of document collaborators
-  repeated bytes collaborators = 3 [(proofs.field_length) = 20];
+  repeated bytes collaborators = 3 [(proofs.field_length) = 32];
   // nfts is a list of registry address/tokenID pairs.
   // For easier verification in merkle proofs, the values are simply concatenated with the first 20 bytes being the NFT registry and the remaining 32 bytes the tokenID.
   repeated bytes nfts = 4 [(proofs.field_length) = 52];
@@ -241,7 +241,7 @@ message Signed {
   bytes doc_version = 1 [(proofs.field_length) = 32];
   AttributeType type = 6;
   bytes value = 2;
-  bytes identity = 3 [(proofs.field_length) = 20];
+  bytes identity = 3 [(proofs.field_length) = 32];
   // signature = sign(identity + doc_id(taken from the document.document_identifier) + doc_version + value)
   bytes signature = 4 [
     (proofs.field_length) = 65,

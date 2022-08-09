@@ -12,16 +12,16 @@ import "precise-proofs/proofs/proto/proof.proto";
 // EntityRelationship allows other identities to access the Entity document.
 message EntityRelationship {
   // owner id of the Relationship
-  bytes owner_identity = 1 [(proofs.field_length) = 20];
+  bytes owner_identity = 1 [(proofs.field_length) = 32];
   // identifier for the entity document whose data should be accessed via this relationship
   bytes entity_identifier = 2 [(proofs.field_length) = 32];
   // identity to whom access should be granted
-  bytes target_identity = 3 [(proofs.field_length) = 20];
+  bytes target_identity = 3 [(proofs.field_length) = 32];
 }
 
 // EntityData is the default entity schema
 message Entity {
-  bytes identity = 1 [(proofs.field_length) = 20];
+  bytes identity = 1 [(proofs.field_length) = 32];
   string legal_name = 2;
   // address
   repeated Address addresses = 3;
