@@ -12,15 +12,6 @@ install: ## Install dependencies required to generate bindings & documentation
 	@go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.28.0
 	@go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@1.2.0
 
-define generate_proto
-	mkdir -p $(2)/$(1)
-	protoc -I$(1) \
-		-Ivendor/github.com/centrifuge \
-		--go_out=paths=source_relative:$(2)/$(1) \
-		--go-grpc_out=paths=source_relative:$(2)/$(1) \
-		$(1)/*.proto
-endef
-
 PROTO_FILES = $(shell  find . -maxdepth 2 -name '*.proto')
 
 proto-lint: ## Lint protos
