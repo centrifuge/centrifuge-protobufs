@@ -51,8 +51,8 @@ enum AccessType {
 message GetDocumentRequest {
   bytes document_identifier = 1;
   AccessType access_type = 2;
-  bytes nft_registry_address = 3;
-  bytes nft_token_id = 4;
+  bytes nft_collection_id = 3;
+  bytes nft_item_id = 4;
   AccessTokenRequest access_token_request = 5;
 }
 

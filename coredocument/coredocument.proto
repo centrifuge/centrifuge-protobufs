@@ -76,7 +76,7 @@ message CoreDocument {
   // transition rules define how a document may be manipulated
   repeated TransitionRule transition_rules = 24;
   // nft list for uniqueness check
-  repeated NFT nfts = 20 [(proofs.mapping_key) = "registry_id"];
+  repeated NFT nfts = 20 [(proofs.mapping_key) = "collection_id"];
   // AccessTokens which have been added to this CoreDocument
   repeated AccessToken access_tokens = 21 [
     (proofs.field_length) = 32,
@@ -175,9 +175,9 @@ message Role {
   bytes role_key = 1 [(proofs.field_length) = 32];
   // collaborators holds the list of document collaborators
   repeated bytes collaborators = 3 [(proofs.field_length) = 32];
-  // nfts is a list of registry address/tokenID pairs.
+  // nfts is a list of collection and item ID pairs.
   // For easier verification in merkle proofs, the values are simply concatenated with the first 8 bytes
-  // being the NFT registry (encoded collection ID) and the remaining 16 bytes the tokenID (encoded item ID).
+  // being the NFT encoded collection ID and the remaining 16 bytes the encoded item ID.
   repeated bytes nfts = 4 [(proofs.field_length) = 24];
 }
 
@@ -219,8 +219,8 @@ enum TransitionAction {
 }
 
 message NFT {
-  bytes registry_id = 1 [(proofs.field_length) = 8];
-  bytes token_id = 2 [(proofs.field_length) = 16];
+  bytes collection_id = 1 [(proofs.field_length) = 8];
+  bytes item_id = 2 [(proofs.field_length) = 16];
 }
 
 // Attribute represents a custom attribute
