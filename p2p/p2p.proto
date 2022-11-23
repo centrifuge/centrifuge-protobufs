@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package p2p;
 
-option go_package = "p2ppb";
+option go_package = "github.com/centrifuge/centrifuge-protobufs/gen/go/p2p;p2ppb";
 option java_multiple_files = true;
 option java_outer_classname = "P2pProto";
 option java_package = "com.p2p";
@@ -51,8 +51,8 @@ enum AccessType {
 message GetDocumentRequest {
   bytes document_identifier = 1;
   AccessType access_type = 2;
-  bytes nft_registry_address = 3;
-  bytes nft_token_id = 4;
+  bytes nft_collection_id = 3;
+  bytes nft_item_id = 4;
   AccessTokenRequest access_token_request = 5;
 }
 

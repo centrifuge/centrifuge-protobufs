@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package coredocument;
 
-option go_package = "coredocumentpb";
+option go_package = "github.com/centrifuge/centrifuge-protobufs/gen/go/coredocument;coredocumentpb";
 option java_multiple_files = true;
 option java_outer_classname = "CoredocumentProto";
 option java_package = "com.coredocument";
@@ -76,14 +76,14 @@ message CoreDocument {
   // transition rules define how a document may be manipulated
   repeated TransitionRule transition_rules = 24;
   // nft list for uniqueness check
-  repeated NFT nfts = 20 [(proofs.mapping_key) = "registry_id"];
+  repeated NFT nfts = 20 [(proofs.mapping_key) = "collection_id"];
   // AccessTokens which have been added to this CoreDocument
   repeated AccessToken access_tokens = 21 [
     (proofs.field_length) = 32,
     (proofs.mapping_key) = "identifier"
   ];
   // author of the latest update
-  bytes author = 25 [(proofs.field_length) = 20];
+  bytes author = 25 [(proofs.field_length) = 32];
   // timestamp of the latest update
   google.protobuf.Timestamp timestamp = 26;
   // anchor repository address used to anchor this document
@@ -112,9 +112,9 @@ message AccessToken {
   // The identifier is an internal 256bit word
   bytes identifier = 1 [(proofs.field_length) = 32];
   // The identity granting access to the document
-  bytes granter = 3 [(proofs.field_length) = 20];
+  bytes granter = 3 [(proofs.field_length) = 32];
   // The identity being granted access to the document
-  bytes grantee = 4 [(proofs.field_length) = 20];
+  bytes grantee = 4 [(proofs.field_length) = 32];
   // Role identifier is the identifier on the read rule that this token should be mapped to
   bytes role_identifier = 5 [
     (proofs.field_length) = 32,
@@ -138,7 +138,7 @@ message AccessToken {
 message SignatureData {
   repeated Signature signatures = 1 [
     (proofs.append_fields) = true,
-    (proofs.field_length) = 52,
+    (proofs.field_length) = 64,
     (proofs.mapping_key) = "signature_id"
   ];
 }
@@ -174,10 +174,11 @@ message Role {
   // role key which is used to identify the group internally and map the role to rules
   bytes role_key = 1 [(proofs.field_length) = 32];
   // collaborators holds the list of document collaborators
-  repeated bytes collaborators = 3 [(proofs.field_length) = 20];
-  // nfts is a list of registry address/tokenID pairs.
-  // For easier verification in merkle proofs, the values are simply concatenated with the first 20 bytes being the NFT registry and the remaining 32 bytes the tokenID.
-  repeated bytes nfts = 4 [(proofs.field_length) = 52];
+  repeated bytes collaborators = 3 [(proofs.field_length) = 32];
+  // nfts is a list of collection and item ID pairs.
+  // For easier verification in merkle proofs, the values are simply concatenated with the first 8 bytes
+  // being the NFT encoded collection ID and the remaining 16 bytes the encoded item ID.
+  repeated bytes nfts = 4 [(proofs.field_length) = 24];
 }
 
 message ReadRule {
@@ -218,8 +219,8 @@ enum TransitionAction {
 }
 
 message NFT {
-  bytes registry_id = 1 [(proofs.field_length) = 20];
-  bytes token_id = 2 [(proofs.field_length) = 32];
+  bytes collection_id = 1 [(proofs.field_length) = 8];
+  bytes item_id = 2 [(proofs.field_length) = 16];
 }
 
 // Attribute represents a custom attribute
@@ -241,7 +242,7 @@ message Signed {
   bytes doc_version = 1 [(proofs.field_length) = 32];
   AttributeType type = 6;
   bytes value = 2;
-  bytes identity = 3 [(proofs.field_length) = 20];
+  bytes identity = 3 [(proofs.field_length) = 32];
   // signature = sign(identity + doc_id(taken from the document.document_identifier) + doc_version + value)
   bytes signature = 4 [
     (proofs.field_length) = 65,

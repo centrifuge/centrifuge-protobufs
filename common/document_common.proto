@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package common;
 
-option go_package = "commonpb";
+option go_package = "github.com/centrifuge/centrifuge-protobufs/gen/go/common;commonpb";
 option java_multiple_files = true;
 option java_outer_classname = "DocumentCommonProto";
 option java_package = "com.common";
@@ -26,9 +26,9 @@ message PaymentDetails {
   string id = 1;
   google.protobuf.Timestamp date_executed = 2;
   //centrifuge id of payee
-  bytes payee = 3 [(proofs.field_length) = 20];
+  bytes payee = 3 [(proofs.field_length) = 32];
   //centrifuge id of payer
-  bytes payer = 4 [(proofs.field_length) = 20];
+  bytes payer = 4 [(proofs.field_length) = 32];
   bytes amount = 5 [(proofs.field_length) = 32];
   string currency = 6;
   //payment reference (e.g. reference field on bank transfer)
